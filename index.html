@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrés Montoya Hernández | Arquitecto de Plataformas Digitales, SaaS & IA</title>
+  <meta name="description" content="Catálogo interactivo de 9 plataformas digitales en producción desarrolladas por Andrés Montoya Hernández. Soluciones listas para personalizar para empresas, clínicas, restaurantes, clubes deportivos, profesionales y familias." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- jsPDF for instant proposal PDF download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient Background Glows -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <div class="container top-banner-inner">
+      <span class="pulse-dot"></span>
+      <p>
+        <strong>Catálogo 2026 en Vivo:</strong> 9 plataformas propias en producción listas para adaptarse a tu empresa, clínica, restaurante, club o familia en semanas, no meses.
+      </p>
+      <a href="#cotizador" class="top-banner-link">
+        Simular inversión <i data-lucide="arrow-up-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-mark">
+          <span class="brand-initials">AM</span>
+          <span class="brand-ring"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Andrés Montoya Hernández</span>
+          <span class="brand-role">Arquitecto de Plataformas Digitales &amp; IA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#soluciones-audiencia" class="nav-link">¿Para quién es?</a>
+        <a href="#catalogo" class="nav-link">Las 9 Plataformas</a>
+        <a href="#precios-mercado" class="nav-link">Precios y Planes</a>
+        <a href="#ingenieria" class="nav-link">Arquitectura</a>
+        <a href="#cotizador" class="nav-link">Cotizador</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Cambiar tema (Oscuro / Claro)" aria-label="Cambiar tema">
+          <i data-lucide="sun" class="icon-sun"></i>
+          <i data-lucide="moon" class="icon-moon"></i>
+        </button>
+        <a href="https://github.com/andresmh99-dev" target="_blank" rel="noopener" class="icon-btn" title="GitHub @andresmh99-dev">
+          <i data-lucide="github"></i>
+        </a>
+        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20cat%C3%A1logo%20de%20plataformas%20digitales%20y%20me%20gustar%C3%ADa%20platicar%20contigo." target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          <i data-lucide="message-circle"></i>
+          <span>WhatsApp Directo</span>
+        </a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i data-lucide="shield-check"></i>
+            <span>Andrés Montoya Hernández · Software Real en Producción</span>
+          </div>
+
+          <h1 class="hero-title">
+            Transformo operaciones reales en
+            <span class="gradient-text">plataformas digitales extraordinarias.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Ya construí motores completos para <strong>logística internacional, spas multi-sucursal, centros médicos, consultorios psicológicos, restaurantes, clubes deportivos y familias</strong>.
+            Adquiere una plataforma similar adaptada a tu marca en una fracción del costo y tiempo de una agencia tradicional.
+          </p>
+
+          <!-- Quick Audience Pills -->
+          <div class="hero-audience-selector">
+            <span class="selector-label">Filtra según lo que buscas:</span>
+            <div class="audience-pills">
+              <button class="audience-pill active" data-goto-filter="all">
+                <i data-lucide="layers"></i> Ver las 9 Plataformas
+              </button>
+              <button class="audience-pill" data-goto-filter="empresas">
+                <i data-lucide="building-2"></i> Para mi Empresa
+              </button>
+              <button class="audience-pill" data-goto-filter="negocios">
+                <i data-lucide="store"></i> Para Clínica / Spa / Restaurante / Club
+              </button>
+              <button class="audience-pill" data-goto-filter="personas">
+                <i data-lucide="users"></i> Para Profesionales / Familia
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#catalogo" class="btn btn-primary btn-lg">
+              <i data-lucide="layout-grid"></i>
+              <span>Explorar las 9 Plataformas</span>
+            </a>
+            <a href="#cotizador" class="btn btn-glass btn-lg">
+              <i data-lucide="calculator"></i>
+              <span>Simular Precio y Descargar PDF</span>
+            </a>
+          </div>
+
+          <!-- Trust Metrics -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">9</span>
+              <span class="stat-label">Plataformas Desarrolladas</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">7</span>
+              <span class="stat-label">Demos Desplegadas en Vivo</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">-70%</span>
+              <span class="stat-label">Ahorro en Tiempo y Costo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Showcase Deck -->
+        <div class="hero-visual">
+          <div class="showcase-deck" id="heroShowcaseDeck">
+            <div class="deck-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="deck-url-bar" id="heroDeckUrl">
+                <i data-lucide="lock"></i>
+                <span>control-ops-zeta.vercel.app</span>
+              </div>
+              <span class="deck-live-tag">
+                <span class="live-dot"></span> EN VIVO
+              </span>
+            </div>
+
+            <!-- Dynamic Slide Content injected via JS -->
+            <div class="deck-body" id="heroDeckBody"></div>
+
+            <!-- Deck Selector Tabs -->
+            <div class="deck-footer" id="heroDeckTabs"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE SEGMENTATION SECTION -->
+    <section class="section audience-section" id="soluciones-audiencia">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Soluciones para cada escala</span>
+          <h2 class="section-title">¿Para quién desarrollo estas plataformas?</h2>
+          <p class="section-desc">
+            Ya sea que dirijas una empresa de comercio exterior, administres una clínica, restaurante o salón con decenas de clientes al día, tengas tu consultorio privado o quieras organizar la vida escolar de tu familia.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+          <!-- Card 1: Empresas -->
+          <div class="audience-card" data-filter-trigger="empresas">
+            <div class="audience-icon-wrap cyan">
+              <i data-lucide="anchor"></i>
+            </div>
+            <div class="audience-tag">B2B · Corporativo · Logística · IA</div>
+            <h3>Para Empresas e Industria</h3>
+            <p>
+              Digitaliza operaciones críticas donde Excel y el correo ya no dan abasto. Rastreo de embarques, cotizadores multicarrier en tiempo real, lectura de documentos con IA, control de costos y portales de clientes.
+            </p>
+            <ul class="audience-examples">
+              <li><i data-lucide="check-circle-2"></i> <strong>Control-Ops:</strong> ERP de tráfico, rutas multiparada, BL con IA y cobranza</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>InLog Quoter:</strong> Cotizador FCL/LCL/Terrestre con +15 navieras en vivo</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>INCUBEIT IA:</strong> Automatización de procesos y cotizadores PDF</li>
+            </ul>
+            <button class="btn-text" data-goto-filter="empresas">
+              <span>Ver plataformas empresariales</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 2: Negocios, Clínicas, Restaurantes y Clubes -->
+          <div class="audience-card featured" data-filter-trigger="negocios">
+            <div class="audience-popular-badge">Alta Demanda Comercial</div>
+            <div class="audience-icon-wrap purple">
+              <i data-lucide="calendar-check-2"></i>
+            </div>
+            <div class="audience-tag">Spas · Clínicas · Restaurantes · Clubes</div>
+            <h3>Para Negocios, Clínicas, Restaurantes y Clubes</h3>
+            <p>
+              Elimina las agendas de papel, los mensajes perdidos en WhatsApp y las citas encimadas. Tus clientes reservan, piden o pagan anticipos 24/7 mientras tu equipo opera en tiempo real.
+            </p>
+            <ul class="audience-examples">
+              <li><i data-lucide="check-circle-2"></i> <strong>Nail Room Spa:</strong> Agenda + Bot WhatsApp con IA y voz + Caja y Anticipos</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>Agenda Fénix:</strong> Renta de consultorios por hora/bloque + Directorio médico</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>Lievitum Pizza LAB:</strong> Web gastronómica multi-sucursal, menú interactivo y pedidos</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>Escalera Britania:</strong> SaaS para torneos de tenis/pádel, ranking y canchas</li>
+            </ul>
+            <button class="btn-text" data-goto-filter="negocios">
+              <span>Ver plataformas para negocios y clubes</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 3: Profesionales y Familias -->
+          <div class="audience-card" data-filter-trigger="personas">
+            <div class="audience-icon-wrap emerald">
+              <i data-lucide="smartphone"></i>
+            </div>
+            <div class="audience-tag">Especialistas · Consultorios · Familias</div>
+            <h3>Para Profesionales y Familias</h3>
+            <p>
+              Aplicaciones web instalables en el celular (PWA) diseñadas para usarse con el pulgar en segundos. Sin complicaciones técnicas, con recordatorios automáticos y total privacidad de datos.
+            </p>
+            <ul class="audience-examples">
+              <li><i data-lucide="check-circle-2"></i> <strong>Psicoterapia Conductual:</strong> Agenda, expediente clínico NOM-004 y WhatsApp</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>Family OS:</strong> Convierte circulares y avisos del colegio en plan familiar con IA</li>
+              <li><i data-lucide="check-circle-2"></i> <strong>Tarifa Especial Familiar:</strong> Esquemas accesibles para familiares y amigos</li>
+            </ul>
+            <button class="btn-text" data-goto-filter="personas">
+              <span>Ver plataformas para especialistas y familias</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN SHOWROOM: THE 9 PLATFORMS -->
+    <section class="section catalog-section" id="catalogo">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Portafolio en Producción (@andresmh99-dev)</span>
+          <h2 class="section-title">Explora las 9 Plataformas Desarrolladas</h2>
+          <p class="section-desc">
+            Cada sistema aquí mostrado es un producto real funcionando. Haz clic en <strong>"Probar Demo / Detalles"</strong> para interactuar con la plataforma en vivo dentro de esta misma página o ver su caso de negocio.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="catalog-toolbar">
+          <div class="filter-tabs" id="catalogFilters">
+            <button class="filter-tab active" data-filter="all">
+              <span>Todas</span>
+              <span class="count-badge">9</span>
+            </button>
+            <button class="filter-tab" data-filter="empresas">
+              <i data-lucide="building-2"></i>
+              <span>Empresas &amp; Logística</span>
+              <span class="count-badge">3</span>
+            </button>
+            <button class="filter-tab" data-filter="negocios">
+              <i data-lucide="sparkles"></i>
+              <span>Spas, Clínicas, Restaurantes &amp; Clubes</span>
+              <span class="count-badge">4</span>
+            </button>
+            <button class="filter-tab" data-filter="personas">
+              <i data-lucide="heart-handshake"></i>
+              <span>Profesionales &amp; Familias</span>
+              <span class="count-badge">2</span>
+            </button>
+          </div>
+
+          <div class="catalog-search">
+            <i data-lucide="search"></i>
+            <input type="text" id="platformSearch" placeholder="Buscar por giro (ej. restaurante, clínica, WhatsApp, logística, tenis)..." />
+          </div>
+        </div>
+
+        <!-- Platforms Grid (Populated dynamically by app.js) -->
+        <div class="platforms-grid" id="platformsGrid"></div>
+      </div>
+    </section>
+
+    <!-- MARKET PRICING & COMMERCIAL PLANS SECTION -->
+    <section class="section pricing-guide-section" id="precios-mercado">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Transparencia Comercial · Mercado México 2026</span>
+          <h2 class="section-title">¿Cómo puedes adquirir tu plataforma?</h2>
+          <p class="section-desc">
+            Como ya construí el núcleo tecnológico de estas 9 plataformas, no tienes que pagar los $150,000+ MXN que cobra una agencia desde cero. Elige entre <strong>Renta Mensual Todo Incluido</strong> o <strong>Pago Único Llave en Mano</strong>.
+          </p>
+        </div>
+
+        <div class="pricing-tiers-grid">
+          <!-- Tier 1: Landing & Restaurantes -->
+          <div class="pricing-tier-card">
+            <div class="tier-top">
+              <span class="tier-category">Presencia &amp; Conversión</span>
+              <h3>Landing Interactiva, Menú Digital o Cotizador Web</h3>
+              <p class="tier-ideal">Ideal para: Restaurantes (tipo Lievitum), Despachos, Agencias (tipo INCUBEIT) y Marcas Locales.</p>
+            </div>
+            <div class="tier-price-box">
+              <div class="tier-price-main">
+                <span class="tier-from">Pago Único Llave en Mano</span>
+                <strong>$8,500 – $14,500 <small>MXN</small></strong>
+              </div>
+              <div class="tier-price-alt">
+                <span>O en Plan Mensual:</span>
+                <strong>$3,900 setup + $690/mes</strong>
+              </div>
+            </div>
+            <ul class="tier-features">
+              <li><i data-lucide="check"></i> Diseño ultra-impactante multi-sucursal</li>
+              <li><i data-lucide="check"></i> Menú interactivo filtrable o Calculadora PDF</li>
+              <li><i data-lucide="check"></i> Botones directos a WhatsApp, Maps y Delivery</li>
+              <li><i data-lucide="check"></i> SEO Local (Schema.org) y carga instantánea</li>
+              <li><i data-lucide="check"></i> Entrega en <strong>5 a 10 días hábiles</strong></li>
+            </ul>
+            <a href="#cotizador" class="btn btn-glass btn-full" onclick="selectPlatformForQuote('lievitum-pizzalab')">
+              Cotizar este nivel
+            </a>
+          </div>
+
+          <!-- Tier 2: Consultorios & Familias -->
+          <div class="pricing-tier-card">
+            <div class="tier-top">
+              <span class="tier-category">Profesionales &amp; Familias</span>
+              <h3>Consultorio Digital PWA o App Familiar con IA</h3>
+              <p class="tier-ideal">Ideal para: Psicólogos, Médicos, Nutriólogos, Fisioterapeutas (Psicoterapia Conductual) y Familias.</p>
+            </div>
+            <div class="tier-price-box">
+              <div class="tier-price-main">
+                <span class="tier-from">Pago Único Llave en Mano</span>
+                <strong>$14,500 – $22,000 <small>MXN</small></strong>
+              </div>
+              <div class="tier-price-alt">
+                <span>O en Plan Mensual:</span>
+                <strong>$5,500 setup + $1,190/mes</strong>
+              </div>
+            </div>
+            <ul class="tier-features">
+              <li><i data-lucide="check"></i> App instalable en iPhone y Android (PWA)</li>
+              <li><i data-lucide="check"></i> Link público de autoagendado (<code>/agendar</code>)</li>
+              <li><i data-lucide="check"></i> Expediente clínico NOM-004 y plantillas rápidas</li>
+              <li><i data-lucide="check"></i> Recordatorios automáticos y avisos WhatsApp</li>
+              <li><i data-lucide="check"></i> Entrega en <strong>1 a 2 semanas</strong></li>
+            </ul>
+            <a href="#cotizador" class="btn btn-glass btn-full" onclick="selectPlatformForQuote('psicoterapia-conductual')">
+              Cotizar este nivel
+            </a>
+          </div>
+
+          <!-- Tier 3: Negocios, Clínicas, Spas y Clubes (Featured) -->
+          <div class="pricing-tier-card featured">
+            <div class="tier-popular-ribbon">Más Vendido para Negocios</div>
+            <div class="tier-top">
+              <span class="tier-category">Sistemas Multi-Especialista &amp; Clubes</span>
+              <h3>Spas, Centros Médicos y Clubes Deportivos</h3>
+              <p class="tier-ideal">Ideal para: Salones/Spas (Nail Room Spa), Coworking Médico (Agenda Fénix) y Clubes (Escalera Britania).</p>
+            </div>
+            <div class="tier-price-box">
+              <div class="tier-price-main">
+                <span class="tier-from">Pago Único Llave en Mano</span>
+                <strong>$26,000 – $42,000 <small>MXN</small></strong>
+              </div>
+              <div class="tier-price-alt">
+                <span>O en Plan Mensual:</span>
+                <strong>$9,500 setup + $2,490/mes</strong>
+              </div>
+            </div>
+            <ul class="tier-features">
+              <li><i data-lucide="check"></i> Agenda multi-recurso con candado Anti-Overbooking</li>
+              <li><i data-lucide="check"></i> Bot WhatsApp con IA (Texto y Notas de Voz)</li>
+              <li><i data-lucide="check"></i> Cobro de anticipos / paquetes con Mercado Pago</li>
+              <li><i data-lucide="check"></i> Panel de recepción en vivo, caja y cortes en PDF</li>
+              <li><i data-lucide="check"></i> Entrega en <strong>2 a 3 semanas</strong></li>
+            </ul>
+            <a href="#cotizador" class="btn btn-primary btn-full" onclick="selectPlatformForQuote('nailroomspa')">
+              Personalizar para mi Negocio
+            </a>
+          </div>
+
+          <!-- Tier 4: Empresas & Logística B2B -->
+          <div class="pricing-tier-card">
+            <div class="tier-top">
+              <span class="tier-category">Empresas &amp; Industria B2B</span>
+              <h3>ERP Operativo, Logística &amp; Cotizadores B2B</h3>
+              <p class="tier-ideal">Ideal para: Freight Forwarders, Transportistas, Comercializadoras y Operaciones Multi-Oficina (Control-Ops / InLog).</p>
+            </div>
+            <div class="tier-price-box">
+              <div class="tier-price-main">
+                <span class="tier-from">Pago Único Llave en Mano</span>
+                <strong>$48,000 – $85,000 <small>MXN</small></strong>
+              </div>
+              <div class="tier-price-alt">
+                <span>O en Plan Mensual:</span>
+                <strong>$18,000 setup + $4,900/mes</strong>
+              </div>
+            </div>
+            <ul class="tier-features">
+              <li><i data-lucide="check"></i> Centro de control, rutas multiparada y rastreo público</li>
+              <li><i data-lucide="check"></i> Lectura de documentos (BL/Facturas) con IA Claude</li>
+              <li><i data-lucide="check"></i> Cartas de instrucciones con firma digital y portal cliente</li>
+              <li><i data-lucide="check"></i> Finanzas, prefacturas, cobranza y alertas de margen</li>
+              <li><i data-lucide="check"></i> Entrega en <strong>3 a 5 semanas</strong></li>
+            </ul>
+            <a href="#cotizador" class="btn btn-glass btn-full" onclick="selectPlatformForQuote('control-ops')">
+              Cotizar Solución Empresarial
+            </a>
+          </div>
+        </div>
+
+        <!-- Family & Friends Note -->
+        <div class="family-discount-banner">
+          <div class="family-banner-left">
+            <div class="family-icon"><i data-lucide="heart-handshake"></i></div>
+            <div>
+              <h4>¿Eres familiar, amigo cercano o estás emprendiendo tu primer consultorio/negocio?</h4>
+              <p>
+                Cuento con un <strong>Esquema Preferencial para Familiares y Emprendedores Cercanos (35% de descuento directo o pagos diferidos)</strong>. Selecciónalo en el simulador de abajo.
+              </p>
+            </div>
+          </div>
+          <a href="#cotizador" class="btn btn-glass btn-sm" onclick="activateFamilyDiscount()">
+            Aplicar Tarifa Familiar / Referido
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENGINEERING & ARCHITECTURE BENTO GRID -->
+    <section class="section engineering-section" id="ingenieria">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Ingeniería de Grado Industrial</span>
+          <h2 class="section-title">Lo que hay debajo del capó de cada plataforma</h2>
+          <p class="section-desc">
+            No uso plantillas frágiles ni constructores limitados. Todas mis plataformas están construidas con la misma tecnología que usan las empresas tecnológicas más exigentes del mundo.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-span-2">
+            <div class="bento-icon"><i data-lucide="bot"></i></div>
+            <h3>Inteligencia Artificial Aplicada al Trabajo Real (Claude + Whisper)</h3>
+            <p>
+              No pongo chats de adorno. En <strong>Nail Room Spa</strong> la IA transcribe notas de voz de WhatsApp con OpenAI Whisper y agenda citas con Anthropic Claude. En <strong>Control-Ops</strong> lee documentos de embarque (BL/BOL) y detecta discrepancias. En <strong>Family OS</strong> extrae fechas, materiales y pagos de circulares escolares.
+            </p>
+            <div class="bento-code-snippet">
+              <code> Meta WhatsApp API → Whisper (Audio a Texto) → Claude Sonnet (Extracción Estructurada) → Acción Confirmada </code>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon"><i data-lucide="lock"></i></div>
+            <h3>Anti-Overbooking Matemático</h3>
+            <p>
+              En <strong>Agenda Fénix</strong> y <strong>Nail Room Spa</strong> las reservas están blindadas con <code>EXCLUDE USING gist (tstzrange)</code> y <code>pg_try_advisory_xact_lock</code> en PostgreSQL. Es físicamente imposible que dos clientes reserven el mismo horario al mismo milisegundo.
+            </p>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon"><i data-lucide="shield"></i></div>
+            <h3>Privacidad Clínica y Corporativa (RLS)</h3>
+            <p>
+              Aislamiento estricto con <strong>Row-Level Security (RLS)</strong> en base de datos, cumplimiento de <strong>NOM-004-SSA3-2012</strong> para expedientes clínicos, derechos <strong>ARCO</strong> en 1 clic y separación de vistas para que recepción opere sin ver datos sensibles.
+            </p>
+          </div>
+
+          <div class="bento-card bento-span-2">
+            <div class="bento-icon"><i data-lucide="credit-card"></i></div>
+            <h3>Hecho para operar en México y Norteamérica</h3>
+            <p>
+              Integración nativa con <strong>Mercado Pago Checkout Pro</strong> (Tarjetas, SPEI, OXXO), <strong>Meta WhatsApp Cloud API</strong> directa sin intermediarios caros, zonas horarias blindadas (<code>America/Mexico_City</code> y multi-zona en frontera Laredo/EE.UU.), multimoneda (MXN / USD / EUR) y aplicaciones instalables en iPhone y Android.
+            </p>
+            <div class="tech-logos-row">
+              <span class="tech-chip">Next.js 16</span>
+              <span class="tech-chip">React 19</span>
+              <span class="tech-chip">TypeScript</span>
+              <span class="tech-chip">Supabase / PostgreSQL</span>
+              <span class="tech-chip">Drizzle &amp; Prisma</span>
+              <span class="tech-chip">Expo React Native</span>
+              <span class="tech-chip">Anthropic Claude</span>
+              <span class="tech-chip">Mercado Pago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PLATFORM CONFIGURATOR & QUOTER -->
+    <section class="section configurator-section" id="cotizador">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Simulador de Proyecto y Cotizador Instantáneo</span>
+          <h2 class="section-title">Arma y cotiza tu plataforma en 4 pasos</h2>
+          <p class="section-desc">
+            Elige el esquema de pago que prefieras (<strong>Pago Único Llave en Mano</strong> o <strong>Suscripción Mensual Accesible</strong>), selecciona la plataforma base y descarga tu propuesta en PDF o envíasela por WhatsApp a <strong>Andrés Montoya Hernández</strong>.
+          </p>
+        </div>
+
+        <div class="configurator-layout">
+          <!-- Left: Interactive Steps -->
+          <div class="configurator-steps">
+            <!-- Step 1: Audience & Relationship -->
+            <div class="config-step-card">
+              <div class="step-title-row">
+                <span class="step-num">1</span>
+                <div>
+                  <h3>¿Para quién es el proyecto y qué modalidad prefieres?</h3>
+                  <p>Ajusta automáticamente los precios de acuerdo al mercado y relación.</p>
+                </div>
+              </div>
+
+              <div class="config-options-grid cols-4" id="step1Audience" style="margin-bottom: 1rem;">
+                <button type="button" class="config-opt active" data-audience="negocio" data-multiplier="1">
+                  <i data-lucide="store"></i>
+                  <strong>Negocio / Clínica / Club</strong>
+                  <span>Spas, restaurantes, centros médicos, clubes</span>
+                </button>
+                <button type="button" class="config-opt" data-audience="empresa" data-multiplier="1.35">
+                  <i data-lucide="building-2"></i>
+                  <strong>Empresa / Industria</strong>
+                  <span>Logística, comercializadoras, multi-oficina</span>
+                </button>
+                <button type="button" class="config-opt" data-audience="personal" data-multiplier="0.8">
+                  <i data-lucide="user-check"></i>
+                  <strong>Profesional Independiente</strong>
+                  <span>Consultorio privado, médico, psicólogo</span>
+                </button>
+                <button type="button" class="config-opt" data-audience="familiar" data-multiplier="0.62">
+                  <i data-lucide="heart-handshake"></i>
+                  <strong>Familiar / Amigo Cercano</strong>
+                  <span>Tarifa preferencial Friends &amp; Family (-38%)</span>
+                </button>
+              </div>
+
+              <!-- Payment Mode Switcher -->
+              <div class="payment-mode-bar" id="paymentModeBar">
+                <button type="button" class="pay-mode-btn active" data-paymode="onetime">
+                  <i data-lucide="key"></i>
+                  <div>
+                    <strong>Modalidad Pago Único (Llave en Mano)</strong>
+                    <span>50% anticipo · 50% al entregar tu plataforma funcionando</span>
+                  </div>
+                </button>
+                <button type="button" class="pay-mode-btn" data-paymode="monthly">
+                  <i data-lucide="calendar-clock"></i>
+                  <div>
+                    <strong>Modalidad Renta Mensual (Setup bajo + Iguala)</strong>
+                    <span>Menor inversión inicial · Incluye servidor, soporte y mejoras</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Base Platform -->
+            <div class="config-step-card">
+              <div class="step-title-row">
+                <span class="step-num">2</span>
+                <div>
+                  <h3>Elige cuál de mis 9 plataformas tomaremos como base</h3>
+                  <p>Al partir de un motor que ya desarrollé, ahorras hasta 70% en tiempo y dinero.</p>
+                </div>
+              </div>
+              <div class="config-options-grid cols-3" id="step2BasePlatform">
+                <!-- Populated dynamically by JS -->
+              </div>
+            </div>
+
+            <!-- Step 3: Modules -->
+            <div class="config-step-card">
+              <div class="step-title-row">
+                <span class="step-num">3</span>
+                <div>
+                  <h3>¿Qué módulos o integraciones adicionales deseas?</h3>
+                  <p>Personaliza las capacidades de acuerdo a la operación de tu negocio.</p>
+                </div>
+              </div>
+              <div class="config-modules-grid" id="step3Modules">
+                <label class="module-check">
+                  <input type="checkbox" value="whatsapp_ia" data-cost="5500" data-monthly="450" data-label="Bot de WhatsApp con IA (Texto + Audios)" checked />
+                  <div class="module-box">
+                    <i data-lucide="message-square-more"></i>
+                    <div>
+                      <strong>WhatsApp Automatizado / IA</strong>
+                      <span>Recordatorios, botones de confirmación o bot con IA</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="module-check">
+                  <input type="checkbox" value="pagos_online" data-cost="4000" data-monthly="300" data-label="Cobros en Línea (Mercado Pago / SPEI / OXXO)" checked />
+                  <div class="module-box">
+                    <i data-lucide="credit-card"></i>
+                    <div>
+                      <strong>Cobros y Anticipos en Línea</strong>
+                      <span>Mercado Pago, Stripe, paquetes de horas o membresías</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="module-check">
+                  <input type="checkbox" value="pwa_movil" data-cost="3000" data-monthly="200" data-label="App Instalable en Celular (PWA / Mobile)" checked />
+                  <div class="module-box">
+                    <i data-lucide="smartphone"></i>
+                    <div>
+                      <strong>App Instalable en Celular (PWA)</strong>
+                      <span>Acceso directo en iPhone y Android para ti y tus clientes</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="module-check">
+                  <input type="checkbox" value="ia_documentos" data-cost="5500" data-monthly="450" data-label="Lectura de Documentos / PDFs con IA" />
+                  <div class="module-box">
+                    <i data-lucide="file-scan"></i>
+                    <div>
+                      <strong>Lectura de Documentos con IA</strong>
+                      <span>Extrae datos de PDFs, facturas, BLs o fotos en segundos</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="module-check">
+                  <input type="checkbox" value="portal_clientes" data-cost="4000" data-monthly="300" data-label="Portal Público / Autoservicio de Clientes" />
+                  <div class="module-box">
+                    <i data-lucide="globe"></i>
+                    <div>
+                      <strong>Portal de Clientes &amp; Rastreo</strong>
+                      <span>Links públicos de reserva, cotización o seguimiento en vivo</span>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="module-check">
+                  <input type="checkbox" value="reportes_finanzas" data-cost="3500" data-monthly="250" data-label="Panel de Finanzas, Caja, Cortes PDF y Analítica" />
+                  <div class="module-box">
+                    <i data-lucide="bar-chart-3"></i>
+                    <div>
+                      <strong>Finanzas, Caja y Cortes en PDF</strong>
+                      <span>Ingresos, márgenes, antigüedad de cartera y reportes</span>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 4: Client Details -->
+            <div class="config-step-card">
+              <div class="step-title-row">
+                <span class="step-num">4</span>
+                <div>
+                  <h3>Tus datos para generar tu propuesta</h3>
+                  <p>Aparecerán en tu PDF descargable y en el mensaje de WhatsApp para Andrés.</p>
+                </div>
+              </div>
+              <div class="client-inputs-grid">
+                <div class="input-group">
+                  <label for="clientName">Tu nombre o empresa</label>
+                  <input type="text" id="clientName" placeholder="Ej. Dr. Carlos Ruiz / Restaurante Roma" />
+                </div>
+                <div class="input-group">
+                  <label for="clientNote">¿Qué te gustaría resolver o adaptar?</label>
+                  <input type="text" id="clientNote" placeholder="Ej. Queremos adaptar este sistema para 2 sucursales..." />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Sticky Live Proposal Summary -->
+          <div class="configurator-summary">
+            <div class="summary-card">
+              <div class="summary-header">
+                <span class="summary-badge">Propuesta Técnica Instantánea</span>
+                <h3 id="summaryPlatformTitle">Base: Nail Room Spa OS</h3>
+                <p id="summaryPlatformRepo">Motor de referencia: <code>andresmh99-dev/Nailroomspa</code></p>
+              </div>
+
+              <div class="summary-acceleration-box">
+                <div class="accel-top">
+                  <span>Código base ya construido por Andrés</span>
+                  <strong id="summaryCodeReady">85% listo</strong>
+                </div>
+                <div class="accel-bar">
+                  <div class="accel-fill" id="summaryCodeBar" style="width: 85%"></div>
+                </div>
+                <small id="summaryTimeEstimate">Tiempo estimado de adaptación: <strong>2 a 3 semanas</strong></small>
+              </div>
+
+              <div class="summary-breakdown">
+                <div class="breakdown-row">
+                  <span id="summaryPriceLabel">Inversión Llave en Mano (Pago Único)</span>
+                  <strong class="price-highlight" id="summaryPrice">$29,000 MXN</strong>
+                </div>
+                <div id="summarySecondaryPrice" class="secondary-price-pill"></div>
+                <p class="price-note" id="summaryPriceNote">
+                  *Precio competitivo de mercado partiendo de motor pre-construido (ahorro ~65% vs agencia tradicional). Incluye personalización con tu marca, despliegue y capacitación.
+                </p>
+              </div>
+
+              <div class="summary-included">
+                <h4>Qué incluye tu configuración:</h4>
+                <ul id="summaryModulesList"></ul>
+              </div>
+
+              <div class="summary-actions">
+                <button type="button" class="btn btn-whatsapp btn-full" id="sendWhatsappQuoteBtn">
+                  <i data-lucide="message-circle"></i>
+                  <span>Enviar al WhatsApp de Andrés (443 143 3732)</span>
+                </button>
+                <button type="button" class="btn btn-glass btn-full" id="downloadPdfQuoteBtn">
+                  <i data-lucide="file-down"></i>
+                  <span>Descargar Propuesta en PDF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FLOATING WHATSAPP CTA -->
+  <a
+    href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20estoy%20viendo%20tu%20p%C3%A1gina%20de%20plataformas%20digitales%20y%20me%20interesa%20cotizar%20un%20proyecto."
+    target="_blank"
+    rel="noopener"
+    class="floating-wa-btn"
+    title="Hablar por WhatsApp con Andrés Montoya Hernández (443 143 3732)"
+  >
+    <i data-lucide="message-circle"></i>
+    <span>Hablar con Andrés · 443 143 3732</span>
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-mark">
+            <span class="brand-initials">AM</span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Andrés Montoya Hernández</span>
+            <span class="brand-role">Arquitecto de Plataformas Digitales · Morelia &amp; Todo México</span>
+          </div>
+        </div>
+        <p class="footer-bio">
+          Diseño y construyo plataformas web, sistemas operativos de negocio, automatizaciones con IA y aplicaciones móviles listas para operar en el mundo real.
+        </p>
+        <p style="margin-top:0.75rem;font-size:0.9rem;color:var(--accent-cyan);font-weight:700;">
+          📱 WhatsApp Directo: <a href="https://wa.me/524431433732" target="_blank" rel="noopener">+52 443 143 3732</a>
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Demos en Vivo Desplegadas</h4>
+        <ul>
+          <li><a href="https://control-ops-zeta.vercel.app" target="_blank" rel="noopener">Control-Ops (Logística) <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://nailroomspa.vercel.app" target="_blank" rel="noopener">Nail Room Spa (Salones &amp; IA) <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://agenda-fenix-one.vercel.app" target="_blank" rel="noopener">Agenda Fénix (Consultorios) <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://lustrous-stardust-5c82d0.netlify.app/" target="_blank" rel="noopener">Lievitum Pizza LAB (Restaurante) <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://psicoterapia-conductual.vercel.app" target="_blank" rel="noopener">Psicoterapia Conductual <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://escalera-britania2.vercel.app" target="_blank" rel="noopener">Escalera Britania (Clubes) <i data-lucide="external-link"></i></a></li>
+          <li><a href="https://agenda-familiar-umber.vercel.app" target="_blank" rel="noopener">Family OS (Escolar &amp; Hogar) <i data-lucide="external-link"></i></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soluciones por Sector</h4>
+        <ul>
+          <li><a href="#catalogo" data-goto-filter="empresas">Logística y Comercio Exterior</a></li>
+          <li><a href="#catalogo" data-goto-filter="negocios">Spas, Salones y Clínicas</a></li>
+          <li><a href="#catalogo" data-goto-filter="negocios">Restaurantes y Gastronomía</a></li>
+          <li><a href="#catalogo" data-goto-filter="negocios">Clubes de Tenis y Pádel</a></li>
+          <li><a href="#catalogo" data-goto-filter="personas">Médicos, Psicólogos y Familias</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 Andrés Montoya Hernández (<code>@andresmh99-dev</code> · WhatsApp 443 143 3732). Todos los sistemas mostrados son desarrollos propios.</span>
+      <a href="https://github.com/andresmh99-dev" target="_blank" rel="noopener">Ver cuenta de GitHub →</a>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE PLATFORM INSPECTOR MODAL (Live Demo + Case Study) -->
+  <div class="modal-backdrop" id="platformModal" aria-hidden="true">
+    <div class="modal-container">
+      <div class="modal-topbar">
+        <div class="modal-title-group">
+          <span class="modal-category-pill" id="modalCategory">Categoría</span>
+          <h3 id="modalTitle">Nombre de la Plataforma</h3>
+        </div>
+
+        <div class="modal-view-switcher" id="modalViewSwitcher">
+          <button type="button" class="view-btn active" data-view="overview">
+            <i data-lucide="sparkles"></i> Caso de Negocio y Módulos
+          </button>
+          <button type="button" class="view-btn" data-view="live" id="modalLiveTabBtn">
+            <i data-lucide="monitor-play"></i> Vista en Vivo Interactiva
+          </button>
+        </div>
+
+        <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-content" id="modalContent">
+        <!-- Populated dynamically by app.js -->
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-footer-left" id="modalFooterLinks"></div>
+        <div class="modal-footer-right">
+          <button type="button" class="btn btn-primary" id="modalSelectForQuoteBtn">
+            <i data-lucide="wand-2"></i>
+            <span>Quiero una plataforma como esta — Cotizar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
