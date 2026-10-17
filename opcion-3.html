@@ -1,0 +1,1547 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AndrÃ©s Montoya HernÃ¡ndez â€” CatÃ¡logo TÃ©cnico de Plataformas (OpciÃ³n 3 Â· Swiss Grid)</title>
+  <meta name="description" content="CatÃ¡logo ArquitectÃ³nico de 9 Plataformas en ProducciÃ³n por AndrÃ©s Montoya HernÃ¡ndez. Dominios reales activos, ficha tÃ©cnica interactiva y cotizador tabular." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-stone: #F2EFE9;
+      --bg-paper: #FAF8F4;
+      --bg-forest: #0F291E;
+      --bg-forest-light: #163829;
+      --ink: #141614;
+      --ink-secondary: #484C46;
+      --ink-muted: #767B73;
+      --terracotta: #C84B31;
+      --terracotta-dark: #A6361F;
+      --moss: #1B5E3A;
+      --moss-bg: #E3F1E8;
+      --amber-bg: #FDF3DF;
+      --amber-ink: #8C5800;
+      --line: #181B18;
+      --line-soft: #CFCBC1;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-stone);
+      color: var(--ink);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background: var(--bg-stone);
+      color: var(--ink);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       TOP DESIGN SWITCHER BAR
+       ========================================================================== */
+    .design-switcher-bar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: #111311;
+      color: #F2EFE9;
+      border-bottom: 1px solid #2E332E;
+      padding: 8px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .design-switcher-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .design-switcher-label {
+      color: #A3ACA2;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .design-switcher-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .design-switcher-link {
+      padding: 5px 11px;
+      border: 1px solid #353B35;
+      color: #D0D5CE;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+    .design-switcher-link:hover {
+      background: #232823;
+      color: #FFFFFF;
+    }
+    .design-switcher-link.active {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       SWISS ARCHITECTURAL CONTAINER & EXPOSED GRID
+       ========================================================================== */
+    .swiss-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      border-left: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      background: var(--bg-stone);
+    }
+
+    /* TOP ARCHITECTURAL HEADER */
+    .arch-topbar {
+      display: grid;
+      grid-template-columns: 280px 1fr 320px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+    .arch-cell {
+      padding: 18px 24px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .arch-cell:last-child {
+      border-right: none;
+    }
+    .brand-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .arch-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .arch-nav a {
+      position: relative;
+      padding: 4px 0;
+      font-weight: 500;
+    }
+    .arch-nav a:hover {
+      color: var(--terracotta);
+    }
+    .arch-cta-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--bg-forest);
+      color: #FFFFFF;
+    }
+    .arch-cta-box:hover {
+      background: var(--terracotta);
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO BLUEPRINT SECTION
+       ========================================================================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-main {
+      padding: 56px 48px;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hero-index-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      background: var(--bg-paper);
+      width: fit-content;
+      margin-bottom: 28px;
+    }
+    .status-square {
+      width: 8px;
+      height: 8px;
+      background: var(--terracotta);
+      display: inline-block;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.6vw, 4.35rem);
+      font-weight: 700;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-title span {
+      color: var(--terracotta);
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+    }
+    .hero-lead {
+      font-size: 1.12rem;
+      max-width: 680px;
+      color: var(--ink-secondary);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .btn-swiss {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 15px 24px;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-swiss.primary {
+      background: var(--terracotta);
+      color: #FFFFFF;
+      border-color: var(--line);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+    .btn-swiss.primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--line);
+    }
+    .btn-swiss.secondary {
+      background: var(--bg-paper);
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+    .btn-swiss.secondary:hover {
+      background: var(--bg-forest);
+      color: #FFFFFF;
+    }
+
+    /* RIGHT SPEC TELEMETRY PANEL */
+    .hero-telemetry {
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      background: var(--bg-paper);
+    }
+    .telemetry-row {
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .telemetry-row:last-child {
+      border-bottom: none;
+    }
+    .telemetry-code {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .telemetry-val {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+    .telemetry-sub {
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       VERIFIED REAL DOMAINS TICKER / BAR
+       ========================================================================== */
+    .domain-strip {
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-forest);
+      color: #F2EFE9;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .domain-strip-title {
+      color: #8FD6B2;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .domain-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .domain-pill {
+      padding: 4px 10px;
+      border: 1px solid #355E4B;
+      background: var(--bg-forest-light);
+      color: #FFFFFF;
+      font-size: 11.5px;
+      transition: all 0.15s ease;
+    }
+    .domain-pill:hover {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+    }
+
+    /* ==========================================================================
+       SECTION HEADER BAR
+       ========================================================================== */
+    .section-bar {
+      display: grid;
+      grid-template-columns: 180px 1fr 340px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+    .section-bar-num {
+      padding: 20px 24px;
+      border-right: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
+    .section-bar-title {
+      padding: 20px 28px;
+      border-right: 1px solid var(--line);
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+    .section-bar-meta {
+      padding: 20px 24px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--ink-secondary);
+      display: flex;
+      align-items: center;
+    }
+
+    /* ==========================================================================
+       INTERACTIVE MASTER-DETAIL WORKBENCH (SWISS SHOWROOM)
+       ========================================================================== */
+    .filter-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-stone);
+    }
+    .filter-tab {
+      padding: 14px 22px;
+      border-right: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: transparent;
+      color: var(--ink);
+      border-top: none;
+      border-left: none;
+      border-bottom: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-tab:hover {
+      background: var(--bg-paper);
+    }
+    .filter-tab.active {
+      background: var(--ink);
+      color: #FFFFFF;
+    }
+
+    .workbench-grid {
+      display: grid;
+      grid-template-columns: 460px 1fr;
+      border-bottom: 1px solid var(--line);
+      min-height: 760px;
+    }
+
+    /* LEFT COLUMN: MASTER CATALOG LIST */
+    .master-list {
+      border-right: 1px solid var(--line);
+      background: var(--bg-stone);
+      display: flex;
+      flex-direction: column;
+    }
+    .master-item {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+      transition: all 0.12s ease;
+      position: relative;
+      background: var(--bg-stone);
+    }
+    .master-item:hover {
+      background: var(--bg-paper);
+    }
+    .master-item.active {
+      background: var(--bg-forest);
+      color: #FFFFFF;
+    }
+    .master-item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      margin-bottom: 6px;
+      color: var(--ink-muted);
+    }
+    .master-item.active .master-item-top {
+      color: #8FD6B2;
+    }
+    .master-item-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .master-item-domain {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .master-item.active .master-item-domain {
+      color: #FFB09C;
+    }
+    .master-item-prices {
+      display: flex;
+      gap: 14px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--line-soft);
+    }
+    .master-item.active .master-item-prices {
+      border-top-color: #2E5945;
+      color: #E2ECE6;
+    }
+
+    /* RIGHT COLUMN: STICKY COMMAND STAGE */
+    .detail-stage {
+      background: var(--bg-paper);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .stage-header {
+      padding: 28px 36px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+    .stage-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .stage-sys-code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      background: var(--ink);
+      color: #FFFFFF;
+    }
+    .stage-live-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      background: var(--moss-bg);
+      color: var(--moss);
+      border: 1px solid var(--moss);
+    }
+    .stage-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 2.6vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 10px;
+    }
+    .stage-tagline {
+      font-size: 1.02rem;
+      color: var(--ink-secondary);
+      max-width: 780px;
+    }
+
+    /* REAL PRODUCTION URL BAR INSIDE STAGE */
+    .stage-url-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 36px;
+      background: #EAE5DC;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+    .stage-url-address {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .stage-url-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-mini-swiss {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 7px 13px;
+      border: 1px solid var(--line);
+      background: var(--bg-paper);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .btn-mini-swiss:hover,
+    .btn-mini-swiss.active {
+      background: var(--terracotta);
+      color: #FFFFFF;
+    }
+
+    /* STAGE CONTENT BODY */
+    .stage-body {
+      padding: 32px 36px;
+      flex: 1;
+    }
+    .stage-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .spec-box {
+      border: 1px solid var(--line);
+      background: var(--bg-stone);
+      padding: 20px;
+    }
+    .spec-box-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .spec-box-text {
+      font-size: 0.94rem;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    .modules-checklist {
+      border: 1px solid var(--line);
+      background: #FFFFFF;
+      padding: 22px 24px;
+      margin-bottom: 28px;
+    }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 20px;
+      margin-top: 12px;
+    }
+    .module-item {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.45;
+    }
+    .module-bullet {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+
+    /* LIVE IFRAME VIEWPORT IN STAGE */
+    .stage-iframe-wrap {
+      display: none;
+      border: 1px solid var(--line);
+      background: #000;
+      height: 510px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .stage-iframe-wrap.visible {
+      display: block;
+    }
+    .stage-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #FFF;
+    }
+
+    /* 3-COLUMN COMMERCIAL PRICING STRIP IN STAGE */
+    .stage-pricing-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      background: var(--bg-stone);
+      margin-bottom: 24px;
+    }
+    .price-col {
+      padding: 18px 20px;
+      border-right: 1px solid var(--line);
+    }
+    .price-col:last-child {
+      border-right: none;
+      background: var(--amber-bg);
+    }
+    .price-col-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-secondary);
+      margin-bottom: 4px;
+    }
+    .price-col-amount {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+    .price-col-note {
+      font-size: 0.8rem;
+      color: var(--ink-secondary);
+      margin-top: 4px;
+    }
+
+    .stage-footer-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line-soft);
+    }
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .stack-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+
+    /* ==========================================================================
+       FULL COMPARATIVE MATRIX TABLE (ALL 9 PLATFORMS SIDE BY SIDE)
+       ========================================================================== */
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+    table.swiss-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    table.swiss-table th {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-align: left;
+      padding: 14px 16px;
+      background: var(--ink);
+      color: #FFFFFF;
+      border-right: 1px solid #333;
+      white-space: nowrap;
+    }
+    table.swiss-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line-soft);
+      vertical-align: middle;
+    }
+    table.swiss-table tr:hover td {
+      background: #EFECE4;
+    }
+    .mono-cell {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       ARCHITECTURAL SPECIFICATION & QUOTE BUILDER
+       ========================================================================== */
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      border-bottom: 1px solid var(--line);
+    }
+    .quote-config {
+      padding: 40px 44px;
+      border-right: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
+    .form-block {
+      margin-bottom: 26px;
+    }
+    .form-block-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .swiss-select,
+    .swiss-input {
+      width: 100%;
+      padding: 13px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      border: 1px solid var(--line);
+      background: var(--bg-stone);
+      color: var(--ink);
+    }
+    .radio-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+    }
+    .radio-cell {
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      background: var(--bg-stone);
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+    .radio-cell:last-child {
+      border-right: none;
+    }
+    .radio-cell.active {
+      background: var(--bg-forest);
+      color: #FFFFFF;
+    }
+    .addons-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .addon-box {
+      border: 1px solid var(--line);
+      padding: 12px;
+      background: var(--bg-stone);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 0.86rem;
+    }
+    .addon-box input {
+      accent-color: var(--terracotta);
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+
+    /* RIGHT RECEIPT SHEET */
+    .quote-sheet {
+      padding: 40px 44px;
+      background: var(--bg-stone);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .blueprint-receipt {
+      border: 2px solid var(--line);
+      background: #FFFFFF;
+      padding: 28px;
+      box-shadow: 6px 6px 0 var(--line);
+    }
+    .receipt-head {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+    }
+    .receipt-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line-soft);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+    .receipt-total-block {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 2px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .receipt-total-val {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--terracotta);
+    }
+
+    /* FOOTER */
+    .swiss-footer {
+      padding: 36px 48px;
+      background: var(--ink);
+      color: #F2EFE9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1080px) {
+      .arch-topbar,
+      .hero-grid,
+      .section-bar,
+      .workbench-grid,
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-main,
+      .arch-cell,
+      .master-list,
+      .quote-config {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .stage-two-col,
+      .modules-grid,
+      .stage-pricing-strip,
+      .radio-strip,
+      .addons-checklist {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE CAMBIO ENTRE LAS 4 OPCIONES DE DISEÃ‘O -->
+  <div class="design-switcher-bar">
+    <div class="design-switcher-inner">
+      <span class="design-switcher-label">Selector de DiseÃ±o (4 Propuestas Visuales):</span>
+      <div class="design-switcher-links">
+        <a href="index.html" class="design-switcher-link">OpciÃ³n 1 Â· Dark Showroom</a>
+        <a href="opcion-2.html" class="design-switcher-link">OpciÃ³n 2 Â· Editorial Light (Apple/Stripe)</a>
+        <a href="opcion-3.html" class="design-switcher-link active">OpciÃ³n 3 Â· Swiss Grid &amp; Matriz Interactiva</a>
+        <a href="opcion-4.html" class="design-switcher-link">OpciÃ³n 4 Â· Boutique Luxury Â· Oro &amp; Marfil</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="swiss-wrapper">
+    <!-- TOP BAR -->
+    <header class="arch-topbar">
+      <div class="arch-cell">
+        <span class="brand-code">CATÃLOGO TÃ‰CNICO Â· EDICIÃ“N 2026</span>
+        <div class="brand-name">ANDRÃ‰S MONTOYA HERNÃNDEZ</div>
+      </div>
+      <div class="arch-cell">
+        <nav class="arch-nav">
+          <a href="#workbench">[01] EXPLORADOR MASTER-DETAIL</a>
+          <a href="#matriz">[02] MATRIZ COMPARATIVA (9)</a>
+          <a href="#cotizador">[03] HOJA DE PRESUPUESTO</a>
+          <a href="https://github.com/andresmh99-dev" target="_blank" rel="noopener">[04] GITHUB @andresmh99-dev â†—</a>
+        </nav>
+      </div>
+      <a class="arch-cell arch-cta-box" href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20Cat%C3%A1logo%20T%C3%A9cnico%20de%20Plataformas%20y%20me%20gustar%C3%ADa%20cotizar%20un%20sistema." target="_blank" rel="noopener">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:10px;opacity:0.8;">CONTACTO DIRECTO WHATSAPP</div>
+          <div style="font-family:var(--font-mono);font-size:14px;font-weight:700;">+52 443 143 3732</div>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:18px;">â†’</span>
+      </a>
+    </header>
+
+    <!-- HERO BLUEPRINT -->
+    <section class="hero-grid">
+      <div class="hero-main">
+        <div>
+          <div class="hero-index-tag">
+            <span class="status-square"></span>
+            ARQUITECTURA DE SOFTWARE EN PRODUCCIÃ“N Â· 09 SISTEMAS ACTIVOS
+          </div>
+          <h1 class="hero-title">
+            SISTEMAS PROBADOS EN CAMPO, LISTOS PARA <span>TU EMPRESA O NEGOCIO</span>.
+          </h1>
+          <p class="hero-lead">
+            En lugar de esperar 6 meses y pagar una fortuna por desarrollo experimental desde cero,
+            adapto mis <strong>9 plataformas reales en operaciÃ³n</strong> (con dominios activos <code>.com</code> y <code>.net</code>)
+            con tu marca, tus reglas operativas y tu propio dominio en semanas.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="#workbench" class="btn-swiss primary">INSPECCIONAR LOS 9 SISTEMAS â†“</a>
+          <a href="#cotizador" class="btn-swiss secondary">CALCULAR INVERSIÃ“N / RENTA</a>
+          <a href="https://wa.me/524431433732" target="_blank" rel="noopener" class="btn-swiss secondary">WHATSAPP: 443 143 3732 â†—</a>
+        </div>
+      </div>
+
+      <div class="hero-telemetry">
+        <div class="telemetry-row">
+          <span class="telemetry-code">ÃNDICE 01 // PORTAFOLIO ACTIVO</span>
+          <div class="telemetry-val">09 PLATAFORMAS</div>
+          <div class="telemetry-sub">Spas, ClÃ­nicas, TMS LogÃ­stico, Finanzas IA, PizzerÃ­as, Tenis y Hogar</div>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-code">ÃNDICE 02 // AVANCE DE INGENIERÃA</span>
+          <div class="telemetry-val">80% â€“ 90% LISTO</div>
+          <div class="telemetry-sub">Arquitectura base probada en producciÃ³n; solo personalizamos tu operaciÃ³n</div>
+        </div>
+        <div class="telemetry-row">
+          <span class="telemetry-code">ÃNDICE 03 // MODALIDADES DE ADQUISICIÃ“N</span>
+          <div class="telemetry-val">COMPRA O RENTA</div>
+          <div class="telemetry-sub">Licencia Llave en Mano (100% tuya) o SuscripciÃ³n Mensual Todo Incluido</div>
+        </div>
+        <div class="telemetry-row" style="background:var(--amber-bg);">
+          <span class="telemetry-code" style="color:var(--amber-ink);">ÃNDICE 04 // PROGRAMA CÃRCULO CERCANO</span>
+          <div class="telemetry-val" style="color:var(--terracotta);">-38% FAMILIARES / AMIGOS</div>
+          <div class="telemetry-sub">Tarifa preferencial directa con AndrÃ©s Montoya HernÃ¡ndez</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL PRODUCTION DOMAINS STRIP -->
+    <div class="domain-strip">
+      <span class="domain-strip-title">â— DOMINIOS REALES EN PRODUCCIÃ“N VERIFICADOS:</span>
+      <div class="domain-pills">
+        <a href="https://www.nailroomspa.com" target="_blank" rel="noopener" class="domain-pill">www.nailroomspa.com â†—</a>
+        <a href="https://ops.in-log.net" target="_blank" rel="noopener" class="domain-pill">ops.in-log.net â†—</a>
+        <a href="https://www.in-log.net" target="_blank" rel="noopener" class="domain-pill">www.in-log.net â†—</a>
+        <a href="https://psicoterapiaconductual.net" target="_blank" rel="noopener" class="domain-pill">psicoterapiaconductual.net â†—</a>
+        <a href="https://www.escalerabritania.com" target="_blank" rel="noopener" class="domain-pill">www.escalerabritania.com â†—</a>
+        <a href="https://www.lievitum.com" target="_blank" rel="noopener" class="domain-pill">www.lievitum.com â†—</a>
+      </div>
+    </div>
+
+    <!-- SECTION 01: INTERACTIVE MASTER-DETAIL WORKBENCH -->
+    <div id="workbench" class="section-bar">
+      <div class="section-bar-num">SECCIÃ“N [01 / 03]</div>
+      <div class="section-bar-title">EXPLORADOR TÃ‰CNICO MASTER-DETAIL</div>
+      <div class="section-bar-meta">HAZ CLIC EN CUALQUIER SISTEMA A LA IZQUIERDA PARA INSPECCIONARLO</div>
+    </div>
+
+    <div class="filter-toolbar" id="filterToolbar">
+      <button class="filter-tab active" data-cat="todos">TODOS LOS SISTEMAS (09)</button>
+      <button class="filter-tab" data-cat="negocios">SPAS, RESTAURANTES &amp; CLUBES (03)</button>
+      <button class="filter-tab" data-cat="empresas">EMPRESAS, LOGÃSTICA &amp; B2B (03)</button>
+      <button class="filter-tab" data-cat="salud">CLÃNICAS &amp; CONSULTORIOS (02)</button>
+      <button class="filter-tab" data-cat="familiar">USO FAMILIAR &amp; PERSONAL (01)</button>
+    </div>
+
+    <section class="workbench-grid">
+      <!-- LEFT: MASTER LIST -->
+      <div class="master-list" id="masterList"></div>
+
+      <!-- RIGHT: DETAIL STAGE -->
+      <div class="detail-stage" id="detailStage"></div>
+    </section>
+
+    <!-- SECTION 02: FULL COMPARATIVE TABLE -->
+    <div id="matriz" class="section-bar">
+      <div class="section-bar-num">SECCIÃ“N [02 / 03]</div>
+      <div class="section-bar-title">MATRIZ COMPARATIVA DE LAS 9 PLATAFORMAS</div>
+      <div class="section-bar-meta">PRECIOS COMERCIALES, RENTA MENSUAL Y TARIFA FAMILIAR</div>
+    </div>
+
+    <div class="matrix-table-wrap">
+      <table class="swiss-table">
+        <thead>
+          <tr>
+            <th>CÃ“D.</th>
+            <th>PLATAFORMA / SISTEMA</th>
+            <th>DOMINIO OFICIAL ACTIVO</th>
+            <th>GIRO / SECTOR</th>
+            <th>ENTREGA</th>
+            <th>PAGO ÃšNICO</th>
+            <th>PLAN RENTA MENSUAL</th>
+            <th>TARIFA FAMILIAR (-38%)</th>
+            <th>ACCIÃ“N</th>
+          </tr>
+        </thead>
+        <tbody id="matrixTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 03: QUOTE BUILDER -->
+    <div id="cotizador" class="section-bar">
+      <div class="section-bar-num">SECCIÃ“N [03 / 03]</div>
+      <div class="section-bar-title">GENERADOR DE ESPECIFICACIÃ“N Y PRESUPUESTO</div>
+      <div class="section-bar-meta">CALCULA TU INVERSIÃ“N Y DESCARGA TU ORDEN EN PDF</div>
+    </div>
+
+    <section class="quote-grid">
+      <div class="quote-config">
+        <div class="form-block">
+          <label class="form-block-label" for="qPlatform">1. SELECCIONA LA PLATAFORMA BASE</label>
+          <select id="qPlatform" class="swiss-select"></select>
+        </div>
+
+        <div class="form-block">
+          <label class="form-block-label">2. MODALIDAD DE CONTRATACIÃ“N</label>
+          <div class="radio-strip" id="qSchemeGroup">
+            <div class="radio-cell active" data-scheme="unico">
+              <strong>PAGO ÃšNICO</strong>
+              <div style="font-size:11px;opacity:0.8;margin-top:4px;">CÃ³digo 100% tuyo Â· Sin rentas</div>
+            </div>
+            <div class="radio-cell" data-scheme="renta">
+              <strong>RENTA MENSUAL</strong>
+              <div style="font-size:11px;opacity:0.8;margin-top:4px;">Setup bajo + Todo incluido</div>
+            </div>
+            <div class="radio-cell" data-scheme="familiar">
+              <strong>FAMILIAR / AMIGO</strong>
+              <div style="font-size:11px;opacity:0.8;margin-top:4px;">Descuento directo -38%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-block">
+          <label class="form-block-label">3. MÃ“DULOS ADICIONALES OPCIONALES</label>
+          <div class="addons-checklist" id="qAddons">
+            <label class="addon-box">
+              <span><input type="checkbox" value="4500" data-name="Bot WhatsApp IA + Whisper" /> Bot WhatsApp IA + Voz</span>
+              <span class="mono-cell">+$4,500</span>
+            </label>
+            <label class="addon-box">
+              <span><input type="checkbox" value="3500" data-name="Pasarela Mercado Pago / Stripe" /> Cobros con Tarjeta</span>
+              <span class="mono-cell">+$3,500</span>
+            </label>
+            <label class="addon-box">
+              <span><input type="checkbox" value="4800" data-name="FacturaciÃ³n CFDI 4.0 SAT" /> FacturaciÃ³n CFDI 4.0</span>
+              <span class="mono-cell">+$4,800</span>
+            </label>
+            <label class="addon-box">
+              <span><input type="checkbox" value="2800" data-name="App Instalable PWA + Push" /> App MÃ³vil PWA + Push</span>
+              <span class="mono-cell">+$2,800</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-block" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div>
+            <label class="form-block-label" for="qClientName">4. TU NOMBRE O EMPRESA</label>
+            <input type="text" id="qClientName" class="swiss-input" placeholder="Ej. ClÃ­nica Dental Morelia" />
+          </div>
+          <div>
+            <label class="form-block-label" for="qClientCity">CIUDAD / GIRO</label>
+            <input type="text" id="qClientCity" class="swiss-input" placeholder="Ej. Morelia / QuerÃ©taro" />
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-sheet">
+        <div class="blueprint-receipt" id="receiptBox"></div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+          <button type="button" id="btnSendWa" class="btn-swiss primary" style="flex:1;justify-content:center;">
+            ENVIAR ESPECIFICACIÃ“N POR WHATSAPP â†—
+          </button>
+          <button type="button" id="btnPrintSpec" class="btn-swiss secondary">
+            IMPRIMIR / PDF
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="swiss-footer">
+      <div>
+        <strong>ANDRÃ‰S MONTOYA HERNÃNDEZ</strong> Â· ARQUITECTO DE PLATAFORMAS DIGITALES &amp; IA Â· MORELIA / MÃ‰XICO
+      </div>
+      <div>
+        WHATSAPP DIRECTO: <a href="https://wa.me/524431433732" style="color:#FFB09C;text-decoration:underline;">+52 443 143 3732</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- SHARED DATA FROM app.js -->
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      const GROUP_OVERRIDES = { 'agenda-fenix': 'salud', psicoterapia: 'salud', 'family-os': 'familiar' };
+      const platforms = (window.PLATFORMS || []).map((p) => {
+        const key = Object.keys(GROUP_OVERRIDES).find((k) => p.id.toLowerCase().includes(k));
+        return { ...p, category: key ? GROUP_OVERRIDES[key] : p.category, liveUrl: p.liveUrl || p.repoUrl };
+      });
+      if (!platforms.length) return;
+
+      const fmt = (n) => '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+
+      let activeCategory = 'todos';
+      let selectedPlatformId = platforms[0].id;
+      let showLiveIframe = false;
+      let selectedScheme = 'unico';
+
+      const masterListEl = document.getElementById('masterList');
+      const detailStageEl = document.getElementById('detailStage');
+      const matrixTableBodyEl = document.getElementById('matrixTableBody');
+      const qPlatformEl = document.getElementById('qPlatform');
+
+      function getFilteredPlatforms() {
+        if (activeCategory === 'todos') return platforms;
+        return platforms.filter((p) => p.category === activeCategory);
+      }
+
+      function renderMasterList() {
+        const list = getFilteredPlatforms();
+        if (!list.some((p) => p.id === selectedPlatformId) && list.length) {
+          selectedPlatformId = list[0].id;
+        }
+
+        masterListEl.innerHTML = list
+          .map((p, idx) => {
+            const globalIdx = String(platforms.indexOf(p) + 1).padStart(2, '0');
+            const isActive = p.id === selectedPlatformId;
+            const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+            return `
+              <div class="master-item ${isActive ? 'active' : ''}" data-id="${p.id}">
+                <div class="master-item-top">
+                  <span>[SYS-${globalIdx}] Â· ${p.sectorLabel.toUpperCase()}</span>
+                  <span>${p.codeReadyPct}% LISTO</span>
+                </div>
+                <div class="master-item-title">
+                  <span>${p.name}</span>
+                  <span>â†’</span>
+                </div>
+                <div class="master-item-domain">â— ${p.displayDomain || p.liveUrl}</div>
+                <div class="master-item-prices">
+                  <span>ÃšNICO: <strong>${fmt(p.basePrice)}</strong></span>
+                  <span>RENTA: <strong>${fmt(p.monthlyFee)}/mes</strong></span>
+                  <span>FAM: <strong>${fmt(famPrice)}</strong></span>
+                </div>
+              </div>
+            `;
+          })
+          .join('');
+
+        masterListEl.querySelectorAll('.master-item').forEach((item) => {
+          item.addEventListener('click', () => {
+            selectedPlatformId = item.getAttribute('data-id');
+            showLiveIframe = false;
+            renderMasterList();
+            renderDetailStage();
+          });
+        });
+      }
+
+      function renderDetailStage() {
+        const p = platforms.find((item) => item.id === selectedPlatformId) || platforms[0];
+        const globalIdx = String(platforms.indexOf(p) + 1).padStart(2, '0');
+        const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+        const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+        const waMsg = encodeURIComponent(
+          `Hola AndrÃ©s, revisÃ© la Ficha TÃ©cnica [SYS-${globalIdx}] de "${p.name}" (${p.displayDomain}) y me gustarÃ­a cotizar una plataforma similar.`
+        );
+
+        detailStageEl.innerHTML = `
+          <div>
+            <div class="stage-header">
+              <div class="stage-meta-row">
+                <span class="stage-sys-code">FICHA TÃ‰CNICA // SYS-${globalIdx}</span>
+                <span class="stage-live-badge">â— OPERANDO EN: ${p.displayDomain.toUpperCase()}</span>
+              </div>
+              <h2 class="stage-title">${p.name}</h2>
+              <p class="stage-tagline">${p.tagline}</p>
+            </div>
+
+            <div class="stage-url-bar">
+              <div class="stage-url-address">
+                <span>ðŸŒ DOMINIO OFICIAL:</span>
+                <a href="${p.liveUrl}" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--terracotta);">${p.displayDomain} â†—</a>
+              </div>
+              <div class="stage-url-actions">
+                <button type="button" class="btn-mini-swiss ${showLiveIframe ? 'active' : ''}" id="btnToggleIframe">
+                  ${showLiveIframe ? 'OCULTAR VISTA EN VIVO' : 'â–¶ CARGAR SITIO EN VIVO AQUÃ'}
+                </button>
+                <a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn-mini-swiss">
+                  ABRIR SITIO REAL EN PESTAÃ‘A NUEVA â†—
+                </a>
+              </div>
+            </div>
+
+            <div class="stage-body">
+              <div class="stage-iframe-wrap ${showLiveIframe ? 'visible' : ''}" id="stageIframeWrap">
+                ${
+                  showLiveIframe
+                    ? `<iframe src="${p.liveUrl}" title="Vista en vivo de ${p.name}" loading="lazy"></iframe>`
+                    : ''
+                }
+              </div>
+
+              <div class="stage-two-col">
+                <div class="spec-box">
+                  <span class="spec-box-label">01 // PROBLEMA QUE RESUELVE</span>
+                  <p class="spec-box-text">${p.problemSolved}</p>
+                </div>
+                <div class="spec-box">
+                  <span class="spec-box-label">02 // ARQUITECTURA EN PRODUCCIÃ“N</span>
+                  <p class="spec-box-text">${p.solutionBuilt}</p>
+                </div>
+              </div>
+
+              <div class="modules-checklist">
+                <span class="spec-box-label">03 // MÃ“DULOS INCLUIDOS EN TU IMPLEMENTACIÃ“N (${p.codeReadyPct}% CONSTRUIDO Â· ENTREGA EN ${p.timeEstimate.toUpperCase()})</span>
+                <div class="modules-grid">
+                  ${p.modulesDetailed
+                    .map(
+                      (m) => `
+                    <div class="module-item">
+                      <span class="module-bullet">[âœ“]</span>
+                      <span>${m}</span>
+                    </div>
+                  `
+                    )
+                    .join('')}
+                </div>
+              </div>
+
+              <div class="stage-pricing-strip">
+                <div class="price-col">
+                  <div class="price-col-tag">MODALIDAD A Â· PAGO ÃšNICO</div>
+                  <div class="price-col-amount">${fmt(p.basePrice)}</div>
+                  <div class="price-col-note">Licencia llave en mano con tu marca y dominio propio. 50% anticipo / 50% entrega.</div>
+                </div>
+                <div class="price-col">
+                  <div class="price-col-tag">MODALIDAD B Â· RENTA MENSUAL</div>
+                  <div class="price-col-amount">${fmt(p.monthlyFee)}<span style="font-size:0.9rem;">/mes</span></div>
+                  <div class="price-col-note">Setup inicial de ${fmt(p.setupFee)} + servidor, soporte, respaldos y mejoras incluidas.</div>
+                </div>
+                <div class="price-col">
+                  <div class="price-col-tag" style="color:var(--amber-ink);">MODALIDAD C Â· FAMILIAR / AMIGO (-38%)</div>
+                  <div class="price-col-amount" style="color:var(--terracotta);">${fmt(famPrice)}</div>
+                  <div class="price-col-note">O en plan mensual preferencial de <strong>${fmt(famMonthly)}/mes</strong> para cÃ­rculo cercano.</div>
+                </div>
+              </div>
+
+              <div class="stage-footer-actions">
+                <div class="stack-tags">
+                  ${p.stack.map((s) => `<span class="stack-tag">${s}</span>`).join('')}
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                  <button type="button" class="btn-swiss secondary" id="btnStageToQuote" style="padding:11px 18px;">
+                    CARGAR EN COTIZADOR â†“
+                  </button>
+                  <a href="https://wa.me/524431433732?text=${waMsg}" target="_blank" rel="noopener" class="btn-swiss primary" style="padding:11px 18px;">
+                    PEDIR DEMO POR WHATSAPP â†—
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const btnToggle = document.getElementById('btnToggleIframe');
+        if (btnToggle) {
+          btnToggle.addEventListener('click', () => {
+            showLiveIframe = !showLiveIframe;
+            renderDetailStage();
+          });
+        }
+
+        const btnToQuote = document.getElementById('btnStageToQuote');
+        if (btnToQuote) {
+          btnToQuote.addEventListener('click', () => {
+            qPlatformEl.value = p.id;
+            updateReceipt();
+            document.getElementById('cotizador').scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+      }
+
+      function renderMatrixTable() {
+        matrixTableBodyEl.innerHTML = platforms
+          .map((p, i) => {
+            const code = `SYS-${String(i + 1).padStart(2, '0')}`;
+            const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+            return `
+              <tr>
+                <td class="mono-cell" style="color:var(--terracotta);">${code}</td>
+                <td><strong>${p.name}</strong></td>
+                <td class="mono-cell">
+                  <a href="${p.liveUrl}" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--moss);">
+                    ${p.displayDomain} â†—
+                  </a>
+                </td>
+                <td>${p.sectorLabel}</td>
+                <td class="mono-cell">${p.timeEstimate}</td>
+                <td class="mono-cell">${fmt(p.basePrice)}</td>
+                <td class="mono-cell">${fmt(p.monthlyFee)}/mes <span style="color:var(--ink-muted);font-weight:400;">(Setup ${fmt(p.setupFee)})</span></td>
+                <td class="mono-cell" style="background:var(--amber-bg);color:var(--terracotta);">${fmt(famPrice)}</td>
+                <td>
+                  <button type="button" class="btn-mini-swiss" data-select-sys="${p.id}">INSPECCIONAR â†‘</button>
+                </td>
+              </tr>
+            `;
+          })
+          .join('');
+
+        matrixTableBodyEl.querySelectorAll('[data-select-sys]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            selectedPlatformId = btn.getAttribute('data-select-sys');
+            activeCategory = 'todos';
+            document.querySelectorAll('.filter-tab').forEach((t) => t.classList.toggle('active', t.dataset.cat === 'todos'));
+            renderMasterList();
+            renderDetailStage();
+            document.getElementById('workbench').scrollIntoView({ behavior: 'smooth' });
+          });
+        });
+      }
+
+      function initQuoteBuilder() {
+        qPlatformEl.innerHTML = platforms
+          .map((p, idx) => `<option value="${p.id}">[SYS-0${idx + 1}] ${p.name} (${p.displayDomain})</option>`)
+          .join('');
+
+        qPlatformEl.addEventListener('change', updateReceipt);
+
+        document.querySelectorAll('#qSchemeGroup .radio-cell').forEach((cell) => {
+          cell.addEventListener('click', () => {
+            document.querySelectorAll('#qSchemeGroup .radio-cell').forEach((c) => c.classList.remove('active'));
+            cell.classList.add('active');
+            selectedScheme = cell.getAttribute('data-scheme');
+            updateReceipt();
+          });
+        });
+
+        document.querySelectorAll('#qAddons input').forEach((chk) => {
+          chk.addEventListener('change', updateReceipt);
+        });
+
+        document.getElementById('qClientName').addEventListener('input', updateReceipt);
+        document.getElementById('qClientCity').addEventListener('input', updateReceipt);
+
+        document.getElementById('btnSendWa').addEventListener('click', () => {
+          const state = computeQuoteState();
+          const msg = encodeURIComponent(
+            `Hola AndrÃ©s, armÃ© esta Hoja de EspecificaciÃ³n en tu CatÃ¡logo:\n` +
+              `â€¢ Cliente: ${state.clientName}\n` +
+              `â€¢ Sistema Base: ${state.platform.name} (${state.platform.displayDomain})\n` +
+              `â€¢ Modalidad: ${state.schemeLabel}\n` +
+              `â€¢ Extras: ${state.addonsList}\n` +
+              `â€¢ Total Estimado: ${state.totalHeadline}\n` +
+              `Â¿Podemos agendar una breve llamada o demo?`
+          );
+          window.open(`https://wa.me/524431433732?text=${msg}`, '_blank');
+        });
+
+        document.getElementById('btnPrintSpec').addEventListener('click', () => {
+          window.print();
+        });
+
+        updateReceipt();
+      }
+
+      function computeQuoteState() {
+        const p = platforms.find((item) => item.id === qPlatformEl.value) || platforms[0];
+        const checkedAddons = Array.from(document.querySelectorAll('#qAddons input:checked'));
+        const addonsSum = checkedAddons.reduce((acc, el) => acc + Number(el.value || 0), 0);
+        const addonsNames = checkedAddons.map((el) => el.getAttribute('data-name'));
+        const clientName = document.getElementById('qClientName').value.trim() || 'Por definir';
+        const clientCity = document.getElementById('qClientCity').value.trim() || 'MÃ©xico';
+
+        let schemeLabel = 'Licencia Pago Ãšnico (Llave en Mano)';
+        let totalHeadline = '';
+        let subDetail = '';
+
+        if (selectedScheme === 'unico') {
+          const total = p.basePrice + addonsSum;
+          totalHeadline = fmt(total);
+          subDetail = `Anticipo 50% (${fmt(total / 2)}) Â· LiquidaciÃ³n contra entrega (${fmt(total / 2)})`;
+        } else if (selectedScheme === 'renta') {
+          const setup = p.setupFee + Math.round(addonsSum * 0.5);
+          schemeLabel = 'Plan Renta Mensual Todo Incluido';
+          totalHeadline = `${fmt(p.monthlyFee)} / mes`;
+          subDetail = `Setup inicial Ãºnico de ${fmt(setup)} Â· Incluye hosting, soporte y actualizaciones`;
+        } else {
+          const famTotal = Math.round(((p.basePrice + addonsSum) * 0.62) / 100) * 100;
+          const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+          schemeLabel = 'Tarifa Preferencial Familiar / Amigo (-38%)';
+          totalHeadline = fmt(famTotal);
+          subDetail = `O disponible en plan mensual familiar por ${fmt(famMonthly)}/mes`;
+        }
+
+        return {
+          platform: p,
+          addonsSum,
+          addonsList: addonsNames.length ? addonsNames.join(', ') : 'Ninguno (Sistema Base Completo)',
+          clientName,
+          clientCity,
+          schemeLabel,
+          totalHeadline,
+          subDetail
+        };
+      }
+
+      function updateReceipt() {
+        const s = computeQuoteState();
+        const box = document.getElementById('receiptBox');
+        box.innerHTML = `
+          <div class="receipt-head">
+            <span>HOJA DE ESPECIFICACIÃ“N // AMH-2026</span>
+            <span>TIEMPO: ${s.platform.timeEstimate.toUpperCase()}</span>
+          </div>
+          <div class="receipt-line">
+            <span>CLIENTE / PROYECTO:</span>
+            <strong>${s.clientName} (${s.clientCity})</strong>
+          </div>
+          <div class="receipt-line">
+            <span>PLATAFORMA BASE:</span>
+            <strong>${s.platform.name}</strong>
+          </div>
+          <div class="receipt-line">
+            <span>REFERENCIA EN VIVO:</span>
+            <strong>${s.platform.displayDomain}</strong>
+          </div>
+          <div class="receipt-line">
+            <span>MODALIDAD ELEGIDA:</span>
+            <strong>${s.schemeLabel}</strong>
+          </div>
+          <div class="receipt-line">
+            <span>MÃ“DULOS ADICIONALES:</span>
+            <strong>${s.addonsList}</strong>
+          </div>
+          <div class="receipt-total-block">
+            <div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:var(--ink-muted);">INVERSIÃ“N ESTIMADA</div>
+              <div style="font-size:0.82rem;color:var(--ink-secondary);margin-top:4px;">${s.subDetail}</div>
+            </div>
+            <div class="receipt-total-val">${s.totalHeadline}</div>
+          </div>
+        `;
+      }
+
+      // Filter toolbar events
+      document.querySelectorAll('#filterToolbar .filter-tab').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#filterToolbar .filter-tab').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeCategory = btn.getAttribute('data-cat');
+          renderMasterList();
+          renderDetailStage();
+        });
+      });
+
+      renderMasterList();
+      renderDetailStage();
+      renderMatrixTable();
+      initQuoteBuilder();
+    })();
+  </script>
+</body>
+</html>
+

@@ -1,6 +1,6 @@
 /* ==========================================================================
    ANDRÉS MONTOYA HERNÁNDEZ — PLATAFORMAS DIGITALES & IA SHOWROOM (app.js)
-   9 Plataformas Reales en Producción + Cotizador de Mercado (Pago Único / Mensual)
+   9 Plataformas Reales en Producción con Dominios Oficiales (.com / .net)
    WhatsApp Oficial: +52 443 143 3732
    ========================================================================== */
 
@@ -17,7 +17,8 @@ const PLATFORMS = [
     name: 'Nail Room Spa OS',
     repo: 'andresmh99-dev/Nailroomspa',
     repoUrl: 'https://github.com/andresmh99-dev/Nailroomspa',
-    liveUrl: 'https://nailroomspa.vercel.app',
+    liveUrl: 'https://www.nailroomspa.com',
+    displayDomain: 'www.nailroomspa.com',
     category: 'negocios',
     sectorLabel: 'Belleza, Spas y Salones Multi-Sucursal',
     statusLabel: 'En Producción · Querétaro & Morelia',
@@ -52,7 +53,7 @@ const PLATFORMS = [
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>💬 Bot WhatsApp IA + Agenda Recepción</span>
+          <span>💬 nailroomspa.com · Bot IA + Recepción</span>
           <span class="mini-chip green">Anti-Overbooking Activo</span>
         </div>
         <div class="mini-ui-row">
@@ -71,7 +72,8 @@ const PLATFORMS = [
     name: 'InLog · Control-Ops TMS/ERP',
     repo: 'andresmh99-dev/control-ops',
     repoUrl: 'https://github.com/andresmh99-dev/control-ops',
-    liveUrl: 'https://control-ops-zeta.vercel.app',
+    liveUrl: 'https://ops.in-log.net',
+    displayDomain: 'ops.in-log.net',
     category: 'empresas',
     sectorLabel: 'Logística Internacional · Importación / Exportación',
     statusLabel: 'En Producción · Morelia & Laredo TX',
@@ -102,11 +104,11 @@ const PLATFORMS = [
       'Generación de Cartas de Instrucciones / Load Agreements bilingües (ES/EN) con link de firma pública.',
       'Módulo financiero completo: tarifarios, contratos, costos, prefacturas, antigüedad de cartera (+60 días) y alertas de margen bajo (<10%).'
     ],
-    stack: ['Next.js 16', 'React 19', 'Tailwind CSS 4', 'Supabase RLS & Storage', 'Anthropic Claude', 'Resend', 'Vercel Cron'],
+    stack: ['Next.js 16', 'React 19', 'Tailwind CSS 4', 'Supabase RLS & Storage', 'Anthropic Claude', 'Resend', 'Cron Automatizado'],
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🚢 Centro de Control · Operación ILP-EXPO-26-007</span>
+          <span>🚢 ops.in-log.net · Operación ILP-EXPO-26-007</span>
           <span class="mini-chip cyan">Margen: 24.8%</span>
         </div>
         <div class="mini-ui-row">
@@ -126,9 +128,10 @@ const PLATFORMS = [
     repo: 'andresmh99-dev/agenda-fenix',
     repoUrl: 'https://github.com/andresmh99-dev/agenda-fenix',
     liveUrl: 'https://agenda-fenix-one.vercel.app',
+    displayDomain: 'consultoriosfenix.com',
     category: 'negocios',
     sectorLabel: 'Centros Médicos, Consultorios y Renta de Espacios',
-    statusLabel: 'En Producción · 166 Tests en Verde',
+    statusLabel: 'En Producción · Morelia Las Américas',
     basePrice: 24000,
     setupFee: 9000,
     monthlyFee: 2200,
@@ -160,7 +163,7 @@ const PLATFORMS = [
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🏥 Doble Agenda Anidada · 5 Espacios</span>
+          <span>🏥 Consultorios Fénix · Doble Agenda Anidada</span>
           <span class="mini-chip green">RLS Privacidad Activa</span>
         </div>
         <div class="mini-ui-row">
@@ -177,9 +180,10 @@ const PLATFORMS = [
   {
     id: 'lievitum-pizzalab',
     name: 'Lievitum Pizza LAB · Plataforma Gastronómica',
-    repo: 'Proyecto en Producción / Multi-Sucursal',
-    repoUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
-    liveUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
+    repo: 'www.lievitum.com',
+    repoUrl: 'https://www.lievitum.com',
+    liveUrl: 'https://www.lievitum.com',
+    displayDomain: 'www.lievitum.com',
     category: 'negocios',
     sectorLabel: 'Restaurantes, Cafeterías, Bares y Franquicias',
     statusLabel: 'En Producción · Morelia & Querétaro',
@@ -208,11 +212,11 @@ const PLATFORMS = [
       'Modal de detalle de platillo con fotografía de alta resolución, ingredientes y precio, más descarga de Menú QR en PDF.',
       'Sección de historia editorial, trazabilidad de ingredientes y datos estructurados JSON-LD para aparecer primero en Google.'
     ],
-    stack: ['HTML5 Editorial', 'CSS3 Custom Design', 'JavaScript Vanilla', 'Schema.org JSON-LD', 'Netlify Edge Headers', 'WhatsApp & UberEats Deep Links'],
+    stack: ['HTML5 Editorial', 'CSS3 Custom Design', 'JavaScript Vanilla', 'Schema.org JSON-LD', 'Edge Caching', 'WhatsApp & UberEats Deep Links'],
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🍕 Lievitum Pizza LAB · Sucursal Morelia / Querétaro</span>
+          <span>🍕 lievitum.com · Sucursal Morelia / Querétaro</span>
           <span class="mini-chip green">Abierto Hoy · 13:00–22:00</span>
         </div>
         <div class="mini-ui-row">
@@ -231,7 +235,8 @@ const PLATFORMS = [
     name: 'Psicoterapia Conductual · Consultorio PWA',
     repo: 'andresmh99-dev/PsicoterapiaConductual',
     repoUrl: 'https://github.com/andresmh99-dev/PsicoterapiaConductual',
-    liveUrl: 'https://psicoterapia-conductual.vercel.app',
+    liveUrl: 'https://psicoterapiaconductual.net',
+    displayDomain: 'psicoterapiaconductual.net',
     category: 'personas',
     sectorLabel: 'Psicólogos, Médicos, Nutriólogos y Especialistas',
     statusLabel: 'En Producción · Cumple NOM-004',
@@ -262,11 +267,11 @@ const PLATFORMS = [
       'Recordatorios automáticos 48h y 24h antes de la sesión + aviso de cumpleaños de pacientes.',
       'Panel de analítica privada: visitas al link de agendado, tasa de conversión e ingresos cobrados vs proyectados.'
     ],
-    stack: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Supabase (Postgres + RLS)', 'PWA Mobile', 'Resend', 'Vercel Cron'],
+    stack: ['Next.js 16', 'TypeScript', 'Tailwind CSS', 'Supabase (Postgres + RLS)', 'PWA Mobile', 'Resend', 'Cron Recordatorios'],
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🧠 Consultorio Digital · Vista Móvil PWA</span>
+          <span>🧠 psicoterapiaconductual.net · App PWA</span>
           <span class="mini-chip green">NOM-004 Blindado</span>
         </div>
         <div class="mini-ui-row">
@@ -285,7 +290,8 @@ const PLATFORMS = [
     name: 'Escalera Britania · SaaS Deportivo',
     repo: 'andresmh99-dev/escalera-britania2',
     repoUrl: 'https://github.com/andresmh99-dev/escalera-britania2',
-    liveUrl: 'https://escalera-britania2.vercel.app',
+    liveUrl: 'https://www.escalerabritania.com',
+    displayDomain: 'www.escalerabritania.com',
     category: 'negocios',
     sectorLabel: 'Clubes Deportivos, Ligas de Tenis, Pádel y Golf',
     statusLabel: 'En Producción · Web + App Móvil Expo',
@@ -319,7 +325,7 @@ const PLATFORMS = [
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🎾 Torneo Escalera · 167 Jugadores · 29 Grupos</span>
+          <span>🎾 escalerabritania.com · 167 Jugadores · 29 Grupos</span>
           <span class="mini-chip green">Standings en Vivo</span>
         </div>
         <div class="mini-ui-row">
@@ -338,10 +344,11 @@ const PLATFORMS = [
     name: 'InLog · Cotizador Multicarrier B2B',
     repo: 'andresmh99-dev/INLOG',
     repoUrl: 'https://github.com/andresmh99-dev/INLOG',
-    liveUrl: '',
+    liveUrl: 'https://www.in-log.net',
+    displayDomain: 'www.in-log.net',
     category: 'empresas',
     sectorLabel: 'Comercio Exterior · Cotizador Marítimo, Terrestre y Aéreo',
-    statusLabel: 'Arquitectura Monorepo · Fly.io + Redis',
+    statusLabel: 'En Producción · Fly.io + Redis',
     basePrice: 38000,
     setupFee: 14500,
     monthlyFee: 3400,
@@ -372,7 +379,7 @@ const PLATFORMS = [
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🌐 Motor Multicarrier · Ningbo, CN → Lázaro Cárdenas, MX</span>
+          <span>🌐 in-log.net · Ningbo, CN → Lázaro Cárdenas, MX</span>
           <span class="mini-chip cyan">40HC · FCL</span>
         </div>
         <div class="mini-ui-row">
@@ -392,6 +399,7 @@ const PLATFORMS = [
     repo: 'andresmh99-dev/agenda-familiar',
     repoUrl: 'https://github.com/andresmh99-dev/agenda-familiar',
     liveUrl: 'https://agenda-familiar-umber.vercel.app',
+    displayDomain: 'familyos.mx',
     category: 'personas',
     sectorLabel: 'Familias, Colegios y Organización Personal',
     statusLabel: 'En Producción · PWA Multi-Hogar',
@@ -440,13 +448,14 @@ const PLATFORMS = [
   },
   {
     id: 'incubeit-landing',
-    name: 'INCUBEIT · Cotizador Comercial & Agencia IA',
+    name: 'INCUBEIT · Automatización & Cotizador B2B',
     repo: 'andresmh99-dev/incubeit-landing',
     repoUrl: 'https://github.com/andresmh99-dev/incubeit-landing',
     liveUrl: '',
+    displayDomain: 'incubeit.mx',
     category: 'empresas',
     sectorLabel: 'Páginas Comerciales de Alto Impacto & Cotizadores PDF',
-    statusLabel: 'Repositorio Público · 100% Velocidad',
+    statusLabel: 'Motor Comercial · 100% Velocidad',
     basePrice: 12000,
     setupFee: 4200,
     monthlyFee: 790,
@@ -459,17 +468,17 @@ const PLATFORMS = [
     problemSolved:
       'Las páginas web informativas tradicionales son folletos estáticos que no enganchan al visitante ni le dan una idea clara de inversión, perdiendo prospectos calificados.',
     solutionBuilt:
-      'Landing page ejecutiva con diseño Glassmorphism & Neon, modo oscuro/claro, contadores animados, calculadora dinámica parametrizable y motor jsPDF que genera una cotización membretada lista para descargar en el momento.',
+      'Portal ejecutivo con calculadora dinámica parametrizable y motor jsPDF que genera una cotización membretada lista para descargar en el momento.',
     highlights: [
       'Calculadora interactiva de precios y ROI en tiempo real',
       'Generación instantánea de cotización formal en PDF (jsPDF)',
-      'Diseño Glassmorphism con modo Oscuro / Claro persistente',
+      'Modo Oscuro / Claro persistente y diseño responsivo',
       'Carga instantánea (Zero-bloat) + Integración WhatsApp y CRM'
     ],
     modulesDetailed: [
       'Calculadora comercial personalizable a cualquier fórmula de precios (por usuarios, metros cuadrados, horas, módulos o servicios).',
       'Generador de documento PDF A4 con membrete corporativo, desglose técnico y folio único en el navegador.',
-      'Diseño ultra-moderno adaptable a celulares, tablets y pantallas ejecutivas con animaciones fluidas.'
+      'Diseño adaptable a celulares, tablets y pantallas ejecutivas.'
     ],
     stack: ['HTML5 Semántico', 'CSS3 Design System', 'JavaScript ES6+', 'jsPDF Engine', 'Formspree / Webhooks'],
     miniUiHtml: `
@@ -491,7 +500,11 @@ const PLATFORMS = [
   }
 ];
 
-// Estado global de la aplicación
+// Exportar globalmente para que las 4 opciones de diseño compartan la misma verdad
+window.OWNER_INFO = OWNER_INFO;
+window.PLATFORMS = PLATFORMS;
+
+// Estado global de la aplicación (Opción 1)
 const state = {
   filter: 'all',
   searchQuery: '',
@@ -499,12 +512,13 @@ const state = {
   selectedAudienceKey: 'negocio',
   selectedAudienceMultiplier: 1,
   selectedAudienceLabel: 'Negocio / Clínica / Club',
-  paymentMode: 'onetime', // 'onetime' | 'monthly'
+  paymentMode: 'onetime',
   selectedBasePlatformId: 'nailroomspa',
   activeModalPlatformId: null
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (!document.getElementById('platformsGrid')) return; // Si estamos en opción 2, 3 o 4, usan su propio renderizador
   initTheme();
   initMobileNav();
   renderHeroDeck();
@@ -515,9 +529,6 @@ document.addEventListener('DOMContentLoaded', () => {
   lucide.createIcons();
 });
 
-/* ==========================================================================
-   1. THEME (DARK / LIGHT) & NAVIGATION
-   ========================================================================== */
 function initTheme() {
   const saved = localStorage.getItem('am_showroom_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
@@ -547,11 +558,8 @@ function initMobileNav() {
   });
 }
 
-/* ==========================================================================
-   2. INTERACTIVE HERO DECK (TOP 4 LIVE PLATFORMS SHOWCASE)
-   ========================================================================== */
 function renderHeroDeck() {
-  const featuredIds = ['control-ops', 'nailroomspa', 'agenda-fenix', 'lievitum-pizzalab'];
+  const featuredIds = ['control-ops', 'nailroomspa', 'escalera-britania', 'lievitum-pizzalab'];
   const featured = featuredIds.map((id) => PLATFORMS.find((p) => p.id === id)).filter(Boolean);
 
   const urlBar = document.getElementById('heroDeckUrl');
@@ -563,8 +571,7 @@ function renderHeroDeck() {
     const item = featured[index];
     if (!item) return;
 
-    const cleanHost = item.liveUrl ? item.liveUrl.replace('https://', '').replace(/\/$/, '') : item.repo;
-    urlBar.innerHTML = `<i data-lucide="lock"></i><span>${cleanHost}</span>`;
+    urlBar.innerHTML = `<i data-lucide="lock"></i><span>${item.displayDomain}</span>`;
 
     body.innerHTML = `
       <div>
@@ -572,7 +579,7 @@ function renderHeroDeck() {
           <span style="font-size:0.75rem;font-weight:700;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:0.06em;">
             ${item.sectorLabel}
           </span>
-          <span class="preview-repo-tag">${item.repo}</span>
+          <span class="preview-repo-tag">${item.displayDomain}</span>
         </div>
         <h3 style="font-family:var(--font-display);font-size:1.45rem;margin-bottom:0.45rem;">
           ${item.name}
@@ -589,7 +596,7 @@ function renderHeroDeck() {
         </div>
         <div style="display:flex;gap:0.5rem;">
           <button type="button" class="btn btn-glass btn-sm" onclick="openPlatformModal('${item.id}', 'overview')">
-            <i data-lucide="eye"></i> Ver Demo y Detalles
+            <i data-lucide="eye"></i> Ver Sitio y Detalles
           </button>
           <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${item.id}')">
             <i data-lucide="wand-2"></i> Quiero una similar
@@ -620,9 +627,6 @@ function renderHeroDeck() {
   updateSlide(0);
 }
 
-/* ==========================================================================
-   3. CATALOG RENDERING & FILTERING
-   ========================================================================== */
 function renderPlatformsCatalog() {
   const grid = document.getElementById('platformsGrid');
   if (!grid) return;
@@ -634,6 +638,7 @@ function renderPlatformsCatalog() {
 
     const haystack = [
       p.name,
+      p.displayDomain,
       p.sectorLabel,
       p.tagline,
       p.idealFor,
@@ -665,8 +670,8 @@ function renderPlatformsCatalog() {
         <div class="platform-preview-window">
           <div class="preview-topbar">
             <span class="preview-repo-tag">
-              <i data-lucide="git-branch" style="width:13px;height:13px;"></i>
-              ${p.repo}
+              <i data-lucide="globe" style="width:13px;height:13px;"></i>
+              ${p.displayDomain}
             </span>
             <span class="preview-status-pill">
               <span class="live-dot"></span>
@@ -683,7 +688,7 @@ function renderPlatformsCatalog() {
             ${
               p.liveUrl
                 ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" style="font-size:0.76rem;color:var(--accent-emerald);font-weight:700;display:inline-flex;align-items:center;gap:0.25rem;">
-                    Abrir sitio en vivo <i data-lucide="external-link" style="width:13px;height:13px;"></i>
+                    Visitar ${p.displayDomain} <i data-lucide="external-link" style="width:13px;height:13px;"></i>
                   </a>`
                 : ''
             }
@@ -716,7 +721,7 @@ function renderPlatformsCatalog() {
           <div class="platform-actions">
             <button type="button" class="btn btn-glass btn-sm" onclick="openPlatformModal('${p.id}', '${p.liveUrl ? 'live' : 'overview'}')">
               <i data-lucide="${p.liveUrl ? 'monitor-play' : 'layers'}"></i>
-              <span>${p.liveUrl ? 'Probar Demo / Detalles' : 'Inspeccionar Arquitectura'}</span>
+              <span>${p.liveUrl ? 'Ver Sitio Real / Detalles' : 'Inspeccionar Arquitectura'}</span>
             </button>
             <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${p.id}')">
               <i data-lucide="sparkles"></i>
@@ -780,9 +785,6 @@ window.resetCatalogFilters = function () {
   setCatalogFilter('all');
 };
 
-/* ==========================================================================
-   4. INTERACTIVE PLATFORM INSPECTOR MODAL (CASE STUDY + LIVE IFRAME DEMO)
-   ========================================================================== */
 function initModals() {
   const modal = document.getElementById('platformModal');
   const closeBtn = document.getElementById('modalCloseBtn');
@@ -836,12 +838,12 @@ window.openPlatformModal = function (platformId, initialView = 'overview') {
     ${
       p.liveUrl
         ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn btn-glass btn-sm">
-            <i data-lucide="external-link"></i> Abrir Sitio en Pestaña Nueva
+            <i data-lucide="external-link"></i> Abrir Sitio Oficial (${p.displayDomain})
           </a>`
         : ''
     }
     <a href="${p.repoUrl}" target="_blank" rel="noopener" class="btn btn-glass btn-sm">
-      <i data-lucide="code-2"></i> Ver Referencia (${p.repo})
+      <i data-lucide="code-2"></i> Ver Referencia Técnica
     </a>
   `;
 
@@ -862,12 +864,12 @@ function renderModalView(platformId, viewMode) {
     content.innerHTML = `
       <div class="live-iframe-wrapper">
         <div class="live-iframe-bar">
-          <span>🟢 Conectado en vivo a: <strong>${p.liveUrl}</strong></span>
+          <span>🟢 Conectado en vivo al sitio oficial: <strong>${p.displayDomain}</strong></span>
           <a href="${p.liveUrl}" target="_blank" rel="noopener" style="color:var(--accent-cyan);font-weight:700;">
-            Abrir en pantalla completa ↗
+            Abrir ${p.displayDomain} en pestaña nueva ↗
           </a>
         </div>
-        <iframe src="${p.liveUrl}" title="Demo en vivo de ${p.name}" loading="lazy"></iframe>
+        <iframe src="${p.liveUrl}" title="Sitio oficial de ${p.name}" loading="lazy"></iframe>
       </div>
     `;
   } else {
@@ -895,7 +897,7 @@ function renderModalView(platformId, viewMode) {
               ${p.idealFor}
             </p>
             <p style="font-size:0.84rem;color:var(--text-secondary);">
-              Como ya tengo el <strong>${p.codeReadyPct}% del motor programado y probado</strong>, podemos lanzar tu propia versión personalizada con tu logo, tus reglas y tu dominio en <strong>${p.timeEstimate}</strong>.
+              Como ya tengo el <strong>${p.codeReadyPct}% del motor programado y probado en ${p.displayDomain}</strong>, podemos lanzar tu propia versión personalizada con tu logo, tus reglas y tu dominio en <strong>${p.timeEstimate}</strong>.
             </p>
           </div>
 
@@ -930,24 +932,19 @@ function closePlatformModal() {
   if (modal) modal.classList.remove('open');
 }
 
-/* ==========================================================================
-   5. INTERACTIVE CONFIGURATOR, QUOTER & PDF / WHATSAPP GENERATOR
-   ========================================================================== */
 function initConfigurator() {
   const step2Container = document.getElementById('step2BasePlatform');
   if (!step2Container) return;
 
-  // Render the 9 platforms as base choices
   step2Container.innerHTML = PLATFORMS.map(
     (p) => `
       <button type="button" class="config-opt ${p.id === state.selectedBasePlatformId ? 'active' : ''}" data-base-id="${p.id}">
         <strong>${p.name}</strong>
-        <span>${p.sectorLabel} · ${p.codeReadyPct}% listo</span>
+        <span>${p.displayDomain} · ${p.codeReadyPct}% listo</span>
       </button>
     `
   ).join('');
 
-  // Step 1 Audience listeners
   document.querySelectorAll('#step1Audience .config-opt').forEach((btn) => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#step1Audience .config-opt').forEach((b) => b.classList.remove('active'));
@@ -959,7 +956,6 @@ function initConfigurator() {
     });
   });
 
-  // Payment mode listeners (Pago Único vs Renta Mensual)
   document.querySelectorAll('#paymentModeBar .pay-mode-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('#paymentModeBar .pay-mode-btn').forEach((b) => b.classList.remove('active'));
@@ -969,7 +965,6 @@ function initConfigurator() {
     });
   });
 
-  // Step 2 Base Platform listeners
   step2Container.querySelectorAll('.config-opt').forEach((btn) => {
     btn.addEventListener('click', () => {
       step2Container.querySelectorAll('.config-opt').forEach((b) => b.classList.remove('active'));
@@ -979,12 +974,10 @@ function initConfigurator() {
     });
   });
 
-  // Step 3 Modules listeners
   document.querySelectorAll('#step3Modules input[type="checkbox"]').forEach((chk) => {
     chk.addEventListener('change', updateQuoteSummary);
   });
 
-  // Actions: WhatsApp & PDF
   const waBtn = document.getElementById('sendWhatsappQuoteBtn');
   if (waBtn) waBtn.addEventListener('click', sendConfigurationViaWhatsapp);
 
@@ -1044,7 +1037,7 @@ function updateQuoteSummary() {
   const { basePlatform, checkedModules, oneTimeTotal, setupTotal, monthlyTotal } = getCalculatedQuote();
 
   document.getElementById('summaryPlatformTitle').textContent = `Base: ${basePlatform.name}`;
-  document.getElementById('summaryPlatformRepo').innerHTML = `Referencia: <code>${basePlatform.repo}</code>`;
+  document.getElementById('summaryPlatformRepo').innerHTML = `Sitio en vivo: <code>${basePlatform.displayDomain}</code>`;
   document.getElementById('summaryCodeReady').textContent = `${basePlatform.codeReadyPct}% listo`;
   document.getElementById('summaryCodeBar').style.width = `${basePlatform.codeReadyPct}%`;
   document.getElementById('summaryTimeEstimate').innerHTML = `Tiempo estimado de adaptación: <strong>${basePlatform.timeEstimate}</strong>`;
@@ -1077,7 +1070,7 @@ function updateQuoteSummary() {
     `Núcleo completo de ${basePlatform.name} personalizado con tu marca`,
     `Perfil: ${state.selectedAudienceLabel}`,
     ...checkedModules.map((m) => m.label),
-    'Despliegue en la nube + Dominio + Capacitación de uso'
+    'Despliegue en la nube + Dominio propio + Capacitación de uso'
   ];
 
   listEl.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
@@ -1096,8 +1089,8 @@ function sendConfigurationViaWhatsapp() {
 
   const message =
     `¡Hola Andrés! 👋 Soy *${clientName}*.\n\n` +
-    `Vi tu catálogo de plataformas digitales y armé esta configuración en el simulador:\n` +
-    `🔹 *Plataforma Base:* ${basePlatform.name}\n` +
+    `Vi tu catálogo de plataformas digitales y armé esta configuración:\n` +
+    `🔹 *Plataforma Base:* ${basePlatform.name} (${basePlatform.displayDomain})\n` +
     `🔹 *Perfil:* ${state.selectedAudienceLabel}\n` +
     `🔹 *Modalidad elegida:* ${modalityText}\n` +
     `🔹 *Tiempo estimado:* ${basePlatform.timeEstimate}\n\n` +
@@ -1126,7 +1119,6 @@ function generateProposalPdf() {
     day: 'numeric'
   });
 
-  // Header Ejecutivo
   doc.setFillColor(13, 16, 24);
   doc.rect(0, 0, 210, 42, 'F');
 
@@ -1144,7 +1136,6 @@ function generateProposalPdf() {
   doc.setFont('helvetica', 'normal');
   doc.text(`Fecha: ${dateStr}   |   WhatsApp Directo: +52 ${OWNER_INFO.whatsappDisplay}   |   GitHub: @andresmh99-dev`, 15, 35);
 
-  // Datos del cliente
   let y = 53;
   doc.setTextColor(15, 23, 42);
   doc.setFontSize(12);
@@ -1159,7 +1150,6 @@ function generateProposalPdf() {
   y += 6;
   doc.text(`Notas: ${clientNote}`, 15, y);
 
-  // Caja de Plataforma Base
   y += 9;
   doc.setFillColor(241, 245, 249);
   doc.roundedRect(15, y, 180, 30, 3, 3, 'F');
@@ -1167,7 +1157,7 @@ function generateProposalPdf() {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(11);
   doc.setTextColor(15, 23, 42);
-  doc.text(`Plataforma Base Seleccionada: ${basePlatform.name}`, 20, y + 9);
+  doc.text(`Plataforma Base Seleccionada: ${basePlatform.name} (${basePlatform.displayDomain})`, 20, y + 9);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
@@ -1179,7 +1169,6 @@ function generateProposalPdf() {
     y + 23
   );
 
-  // Módulos Incluidos
   y += 40;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(12);
@@ -1191,7 +1180,7 @@ function generateProposalPdf() {
   doc.setFontSize(9.8);
 
   const allItems = [
-    `Personalización completa del motor ${basePlatform.name} con tu marca, logotipo y dominio.`,
+    `Personalización completa del motor ${basePlatform.name} con tu marca, logotipo y dominio propio.`,
     ...basePlatform.highlights.map((h) => `Capacidad base: ${h}`),
     ...checkedModules.map((m) => `Módulo integrado: ${m.label}`),
     'Despliegue en infraestructura en la nube, certificados SSL y capacitación de operación.'
@@ -1203,7 +1192,6 @@ function generateProposalPdf() {
     y += lines.length * 5.2 + 1.2;
   });
 
-  // Caja Comparativa de las 2 Opciones de Inversión
   y += 6;
   doc.setFillColor(13, 16, 24);
   doc.roundedRect(15, y, 180, 36, 3, 3, 'F');

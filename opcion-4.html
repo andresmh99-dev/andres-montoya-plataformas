@@ -1,0 +1,1079 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrés Montoya Hernández — Private Digital Atelier (Opción 4 · Boutique Luxury)</title>
+  <meta name="description" content="Boutique de Sistemas Digitales e Inteligencia Artificial en Producción por Andrés Montoya Hernández. Soluciones llave en mano o membresía mensual para clínicas, spas, restaurantes, logística y familias." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --espresso: #120F0D;
+      --espresso-card: #1B1613;
+      --espresso-elevated: #241E1A;
+      --ivory: #F6F1E7;
+      --ivory-soft: #EDE5D6;
+      --gold: #C8A25A;
+      --gold-light: #E2C588;
+      --gold-dim: rgba(200, 162, 90, 0.24);
+      --text-cream: #F5EFE6;
+      --text-warm-muted: #B6ABA0;
+      --text-dark: #181411;
+      --emerald-live: #459368;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--espresso);
+      color: var(--text-cream);
+      font-family: var(--sans);
+    }
+
+    body {
+      background: var(--espresso);
+      color: var(--text-cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       TOP DESIGN SWITCHER BAR
+       ========================================================================== */
+    .design-switcher-bar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: #0B0908;
+      color: var(--text-cream);
+      border-bottom: 1px solid var(--gold-dim);
+      padding: 8px 16px;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .design-switcher-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .design-switcher-label {
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .design-switcher-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .design-switcher-link {
+      padding: 5px 12px;
+      border: 1px solid rgba(200, 162, 90, 0.25);
+      border-radius: 4px;
+      color: var(--text-warm-muted);
+      transition: all 0.2s ease;
+    }
+    .design-switcher-link:hover {
+      border-color: var(--gold);
+      color: #FFFFFF;
+    }
+    .design-switcher-link.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--espresso);
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       LUXURY HEADER
+       ========================================================================== */
+    .luxury-header {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 26px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid var(--gold-dim);
+    }
+    .brand-monogram {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .monogram-seal {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .brand-titles {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-overline {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .brand-fullname {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-cream);
+    }
+    .luxury-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-warm-muted);
+    }
+    .luxury-nav a:hover {
+      color: var(--gold-light);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #D5B26E 0%, #B78E43 100%);
+      color: #120F0D;
+      font-weight: 700;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 24px;
+      border-radius: 3px;
+      border: 1px solid var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-gold:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold-light);
+      font-weight: 600;
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 22px;
+      border-radius: 3px;
+      border: 1px solid var(--gold);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-gold:hover {
+      background: rgba(200, 162, 90, 0.12);
+    }
+
+    /* ==========================================================================
+       ATELIER HERO
+       ========================================================================== */
+    .atelier-hero {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 76px 32px 64px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+      border-bottom: 1px solid var(--gold-dim);
+    }
+    .atelier-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 6px;
+      margin-bottom: 24px;
+    }
+    .atelier-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5.2vw, 4.7rem);
+      font-weight: 600;
+      line-height: 1.03;
+      margin-bottom: 24px;
+      color: var(--text-cream);
+    }
+    .atelier-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+    .atelier-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-warm-muted);
+      max-width: 650px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .atelier-card-highlight {
+      background: var(--espresso-card);
+      border: 1px solid var(--gold-dim);
+      padding: 34px;
+      position: relative;
+    }
+    .atelier-card-highlight::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(200, 162, 90, 0.12);
+      pointer-events: none;
+    }
+    .pillar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 18px;
+    }
+    .pillar-item {
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(200, 162, 90, 0.15);
+    }
+    .pillar-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .pillar-title {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .pillar-desc {
+      font-size: 0.9rem;
+      color: var(--text-warm-muted);
+    }
+
+    /* ==========================================================================
+       VERIFIED REAL PRODUCTION DOMAINS RIBBON
+       ========================================================================== */
+    .luxury-domains-ribbon {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: rgba(27, 22, 19, 0.7);
+    }
+    .ribbon-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .ribbon-domains {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ribbon-domain-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 12px;
+      background: var(--espresso-elevated);
+      border: 1px solid var(--gold-dim);
+      color: var(--text-cream);
+      transition: all 0.2s ease;
+    }
+    .ribbon-domain-link:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* ==========================================================================
+       CONCIERGE POR GIRO SELECTOR
+       ========================================================================== */
+    .concierge-section {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 64px 32px 32px;
+    }
+    .section-eyebrow {
+      font-size: 11.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .concierge-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 28px 0 24px;
+    }
+    .concierge-tab {
+      padding: 12px 20px;
+      background: var(--espresso-card);
+      border: 1px solid var(--gold-dim);
+      color: var(--text-warm-muted);
+      font-family: var(--sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .concierge-tab:hover {
+      border-color: var(--gold);
+      color: var(--text-cream);
+    }
+    .concierge-tab.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--espresso);
+    }
+
+    .concierge-advice-banner {
+      background: linear-gradient(90deg, rgba(200, 162, 90, 0.14) 0%, rgba(27, 22, 19, 0.9) 100%);
+      border-left: 3px solid var(--gold);
+      padding: 18px 24px;
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ==========================================================================
+       BESPOKE COLLECTION GRID (2-COLUMN EDITORIAL DOSSIERS)
+       ========================================================================== */
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    .dossier-card {
+      background: var(--espresso-card);
+      border: 1px solid var(--gold-dim);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.25s ease;
+    }
+    .dossier-card:hover {
+      border-color: var(--gold);
+    }
+    .dossier-top {
+      padding: 30px 32px 22px;
+      border-bottom: 1px solid rgba(200, 162, 90, 0.15);
+    }
+    .dossier-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .dossier-edition {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .dossier-domain-badge {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      padding: 4px 10px;
+      background: rgba(69, 147, 104, 0.16);
+      border: 1px solid var(--emerald-live);
+      color: #8CE5B1;
+    }
+    .dossier-name {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1.12;
+      margin-bottom: 10px;
+      color: var(--text-cream);
+    }
+    .dossier-tagline {
+      font-size: 0.95rem;
+      color: var(--text-warm-muted);
+      line-height: 1.6;
+    }
+
+    .dossier-body {
+      padding: 24px 32px;
+      flex: 1;
+    }
+    .dossier-ideal {
+      font-size: 0.86rem;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      background: var(--espresso-elevated);
+      border-left: 2px solid var(--gold);
+    }
+    .dossier-highlights {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+      margin-bottom: 22px;
+    }
+    .dossier-highlights li {
+      font-size: 0.86rem;
+      color: var(--text-cream);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .dossier-highlights li::before {
+      content: '✦';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* LUXURY PRICING TIERS ON EACH CARD */
+    .dossier-pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(200, 162, 90, 0.2);
+      border-bottom: 1px solid rgba(200, 162, 90, 0.2);
+      background: var(--espresso-elevated);
+    }
+    .dossier-tier {
+      padding: 16px 18px;
+      border-right: 1px solid rgba(200, 162, 90, 0.16);
+    }
+    .dossier-tier:last-child {
+      border-right: none;
+      background: rgba(200, 162, 90, 0.09);
+    }
+    .tier-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-warm-muted);
+      margin-bottom: 4px;
+    }
+    .tier-value {
+      font-family: var(--mono);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-cream);
+    }
+    .tier-sub {
+      font-size: 11px;
+      color: var(--text-warm-muted);
+      margin-top: 2px;
+    }
+
+    .dossier-footer {
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       CHAMPAGNE IVORY CONTRAST SECTION: PRIVATE CONCIERGE CONFIGURATOR
+       ========================================================================== */
+    .ivory-section {
+      background: var(--ivory);
+      color: var(--text-dark);
+      padding: 84px 32px;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    .ivory-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .ivory-box {
+      background: #FFFFFF;
+      border: 1px solid #D5C7B2;
+      padding: 36px;
+      box-shadow: 0 20px 50px rgba(18, 15, 13, 0.08);
+    }
+    .ivory-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #7E6230;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .ivory-select,
+    .ivory-input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #C8B9A2;
+      background: var(--ivory);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin-bottom: 20px;
+    }
+    .ivory-plan-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .ivory-pill {
+      padding: 14px 12px;
+      border: 1px solid #C8B9A2;
+      background: var(--ivory);
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    .ivory-pill.active {
+      background: var(--espresso);
+      color: var(--gold-light);
+      border-color: var(--espresso);
+    }
+
+    /* LIVE PREVIEW MODAL */
+    .luxury-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 7, 0.88);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .luxury-modal-backdrop.open {
+      display: flex;
+    }
+    .luxury-modal {
+      width: 100%;
+      max-width: 1240px;
+      height: 86vh;
+      background: var(--espresso-card);
+      border: 1px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+    }
+    .luxury-modal-bar {
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--gold-dim);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .luxury-modal-iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #FFF;
+    }
+
+    .luxury-footer {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--text-warm-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1024px) {
+      .atelier-hero,
+      .dossier-grid,
+      .ivory-container {
+        grid-template-columns: 1fr;
+      }
+      .dossier-pricing,
+      .ivory-plan-pills {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE CAMBIO ENTRE LAS 4 OPCIONES DE DISEÑO -->
+  <div class="design-switcher-bar">
+    <div class="design-switcher-inner">
+      <span class="design-switcher-label">Selector de Diseño (4 Propuestas Visuales):</span>
+      <div class="design-switcher-links">
+        <a href="index.html" class="design-switcher-link">Opción 1 · Dark Showroom</a>
+        <a href="opcion-2.html" class="design-switcher-link">Opción 2 · Editorial Light (Apple/Stripe)</a>
+        <a href="opcion-3.html" class="design-switcher-link">Opción 3 · Swiss Grid &amp; Matriz Interactiva</a>
+        <a href="opcion-4.html" class="design-switcher-link active">Opción 4 · Boutique Luxury · Oro &amp; Marfil</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="luxury-header">
+    <div class="brand-monogram">
+      <div class="monogram-seal">AM</div>
+      <div class="brand-titles">
+        <span class="brand-overline">Private Software &amp; AI Atelier</span>
+        <span class="brand-fullname">Andrés Montoya Hernández</span>
+      </div>
+    </div>
+
+    <nav class="luxury-nav">
+      <a href="#coleccion">Colección por Giro (9)</a>
+      <a href="#concierge">Concierge de Inversión</a>
+      <a href="https://github.com/andresmh99-dev" target="_blank" rel="noopener">GitHub Oficial ↗</a>
+    </nav>
+
+    <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20visit%C3%A9%20tu%20Boutique%20de%20Plataformas%20Digitales%20y%20me%20gustar%C3%ADa%20recibir%20atenci%C3%B3n%20personalizada." target="_blank" rel="noopener" class="btn-gold">
+      Atención Directa · 443 143 3732 ↗
+    </a>
+  </header>
+
+  <!-- ATELIER HERO -->
+  <section class="atelier-hero">
+    <div>
+      <span class="atelier-kicker">✦ 9 Plataformas Reales Operando en Dominios Oficiales</span>
+      <h1 class="atelier-title">
+        Ingeniería digital de <em>autor</em> para dueños de negocios, clínicas, empresas y familias.
+      </h1>
+      <p class="atelier-subtitle">
+        Cada plataforma de esta colección ya opera en el mundo real atendiendo pacientes, agendando citas por WhatsApp con Inteligencia Artificial, coordinando cruces fronterizos y administrando finanzas. Adquiere la tuya personalizada con tu marca en semanas, no en meses.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#coleccion" class="btn-gold">Explorar la Colección por Giro ↓</a>
+        <a href="#concierge" class="btn-outline-gold">Configurar Propuesta a Medida</a>
+      </div>
+    </div>
+
+    <div class="atelier-card-highlight">
+      <span class="brand-overline">Trato Directo con el Autor del Código</span>
+      <ul class="pillar-list">
+        <li class="pillar-item">
+          <div class="pillar-title">I. Sitios Reales en Producción (.com / .net)</div>
+          <p class="pillar-desc">No compras promesas ni bocetos: puedes probar en vivo cada sistema antes de tomar una decisión.</p>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-title">II. Adquisición Patrimonial o Membresía Mensual</div>
+          <p class="pillar-desc">Elige entre ser dueño absoluto del sistema en un pago único o contratarlo en iguala mensual con servidor y soporte incluidos.</p>
+        </li>
+        <li class="pillar-item">
+          <div class="pillar-title">III. Círculo Familiar y Amigos (-38%)</div>
+          <p class="pillar-desc">Condiciones preferenciales diseñadas personalmente por Andrés Montoya Hernández para proyectos de familiares y amigos cercanos.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REAL DOMAINS RIBBON -->
+  <div class="luxury-domains-ribbon">
+    <span class="ribbon-label">Dominios Oficiales en Operación Activa:</span>
+    <div class="ribbon-domains">
+      <a href="https://www.nailroomspa.com" target="_blank" rel="noopener" class="ribbon-domain-link">www.nailroomspa.com ↗</a>
+      <a href="https://ops.in-log.net" target="_blank" rel="noopener" class="ribbon-domain-link">ops.in-log.net ↗</a>
+      <a href="https://www.in-log.net" target="_blank" rel="noopener" class="ribbon-domain-link">www.in-log.net ↗</a>
+      <a href="https://psicoterapiaconductual.net" target="_blank" rel="noopener" class="ribbon-domain-link">psicoterapiaconductual.net ↗</a>
+      <a href="https://www.escalerabritania.com" target="_blank" rel="noopener" class="ribbon-domain-link">www.escalerabritania.com ↗</a>
+      <a href="https://www.lievitum.com" target="_blank" rel="noopener" class="ribbon-domain-link">www.lievitum.com ↗</a>
+    </div>
+  </div>
+
+  <!-- CONCIERGE POR GIRO -->
+  <section id="coleccion" class="concierge-section">
+    <span class="section-eyebrow">Curaduría Ejecutiva por Sector</span>
+    <h2 class="section-heading">Selecciona el giro de tu negocio o proyecto</h2>
+    <p style="color:var(--text-warm-muted);max-width:720px;">
+      Filtra la colección según tu actividad para ver las plataformas que mejor se adaptan a tu operación diaria, junto con sus dominios reales y esquemas de inversión.
+    </p>
+
+    <div class="concierge-tabs" id="luxuryTabs">
+      <button class="concierge-tab active" data-filter="todos">Toda la Colección (9)</button>
+      <button class="concierge-tab" data-filter="negocios">Spas, Salones, Pizzerías y Clubes (3)</button>
+      <button class="concierge-tab" data-filter="salud">Clínicas, Psicólogos y Consultorios (2)</button>
+      <button class="concierge-tab" data-filter="empresas">Empresas, Logística y Finanzas IA (3)</button>
+      <button class="concierge-tab" data-filter="familiar">Hogar y Organización Familiar (1)</button>
+    </div>
+
+    <div class="concierge-advice-banner" id="conciergeBanner">
+      <div>
+        <strong style="color:var(--gold-light);">Recomendación del Atelier:</strong>
+        <span id="conciergeBannerText" style="color:var(--text-cream);margin-left:6px;">
+          Mostrando los 9 sistemas en producción. Puedes abrir cualquier sitio real en vivo o enviarme un WhatsApp directo al 443 143 3732.
+        </span>
+      </div>
+      <a href="#concierge" class="btn-outline-gold" style="padding:8px 16px;font-size:11.5px;">Personalizar Cotización ↓</a>
+    </div>
+
+    <!-- DOSSIER CARDS -->
+    <div class="dossier-grid" id="dossierGrid"></div>
+  </section>
+
+  <!-- CHAMPAGNE IVORY CONTRAST SECTION: CONCIERGE DE INVERSIÓN -->
+  <section id="concierge" class="ivory-section">
+    <div class="ivory-container">
+      <div>
+        <span class="ivory-label">Concierge Privado de Inversión</span>
+        <h2 style="font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.1rem);line-height:1.08;margin-bottom:16px;">
+          Configura tu propuesta ejecutiva con Andrés Montoya Hernández
+        </h2>
+        <p style="color:#4A3F35;margin-bottom:28px;font-size:1.02rem;">
+          Selecciona el sistema de referencia, elige si prefieres <strong>Pago Único Llave en Mano</strong>, <strong>Membresía Mensual Todo Incluido</strong> o <strong>Tarifa Familiar (-38%)</strong>, y recibe tu propuesta formal por WhatsApp.
+        </p>
+
+        <div class="ivory-box">
+          <label class="ivory-label" for="luxSelectPlatform">1. Plataforma de Referencia</label>
+          <select id="luxSelectPlatform" class="ivory-select"></select>
+
+          <label class="ivory-label">2. Esquema de Adquisición</label>
+          <div class="ivory-plan-pills" id="luxPlanPills">
+            <div class="ivory-pill active" data-plan="unico">
+              <strong>Pago Único</strong>
+              <div style="font-size:11px;opacity:0.8;">Propiedad 100% tuya</div>
+            </div>
+            <div class="ivory-pill" data-plan="renta">
+              <strong>Membresía Mensual</strong>
+              <div style="font-size:11px;opacity:0.8;">Servidor + Soporte</div>
+            </div>
+            <div class="ivory-pill" data-plan="familiar">
+              <strong>Círculo Familiar (-38%)</strong>
+              <div style="font-size:11px;opacity:0.8;">Tarifa preferencial</div>
+            </div>
+          </div>
+
+          <label class="ivory-label" for="luxClientName">3. Tu Nombre, Clínica o Empresa</label>
+          <input type="text" id="luxClientName" class="ivory-input" placeholder="Ej. Dra. Sofía Ramírez / Grupo Logístico" />
+        </div>
+      </div>
+
+      <div class="ivory-box" style="background:var(--espresso);color:var(--text-cream);border-color:var(--gold);">
+        <span class="brand-overline">Dossier de Inversión Estimada</span>
+        <h3 id="luxSumTitle" style="font-family:var(--serif);font-size:2rem;color:var(--gold-light);margin:8px 0 4px;"></h3>
+        <div id="luxSumDomain" style="font-family:var(--mono);font-size:12px;color:#8CE5B1;margin-bottom:20px;"></div>
+
+        <div style="border-top:1px solid var(--gold-dim);border-bottom:1px solid var(--gold-dim);padding:18px 0;margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.9rem;">
+            <span style="color:var(--text-warm-muted);">Tiempo estimado de entrega:</span>
+            <strong id="luxSumTime"></strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:0.9rem;">
+            <span style="color:var(--text-warm-muted);">Avance de ingeniería listo:</span>
+            <strong id="luxSumReady"></strong>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+            <span style="color:var(--text-warm-muted);">Modalidad seleccionada:</span>
+            <strong id="luxSumPlanLabel" style="color:var(--gold-light);"></strong>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-warm-muted);">Inversión Total</div>
+          <div id="luxSumAmount" style="font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--gold-light);line-height:1.1;"></div>
+          <div id="luxSumBreakdown" style="font-size:0.86rem;color:var(--text-warm-muted);margin-top:6px;"></div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <button type="button" id="luxBtnWa" class="btn-gold" style="width:100%;justify-content:center;">
+            Solicitar esta Propuesta por WhatsApp (443 143 3732) ↗
+          </button>
+          <button type="button" onclick="window.print()" class="btn-outline-gold" style="width:100%;justify-content:center;">
+            Imprimir / Guardar Dossier en PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE VISTA EN VIVO -->
+  <div class="luxury-modal-backdrop" id="luxModalBackdrop">
+    <div class="luxury-modal">
+      <div class="luxury-modal-bar">
+        <div>
+          <strong id="luxModalTitle" style="color:var(--gold-light);font-family:var(--serif);font-size:1.3rem;"></strong>
+          <span id="luxModalDomain" style="font-family:var(--mono);font-size:12px;color:#8CE5B1;margin-left:12px;"></span>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <a id="luxModalExternal" href="#" target="_blank" rel="noopener" class="btn-outline-gold" style="padding:7px 14px;font-size:11px;">
+            Abrir Dominio Oficial ↗
+          </a>
+          <button type="button" id="luxModalClose" class="btn-gold" style="padding:7px 14px;font-size:11px;">
+            Cerrar ✕
+          </button>
+        </div>
+      </div>
+      <iframe id="luxModalIframe" class="luxury-modal-iframe" src="about:blank" title="Vista en vivo"></iframe>
+    </div>
+  </div>
+
+  <footer class="luxury-footer">
+    <div>
+      <strong style="color:var(--gold-light);font-family:var(--serif);font-size:1.15rem;">Andrés Montoya Hernández</strong>
+      · Desarrollo de Plataformas Digitales &amp; Soluciones con IA
+    </div>
+    <div>
+      WhatsApp Directo: <a href="https://wa.me/524431433732" style="color:var(--gold-light);text-decoration:underline;">+52 443 143 3732</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      const GROUP_OVERRIDES = { 'agenda-fenix': 'salud', psicoterapia: 'salud', 'family-os': 'familiar' };
+      const platforms = (window.PLATFORMS || []).map((p) => {
+        const key = Object.keys(GROUP_OVERRIDES).find((k) => p.id.toLowerCase().includes(k));
+        return { ...p, category: key ? GROUP_OVERRIDES[key] : p.category, liveUrl: p.liveUrl || p.repoUrl };
+      });
+      if (!platforms.length) return;
+
+      const fmt = (n) => '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+      let currentFilter = 'todos';
+      let currentPlan = 'unico';
+
+      const adviceByCat = {
+        todos: 'Mostrando los 9 sistemas en producción. Puedes abrir cualquier sitio real en vivo o enviarme un WhatsApp directo al 443 143 3732.',
+        negocios: 'Para Spas, Salones, Restaurantes y Clubes recomendamos especialmente el Bot de WhatsApp con IA + Agenda Anti-Overbooking y menús interactivos.',
+        salud: 'Para Psicólogos, Médicos y Clínicas contamos con consultorio digital con expediente clínico y sistema de subarriendo de consultorios por hora.',
+        empresas: 'Para Empresas y Freight Forwarders ofrecemos TMS/ERP logístico internacional, cotizador ejecutivo y plataforma financiera con IA.',
+        familiar: 'Para Familias y Amigos ofrecemos FamilyOS y un descuento directo del 38% en cualquiera de las 9 plataformas.'
+      };
+
+      const dossierGridEl = document.getElementById('dossierGrid');
+      const luxSelectPlatformEl = document.getElementById('luxSelectPlatform');
+
+      function renderDossiers() {
+        const list =
+          currentFilter === 'todos'
+            ? platforms
+            : platforms.filter((p) => p.category === currentFilter);
+
+        dossierGridEl.innerHTML = list
+          .map((p, idx) => {
+            const editionNum = String(platforms.indexOf(p) + 1).padStart(2, '0');
+            const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+            const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+            const waText = encodeURIComponent(
+              `Hola Andrés, vi en tu Boutique Digital la plataforma "${p.name}" (${p.displayDomain}) y me gustaría cotizar una versión para mi proyecto.`
+            );
+
+            return `
+              <article class="dossier-card">
+                <div>
+                  <div class="dossier-top">
+                    <div class="dossier-meta">
+                      <span class="dossier-edition">EDICIÓN PRIVADA N° ${editionNum} · ${p.sectorLabel}</span>
+                      <a href="${p.liveUrl}" target="_blank" rel="noopener" class="dossier-domain-badge">
+                        ● ${p.displayDomain} ↗
+                      </a>
+                    </div>
+                    <h3 class="dossier-name">${p.name}</h3>
+                    <p class="dossier-tagline">${p.tagline}</p>
+                  </div>
+
+                  <div class="dossier-body">
+                    <div class="dossier-ideal">
+                      <strong>Ideal para:</strong> ${p.idealFor}
+                    </div>
+                    <ul class="dossier-highlights">
+                      ${p.highlights.map((h) => `<li><span>${h}</span></li>`).join('')}
+                    </ul>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="dossier-pricing">
+                    <div class="dossier-tier">
+                      <div class="tier-label">Pago Único</div>
+                      <div class="tier-value">${fmt(p.basePrice)}</div>
+                      <div class="tier-sub">Llave en mano · 100% tuyo</div>
+                    </div>
+                    <div class="dossier-tier">
+                      <div class="tier-label">Membresía Mensual</div>
+                      <div class="tier-value">${fmt(p.monthlyFee)}/mes</div>
+                      <div class="tier-sub">Setup inicial: ${fmt(p.setupFee)}</div>
+                    </div>
+                    <div class="dossier-tier">
+                      <div class="tier-label" style="color:var(--gold-light);">Familiar / Amigo (-38%)</div>
+                      <div class="tier-value" style="color:var(--gold-light);">${fmt(famPrice)}</div>
+                      <div class="tier-sub">O ${fmt(famMonthly)}/mes</div>
+                    </div>
+                  </div>
+
+                  <div class="dossier-footer">
+                    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                      <button type="button" class="btn-outline-gold" style="padding:9px 14px;font-size:11.5px;" data-open-modal="${p.id}">
+                        Vista Interactiva en Vivo
+                      </button>
+                      <a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn-outline-gold" style="padding:9px 14px;font-size:11.5px;">
+                        Abrir ${p.displayDomain} ↗
+                      </a>
+                    </div>
+                    <a href="https://wa.me/524431433732?text=${waText}" target="_blank" rel="noopener" class="btn-gold" style="padding:9px 16px;font-size:11.5px;">
+                      Cotizar ↗
+                    </a>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        dossierGridEl.querySelectorAll('[data-open-modal]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const p = platforms.find((item) => item.id === btn.getAttribute('data-open-modal'));
+            if (!p) return;
+            document.getElementById('luxModalTitle').textContent = p.name;
+            document.getElementById('luxModalDomain').textContent = p.displayDomain;
+            document.getElementById('luxModalExternal').href = p.liveUrl;
+            document.getElementById('luxModalIframe').src = p.liveUrl;
+            document.getElementById('luxModalBackdrop').classList.add('open');
+          });
+        });
+      }
+
+      // Tabs
+      document.querySelectorAll('#luxuryTabs .concierge-tab').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('#luxuryTabs .concierge-tab').forEach((t) => t.classList.remove('active'));
+          tab.classList.add('active');
+          currentFilter = tab.getAttribute('data-filter');
+          document.getElementById('conciergeBannerText').textContent =
+            adviceByCat[currentFilter] || adviceByCat.todos;
+          renderDossiers();
+        });
+      });
+
+      // Modal close
+      document.getElementById('luxModalClose').addEventListener('click', () => {
+        document.getElementById('luxModalBackdrop').classList.remove('open');
+        document.getElementById('luxModalIframe').src = 'about:blank';
+      });
+
+      // Concierge Configurator
+      luxSelectPlatformEl.innerHTML = platforms
+        .map((p) => `<option value="${p.id}">${p.name} — (${p.displayDomain})</option>`)
+        .join('');
+
+      function updateLuxuryConfigurator() {
+        const p = platforms.find((item) => item.id === luxSelectPlatformEl.value) || platforms[0];
+        const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+        const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+
+        document.getElementById('luxSumTitle').textContent = p.name;
+        document.getElementById('luxSumDomain').textContent = `● Dominio real de referencia: ${p.displayDomain}`;
+        document.getElementById('luxSumTime').textContent = p.timeEstimate;
+        document.getElementById('luxSumReady').textContent = `${p.codeReadyPct}% construido y probado`;
+
+        if (currentPlan === 'unico') {
+          document.getElementById('luxSumPlanLabel').textContent = 'Pago Único Llave en Mano';
+          document.getElementById('luxSumAmount').textContent = fmt(p.basePrice);
+          document.getElementById('luxSumBreakdown').textContent =
+            `50% al iniciar (${fmt(p.basePrice / 2)}) y 50% contra entrega funcionando en tu propio dominio.`;
+        } else if (currentPlan === 'renta') {
+          document.getElementById('luxSumPlanLabel').textContent = 'Membresía Mensual Todo Incluido';
+          document.getElementById('luxSumAmount').textContent = `${fmt(p.monthlyFee)} / mes`;
+          document.getElementById('luxSumBreakdown').textContent =
+            `Setup único de activación de ${fmt(p.setupFee)}. Incluye servidor en la nube, soporte técnico y mejoras.`;
+        } else {
+          document.getElementById('luxSumPlanLabel').textContent = 'Tarifa Preferencial Familiar / Amigo (-38%)';
+          document.getElementById('luxSumAmount').textContent = fmt(famPrice);
+          document.getElementById('luxSumBreakdown').textContent =
+            `O en modalidad mensual para familiares y amigos por ${fmt(famMonthly)}/mes.`;
+        }
+      }
+
+      luxSelectPlatformEl.addEventListener('change', updateLuxuryConfigurator);
+
+      document.querySelectorAll('#luxPlanPills .ivory-pill').forEach((pill) => {
+        pill.addEventListener('click', () => {
+          document.querySelectorAll('#luxPlanPills .ivory-pill').forEach((el) => el.classList.remove('active'));
+          pill.classList.add('active');
+          currentPlan = pill.getAttribute('data-plan');
+          updateLuxuryConfigurator();
+        });
+      });
+
+      document.getElementById('luxBtnWa').addEventListener('click', () => {
+        const p = platforms.find((item) => item.id === luxSelectPlatformEl.value) || platforms[0];
+        const client = document.getElementById('luxClientName').value.trim() || 'Cliente Interesado';
+        const amount = document.getElementById('luxSumAmount').textContent;
+        const plan = document.getElementById('luxSumPlanLabel').textContent;
+        const msg = encodeURIComponent(
+          `Hola Andrés, configuré mi propuesta en tu Boutique Digital:\n` +
+            `• Nombre / Empresa: ${client}\n` +
+            `• Plataforma: ${p.name} (${p.displayDomain})\n` +
+            `• Modalidad: ${plan}\n` +
+            `• Inversión Estimada: ${amount}\n` +
+            `Me gustaría platicar contigo para adaptarla a mi negocio.`
+        );
+        window.open(`https://wa.me/524431433732?text=${msg}`, '_blank');
+      });
+
+      renderDossiers();
+      updateLuxuryConfigurator();
+    })();
+  </script>
+</body>
+</html>
