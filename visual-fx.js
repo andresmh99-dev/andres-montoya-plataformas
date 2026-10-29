@@ -31,6 +31,7 @@
     },
     'psicoterapia-conductual': {
       screenshot: 'assets/screenshots/psicoterapia-conductual.png',
+      allowIframe: false,
       shortPitch: 'Lleva tu consultorio en el celular: tus pacientes agendan solos, llenas su expediente rápido y mandas recordatorios automáticos.',
       visualKpis: ['📱 Se Instala en tu Celular', '📝 Expediente Rápido', '⏰ Recordatorios Automáticos']
     },
