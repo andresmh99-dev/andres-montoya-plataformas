@@ -30,7 +30,7 @@
       visualKpis: ['🍕 Menú Digital con Fotos', '📍 Varias Sucursales', '📲 Pedidos a tu WhatsApp']
     },
     'psicoterapia-conductual': {
-      screenshot: 'assets/screenshots/psicoterapia-conductual.png',
+      screenshot: 'assets/screenshots/psicoterapia-privada-v2.png?v=4',
       allowIframe: false,
       shortPitch: 'Lleva tu consultorio en el celular: tus pacientes agendan solos, llenas su expediente rápido y mandas recordatorios automáticos.',
       visualKpis: ['📱 Se Instala en tu Celular', '📝 Expediente Rápido', '⏰ Recordatorios Automáticos']
