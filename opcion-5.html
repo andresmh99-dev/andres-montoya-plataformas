@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrés Montoya Hernández | Showroom Holográfico 3D & Plataformas Interactivas (Opción 5)</title>
-  <meta name="description" content="Experiencia interactiva 3D con fondos animados WebGL, carrusel holográfico y demostraciones en vivo de las 9 plataformas digitales creadas por Andrés Montoya Hernández." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Andrés Montoya Hernández | Sistemas Digitales, Páginas Web y Automatización 3D</title>
+  <meta name="description" content="Catálogo interactivo 3D con demostraciones en vivo de las 9 plataformas digitales creadas por Andrés Montoya Hernández: asistentes de WhatsApp con IA, menús para restaurantes, agendas médicas y logística." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,17 +50,24 @@
       background: var(--bg-deep);
       color: var(--text-white);
       font-family: var(--font-sans);
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       background: var(--bg-deep);
       color: var(--text-white);
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
       line-height: 1.6;
       position: relative;
+      -webkit-text-size-adjust: 100%;
     }
 
     a { color: inherit; text-decoration: none; }
+    img, svg, video, canvas { max-width: 100%; }
 
     /* ==========================================================================
        1. LIVE 3D WEBGL CANVAS & CYBER AMBIENT BACKDROP
@@ -68,8 +75,8 @@
     #cosmosCanvas {
       position: fixed;
       inset: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       pointer-events: none;
       display: block;
@@ -89,6 +96,9 @@
     .page-layer {
       position: relative;
       z-index: 2;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .container {
@@ -96,99 +106,67 @@
       max-width: 1340px;
       margin: 0 auto;
       padding: 0 24px;
+      min-width: 0;
+    }
+
+    /* Prevención universal contra desbordes en hijos de CSS Grid y Flexbox */
+    .holo-stage-wrapper,
+    .holo-stage-grid,
+    .holo-screen-box,
+    .holo-info-panel,
+    .impact-card,
+    .impact-grid,
+    .slider-box,
+    .impact-metrics-grid,
+    .impact-metric-box,
+    .holo-cards-grid,
+    .holo-card,
+    .holo-card-visual,
+    .holo-card-body,
+    .quoter-shell,
+    .quoter-shell > div {
+      min-width: 0;
+      max-width: 100%;
     }
 
     /* ==========================================================================
-       2. TOP 5-OPTION DESIGN SWITCHER BAR
-       ========================================================================== */
-    .design-switcher-bar {
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      background: rgba(3, 5, 12, 0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(0, 242, 254, 0.25);
-      padding: 8px 18px;
-    }
-    .design-switcher-inner {
-      max-width: 1380px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .design-switcher-label {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--neon-cyan);
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .design-switcher-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .design-switcher-link {
-      font-family: var(--font-sans);
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 999px;
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      background: rgba(255, 255, 255, 0.05);
-      transition: all 0.2s ease;
-    }
-    .design-switcher-link:hover {
-      border-color: var(--neon-cyan);
-      color: #fff;
-    }
-    .design-switcher-link.active {
-      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 55%, #ec4899 100%);
-      border-color: transparent;
-      color: #fff;
-      font-weight: 800;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.45);
-    }
-
-    /* ==========================================================================
-       3. HOLOGRAPHIC NAVBAR & 3D BACKGROUND MODE SWITCHER
+       2. HOLOGRAPHIC NAVBAR & 3D BACKGROUND MODE SWITCHER
        ========================================================================== */
     .holo-nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
       border-bottom: 1px solid var(--border-glass);
-      background: rgba(6, 10, 22, 0.65);
+      background: rgba(6, 10, 22, 0.82);
       backdrop-filter: blur(18px);
     }
     .holo-nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 78px;
-      gap: 16px;
+      min-height: 76px;
+      padding: 10px 0;
+      gap: 14px;
+      flex-wrap: wrap;
     }
     .holo-brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
     .holo-orb {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      border-radius: 13px;
       background: linear-gradient(135deg, #00f2fe 0%, #6366f1 50%, #ec4899 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: #fff;
       box-shadow: 0 0 25px rgba(0, 242, 254, 0.55);
       position: relative;
@@ -196,11 +174,13 @@
     .holo-brand-name {
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       letter-spacing: -0.02em;
+      display: block;
+      line-height: 1.2;
     }
     .holo-brand-sub {
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       color: var(--neon-cyan);
       display: block;
     }
@@ -215,6 +195,7 @@
       background: rgba(15, 23, 42, 0.85);
       border: 1px solid rgba(0, 242, 254, 0.3);
       box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+      max-width: 100%;
     }
     .bg-mode-label {
       font-family: var(--font-mono);
@@ -222,6 +203,8 @@
       color: var(--neon-cyan);
       padding: 0 8px;
       font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .bg-mode-btn {
       padding: 6px 12px;
@@ -234,6 +217,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .bg-mode-btn.active {
       background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
@@ -255,6 +239,8 @@
       border: 1px solid transparent;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
+      max-width: 100%;
+      text-align: center;
     }
     .btn-neon-primary {
       background: linear-gradient(135deg, #00f2fe 0%, #6366f1 55%, #ec4899 100%);
@@ -278,20 +264,21 @@
     }
 
     /* ==========================================================================
-       4. HERO ESCENARIO HOLOGRÁFICO & CARRUSEL 3D INTERACTIVO
+       3. HERO ESCENARIO HOLOGRÁFICO & CARRUSEL 3D INTERACTIVO
        ========================================================================== */
     .cosmos-hero {
-      padding: 48px 0 56px;
+      padding: 44px 0 54px;
       position: relative;
     }
     .cosmos-hero-top {
       text-align: center;
       max-width: 940px;
-      margin: 0 auto 36px;
+      margin: 0 auto 34px;
     }
     .holo-badge {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 7px 16px;
       border-radius: 999px;
@@ -303,14 +290,16 @@
       font-weight: 700;
       margin-bottom: 18px;
       box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
+      max-width: 100%;
     }
     .cosmos-title {
       font-family: var(--font-display);
-      font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
       font-weight: 700;
-      line-height: 1.04;
+      line-height: 1.06;
       letter-spacing: -0.03em;
       margin-bottom: 18px;
+      word-wrap: break-word;
     }
     .cosmos-title .neon-grad {
       background: linear-gradient(90deg, #00f2fe 0%, #a855f7 50%, #ec4899 100%);
@@ -319,7 +308,7 @@
       color: transparent;
     }
     .cosmos-sub {
-      font-size: 1.12rem;
+      font-size: 1.1rem;
       color: var(--text-Light);
       max-width: 760px;
       margin: 0 auto 26px;
@@ -329,13 +318,13 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     /* 3D HOLOGRAPHIC STAGE DECK */
     .holo-stage-wrapper {
-      margin-top: 34px;
-      background: linear-gradient(160deg, rgba(11, 17, 34, 0.85) 0%, rgba(18, 12, 36, 0.85) 100%);
+      margin-top: 30px;
+      background: linear-gradient(160deg, rgba(11, 17, 34, 0.88) 0%, rgba(18, 12, 36, 0.88) 100%);
       border: 1px solid rgba(0, 242, 254, 0.35);
       border-radius: 28px;
       padding: 26px;
@@ -348,13 +337,39 @@
     }
     .holo-stage-header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 12px;
       margin-bottom: 20px;
       padding-bottom: 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .holo-stage-toprow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .holo-stage-arrows {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .holo-arrow-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--neon-cyan);
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .holo-arrow-btn:hover {
+      background: var(--neon-cyan);
+      color: #03050c;
     }
     .holo-stage-nav {
       display: flex;
@@ -383,7 +398,7 @@
 
     .holo-stage-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
       gap: 26px;
       align-items: center;
     }
@@ -435,6 +450,7 @@
       gap: 8px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
       animation: vfxFloat 3.5s ease-in-out infinite;
+      max-width: calc(100% - 24px);
     }
 
     .holo-info-panel {
@@ -455,35 +471,47 @@
       padding: 4px 12px;
       border-radius: 999px;
       width: fit-content;
+      max-width: 100%;
     }
     .holo-platform-title {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
       font-weight: 700;
-      line-height: 1.12;
+      line-height: 1.14;
+      word-wrap: break-word;
     }
     .holo-price-triplet {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       background: rgba(3, 5, 12, 0.65);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 12px;
     }
+    .holo-price-cell {
+      min-width: 0;
+    }
     .holo-price-cell small {
       display: block;
       font-size: 10px;
       text-transform: uppercase;
       color: var(--text-dim);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .holo-price-cell strong {
       font-family: var(--font-display);
-      font-size: 1.08rem;
+      font-size: 1.05rem;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     /* ==========================================================================
-       5. INTERACTIVE ROI & TIME-SAVED CALCULATOR (SLIDERS + ANIMATED RINGS)
+       4. INTERACTIVE ROI & TIME-SAVED CALCULATOR (SLIDERS + ANIMATED RINGS)
        ========================================================================== */
     .impact-section {
       padding: 44px 0;
@@ -498,7 +526,7 @@
     }
     .impact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
       gap: 32px;
       align-items: center;
       margin-top: 22px;
@@ -514,17 +542,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      gap: 12px;
+      margin-bottom: 12px;
       font-weight: 700;
+      font-size: 0.94rem;
     }
     .slider-val-badge {
       font-family: var(--font-mono);
-      font-size: 1.1rem;
+      font-size: 1.02rem;
       color: var(--neon-cyan);
       background: rgba(0, 242, 254, 0.14);
       padding: 4px 12px;
       border-radius: 999px;
       border: 1px solid rgba(0, 242, 254, 0.35);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .neon-range {
       width: 100%;
@@ -534,21 +566,21 @@
     }
     .impact-metrics-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
     .impact-metric-box {
       background: rgba(3, 5, 12, 0.75);
       border: 1px solid rgba(0, 242, 254, 0.28);
       border-radius: 20px;
-      padding: 20px 16px;
+      padding: 20px 14px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
     .impact-big-num {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+      font-size: clamp(1.5rem, 2.5vw, 2.25rem);
       font-weight: 700;
       color: var(--neon-cyan);
       line-height: 1.1;
@@ -556,7 +588,7 @@
     }
 
     /* ==========================================================================
-       6. BENTO NEON GALLERY OF THE 9 PLATFORMS (SPOTLIGHT + UNSPLASH + REAL SHOT)
+       5. BENTO NEON GALLERY OF THE 9 PLATFORMS (SPOTLIGHT + UNSPLASH + REAL SHOT)
        ========================================================================== */
     .catalog-section {
       padding: 56px 0;
@@ -568,9 +600,9 @@
     }
     .section-head h2 {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-size: clamp(1.85rem, 3.8vw, 3.1rem);
       font-weight: 700;
-      line-height: 1.1;
+      line-height: 1.12;
       margin-bottom: 10px;
     }
 
@@ -602,7 +634,7 @@
 
     .holo-cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
@@ -643,6 +675,14 @@
       padding: 18px 16px 0;
       z-index: 2;
     }
+    .holo-card-visual-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
     .holo-card-backdrop {
       position: absolute;
       top: 0;
@@ -667,10 +707,10 @@
     }
 
     /* ==========================================================================
-       7. FUTURISTIC QUICK QUOTER SECTION
+       6. FUTURISTIC QUICK QUOTER SECTION
        ========================================================================== */
     .quoter-section {
-      padding: 56px 0 72px;
+      padding: 48px 0 72px;
     }
     .quoter-shell {
       background: linear-gradient(150deg, rgba(10, 16, 34, 0.9) 0%, rgba(20, 11, 38, 0.9) 100%);
@@ -678,96 +718,138 @@
       border-radius: 28px;
       padding: 36px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       gap: 32px;
       box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
     }
     .holo-input, .holo-select {
       width: 100%;
+      max-width: 100%;
       padding: 13px 16px;
       border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(3, 5, 12, 0.8);
+      background: rgba(3, 5, 12, 0.88);
       color: #fff;
       font-family: var(--font-sans);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       margin-bottom: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .holo-plan-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       margin-bottom: 18px;
     }
     .holo-plan-card {
-      padding: 14px 12px;
+      padding: 14px 10px;
       border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.16);
       background: rgba(3, 5, 12, 0.65);
       cursor: pointer;
       text-align: center;
       transition: all 0.2s ease;
+      min-width: 0;
     }
     .holo-plan-card.active {
       border-color: var(--neon-cyan);
       background: rgba(0, 242, 254, 0.16);
       box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
     }
+    .quoter-summary-box {
+      background: rgba(3, 5, 12, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.45);
+      border-radius: 22px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      max-width: 100%;
+    }
 
     /* ==========================================================================
-       8. RESPONSIVE TABLET & MOBILE ADAPTATION
+       7. RESPONSIVE TABLET & MOBILE ADAPTATION (100% SIN DESFASES NI DESBORDES)
        ========================================================================== */
     @media (max-width: 1080px) {
       .holo-stage-grid,
       .impact-grid,
       .quoter-shell {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
       .holo-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 680px) {
       .container {
         padding: 0 14px;
       }
       .holo-nav-inner {
         height: auto;
-        padding: 12px 0;
-        flex-wrap: wrap;
+        padding: 10px 0;
         gap: 10px;
+      }
+      .holo-brand-name {
+        font-size: 1rem;
       }
       .holo-brand-sub {
         display: none;
       }
+      .holo-nav-wa {
+        padding: 8px 13px !important;
+        font-size: 0.78rem !important;
+      }
       .bg-mode-switcher {
+        order: 3;
         width: 100%;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        justify-content: flex-start;
       }
       .bg-mode-switcher::-webkit-scrollbar {
         display: none;
       }
       .cosmos-hero {
-        padding: 28px 0 36px;
+        padding: 24px 0 34px;
+      }
+      .holo-badge {
+        white-space: normal;
+        text-align: center;
+        font-size: 10.5px;
+        line-height: 1.35;
+        padding: 6px 12px;
       }
       .cosmos-title {
-        font-size: clamp(2rem, 8vw, 2.65rem);
+        font-size: clamp(1.85rem, 7.6vw, 2.5rem);
       }
       .cosmos-sub {
-        font-size: 0.96rem;
+        font-size: 0.95rem;
+        margin-bottom: 20px;
       }
       .cosmos-cta-row {
         flex-direction: column;
-      }
-      .cosmos-cta-row .btn-neon {
         width: 100%;
       }
+      .cosmos-cta-row .btn-neon,
+      .btn-neon {
+        width: 100%;
+        white-space: normal;
+        line-height: 1.3;
+        padding: 12px 16px;
+        font-size: 0.86rem;
+      }
       .holo-stage-wrapper {
-        padding: 16px;
+        padding: 14px;
         border-radius: 20px;
+        margin-top: 22px;
+      }
+      .holo-stage-header {
+        margin-bottom: 14px;
+        padding-bottom: 10px;
       }
       .holo-stage-nav {
         flex-wrap: nowrap;
@@ -783,22 +865,75 @@
       .holo-pill-btn {
         flex-shrink: 0;
         white-space: nowrap;
+        font-size: 11.5px;
+        padding: 6px 12px;
       }
       .holo-live-toast {
         position: static;
-        margin: 8px 10px 0;
+        animation: none;
+        margin: 10px 10px 0;
         font-size: 11px;
+        border-radius: 12px;
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        white-space: normal;
+        line-height: 1.35;
       }
-      .holo-price-triplet,
-      .impact-metrics-grid,
-      .holo-cards-grid,
-      .holo-plan-grid {
-        grid-template-columns: 1fr;
+      .holo-screen-inner {
+        padding: 10px !important;
+      }
+      /* Mantener los 3 precios alineados en una fila compacta en móvil */
+      .holo-price-triplet {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        padding: 10px 8px;
+        text-align: center;
+      }
+      .holo-price-cell small {
+        font-size: 9px;
+      }
+      .holo-price-cell strong {
+        font-size: 0.88rem;
+      }
+      .holo-stage-actions,
+      .holo-card-actions {
+        flex-direction: column;
       }
       .impact-card,
       .quoter-shell {
-        padding: 20px 16px;
+        padding: 18px 14px;
         border-radius: 20px;
+        gap: 20px;
+      }
+      .slider-box {
+        padding: 14px;
+      }
+      .slider-top {
+        font-size: 0.86rem;
+        align-items: flex-start;
+      }
+      .slider-val-badge {
+        font-size: 0.88rem;
+        padding: 4px 10px;
+      }
+      .impact-metrics-grid,
+      .holo-cards-grid,
+      .holo-plan-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .holo-card-visual {
+        padding: 14px 12px 0;
+      }
+      .holo-card-body {
+        padding: 14px 14px 18px;
+      }
+      .quoter-summary-box {
+        padding: 18px 14px;
+        border-radius: 18px;
+      }
+      #holoQuotePrice {
+        font-size: 2.1rem !important;
       }
       .holo-filter-bar {
         flex-wrap: nowrap;
@@ -806,7 +941,8 @@
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding-bottom: 4px;
+        padding-bottom: 6px;
+        margin-bottom: 22px;
       }
       .holo-filter-bar::-webkit-scrollbar {
         display: none;
@@ -814,6 +950,8 @@
       .holo-filter-btn {
         flex-shrink: 0;
         white-space: nowrap;
+        font-size: 0.82rem;
+        padding: 8px 14px;
       }
     }
   </style>
@@ -824,22 +962,6 @@
   <div class="cyber-vignette"></div>
 
   <div class="page-layer">
-    <!-- BARRA DE LAS 5 OPCIONES DE DISEÑO -->
-    <div class="design-switcher-bar">
-      <div class="design-switcher-inner">
-        <span class="design-switcher-label">
-          <span>✨</span> Comparador de 5 Propuestas Visuales:
-        </span>
-        <div class="design-switcher-links">
-          <a href="index.html" class="design-switcher-link">1 · Dark Showroom</a>
-          <a href="opcion-2.html" class="design-switcher-link">2 · Editorial (Apple/Stripe)</a>
-          <a href="opcion-3.html" class="design-switcher-link">3 · Swiss Grid Interactiva</a>
-          <a href="opcion-4.html" class="design-switcher-link">4 · Boutique Luxury</a>
-          <a href="opcion-5.html" class="design-switcher-link active">5 · Holográfica 3D &amp; Cosmos (NUEVA)</a>
-        </div>
-      </div>
-    </div>
-
     <!-- NAVBAR CON SELECTOR DE FONDO 3D EN VIVO -->
     <header class="holo-nav">
       <div class="container holo-nav-inner">
@@ -859,7 +981,7 @@
           <button type="button" class="bg-mode-btn" data-bg-mode="waves">🌊 Olas Cibernéticas</button>
         </div>
 
-        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20Showroom%20Hologr%C3%A1fico%203D%20y%20quiero%20cotizar%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-neon btn-neon-primary" style="padding:10px 18px;font-size:0.84rem;">
+        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20Showroom%20Hologr%C3%A1fico%203D%20y%20quiero%20cotizar%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-neon btn-neon-primary holo-nav-wa" style="padding:10px 18px;font-size:0.84rem;width:auto;">
           <span>💬 WhatsApp · 443 143 3732</span>
         </a>
       </div>
@@ -894,11 +1016,17 @@
         <!-- ESCENARIO HOLOGRÁFICO 3D INTERACTIVO -->
         <div class="holo-stage-wrapper">
           <div class="holo-stage-header">
-            <div style="display:flex;align-items:center;gap:10px;">
-              <span style="width:10px;height:10px;border-radius:50%;background:#00f2fe;box-shadow:0 0 12px #00f2fe;display:inline-block;"></span>
-              <strong style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--neon-cyan);">
-                 Escenario Holográfico en Vivo · Toca cualquier sistema para proyectarlo:
-              </strong>
+            <div class="holo-stage-toprow">
+              <div style="display:flex;align-items:center;gap:10px;min-width:0;">
+                <span style="width:10px;height:10px;border-radius:50%;background:#00f2fe;box-shadow:0 0 12px #00f2fe;display:inline-block;flex-shrink:0;"></span>
+                <strong style="font-family:var(--font-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--neon-cyan);">
+                  Escenario Holográfico en Vivo · Toca cualquier sistema:
+                </strong>
+              </div>
+              <div class="holo-stage-arrows">
+                <button type="button" class="holo-arrow-btn" id="holoPrevBtn" aria-label="Sistema anterior">← Anterior</button>
+                <button type="button" class="holo-arrow-btn" id="holoNextBtn" aria-label="Siguiente sistema">Siguiente →</button>
+              </div>
             </div>
             <div class="holo-stage-nav" id="holoStageTabs"></div>
           </div>
@@ -915,7 +1043,7 @@
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
             <div>
               <span class="holo-sector-badge">🧮 SIMULADOR DE BENEFICIOS EN TIEMPO REAL</span>
-              <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);margin-top:8px;">
+              <h2 style="font-family:var(--font-display);font-size:clamp(1.45rem,3vw,2.3rem);margin-top:8px;line-height:1.15;">
                 Desliza y descubre cuánto ganas al automatizar tu negocio
               </h2>
             </div>
@@ -997,14 +1125,14 @@
         <div class="quoter-shell">
           <div>
             <span class="holo-sector-badge">💎 CONFIGURADOR DE INVERSIÓN AL INSTANTE</span>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);margin:10px 0;">
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.65rem,3vw,2.6rem);margin:10px 0;line-height:1.15;">
               Arma tu presupuesto en 30 segundos
             </h2>
             <p style="color:var(--text-Light);margin-bottom:22px;font-size:0.95rem;">
               Como la base tecnológica ya está creada y probada, te entrego tu sistema personalizado con tu logotipo y tu propio dominio <code>.com</code> en semanas, no meses.
             </p>
 
-            <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
+            <label for="holoSelectPlatform" style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
               1. ELIGE EL SISTEMA DE REFERENCIA
             </label>
             <select id="holoSelectPlatform" class="holo-select"></select>
@@ -1027,21 +1155,21 @@
               </div>
             </div>
 
-            <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
+            <label for="holoClientName" style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
               3. TU NOMBRE O EL DE TU NEGOCIO
             </label>
             <input type="text" id="holoClientName" class="holo-input" placeholder="Ej. Dra. Sofía / Pizzería Roma / Transportes del Norte" />
           </div>
 
-          <div style="background:rgba(3,5,12,0.85);border:1px solid rgba(0,242,254,0.45);border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+          <div class="quoter-summary-box">
             <div>
               <span class="holo-sector-badge">⚡ RESUMEN DE TU PROPUESTA</span>
-              <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:1.75rem;margin:10px 0 4px;"></h3>
-              <p id="holoQuoteDomain" style="font-family:var(--font-mono);font-size:0.82rem;color:#10b981;margin-bottom:18px;"></p>
+              <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:clamp(1.35rem,2.4vw,1.75rem);margin:10px 0 4px;line-height:1.2;"></h3>
+              <p id="holoQuoteDomain" style="font-family:var(--font-mono);font-size:0.8rem;color:#10b981;margin-bottom:16px;word-break:break-all;"></p>
 
               <div style="padding:16px 0;border-top:1px solid var(--border-glass);border-bottom:1px solid var(--border-glass);margin-bottom:18px;">
                 <div style="font-size:0.82rem;color:var(--text-Light);" id="holoQuoteModeLabel">Inversión Estimada:</div>
-                <div id="holoQuotePrice" style="font-family:var(--font-display);font-size:2.7rem;font-weight:800;color:var(--neon-cyan);line-height:1.1;margin:6px 0;"></div>
+                <div id="holoQuotePrice" style="font-family:var(--font-display);font-size:2.6rem;font-weight:800;color:var(--neon-cyan);line-height:1.1;margin:6px 0;"></div>
                 <div id="holoQuoteSub" style="font-size:0.84rem;color:#10b981;font-weight:600;"></div>
               </div>
 
@@ -1260,7 +1388,6 @@
             document.querySelectorAll('[data-bg-mode]').forEach((b) => b.classList.remove('active'));
             btn.classList.add('active');
             bgMode = btn.getAttribute('data-bg-mode');
-            // Restaurar posiciones base al cambiar de modo
             const posAttr = partGeo.attributes.position;
             for (let i = 0; i < basePositions.length; i++) {
               posAttr.array[i] = basePositions[i];
@@ -1313,7 +1440,7 @@
               <span class="vfx-shot-live-dot"></span>
               <span>${media.liveToast}</span>
             </div>
-            <div style="padding:14px;">
+            <div class="holo-screen-inner" style="padding:14px;">
               ${window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : ''}
             </div>
           </div>
@@ -1346,11 +1473,11 @@
                 </div>
               </div>
 
-              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <div class="holo-stage-actions" style="display:flex;gap:10px;flex-wrap:wrap;">
                 <button type="button" class="btn-neon btn-neon-primary" style="flex:1;" onclick="window.openVfxLightbox('${p.id}', 'live')">
                   ▶ Probar Página en Vivo
                 </button>
-                <button type="button" class="btn-neon btn-neon-glass" onclick="window.selectHoloQuote('${p.id}')">
+                <button type="button" class="btn-neon btn-neon-glass" style="flex:1;" onclick="window.selectHoloQuote('${p.id}')">
                   💎 Cotizar Este Sistema
                 </button>
               </div>
@@ -1408,7 +1535,7 @@
               <article class="holo-card">
                 <img src="${media.backdrop}" alt="" class="holo-card-backdrop" loading="lazy" />
                 <div class="holo-card-visual">
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                  <div class="holo-card-visual-top">
                     <span class="holo-sector-badge">${p.sectorLabel}</span>
                     <span style="font-family:var(--font-mono);font-size:11px;color:#10b981;font-weight:700;">
                       ● ${p.displayDomain}
@@ -1419,10 +1546,10 @@
 
                 <div class="holo-card-body">
                   <div>
-                    <div style="font-size:11.5px;color:var(--neon-cyan);font-weight:700;margin-bottom:6px;">
+                    <div style="font-size:11.5px;color:var(--neon-cyan);font-weight:700;margin-bottom:6px;line-height:1.35;">
                       ${media.liveToast}
                     </div>
-                    <h3 style="font-family:var(--font-display);font-size:1.38rem;margin-bottom:6px;">
+                    <h3 style="font-family:var(--font-display);font-size:1.32rem;margin-bottom:6px;line-height:1.2;">
                       ${p.name}
                     </h3>
                     <p style="font-size:0.88rem;color:var(--text-Light);margin-bottom:10px;">
@@ -1449,12 +1576,12 @@
                       </div>
                     </div>
 
-                    <div style="display:flex;gap:8px;">
+                    <div class="holo-card-actions" style="display:flex;gap:8px;">
                       <button type="button" class="btn-neon btn-neon-glass" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.openVfxLightbox('${p.id}', 'live')">
                         ▶ Ver en Vivo
                       </button>
                       <button type="button" class="btn-neon btn-neon-primary" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.selectHoloQuote('${p.id}')">
-                        Quiero uno así
+                        💎 Quiero uno así
                       </button>
                     </div>
                   </div>
@@ -1484,7 +1611,7 @@
         if (!sel || !platforms.length) return;
 
         sel.innerHTML = platforms
-          .map((p) => `<option value="${p.id}">${p.name} (${p.displayDomain})</option>`)
+          .map((p, idx) => `<option value="${p.id}">0${idx + 1} · ${p.name.split('·')[0].trim()} (${p.displayDomain})</option>`)
           .join('');
 
         function updateQuote() {
@@ -1532,7 +1659,7 @@
           const p = platforms.find((x) => x.id === sel.value) || platforms[0];
           const client = document.getElementById('holoClientName').value.trim() || 'Interesado';
           const priceTxt = document.getElementById('holoQuotePrice').textContent;
-          const msg = `¡Hola Andrés! 👋 Soy *${client}*.\n\nVi tu *Showroom Holográfico 3D (Opción 5)* y me interesa cotizar:\n• *Sistema Base:* ${p.name} (${p.displayDomain})\n• *Modalidad:* ${selectedPlan.toUpperCase()} (${priceTxt})\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
+          const msg = `¡Hola Andrés! 👋 Soy *${client}*.\n\nVi tu *Showroom Holográfico 3D* y me interesa cotizar:\n• *Sistema Base:* ${p.name} (${p.displayDomain})\n• *Modalidad:* ${selectedPlan.toUpperCase()} (${priceTxt})\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
           window.open(`https://wa.me/524431433732?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
@@ -1554,6 +1681,23 @@
         initImpactCalculator();
         renderHoloCards();
         initHoloQuoter();
+
+        const prevBtn = document.getElementById('holoPrevBtn');
+        const nextBtn = document.getElementById('holoNextBtn');
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', () => {
+            const total = (window.PLATFORMS || []).length || 9;
+            activeStageIdx = (activeStageIdx - 1 + total) % total;
+            clearInterval(stageInterval);
+            renderHoloStage();
+          });
+          nextBtn.addEventListener('click', () => {
+            const total = (window.PLATFORMS || []).length || 9;
+            activeStageIdx = (activeStageIdx + 1) % total;
+            clearInterval(stageInterval);
+            renderHoloStage();
+          });
+        }
 
         // Auto-avance suave del escenario holográfico cada 7 segundos
         stageInterval = setInterval(() => {
