@@ -85,18 +85,18 @@
             <span class="vfx-shot-live-dot"></span>
             ${p.displayDomain}
           </span>
-          <span style="font-size:10px;opacity:0.85;">✓ Ya funcionando</span>
+          <span class="vfx-shot-status" style="font-size:10px;opacity:0.85;">✓ En línea</span>
         </div>
         <div class="vfx-shot-img-wrap" ${heightStyle}>
           <img src="${shot}" alt="Pantalla real de ${p.name}" loading="lazy" />
-          <div class="vfx-shot-overlay">
-            <button type="button" class="vfx-shot-cta primary" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'live')">
-              ▶ Ver Página en Vivo / Celular
-            </button>
-            <button type="button" class="vfx-shot-cta" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'shot')">
-              🔍 Ver Imagen Grande
-            </button>
-          </div>
+        </div>
+        <div class="vfx-shot-overlay">
+          <button type="button" class="vfx-shot-cta primary" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'live')">
+            ▶ Ver Página en Vivo
+          </button>
+          <button type="button" class="vfx-shot-cta" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'shot')">
+            🔍 Ampliar Pantalla
+          </button>
         </div>
       </div>
     `;

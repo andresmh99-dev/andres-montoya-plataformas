@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrés Montoya Hernández — Catálogo Visual &amp; Matriz Interactiva (Opción 3 · Swiss Grid)</title>
-  <meta name="description" content="Catálogo Arquitectónico e Interactivo de 9 Plataformas en Producción por Andrés Montoya Hernández. Capturas reales, simulador IA en vivo y cotizador." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Andrés Montoya Hernández — Catálogo de Sistemas y Páginas para Negocios</title>
+  <meta name="description" content="Catálogo interactivo de 9 plataformas digitales reales en funcionamiento desarrolladas por Andrés Montoya Hernández para negocios, clínicas, restaurantes, empresas y familias." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -30,70 +30,81 @@
       --font-mono: 'IBM Plex Mono', monospace;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; background: var(--bg-stone); color: var(--ink); font-family: var(--font-sans); }
-    body { background: var(--bg-stone); color: var(--ink); line-height: 1.5; overflow-x: hidden; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-stone);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--bg-stone);
+      color: var(--ink);
+      line-height: 1.5;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
     a { color: inherit; text-decoration: none; }
 
-    /* TOP DESIGN SWITCHER BAR */
-    .design-switcher-bar {
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      background: #111311;
-      color: #F2EFE9;
-      border-bottom: 1px solid #2E332E;
-      padding: 8px 16px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-    }
-    .design-switcher-inner {
-      max-width: 1440px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .design-switcher-label {
-      color: #A3ACA2;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .design-switcher-links { display: flex; gap: 6px; flex-wrap: wrap; }
-    .design-switcher-link {
-      padding: 5px 11px;
-      border: 1px solid #353B35;
-      color: #D0D5CE;
-      font-weight: 500;
-      transition: all 0.15s ease;
-    }
-    .design-switcher-link:hover { background: #232823; color: #FFFFFF; }
-    .design-switcher-link.active {
-      background: var(--terracotta);
-      border-color: var(--terracotta);
-      color: #FFFFFF;
-      font-weight: 600;
+    /* Prevent any Grid or Flex child from expanding past mobile viewport */
+    .swiss-wrapper,
+    .arch-topbar,
+    .arch-cell,
+    .hero-grid,
+    .hero-main,
+    .hero-telemetry,
+    .telemetry-row,
+    .section-bar,
+    .section-bar-num,
+    .section-bar-title,
+    .section-bar-meta,
+    .workbench-grid,
+    .master-list-wrap,
+    .master-list,
+    .master-item,
+    .detail-stage,
+    .stage-pricing-strip,
+    .price-col,
+    .matrix-table-wrap,
+    .quote-grid,
+    .quote-config,
+    .quote-sheet,
+    .blueprint-receipt {
+      min-width: 0;
+      max-width: 100%;
     }
 
     .swiss-wrapper {
+      width: 100%;
       max-width: 1440px;
       margin: 0 auto;
       border-left: 1px solid var(--line);
       border-right: 1px solid var(--line);
       background: var(--bg-stone);
+      overflow-x: hidden;
     }
 
+    /* HEADER / TOPBAR */
     .arch-topbar {
       display: grid;
-      grid-template-columns: 280px 1fr 320px;
+      grid-template-columns: 280px minmax(0, 1fr) 310px;
       border-bottom: 1px solid var(--line);
       background: var(--bg-paper);
     }
     .arch-cell {
-      padding: 18px 24px;
+      padding: 16px 24px;
       border-right: 1px solid var(--line);
       display: flex;
       flex-direction: column;
@@ -118,7 +129,7 @@
     .arch-nav {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
       flex-wrap: wrap;
       font-family: var(--font-mono);
       font-size: 12px;
@@ -128,6 +139,7 @@
     .arch-nav a:hover { color: var(--terracotta); }
     .arch-cta-box {
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
@@ -139,11 +151,11 @@
     /* HERO BLUEPRINT */
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
       border-bottom: 1px solid var(--line);
     }
     .hero-main {
-      padding: 46px 44px;
+      padding: 44px 40px;
       border-right: 1px solid var(--line);
       display: flex;
       flex-direction: column;
@@ -157,22 +169,30 @@
       font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       padding: 6px 12px;
       border: 1px solid var(--line);
       background: var(--bg-paper);
       width: fit-content;
-      margin-bottom: 22px;
+      max-width: 100%;
+      margin-bottom: 20px;
     }
-    .status-square { width: 8px; height: 8px; background: var(--terracotta); display: inline-block; }
+    .status-square {
+      width: 8px;
+      height: 8px;
+      background: var(--terracotta);
+      display: inline-block;
+      flex-shrink: 0;
+    }
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 4.2vw, 3.85rem);
+      font-size: clamp(2.1rem, 4.2vw, 3.8rem);
       font-weight: 700;
-      line-height: 0.98;
-      letter-spacing: -0.035em;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
       text-transform: uppercase;
       margin-bottom: 18px;
+      overflow-wrap: break-word;
     }
     .hero-title span {
       color: var(--terracotta);
@@ -186,20 +206,26 @@
       color: var(--ink-secondary);
       margin-bottom: 28px;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
     .btn-swiss {
       font-family: var(--font-mono);
       font-size: 12.5px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       padding: 13px 20px;
       border: 1px solid var(--line);
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 8px;
       cursor: pointer;
       transition: all 0.15s ease;
+      text-align: center;
     }
     .btn-swiss.primary {
       background: var(--terracotta);
@@ -220,7 +246,7 @@
       background: var(--bg-paper);
     }
     .telemetry-row {
-      padding: 18px 26px;
+      padding: 18px 24px;
       border-bottom: 1px solid var(--line);
       display: flex;
       flex-direction: column;
@@ -232,26 +258,27 @@
       font-size: 11px;
       color: var(--ink-muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin-bottom: 2px;
     }
     .telemetry-val {
       font-family: var(--font-display);
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 700;
       letter-spacing: -0.03em;
     }
     .telemetry-sub { font-size: 0.82rem; color: var(--ink-secondary); }
 
+    /* SECTION BARS */
     .section-bar {
       display: grid;
-      grid-template-columns: 180px 1fr 340px;
+      grid-template-columns: 170px minmax(0, 1fr) 330px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: var(--bg-paper);
     }
     .section-bar-num {
-      padding: 18px 24px;
+      padding: 16px 22px;
       border-right: 1px solid var(--line);
       font-family: var(--font-mono);
       font-size: 13px;
@@ -262,15 +289,15 @@
       align-items: center;
     }
     .section-bar-title {
-      padding: 18px 28px;
+      padding: 16px 24px;
       border-right: 1px solid var(--line);
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
       text-transform: uppercase;
     }
     .section-bar-meta {
-      padding: 18px 24px;
+      padding: 16px 22px;
       font-family: var(--font-mono);
       font-size: 11px;
       color: var(--ink-secondary);
@@ -278,6 +305,7 @@
       align-items: center;
     }
 
+    /* FILTER TOOLBAR */
     .filter-toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -285,7 +313,7 @@
       background: var(--bg-stone);
     }
     .filter-tab {
-      padding: 13px 20px;
+      padding: 13px 18px;
       border-right: 1px solid var(--line);
       font-family: var(--font-mono);
       font-size: 12px;
@@ -300,34 +328,51 @@
     }
     .filter-tab.active { background: var(--ink); color: #FFFFFF; }
 
+    /* WORKBENCH MASTER-DETAIL */
     .workbench-grid {
       display: grid;
-      grid-template-columns: 440px 1fr;
+      grid-template-columns: 420px minmax(0, 1fr);
       border-bottom: 1px solid var(--line);
     }
-    .master-list {
+    .master-list-wrap {
       border-right: 1px solid var(--line);
+      background: var(--bg-stone);
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-swipe-hint {
+      display: none;
+      padding: 8px 14px;
+      background: var(--amber-bg);
+      border-bottom: 1px solid var(--line);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--amber-ink);
+    }
+    .master-list {
       background: var(--bg-stone);
     }
     .master-item {
-      padding: 14px 18px;
+      padding: 14px 16px;
       border-bottom: 1px solid var(--line);
       cursor: pointer;
       display: grid;
-      grid-template-columns: 84px 1fr;
-      gap: 14px;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 12px;
       align-items: center;
       transition: background 0.15s;
     }
     .master-item:hover { background: var(--bg-paper); }
     .master-item.active { background: var(--bg-forest); color: #FFFFFF; }
     .master-thumb {
-      width: 84px;
-      height: 56px;
+      width: 80px;
+      height: 54px;
       border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--line);
       background: #000;
+      flex-shrink: 0;
     }
     .master-thumb img {
       width: 100%;
@@ -338,37 +383,77 @@
     }
     .master-item-title {
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+    .master-item-title span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .master-item-domain {
       font-family: var(--font-mono);
       font-size: 11px;
       color: var(--terracotta);
       font-weight: 600;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .master-item.active .master-item-domain { color: #FFB09C; }
     .master-item-prices {
       font-family: var(--font-mono);
       font-size: 11px;
-      margin-top: 4px;
+      margin-top: 3px;
       opacity: 0.9;
     }
 
+    /* DETAIL STAGE */
     .detail-stage {
       background: var(--bg-paper);
-      padding: 28px 34px;
+      padding: 28px 32px;
     }
+    .stage-top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--line-soft);
+    }
+    .stage-prev-next {
+      display: inline-flex;
+      gap: 6px;
+    }
+    .stage-nav-btn {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      background: var(--bg-stone);
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .stage-nav-btn:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
     .stage-pricing-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       border: 1px solid var(--line);
       background: var(--bg-stone);
       margin: 18px 0;
     }
-    .price-col { padding: 14px 18px; border-right: 1px solid var(--line); }
+    .price-col { padding: 14px 16px; border-right: 1px solid var(--line); }
     .price-col:last-child { border-right: none; background: var(--amber-bg); }
     .price-col-tag {
       font-family: var(--font-mono);
@@ -379,12 +464,34 @@
     }
     .price-col-amount {
       font-family: var(--font-display);
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 700;
     }
 
-    .matrix-table-wrap { overflow-x: auto; background: var(--bg-paper); }
-    table.swiss-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .stage-actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .stage-actions-right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* SECTION 02: COMPARATIVE MATRIX TABLE */
+    .matrix-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--bg-paper);
+    }
+    table.swiss-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
     table.swiss-table th {
       font-family: var(--font-mono);
       font-size: 11px;
@@ -401,12 +508,17 @@
     }
     .mono-cell { font-family: var(--font-mono); font-size: 12px; font-weight: 600; }
 
+    /* SECTION 03: QUOTE BUILDER */
     .quote-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
       border-bottom: 1px solid var(--line);
     }
-    .quote-config { padding: 34px 40px; border-right: 1px solid var(--line); background: var(--bg-paper); }
+    .quote-config {
+      padding: 32px 36px;
+      border-right: 1px solid var(--line);
+      background: var(--bg-paper);
+    }
     .form-block { margin-bottom: 22px; }
     .form-block-label {
       font-family: var(--font-mono);
@@ -418,13 +530,20 @@
     }
     .swiss-select, .swiss-input {
       width: 100%;
+      max-width: 100%;
       padding: 12px 14px;
       font-family: var(--font-mono);
       font-size: 13px;
       border: 1px solid var(--line);
       background: var(--bg-stone);
+      color: var(--ink);
+      text-overflow: ellipsis;
     }
-    .radio-strip { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+    .radio-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 1px solid var(--line);
+    }
     .radio-cell {
       padding: 12px;
       border-right: 1px solid var(--line);
@@ -435,23 +554,43 @@
     }
     .radio-cell:last-child { border-right: none; }
     .radio-cell.active { background: var(--bg-forest); color: #FFFFFF; }
-    .addons-checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .addons-checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
     .addon-box {
       border: 1px solid var(--line);
       padding: 10px 12px;
       background: var(--bg-stone);
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
+      gap: 10px;
       cursor: pointer;
       font-size: 0.84rem;
     }
-    .quote-sheet { padding: 34px 40px; background: var(--bg-stone); }
+    .addon-box-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      min-width: 0;
+      flex: 1;
+      line-height: 1.3;
+    }
+    .addon-box-label input {
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .quote-sheet {
+      padding: 32px 36px;
+      background: var(--bg-stone);
+    }
     .blueprint-receipt {
       border: 2px solid var(--line);
       background: #FFFFFF;
-      padding: 24px;
-      box-shadow: 6px 6px 0 var(--line);
+      padding: 22px;
+      box-shadow: 5px 5px 0 var(--line);
     }
     .receipt-head {
       border-bottom: 2px solid var(--line);
@@ -459,16 +598,24 @@
       margin-bottom: 14px;
       display: flex;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
       font-family: var(--font-mono);
       font-size: 11px;
     }
     .receipt-line {
       display: flex;
       justify-content: space-between;
-      padding: 7px 0;
+      align-items: baseline;
+      gap: 12px;
+      padding: 8px 0;
       border-bottom: 1px dashed var(--line-soft);
       font-family: var(--font-mono);
       font-size: 12px;
+    }
+    .receipt-line strong {
+      text-align: right;
+      overflow-wrap: anywhere;
     }
     .receipt-total-block {
       margin-top: 14px;
@@ -477,50 +624,162 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .receipt-total-val {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.95rem;
       font-weight: 700;
       color: var(--terracotta);
     }
+    .quote-actions-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
     .swiss-footer {
-      padding: 28px 40px;
+      padding: 26px 36px;
       background: var(--ink);
       color: #F2EFE9;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
       font-family: var(--font-mono);
       font-size: 12px;
     }
 
     .client-two-col {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
+    /* ==========================================================================
+       TABLET & MOBILE BREAKPOINTS (100% WIDTH, ZERO OVERFLOW, ZERO OFFSET)
+       ========================================================================== */
     @media (max-width: 1040px) {
-      .arch-topbar, .hero-grid, .section-bar, .workbench-grid, .quote-grid {
-        grid-template-columns: 1fr;
+      .arch-topbar,
+      .hero-grid,
+      .section-bar,
+      .workbench-grid,
+      .quote-grid {
+        grid-template-columns: minmax(0, 1fr);
       }
-      .arch-cell, .hero-main, .section-bar-num, .section-bar-title, .master-list, .quote-config {
+      .arch-cell,
+      .hero-main,
+      .section-bar-num,
+      .section-bar-title,
+      .master-list-wrap,
+      .quote-config {
         border-right: none;
         border-bottom: 1px solid var(--line);
       }
       .hero-telemetry {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-template-rows: auto;
       }
       .telemetry-row:nth-child(odd) {
         border-right: 1px solid var(--line);
       }
+
+      /* Horizontal Swipeable Platform Selector on Tablet & Mobile */
+      .mobile-swipe-hint {
+        display: block;
+      }
+      .master-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 10px;
+        padding: 12px 14px;
+      }
+      .master-item {
+        flex: 0 0 250px;
+        scroll-snap-align: start;
+        border: 1px solid var(--line);
+        background: var(--bg-paper);
+        padding: 10px 12px;
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 10px;
+      }
+      .master-thumb {
+        width: 64px;
+        height: 44px;
+      }
     }
 
+    /* Mobile Phones & Small Tablets (<= 768px): Convert Matrix Table into 100%-Width Cards */
+    @media (max-width: 768px) {
+      table.swiss-table thead {
+        display: none;
+      }
+      table.swiss-table,
+      table.swiss-table tbody {
+        display: block;
+        width: 100%;
+      }
+      table.swiss-table tr {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-bottom: 2px solid var(--line);
+        background: var(--bg-paper);
+      }
+      table.swiss-table td {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 12px;
+        border-right: 1px solid var(--line-soft);
+        border-bottom: 1px solid var(--line-soft);
+        font-size: 0.82rem;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      table.swiss-table td:nth-child(even) {
+        border-right: none;
+      }
+      table.swiss-table td::before {
+        content: attr(data-label);
+        font-family: var(--font-mono);
+        font-size: 9.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+      }
+      table.swiss-table td:nth-child(2) {
+        grid-column: span 2;
+        border-right: none;
+        background: var(--bg-stone);
+        font-size: 0.95rem;
+      }
+      table.swiss-table td:last-child {
+        grid-column: span 2;
+        border-right: none;
+        border-bottom: none;
+      }
+      table.swiss-table td:last-child .btn-swiss {
+        width: 100%;
+      }
+    }
+
+    /* Mobile Phones (<= 640px) */
     @media (max-width: 640px) {
-      .arch-cell { padding: 12px 16px; }
+      .swiss-wrapper {
+        border-left: none;
+        border-right: none;
+      }
+      .arch-cell {
+        padding: 11px 14px;
+      }
+      .brand-name {
+        font-size: 17px;
+      }
       .arch-nav {
         gap: 12px;
         flex-wrap: nowrap;
@@ -530,22 +789,64 @@
         padding-bottom: 2px;
       }
       .arch-nav::-webkit-scrollbar { display: none; }
-      .arch-nav a { flex-shrink: 0; white-space: nowrap; font-size: 11px; }
+      .arch-nav a {
+        flex-shrink: 0;
+        white-space: nowrap;
+        font-size: 11px;
+      }
 
-      .hero-main { padding: 24px 16px; }
-      .hero-index-tag { font-size: 10.5px; padding: 5px 10px; margin-bottom: 14px; }
-      .hero-title { font-size: clamp(1.85rem, 7.5vw, 2.45rem); line-height: 1.04; }
-      .hero-lead { font-size: 0.95rem; margin-bottom: 20px; }
-      .hero-actions { flex-direction: column; gap: 10px; }
-      .hero-actions .btn-swiss { width: 100%; justify-content: center; }
+      .hero-main {
+        padding: 20px 14px;
+      }
+      .hero-index-tag {
+        font-size: 10px;
+        padding: 5px 9px;
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+      .hero-title {
+        font-size: clamp(1.7rem, 7.2vw, 2.25rem);
+        line-height: 1.05;
+        margin-bottom: 12px;
+      }
+      .hero-lead {
+        font-size: 0.92rem;
+        margin-bottom: 18px;
+      }
+      .hero-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .btn-swiss,
+      .btn-swiss.primary,
+      .btn-swiss.secondary {
+        width: 100%;
+        box-shadow: 2px 2px 0 var(--line);
+        padding: 12px 14px;
+        font-size: 11.5px;
+      }
 
-      .hero-telemetry { grid-template-columns: 1fr; }
-      .telemetry-row:nth-child(odd) { border-right: none; }
-      .telemetry-row { padding: 14px 16px; }
-      .telemetry-val { font-size: 1.4rem; }
+      .hero-telemetry {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .telemetry-row:nth-child(odd) {
+        border-right: none;
+      }
+      .telemetry-row {
+        padding: 12px 14px;
+      }
+      .telemetry-val {
+        font-size: 1.35rem;
+      }
 
-      .section-bar-num, .section-bar-title, .section-bar-meta { padding: 12px 16px; }
-      .section-bar-title { font-size: 1.12rem; }
+      .section-bar-num,
+      .section-bar-title,
+      .section-bar-meta {
+        padding: 10px 14px;
+      }
+      .section-bar-title {
+        font-size: 1.08rem;
+      }
 
       .filter-toolbar {
         flex-wrap: nowrap;
@@ -554,46 +855,98 @@
         scrollbar-width: none;
       }
       .filter-toolbar::-webkit-scrollbar { display: none; }
-      .filter-tab { flex-shrink: 0; white-space: nowrap; padding: 11px 14px; font-size: 11px; }
-
-      .master-item { padding: 12px 14px; grid-template-columns: 72px 1fr; gap: 10px; }
-      .master-thumb { width: 72px; height: 48px; }
-      .master-item-title { font-size: 0.95rem; }
-
-      .detail-stage { padding: 20px 16px; }
-      .stage-pricing-strip, .radio-strip, .addons-checklist, .client-two-col {
-        grid-template-columns: 1fr;
+      .filter-tab {
+        flex-shrink: 0;
+        white-space: nowrap;
+        padding: 10px 13px;
+        font-size: 11px;
       }
-      .price-col, .radio-cell {
+
+      .master-item {
+        flex: 0 0 225px;
+        padding: 9px 10px;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 8px;
+      }
+      .master-thumb {
+        width: 56px;
+        height: 40px;
+      }
+      .master-item-title {
+        font-size: 0.88rem;
+      }
+      .master-item-prices {
+        font-size: 10px;
+      }
+
+      .detail-stage {
+        padding: 16px 14px;
+      }
+      .stage-pricing-strip,
+      .radio-strip,
+      .addons-checklist,
+      .client-two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .price-col,
+      .radio-cell {
         border-right: none;
         border-bottom: 1px solid var(--line);
+        padding: 11px 13px;
       }
-      .price-col:last-child, .radio-cell:last-child { border-bottom: none; }
+      .price-col:last-child,
+      .radio-cell:last-child {
+        border-bottom: none;
+      }
+      .price-col-amount {
+        font-size: 1.3rem;
+      }
 
-      .quote-config, .quote-sheet { padding: 22px 16px; }
-      .blueprint-receipt { padding: 16px; }
-      .receipt-head, .receipt-line { flex-wrap: wrap; gap: 4px; }
-      .receipt-total-block { flex-direction: column; align-items: flex-start; gap: 6px; }
-      .receipt-total-val { font-size: 1.65rem; }
-      .swiss-footer { padding: 22px 16px; }
+      .stage-actions-row,
+      .stage-actions-right,
+      .quote-actions-row {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+      }
+
+      .quote-config,
+      .quote-sheet {
+        padding: 18px 14px;
+      }
+      .swiss-select,
+      .swiss-input {
+        font-size: 12px;
+        padding: 10px 12px;
+      }
+      .blueprint-receipt {
+        padding: 14px;
+        box-shadow: 3px 3px 0 var(--line);
+      }
+      .receipt-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+      }
+      .receipt-line strong {
+        text-align: left;
+      }
+      .receipt-total-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .receipt-total-val {
+        font-size: 1.6rem;
+      }
+      .swiss-footer {
+        padding: 20px 14px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- BARRA DE CAMBIO ENTRE LAS 5 OPCIONES DE DISEÑO -->
-  <div class="design-switcher-bar">
-    <div class="design-switcher-inner">
-      <span class="design-switcher-label">Selector de Diseño (5 Propuestas Visuales):</span>
-      <div class="design-switcher-links">
-        <a href="index.html" class="design-switcher-link">Opción 1 · Dark Showroom</a>
-        <a href="opcion-2.html" class="design-switcher-link">Opción 2 · Editorial Light</a>
-        <a href="opcion-3.html" class="design-switcher-link active">Opción 3 · Swiss Grid Interactiva</a>
-        <a href="opcion-4.html" class="design-switcher-link">Opción 4 · Boutique Luxury</a>
-        <a href="opcion-5.html" class="design-switcher-link" style="border-color:#00f2fe;color:#00f2fe;">Opción 5 · Holográfica 3D &amp; Cosmos ✨</a>
-      </div>
-    </div>
-  </div>
 
   <div class="swiss-wrapper">
     <header class="arch-topbar">
@@ -623,19 +976,19 @@
         <div>
           <div class="hero-index-tag">
             <span class="status-square"></span>
-            09 SISTEMAS EN PRODUCCIÓN CON CAPTURAS Y DEMO EN VIVO
+            <span>09 SISTEMAS FUNCIONANDO HOY CON DEMO EN VIVO</span>
           </div>
           <h1 class="hero-title">
-            SISTEMAS PROBADOS EN CAMPO, LISTOS PARA <span>TU EMPRESA O NEGOCIO</span>.
+            SISTEMAS PROBADOS Y FUNCIONANDO, LISTOS PARA <span>TU EMPRESA O NEGOCIO</span>.
           </h1>
           <p class="hero-lead">
-            Explora visualmente mis <strong>9 plataformas reales operando en dominios <code>.com</code> y <code>.net</code></strong>.
-            Pruébalas en vivo y adquiere la tuya con tu marca en semanas.
+            Explora visualmente mis <strong>9 sistemas reales operando hoy en internet (<code>.com</code> y <code>.net</code>)</strong>.
+            Pruébalos en vivo desde tu celular o computadora y adquiere el tuyo con tu logotipo en pocas semanas.
           </p>
         </div>
         <div class="hero-actions">
-          <a href="#workbench" class="btn-swiss primary">EXPLORAR PANTALLAS EN VIVO ↓</a>
-          <a href="#cotizador" class="btn-swiss secondary">CALCULAR INVERSIÓN / RENTA</a>
+          <a href="#workbench" class="btn-swiss primary">EXPLORAR LOS 9 SISTEMAS EN VIVO ↓</a>
+          <a href="#cotizador" class="btn-swiss secondary">CALCULAR PRECIO / RENTA MENSUAL</a>
         </div>
       </div>
 
@@ -667,7 +1020,7 @@
     <div id="workbench" class="section-bar">
       <div class="section-bar-num">PASO [01 / 03]</div>
       <div class="section-bar-title">CONOCE LOS 9 SISTEMAS EN PANTALLA</div>
-      <div class="section-bar-meta">TOCA CUALQUIER OPCIÓN DE LA IZQUIERDA PARA VERLA A DETALLE</div>
+      <div class="section-bar-meta">TOCA CUALQUIER OPCIÓN PARA VER SU PANTALLA Y PRECIOS</div>
     </div>
 
     <div class="filter-toolbar" id="filterToolbar">
@@ -679,13 +1032,18 @@
     </div>
 
     <section class="workbench-grid">
-      <div class="master-list" id="masterList"></div>
+      <div class="master-list-wrap">
+        <div class="mobile-swipe-hint">
+          👉 Desliza las tarjetas hacia los lados y toca cualquiera para ver su pantalla abajo:
+        </div>
+        <div class="master-list" id="masterList"></div>
+      </div>
       <div class="detail-stage" id="detailStage"></div>
     </section>
 
     <!-- SECCIÓN 02: MATRIZ COMPARATIVA -->
     <div id="matriz" class="section-bar">
-      <div class="section-bar-num">SECCIÓN [02 / 03]</div>
+      <div class="section-bar-num">PASO [02 / 03]</div>
       <div class="section-bar-title">COMPARATIVA RÁPIDA DE LAS 9 PLATAFORMAS</div>
       <div class="section-bar-meta">PAGO ÚNICO · RENTA MENSUAL · TARIFA FAMILIAR</div>
     </div>
@@ -710,7 +1068,7 @@
 
     <!-- SECCIÓN 03: COTIZADOR -->
     <div id="cotizador" class="section-bar">
-      <div class="section-bar-num">SECCIÓN [03 / 03]</div>
+      <div class="section-bar-num">PASO [03 / 03]</div>
       <div class="section-bar-title">GENERADOR DE PRESUPUESTO</div>
       <div class="section-bar-meta">ENVÍA POR WHATSAPP O IMPRIME EN PDF</div>
     </div>
@@ -727,15 +1085,15 @@
           <div class="radio-strip" id="qSchemeGroup">
             <div class="radio-cell active" data-scheme="unico">
               <strong>PAGO ÚNICO</strong>
-              <div style="font-size:11px;opacity:0.8;">Código 100% tuyo</div>
+              <div style="font-size:11px;opacity:0.8;">Es 100% tuyo sin rentas</div>
             </div>
             <div class="radio-cell" data-scheme="renta">
               <strong>RENTA MENSUAL</strong>
-              <div style="font-size:11px;opacity:0.8;">Setup bajo + Soporte</div>
+              <div style="font-size:11px;opacity:0.8;">Inversión baja + Soporte</div>
             </div>
             <div class="radio-cell" data-scheme="familiar">
               <strong>FAMILIAR / AMIGO</strong>
-              <div style="font-size:11px;opacity:0.8;">Descuento -38%</div>
+              <div style="font-size:11px;opacity:0.8;">Descuento especial -38%</div>
             </div>
           </div>
         </div>
@@ -744,19 +1102,31 @@
           <label class="form-block-label">3. FUNCIONES ADICIONALES QUE TE INTERESAN</label>
           <div class="addons-checklist" id="qAddons">
             <label class="addon-box">
-              <span><input type="checkbox" value="4500" data-name="WhatsApp que contesta audios y mensajes" /> WhatsApp Automático + Audios</span>
+              <span class="addon-box-label">
+                <input type="checkbox" value="4500" data-name="WhatsApp que contesta audios y mensajes" />
+                <span>WhatsApp Automático + Audios</span>
+              </span>
               <span class="mono-cell">+$4,500</span>
             </label>
             <label class="addon-box">
-              <span><input type="checkbox" value="3500" data-name="Cobros con tarjeta y transferencia" /> Cobros con Tarjeta</span>
+              <span class="addon-box-label">
+                <input type="checkbox" value="3500" data-name="Cobros con tarjeta y transferencia" />
+                <span>Cobros con Tarjeta</span>
+              </span>
               <span class="mono-cell">+$3,500</span>
             </label>
             <label class="addon-box">
-              <span><input type="checkbox" value="4800" data-name="Facturación automática" /> Facturación Automática</span>
+              <span class="addon-box-label">
+                <input type="checkbox" value="4800" data-name="Facturación automática" />
+                <span>Facturación Automática</span>
+              </span>
               <span class="mono-cell">+$4,800</span>
             </label>
             <label class="addon-box">
-              <span><input type="checkbox" value="2800" data-name="Se instala como App en el celular" /> App para Celular</span>
+              <span class="addon-box-label">
+                <input type="checkbox" value="2800" data-name="Se instala como App en el celular" />
+                <span>App para Celular</span>
+              </span>
               <span class="mono-cell">+$2,800</span>
             </label>
           </div>
@@ -776,8 +1146,8 @@
 
       <div class="quote-sheet">
         <div class="blueprint-receipt" id="receiptBox"></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-          <button type="button" id="btnSendWa" class="btn-swiss primary" style="flex:1;justify-content:center;">
+        <div class="quote-actions-row">
+          <button type="button" id="btnSendWa" class="btn-swiss primary" style="flex:1;">
             ENVIAR POR WHATSAPP (443 143 3732) ↗
           </button>
           <button type="button" id="btnPrintSpec" class="btn-swiss secondary">
@@ -789,7 +1159,7 @@
 
     <footer class="swiss-footer">
       <div>
-        <strong>ANDRÉS MONTOYA HERNÁNDEZ</strong> · ARQUITECTO DE PLATAFORMAS DIGITALES &amp; IA · MORELIA / MÉXICO
+        <strong>ANDRÉS MONTOYA HERNÁNDEZ</strong> · CREADOR DE PLATAFORMAS Y SISTEMAS DIGITALES · MORELIA / MÉXICO
       </div>
       <div>
         WHATSAPP DIRECTO: <a href="https://wa.me/524431433732" style="color:#FFB09C;text-decoration:underline;">+52 443 143 3732</a>
@@ -809,6 +1179,7 @@
       if (!platforms.length) return;
 
       const fmt = (n) => '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+      const fmtShort = (n) => '$' + Math.round(n).toLocaleString('es-MX');
       let activeCategory = 'todos';
       let selectedPlatformId = platforms[0].id;
       let selectedScheme = 'unico';
@@ -837,14 +1208,14 @@
                 <div class="master-thumb">
                   <img src="${p.screenshot}" alt="${p.name}" loading="lazy" />
                 </div>
-                <div>
+                <div style="min-width:0;">
                   <div class="master-item-title">
                     <span>${p.name.split('·')[0].trim()}</span>
                     <span>→</span>
                   </div>
                   <div class="master-item-domain">● ${p.displayDomain}</div>
                   <div class="master-item-prices">
-                    Único: <strong>${fmt(p.basePrice)}</strong> · Renta: <strong>${fmt(p.monthlyFee)}/m</strong>
+                    Único: <strong>${fmtShort(p.basePrice)}</strong> · Renta: <strong>${fmtShort(p.monthlyFee)}/m</strong>
                   </div>
                 </div>
               </div>
@@ -857,77 +1228,102 @@
             selectedPlatformId = item.getAttribute('data-id');
             renderMasterList();
             renderDetailStage();
-            if (window.innerWidth <= 1040 && detailStageEl) {
-              detailStageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const activeEl = masterListEl.querySelector('.master-item.active');
+            if (activeEl && activeEl.scrollIntoView) {
+              activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
           });
         });
       }
 
+      function stepPlatform(delta) {
+        const list = getFilteredPlatforms();
+        const curIdx = list.findIndex((p) => p.id === selectedPlatformId);
+        const nextIdx = (curIdx + delta + list.length) % list.length;
+        selectedPlatformId = list[nextIdx].id;
+        renderMasterList();
+        renderDetailStage();
+        const activeEl = masterListEl.querySelector('.master-item.active');
+        if (activeEl && activeEl.scrollIntoView) {
+          activeEl.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+      }
+
       function renderDetailStage() {
+        const list = getFilteredPlatforms();
         const p = platforms.find((item) => item.id === selectedPlatformId) || platforms[0];
         const globalIdx = String(platforms.indexOf(p) + 1).padStart(2, '0');
+        const posInList = list.findIndex((item) => item.id === p.id) + 1;
         const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
         const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
         const kpis = p.visualKpis || p.highlights.slice(0, 3);
         const frameHtml = window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : '';
         const waMsg = encodeURIComponent(
-          `Hola Andrés, vi la pantalla [SYS-${globalIdx}] de "${p.name}" (${p.displayDomain}) y me gustaría cotizar una plataforma similar.`
+          `Hola Andrés, vi la pantalla [SYS-${globalIdx}] de "${p.name}" (${p.displayDomain}) y me gustaría cotizar un sistema parecido para mí.`
         );
 
         detailStageEl.innerHTML = `
           <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;padding:4px 10px;background:var(--ink);color:#fff;">
-                SYS-${globalIdx} // ${p.sectorLabel.toUpperCase()}
-              </span>
-              <a href="${p.liveUrl}" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--moss);text-decoration:underline;">
-                ● ${p.displayDomain} ↗
-              </a>
+            <div class="stage-top-nav">
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                <span style="font-family:var(--font-mono);font-size:11px;font-weight:700;padding:4px 9px;background:var(--ink);color:#fff;">
+                  SISTEMA ${posInList} DE ${list.length}
+                </span>
+                <a href="${p.liveUrl}" target="_blank" rel="noopener" style="font-family:var(--font-mono);font-size:11.5px;font-weight:700;color:var(--moss);text-decoration:underline;">
+                  ● ${p.displayDomain} ↗
+                </a>
+              </div>
+              <div class="stage-prev-next">
+                <button type="button" class="stage-nav-btn" id="btnPrevSys">← Anterior</button>
+                <button type="button" class="stage-nav-btn" id="btnNextSys">Siguiente →</button>
+              </div>
             </div>
 
-            <h2 style="font-family:var(--font-display);font-size:2rem;line-height:1.1;margin-bottom:6px;">${p.name}</h2>
-            <p style="color:var(--ink-secondary);margin-bottom:12px;font-size:0.98rem;">${p.shortPitch || p.tagline}</p>
+            <div style="font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--terracotta);text-transform:uppercase;margin-bottom:4px;">
+              ${p.sectorLabel}
+            </div>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.45rem,3vw,2rem);line-height:1.12;margin-bottom:6px;">${p.name}</h2>
+            <p style="color:var(--ink-secondary);margin-bottom:12px;font-size:0.95rem;">${p.shortPitch || p.tagline}</p>
 
-            <div class="vfx-kpi-row" style="margin-bottom:16px;">
+            <div class="vfx-kpi-row" style="margin-bottom:14px;">
               ${kpis.map((k) => `<span class="vfx-kpi-pill" style="background:#fff;border-color:var(--line);">${k}</span>`).join('')}
             </div>
 
-            <!-- PANTALLA REAL INTERACTIVA CON TILT 3D -->
-            <div style="margin-bottom:18px;">
+            <!-- PANTALLA REAL INTERACTIVA -->
+            <div style="margin-bottom:16px;">
               ${frameHtml}
             </div>
 
             <div class="stage-pricing-strip">
               <div class="price-col">
-                <div class="price-col-tag">PAGO ÚNICO (LLAVE EN MANO)</div>
+                <div class="price-col-tag">PAGO ÚNICO (SIN RENTAS)</div>
                 <div class="price-col-amount">${fmt(p.basePrice)}</div>
               </div>
               <div class="price-col">
                 <div class="price-col-tag">PLAN RENTA MENSUAL</div>
-                <div class="price-col-amount">${fmt(p.monthlyFee)}<span style="font-size:0.85rem;">/mes</span></div>
+                <div class="price-col-amount">${fmt(p.monthlyFee)}<span style="font-size:0.82rem;">/mes</span></div>
               </div>
               <div class="price-col">
                 <div class="price-col-tag" style="color:var(--amber-ink);">FAMILIAR / AMIGO (-38%)</div>
-                <div class="price-col-amount" style="color:var(--terracotta);">${fmt(famPrice)} <span style="font-size:0.8rem;">o ${fmt(famMonthly)}/m</span></div>
+                <div class="price-col-amount" style="color:var(--terracotta);">${fmt(famPrice)} <span style="font-size:0.78rem;">o ${fmtShort(famMonthly)}/m</span></div>
               </div>
             </div>
 
-            <details class="vfx-details-drawer" style="margin-bottom:18px;">
-              <summary>➕ Ver módulos incluidos y arquitectura técnica (${p.codeReadyPct}% listo)</summary>
+            <details class="vfx-details-drawer" style="margin-bottom:16px;">
+              <summary>➕ ¿Para quién sirve y qué incluye este sistema?</summary>
               <div class="vfx-details-content">
                 <p style="margin-bottom:8px;"><strong>Ideal para:</strong> ${p.idealFor}</p>
                 <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
-                  ${p.stack.map((s) => `<span style="font-family:var(--font-mono);font-size:11px;padding:3px 8px;border:1px solid var(--line);background:#fff;">${s}</span>`).join('')}
+                  ${p.stack.map((s) => `<span style="font-family:var(--font-mono);font-size:11px;padding:3px 8px;border:1px solid var(--line);background:#fff;">✓ ${s}</span>`).join('')}
                 </div>
               </div>
             </details>
 
-            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <div class="stage-actions-row">
               <button type="button" class="btn-swiss secondary" onclick="window.openVfxLightbox('${p.id}', 'live')">
-                ▶ PROBAR SITIO EN VIVO / CELULAR
+                ▶ ABRIR SITIO EN VIVO / CELULAR
               </button>
-              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <div class="stage-actions-right">
                 <button type="button" class="btn-swiss secondary" id="btnStageToQuote">
                   COTIZAR AQUÍ ↓
                 </button>
@@ -938,6 +1334,9 @@
             </div>
           </div>
         `;
+
+        document.getElementById('btnPrevSys').addEventListener('click', () => stepPlatform(-1));
+        document.getElementById('btnNextSys').addEventListener('click', () => stepPlatform(1));
 
         const btnToQuote = document.getElementById('btnStageToQuote');
         if (btnToQuote) {
@@ -956,19 +1355,19 @@
             const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
             return `
               <tr>
-                <td class="mono-cell" style="color:var(--terracotta);">${code}</td>
-                <td><strong>${p.name}</strong></td>
-                <td class="mono-cell">
+                <td data-label="Código" class="mono-cell" style="color:var(--terracotta);">${code}</td>
+                <td data-label="Sistema"><strong>${p.name}</strong></td>
+                <td data-label="Sitio Real" class="mono-cell">
                   <a href="${p.liveUrl}" target="_blank" rel="noopener" style="text-decoration:underline;color:var(--moss);">
                     ${p.displayDomain} ↗
                   </a>
                 </td>
-                <td class="mono-cell">${p.timeEstimate}</td>
-                <td class="mono-cell">${fmt(p.basePrice)}</td>
-                <td class="mono-cell">${fmt(p.monthlyFee)}/mes</td>
-                <td class="mono-cell" style="background:var(--amber-bg);color:var(--terracotta);">${fmt(famPrice)}</td>
-                <td>
-                  <button type="button" class="btn-swiss secondary" style="padding:6px 10px;font-size:11px;" onclick="window.openVfxLightbox('${p.id}', 'shot')">
+                <td data-label="Entrega" class="mono-cell">${p.timeEstimate}</td>
+                <td data-label="Pago Único" class="mono-cell">${fmt(p.basePrice)}</td>
+                <td data-label="Renta Mensual" class="mono-cell">${fmt(p.monthlyFee)}/mes</td>
+                <td data-label="Familiar (-38%)" class="mono-cell" style="background:var(--amber-bg);color:var(--terracotta);">${fmt(famPrice)}</td>
+                <td data-label="Acción">
+                  <button type="button" class="btn-swiss secondary" style="padding:7px 10px;font-size:11px;" onclick="window.openVfxLightbox('${p.id}', 'shot')">
                     🔍 VER PANTALLA
                   </button>
                 </td>
@@ -980,7 +1379,7 @@
 
       function initQuoteBuilder() {
         qPlatformEl.innerHTML = platforms
-          .map((p, idx) => `<option value="${p.id}">[SYS-0${idx + 1}] ${p.name} (${p.displayDomain})</option>`)
+          .map((p, idx) => `<option value="${p.id}">0${idx + 1} · ${p.name.split('·')[0].trim()} (${p.displayDomain})</option>`)
           .join('');
 
         qPlatformEl.addEventListener('change', updateReceipt);
@@ -1026,19 +1425,19 @@
         const clientName = document.getElementById('qClientName').value.trim() || 'Por definir';
         const clientCity = document.getElementById('qClientCity').value.trim() || 'México';
 
-        let schemeLabel = 'Licencia Pago Único (Llave en Mano)';
+        let schemeLabel = 'Pago Único (El sistema es tuyo sin rentas)';
         let totalHeadline = '';
         let subDetail = '';
 
         if (selectedScheme === 'unico') {
           const total = p.basePrice + addonsSum;
           totalHeadline = fmt(total);
-          subDetail = `50% anticipo (${fmt(total / 2)}) · 50% contra entrega`;
+          subDetail = `50% anticipo (${fmt(total / 2)}) · 50% al entregarte funcionando`;
         } else if (selectedScheme === 'renta') {
           const setup = p.setupFee + Math.round(addonsSum * 0.5);
           schemeLabel = 'Plan Renta Mensual Todo Incluido';
           totalHeadline = `${fmt(p.monthlyFee)} / mes`;
-          subDetail = `Setup inicial de ${fmt(setup)} · Incluye servidor y soporte`;
+          subDetail = `Inscripción inicial de ${fmt(setup)} · Incluye internet y soporte`;
         } else {
           const famTotal = Math.round(((p.basePrice + addonsSum) * 0.62) / 100) * 100;
           const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
@@ -1070,11 +1469,11 @@
             <strong>${s.clientName} (${s.clientCity})</strong>
           </div>
           <div class="receipt-line">
-            <span>PLATAFORMA BASE:</span>
+            <span>SISTEMA BASE:</span>
             <strong>${s.platform.name}</strong>
           </div>
           <div class="receipt-line">
-            <span>DOMINIO DE REFERENCIA:</span>
+            <span>SITIO REAL DE REFERENCIA:</span>
             <strong>${s.platform.displayDomain}</strong>
           </div>
           <div class="receipt-line">
@@ -1082,7 +1481,7 @@
             <strong>${s.schemeLabel}</strong>
           </div>
           <div class="receipt-line">
-            <span>EXTRAS:</span>
+            <span>FUNCIONES INCLUIDAS:</span>
             <strong>${s.addonsList}</strong>
           </div>
           <div class="receipt-total-block">
