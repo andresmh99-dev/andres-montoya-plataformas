@@ -24,7 +24,8 @@
     },
     'lievitum-pizzalab': {
       screenshot: 'assets/screenshots/lievitum-pizzalab.png',
-      livePreviewUrl: 'https://www.lievitum.com',
+      livePreviewUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
+      allowIframe: false,
       shortPitch: 'Página atractiva para tu restaurante con menú interactivo con fotos, selector de sucursal y pedidos directos a WhatsApp.',
       visualKpis: ['🍕 Menú Digital con Fotos', '📍 Varias Sucursales', '📲 Pedidos a tu WhatsApp']
     },
