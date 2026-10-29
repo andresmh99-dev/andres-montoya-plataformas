@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrés Montoya Hernández | Showroom Holográfico 3D & Plataformas Interactivas (Opción 5)</title>
+  <meta name="description" content="Experiencia interactiva 3D con fondos animados WebGL, carrusel holográfico y demostraciones en vivo de las 9 plataformas digitales creadas por Andrés Montoya Hernández." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons, Three.js (3D WebGL Engine) & jsPDF -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <link rel="stylesheet" href="visual-fx.css" />
+
+  <style>
+    :root {
+      --bg-deep: #03050c;
+      --bg-panel: rgba(10, 15, 30, 0.72);
+      --bg-panel-solid: #0b1122;
+      --neon-cyan: #00f2fe;
+      --neon-blue: #4facfe;
+      --neon-purple: #a855f7;
+      --neon-pink: #ec4899;
+      --neon-emerald: #10b981;
+      --neon-amber: #f59e0b;
+      --text-white: #f8fafc;
+      --text-Light: #cbd5e1;
+      --text-dim: #94a3b8;
+      --border-glass: rgba(255, 255, 255, 0.12);
+      --border-neon: rgba(0, 242, 254, 0.45);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg-deep);
+      color: var(--text-white);
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ==========================================================================
+       1. LIVE 3D WEBGL CANVAS & CYBER AMBIENT BACKDROP
+       ========================================================================== */
+    #cosmosCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      display: block;
+    }
+
+    .cyber-vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, transparent 30%, rgba(3, 5, 12, 0.82) 100%);
+    }
+
+    .page-layer {
+      position: relative;
+      z-index: 2;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       2. TOP 5-OPTION DESIGN SWITCHER BAR
+       ========================================================================== */
+    .design-switcher-bar {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      background: rgba(3, 5, 12, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 242, 254, 0.25);
+      padding: 8px 18px;
+    }
+    .design-switcher-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .design-switcher-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--neon-cyan);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .design-switcher-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .design-switcher-link {
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+    }
+    .design-switcher-link:hover {
+      border-color: var(--neon-cyan);
+      color: #fff;
+    }
+    .design-switcher-link.active {
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 55%, #ec4899 100%);
+      border-color: transparent;
+      color: #fff;
+      font-weight: 800;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.45);
+    }
+
+    /* ==========================================================================
+       3. HOLOGRAPHIC NAVBAR & 3D BACKGROUND MODE SWITCHER
+       ========================================================================== */
+    .holo-nav {
+      border-bottom: 1px solid var(--border-glass);
+      background: rgba(6, 10, 22, 0.65);
+      backdrop-filter: blur(18px);
+    }
+    .holo-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+      gap: 16px;
+    }
+    .holo-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .holo-orb {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 50%, #ec4899 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.55);
+      position: relative;
+    }
+    .holo-brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+    .holo-brand-sub {
+      font-size: 0.75rem;
+      color: var(--neon-cyan);
+      display: block;
+    }
+
+    /* Live 3D Background Mode Switcher Pills */
+    .bg-mode-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.15);
+    }
+    .bg-mode-label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--neon-cyan);
+      padding: 0 8px;
+      font-weight: 700;
+    }
+    .bg-mode-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: var(--text-Light);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .bg-mode-btn.active {
+      background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+      color: #03050c;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.55);
+    }
+
+    .btn-neon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+    .btn-neon-primary {
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 55%, #ec4899 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 30px -5px rgba(0, 242, 254, 0.5);
+    }
+    .btn-neon-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 16px 40px -4px rgba(236, 72, 153, 0.65);
+    }
+    .btn-neon-glass {
+      background: rgba(15, 23, 42, 0.75);
+      border-color: rgba(0, 242, 254, 0.4);
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+    }
+    .btn-neon-glass:hover {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. HERO ESCENARIO HOLOGRÁFICO & CARRUSEL 3D INTERACTIVO
+       ========================================================================== */
+    .cosmos-hero {
+      padding: 48px 0 56px;
+      position: relative;
+    }
+    .cosmos-hero-top {
+      text-align: center;
+      max-width: 940px;
+      margin: 0 auto 36px;
+    }
+    .holo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      color: var(--neon-cyan);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.2);
+    }
+    .cosmos-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.2vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+    .cosmos-title .neon-grad {
+      background: linear-gradient(90deg, #00f2fe 0%, #a855f7 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .cosmos-sub {
+      font-size: 1.12rem;
+      color: var(--text-Light);
+      max-width: 760px;
+      margin: 0 auto 26px;
+    }
+    .cosmos-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* 3D HOLOGRAPHIC STAGE DECK */
+    .holo-stage-wrapper {
+      margin-top: 34px;
+      background: linear-gradient(160deg, rgba(11, 17, 34, 0.85) 0%, rgba(18, 12, 36, 0.85) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.35);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow:
+        0 30px 80px -20px rgba(0, 0, 0, 0.85),
+        0 0 50px rgba(0, 242, 254, 0.14);
+      backdrop-filter: blur(20px);
+      position: relative;
+      overflow: hidden;
+    }
+    .holo-stage-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .holo-stage-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .holo-pill-btn {
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-Light);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .holo-pill-btn.active,
+    .holo-pill-btn:hover {
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 18px rgba(0, 242, 254, 0.45);
+    }
+
+    .holo-stage-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    /* Animated Hologram Screen with Laser Scanline & Floating Live Toast */
+    .holo-screen-box {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 242, 254, 0.45);
+      background: #050814;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+    }
+    .holo-ambient-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      filter: blur(8px) saturate(1.4);
+      pointer-events: none;
+    }
+    .holo-laser-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #00f2fe 50%, transparent 100%);
+      box-shadow: 0 0 18px #00f2fe;
+      z-index: 4;
+      pointer-events: none;
+      animation: vfxScanBeam 5s ease-in-out infinite;
+    }
+    .holo-live-toast {
+      position: absolute;
+      top: 52px;
+      right: 16px;
+      z-index: 5;
+      background: rgba(6, 12, 26, 0.92);
+      border: 1px solid var(--neon-emerald);
+      color: #ecfdf5;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      animation: vfxFloat 3.5s ease-in-out infinite;
+    }
+
+    .holo-info-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .holo-sector-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.12);
+      padding: 4px 12px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .holo-platform-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+    .holo-price-triplet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      background: rgba(3, 5, 12, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .holo-price-cell small {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .holo-price-cell strong {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+    }
+
+    /* ==========================================================================
+       5. INTERACTIVE ROI & TIME-SAVED CALCULATOR (SLIDERS + ANIMATED RINGS)
+       ========================================================================== */
+    .impact-section {
+      padding: 44px 0;
+    }
+    .impact-card {
+      background: linear-gradient(145deg, rgba(12, 19, 38, 0.88) 0%, rgba(22, 13, 42, 0.88) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(18px);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 22px;
+    }
+    .slider-box {
+      background: rgba(3, 5, 12, 0.6);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .slider-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .slider-val-badge {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.14);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 242, 254, 0.35);
+    }
+    .neon-range {
+      width: 100%;
+      accent-color: #00f2fe;
+      height: 8px;
+      cursor: pointer;
+    }
+    .impact-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .impact-metric-box {
+      background: rgba(3, 5, 12, 0.75);
+      border: 1px solid rgba(0, 242, 254, 0.28);
+      border-radius: 20px;
+      padding: 20px 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .impact-big-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+      font-weight: 700;
+      color: var(--neon-cyan);
+      line-height: 1.1;
+      margin: 8px 0 4px;
+    }
+
+    /* ==========================================================================
+       6. BENTO NEON GALLERY OF THE 9 PLATFORMS (SPOTLIGHT + UNSPLASH + REAL SHOT)
+       ========================================================================== */
+    .catalog-section {
+      padding: 56px 0;
+    }
+    .section-head {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto 34px;
+    }
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.8vw, 3.1rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .holo-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+    .holo-filter-btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border-glass);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--text-Light);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .holo-filter-btn.active,
+    .holo-filter-btn:hover {
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 22px rgba(0, 242, 254, 0.45);
+    }
+
+    .holo-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Spotlight Card with Dynamic Mouse Glow */
+    .holo-card {
+      position: relative;
+      border-radius: 24px;
+      background: rgba(11, 17, 34, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(16px);
+    }
+    .holo-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        500px circle at var(--mx, 50%) var(--my, 50%),
+        rgba(0, 242, 254, 0.14),
+        transparent 45%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    .holo-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(0, 242, 254, 0.55);
+      box-shadow: 0 24px 60px -15px rgba(0, 242, 254, 0.28);
+    }
+
+    /* Ambient Industry Photo Header + Overlapping Real Platform Screenshot */
+    .holo-card-visual {
+      position: relative;
+      padding: 18px 16px 0;
+      z-index: 2;
+    }
+    .holo-card-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 150px;
+      object-fit: cover;
+      width: 100%;
+      opacity: 0.32;
+      mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 100%);
+      pointer-events: none;
+    }
+    .holo-card-body {
+      padding: 18px 20px 22px;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* ==========================================================================
+       7. FUTURISTIC QUICK QUOTER SECTION
+       ========================================================================== */
+    .quoter-section {
+      padding: 56px 0 72px;
+    }
+    .quoter-shell {
+      background: linear-gradient(150deg, rgba(10, 16, 34, 0.9) 0%, rgba(20, 11, 38, 0.9) 100%);
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      border-radius: 28px;
+      padding: 36px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 32px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    }
+    .holo-input, .holo-select {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(3, 5, 12, 0.8);
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .holo-plan-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .holo-plan-card {
+      padding: 14px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(3, 5, 12, 0.65);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .holo-plan-card.active {
+      border-color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.16);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+    }
+
+    /* ==========================================================================
+       8. RESPONSIVE TABLET & MOBILE ADAPTATION
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      .holo-stage-grid,
+      .impact-grid,
+      .quoter-shell {
+        grid-template-columns: 1fr;
+      }
+      .holo-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 14px;
+      }
+      .holo-nav-inner {
+        height: auto;
+        padding: 12px 0;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .holo-brand-sub {
+        display: none;
+      }
+      .bg-mode-switcher {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .bg-mode-switcher::-webkit-scrollbar {
+        display: none;
+      }
+      .cosmos-hero {
+        padding: 28px 0 36px;
+      }
+      .cosmos-title {
+        font-size: clamp(2rem, 8vw, 2.65rem);
+      }
+      .cosmos-sub {
+        font-size: 0.96rem;
+      }
+      .cosmos-cta-row {
+        flex-direction: column;
+      }
+      .cosmos-cta-row .btn-neon {
+        width: 100%;
+      }
+      .holo-stage-wrapper {
+        padding: 16px;
+        border-radius: 20px;
+      }
+      .holo-stage-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+      .holo-stage-nav::-webkit-scrollbar {
+        display: none;
+      }
+      .holo-pill-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .holo-live-toast {
+        position: static;
+        margin: 8px 10px 0;
+        font-size: 11px;
+      }
+      .holo-price-triplet,
+      .impact-metrics-grid,
+      .holo-cards-grid,
+      .holo-plan-grid {
+        grid-template-columns: 1fr;
+      }
+      .impact-card,
+      .quoter-shell {
+        padding: 20px 16px;
+        border-radius: 20px;
+      }
+      .holo-filter-bar {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+      }
+      .holo-filter-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .holo-filter-btn {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- MOTOR GRÁFICO 3D INTERACTIVO EN VIVO (THREE.JS WEBGL) -->
+  <canvas id="cosmosCanvas"></canvas>
+  <div class="cyber-vignette"></div>
+
+  <div class="page-layer">
+    <!-- BARRA DE LAS 5 OPCIONES DE DISEÑO -->
+    <div class="design-switcher-bar">
+      <div class="design-switcher-inner">
+        <span class="design-switcher-label">
+          <span>✨</span> Comparador de 5 Propuestas Visuales:
+        </span>
+        <div class="design-switcher-links">
+          <a href="index.html" class="design-switcher-link">1 · Dark Showroom</a>
+          <a href="opcion-2.html" class="design-switcher-link">2 · Editorial (Apple/Stripe)</a>
+          <a href="opcion-3.html" class="design-switcher-link">3 · Swiss Grid Interactiva</a>
+          <a href="opcion-4.html" class="design-switcher-link">4 · Boutique Luxury</a>
+          <a href="opcion-5.html" class="design-switcher-link active">5 · Holográfica 3D &amp; Cosmos (NUEVA)</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR CON SELECTOR DE FONDO 3D EN VIVO -->
+    <header class="holo-nav">
+      <div class="container holo-nav-inner">
+        <a href="#" class="holo-brand">
+          <div class="holo-orb">AM</div>
+          <div>
+            <span class="holo-brand-name">Andrés Montoya Hernández</span>
+            <span class="holo-brand-sub">Sistemas Digitales e Inteligencia Artificial en Vivo</span>
+          </div>
+        </a>
+
+        <!-- Selector interactivo de fondo 3D animado -->
+        <div class="bg-mode-switcher" aria-label="Cambiar fondo 3D animado">
+          <span class="bg-mode-label">🌌 FONDO 3D:</span>
+          <button type="button" class="bg-mode-btn active" data-bg-mode="globe">🌐 Planeta Holográfico</button>
+          <button type="button" class="bg-mode-btn" data-bg-mode="warp">🚀 Túnel Hiperespacio</button>
+          <button type="button" class="bg-mode-btn" data-bg-mode="waves">🌊 Olas Cibernéticas</button>
+        </div>
+
+        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20Showroom%20Hologr%C3%A1fico%203D%20y%20quiero%20cotizar%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-neon btn-neon-primary" style="padding:10px 18px;font-size:0.84rem;">
+          <span>💬 WhatsApp · 443 143 3732</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO PRINCIPAL + ESCENARIO HOLOGRÁFICO 3D DE LAS 9 PLATAFORMAS -->
+    <section class="cosmos-hero">
+      <div class="container">
+        <div class="cosmos-hero-top">
+          <div class="holo-badge">
+            <span>⚡ EXPERIENCIA INTERACTIVA 3D EN VIVO · MUEVE TU CURSOR O TOCA LA PANTALLA</span>
+          </div>
+          <h1 class="cosmos-title">
+            Tecnología que hace crecer tu negocio <span class="neon-grad">mientras tú descansas.</span>
+          </h1>
+          <p class="cosmos-sub">
+            Explora en 3D los <strong>9 sistemas reales que ya construí y están operando hoy en internet</strong>: asistentes que contestan notas de voz de WhatsApp y agendan citas solos, menús interactivos para restaurantes, agendas médicas y control de entregas en vivo.
+          </p>
+          <div class="cosmos-cta-row">
+            <a href="#galeria-3d" class="btn-neon btn-neon-primary">
+              <span>🚀 Explorar los 9 Sistemas en Acción</span>
+            </a>
+            <a href="#calculadora-impacto" class="btn-neon btn-neon-glass">
+              <span>⚡ Calcular Cuánto Tiempo y Dinero Ahorras</span>
+            </a>
+            <a href="#cotizador-holo" class="btn-neon btn-neon-glass">
+              <span>💎 Ver Precios (Compra, Renta o Familiar -38%)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ESCENARIO HOLOGRÁFICO 3D INTERACTIVO -->
+        <div class="holo-stage-wrapper">
+          <div class="holo-stage-header">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#00f2fe;box-shadow:0 0 12px #00f2fe;display:inline-block;"></span>
+              <strong style="font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--neon-cyan);">
+                 Escenario Holográfico en Vivo · Toca cualquier sistema para proyectarlo:
+              </strong>
+            </div>
+            <div class="holo-stage-nav" id="holoStageTabs"></div>
+          </div>
+
+          <div class="holo-stage-grid" id="holoStageContent"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALCULADORA INTERACTIVA DE IMPACTO Y AHORRO (CON SLIDERS EN TIEMPO REAL) -->
+    <section class="impact-section" id="calculadora-impacto">
+      <div class="container">
+        <div class="impact-card">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+            <div>
+              <span class="holo-sector-badge">🧮 SIMULADOR DE BENEFICIOS EN TIEMPO REAL</span>
+              <h2 style="font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.3rem);margin-top:8px;">
+                Desliza y descubre cuánto ganas al automatizar tu negocio
+              </h2>
+            </div>
+            <span style="font-size:0.88rem;color:var(--text-Light);">Mueve los controles para ver tu resultado al instante 👇</span>
+          </div>
+
+          <div class="impact-grid">
+            <div>
+              <div class="slider-box">
+                <div class="slider-top">
+                  <span>👥 ¿Cuántas citas, pedidos o clientes atiendes por semana?</span>
+                  <span class="slider-val-badge" id="roiClientsVal">45 / sem</span>
+                </div>
+                <input type="range" min="10" max="250" step="5" value="45" class="neon-range" id="roiClientsRange" />
+              </div>
+
+              <div class="slider-box" style="margin-bottom:0;">
+                <div class="slider-top">
+                  <span>💵 ¿Cuál es el valor promedio de cada cita, pedido o servicio?</span>
+                  <span class="slider-val-badge" id="roiTicketVal">$450 MXN</span>
+                </div>
+                <input type="range" min="150" max="5000" step="50" value="450" class="neon-range" id="roiTicketRange" />
+              </div>
+            </div>
+
+            <div class="impact-metrics-grid">
+              <div class="impact-metric-box">
+                <div style="font-size:24px;">⏳</div>
+                <div class="impact-big-num" id="roiHoursSaved">36 hrs</div>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Horas libres que recuperas al mes</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">Sin contestar mensajes ni anotar a mano</small>
+              </div>
+
+              <div class="impact-metric-box">
+                <div style="font-size:24px;">📈</div>
+                <div class="impact-big-num" style="color:#10b981;" id="roiExtraClients">+27</div>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Clientes extra atendidos al mes</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">Al responder 24/7 y pedir anticipo</small>
+              </div>
+
+              <div class="impact-metric-box">
+                <div style="font-size:24px;">💰</div>
+                <div class="impact-big-num" style="color:#f59e0b;" id="roiExtraMoney">+$12,150</div>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Ingresos recuperados al mes</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">El sistema se paga solo desde el inicio</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA HOLOGRÁFICA DE LOS 9 SISTEMAS EN PRODUCCIÓN -->
+    <section class="catalog-section" id="galeria-3d">
+      <div class="container">
+        <div class="section-head">
+          <span class="holo-badge">🌐 9 PLATAFORMAS REALES OPERANDO HOY</span>
+          <h2>Elige el sistema que quieres adaptar con tu marca</h2>
+          <p style="color:var(--text-Light);">
+            Cada tarjeta combina fotografía de tu giro con la <strong>pantalla real funcionando en internet</strong>. Haz clic en cualquiera para probarla en vivo en computadora o celular.
+          </p>
+        </div>
+
+        <div class="holo-filter-bar" id="holoFilterBar">
+          <button type="button" class="holo-filter-btn active" data-cat="all">✨ Todos los Sistemas (9)</button>
+          <button type="button" class="holo-filter-btn" data-cat="negocios">💅 Spas, Pizzerías y Clubes (3)</button>
+          <button type="button" class="holo-filter-btn" data-cat="profesionales">🩺 Clínicas y Consultorios (2)</button>
+          <button type="button" class="holo-filter-btn" data-cat="empresas">🚛 Empresas y Transporte (3)</button>
+          <button type="button" class="holo-filter-btn" data-cat="familiar">👨‍👩‍👧‍👦 Organización Familiar (1)</button>
+        </div>
+
+        <div class="holo-cards-grid" id="holoCardsGrid"></div>
+      </div>
+    </section>
+
+    <!-- COTIZADOR HOLOGRÁFICO DIRECTO -->
+    <section class="quoter-section" id="cotizador-holo">
+      <div class="container">
+        <div class="quoter-shell">
+          <div>
+            <span class="holo-sector-badge">💎 CONFIGURADOR DE INVERSIÓN AL INSTANTE</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);margin:10px 0;">
+              Arma tu presupuesto en 30 segundos
+            </h2>
+            <p style="color:var(--text-Light);margin-bottom:22px;font-size:0.95rem;">
+              Como la base tecnológica ya está creada y probada, te entrego tu sistema personalizado con tu logotipo y tu propio dominio <code>.com</code> en semanas, no meses.
+            </p>
+
+            <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
+              1. ELIGE EL SISTEMA DE REFERENCIA
+            </label>
+            <select id="holoSelectPlatform" class="holo-select"></select>
+
+            <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:8px;">
+              2. ELIGE CÓMO PREFIERES ADQUIRIRLO
+            </label>
+            <div class="holo-plan-grid" id="holoPlanGrid">
+              <div class="holo-plan-card active" data-plan="unico">
+                <strong style="display:block;font-size:0.92rem;">Pago Único</strong>
+                <span style="font-size:0.75rem;color:var(--text-Light);">Es 100% tuyo sin rentas</span>
+              </div>
+              <div class="holo-plan-card" data-plan="renta">
+                <strong style="display:block;font-size:0.92rem;">Renta Mensual</strong>
+                <span style="font-size:0.75rem;color:var(--text-Light);">Todo incluido + soporte</span>
+              </div>
+              <div class="holo-plan-card" data-plan="familiar">
+                <strong style="display:block;font-size:0.92rem;color:#10b981;">Familiar / Amigo</strong>
+                <span style="font-size:0.75rem;color:var(--text-Light);">Descuento especial -38%</span>
+              </div>
+            </div>
+
+            <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
+              3. TU NOMBRE O EL DE TU NEGOCIO
+            </label>
+            <input type="text" id="holoClientName" class="holo-input" placeholder="Ej. Dra. Sofía / Pizzería Roma / Transportes del Norte" />
+          </div>
+
+          <div style="background:rgba(3,5,12,0.85);border:1px solid rgba(0,242,254,0.45);border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;">
+            <div>
+              <span class="holo-sector-badge">⚡ RESUMEN DE TU PROPUESTA</span>
+              <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:1.75rem;margin:10px 0 4px;"></h3>
+              <p id="holoQuoteDomain" style="font-family:var(--font-mono);font-size:0.82rem;color:#10b981;margin-bottom:18px;"></p>
+
+              <div style="padding:16px 0;border-top:1px solid var(--border-glass);border-bottom:1px solid var(--border-glass);margin-bottom:18px;">
+                <div style="font-size:0.82rem;color:var(--text-Light);" id="holoQuoteModeLabel">Inversión Estimada:</div>
+                <div id="holoQuotePrice" style="font-family:var(--font-display);font-size:2.7rem;font-weight:800;color:var(--neon-cyan);line-height:1.1;margin:6px 0;"></div>
+                <div id="holoQuoteSub" style="font-size:0.84rem;color:#10b981;font-weight:600;"></div>
+              </div>
+
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:0.85rem;color:var(--text-Light);margin-bottom:22px;">
+                <li>✅ <strong>Entrega estimada:</strong> <span id="holoQuoteTime"></span></li>
+                <li>✅ <strong>Personalizado:</strong> Con tu logotipo, colores y precios</li>
+                <li>✅ <strong>Garantía directa:</strong> Trato personal con Andrés Montoya Hernández</li>
+              </ul>
+            </div>
+
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <button type="button" id="holoWaBtn" class="btn-neon btn-neon-primary" style="width:100%;">
+                <span>📲 Enviar Cotización por WhatsApp (443 143 3732)</span>
+              </button>
+              <button type="button" id="holoPdfBtn" class="btn-neon btn-neon-glass" style="width:100%;">
+                <span>📄 Descargar Cotización Formal en PDF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="padding:36px 0;border-top:1px solid var(--border-glass);text-align:center;font-size:0.86rem;color:var(--text-dim);background:rgba(3,5,12,0.9);">
+      <div class="container">
+        <p>© 2026 <strong>Andrés Montoya Hernández</strong> · Sistemas Digitales, Páginas Web y Automatización · WhatsApp Directo: <a href="https://wa.me/524431433732" style="color:var(--neon-cyan);font-weight:700;">+52 443 143 3732</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts compartidos -->
+  <script src="app.js"></script>
+  <script src="visual-fx.js"></script>
+
+  <!-- MOTOR 3D INTERACTIVO (THREE.JS) + LÓGICA DE OPCIÓN 5 -->
+  <script>
+    (function () {
+      /* ==========================================================================
+         1. IMÁGENES CINEMATOGRÁFICAS DE INTERNET (UNSPLASH HD VERIFICADAS) + EVENTOS EN VIVO
+         ========================================================================== */
+      const HOLO_MEDIA = {
+        'nailroomspa': {
+          backdrop: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80',
+          liveToast: '🎙️ Audio de WhatsApp recibido → Cita agendada hoy 5:00 PM'
+        },
+        'control-ops': {
+          backdrop: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+          liveToast: '📍 GPS Activo: Embarque Morelia → Laredo · Ganancia 25.1%'
+        },
+        'agenda-fenix': {
+          backdrop: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80',
+          liveToast: '🏥 Consultorio 3 reservado · Membresía de 10 hrs aplicada'
+        },
+        'lievitum-pizzalab': {
+          backdrop: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80',
+          liveToast: '🍕 Nuevo Pedido #104 enviado directo a tu WhatsApp (0% comisión)'
+        },
+        'psicoterapia-conductual': {
+          backdrop: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=900&q=80',
+          liveToast: '📱 Recordatorio de sesión enviado a paciente por WhatsApp'
+        },
+        'escalera-britania': {
+          backdrop: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=900&q=80',
+          liveToast: '🎾 Marcador 6-4, 6-3 registrado · Ranking actualizado al instante'
+        },
+        'inlog-quoter': {
+          backdrop: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
+          liveToast: '⚡ Cotización Óptima vs. Económica generada en PDF en 4 seg'
+        },
+        'family-os': {
+          backdrop: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=80',
+          liveToast: '👨‍👩‍👧‍👦 Circular escolar leída → Evento guardado en calendario familiar'
+        },
+        'incubeit-landing': {
+          backdrop: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
+          liveToast: '🧮 Nuevo prospecto calculó su presupuesto y descargó PDF'
+        }
+      };
+
+      /* ==========================================================================
+         2. THREE.JS WEBGL MOTOR DE FONDOS ANIMADOS 3D (3 MODOS EN VIVO)
+         ========================================================================== */
+      let bgMode = 'globe';
+      function initThreeCosmos() {
+        const canvas = document.getElementById('cosmosCanvas');
+        if (!canvas || !window.THREE) return;
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 30;
+
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Grupo 1: Esfera Holográfica + Anillo Orbital
+        const globeGroup = new THREE.Group();
+        const sphereGeo = new THREE.IcosahedronGeometry(10.5, 2);
+        const sphereMat = new THREE.MeshBasicMaterial({
+          color: 0x00f2fe,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.16
+        });
+        const wireSphere = new THREE.Mesh(sphereGeo, sphereMat);
+        globeGroup.add(wireSphere);
+
+        const ringGeo = new THREE.TorusGeometry(15, 0.08, 16, 100);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0xa855f7, transparent: true, opacity: 0.35 });
+        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+        ringMesh.rotation.x = Math.PI / 2.6;
+        globeGroup.add(ringMesh);
+        scene.add(globeGroup);
+
+        // Sistema de Partículas 3D (1,500 nodos luminosos)
+        const count = 1500;
+        const positions = new Float32Array(count * 3);
+        const colors = new Float32Array(count * 3);
+        const basePositions = new Float32Array(count * 3);
+
+        const palette = [
+          new THREE.Color('#00f2fe'),
+          new THREE.Color('#6366f1'),
+          new THREE.Color('#ec4899'),
+          new THREE.Color('#10b981')
+        ];
+
+        for (let i = 0; i < count; i++) {
+          const i3 = i * 3;
+          const x = (Math.random() - 0.5) * 90;
+          const y = (Math.random() - 0.5) * 60;
+          const z = (Math.random() - 0.5) * 80;
+          positions[i3] = basePositions[i3] = x;
+          positions[i3 + 1] = basePositions[i3 + 1] = y;
+          positions[i3 + 2] = basePositions[i3 + 2] = z;
+
+          const c = palette[i % palette.length];
+          colors[i3] = c.r;
+          colors[i3 + 1] = c.g;
+          colors[i3 + 2] = c.b;
+        }
+
+        const partGeo = new THREE.BufferGeometry();
+        partGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        partGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const partMat = new THREE.PointsMaterial({
+          size: 0.32,
+          vertexColors: true,
+          transparent: true,
+          opacity: 0.85
+        });
+
+        const particles = new THREE.Points(partGeo, partMat);
+        scene.add(particles);
+
+        let mouseX = 0;
+        let mouseY = 0;
+        window.addEventListener('mousemove', (e) => {
+          mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+          mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        let clock = 0;
+        function animate() {
+          requestAnimationFrame(animate);
+          clock += 0.012;
+
+          const posAttr = partGeo.attributes.position;
+          const arr = posAttr.array;
+
+          if (bgMode === 'globe') {
+            globeGroup.visible = true;
+            globeGroup.rotation.y += 0.0035;
+            globeGroup.rotation.x = mouseY * 0.35;
+            particles.rotation.y = clock * 0.08 + mouseX * 0.25;
+            particles.rotation.x = mouseY * 0.15;
+          } else if (bgMode === 'warp') {
+            globeGroup.visible = false;
+            for (let i = 0; i < count; i++) {
+              const i3 = i * 3;
+              arr[i3 + 2] += 0.65;
+              if (arr[i3 + 2] > 35) arr[i3 + 2] = -45;
+            }
+            posAttr.needsUpdate = true;
+            particles.rotation.z = clock * 0.1;
+          } else if (bgMode === 'waves') {
+            globeGroup.visible = false;
+            particles.rotation.set(0.35, 0, 0);
+            for (let i = 0; i < count; i++) {
+              const i3 = i * 3;
+              const bx = basePositions[i3];
+              const bz = basePositions[i3 + 2];
+              arr[i3 + 1] = Math.sin(bx * 0.18 + clock * 2.2) * 3.2 + Math.cos(bz * 0.18 + clock * 1.8) * 3.2;
+            }
+            posAttr.needsUpdate = true;
+          }
+
+          camera.position.x += (mouseX * 4 - camera.position.x) * 0.05;
+          camera.position.y += (mouseY * 3 - camera.position.y) * 0.05;
+          camera.lookAt(scene.position);
+
+          renderer.render(scene, camera);
+        }
+
+        animate();
+
+        document.querySelectorAll('[data-bg-mode]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('[data-bg-mode]').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            bgMode = btn.getAttribute('data-bg-mode');
+            // Restaurar posiciones base al cambiar de modo
+            const posAttr = partGeo.attributes.position;
+            for (let i = 0; i < basePositions.length; i++) {
+              posAttr.array[i] = basePositions[i];
+            }
+            posAttr.needsUpdate = true;
+          });
+        });
+      }
+
+      /* ==========================================================================
+         3. ESCENARIO HOLOGRÁFICO 3D (SELECTOR INTERACTIVO DE LAS 9 PLATAFORMAS)
+         ========================================================================== */
+      let activeStageIdx = 0;
+      let stageInterval = null;
+
+      function renderHoloStage() {
+        const platforms = window.PLATFORMS || [];
+        if (!platforms.length) return;
+
+        const tabsEl = document.getElementById('holoStageTabs');
+        const contentEl = document.getElementById('holoStageContent');
+        const p = platforms[activeStageIdx] || platforms[0];
+        const media = HOLO_MEDIA[p.id] || HOLO_MEDIA['nailroomspa'];
+        const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+        const kpis = p.visualKpis || p.highlights.slice(0, 3);
+
+        tabsEl.innerHTML = platforms
+          .map(
+            (item, idx) => `
+            <button type="button" class="holo-pill-btn ${idx === activeStageIdx ? 'active' : ''}" data-stage-idx="${idx}">
+              0${idx + 1} · ${item.name.split('·')[0].trim()}
+            </button>
+          `
+          )
+          .join('');
+
+        tabsEl.querySelectorAll('[data-stage-idx]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            activeStageIdx = Number(btn.getAttribute('data-stage-idx'));
+            clearInterval(stageInterval);
+            renderHoloStage();
+          });
+        });
+
+        contentEl.innerHTML = `
+          <div class="holo-screen-box">
+            <img src="${media.backdrop}" alt="" class="holo-ambient-bg" />
+            <div class="holo-laser-line"></div>
+            <div class="holo-live-toast">
+              <span class="vfx-shot-live-dot"></span>
+              <span>${media.liveToast}</span>
+            </div>
+            <div style="padding:14px;">
+              ${window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : ''}
+            </div>
+          </div>
+
+          <div class="holo-info-panel">
+            <div>
+              <span class="holo-sector-badge">✦ ${p.sectorLabel}</span>
+              <h2 class="holo-platform-title" style="margin:10px 0 8px;">${p.name}</h2>
+              <p style="color:var(--text-Light);font-size:0.95rem;margin-bottom:14px;">
+                ${p.shortPitch || p.tagline}
+              </p>
+              <div class="vfx-kpi-row" style="margin-bottom:16px;">
+                ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
+              </div>
+            </div>
+
+            <div>
+              <div class="holo-price-triplet" style="margin-bottom:16px;">
+                <div class="holo-price-cell">
+                  <small>Pago Único</small>
+                  <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
+                </div>
+                <div class="holo-price-cell">
+                  <small>Renta Mensual</small>
+                  <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
+                </div>
+                <div class="holo-price-cell">
+                  <small>Familiar (-38%)</small>
+                  <strong style="color:#10b981;">$${famPrice.toLocaleString('es-MX')}</strong>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                <button type="button" class="btn-neon btn-neon-primary" style="flex:1;" onclick="window.openVfxLightbox('${p.id}', 'live')">
+                  ▶ Probar Página en Vivo
+                </button>
+                <button type="button" class="btn-neon btn-neon-glass" onclick="window.selectHoloQuote('${p.id}')">
+                  💎 Cotizar Este Sistema
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      /* ==========================================================================
+         4. CALCULADORA INTERACTIVA DE IMPACTO Y AHORRO
+         ========================================================================== */
+      function initImpactCalculator() {
+        const cRange = document.getElementById('roiClientsRange');
+        const tRange = document.getElementById('roiTicketRange');
+        if (!cRange || !tRange) return;
+
+        function updateImpact() {
+          const clientsPerWeek = Number(cRange.value);
+          const avgTicket = Number(tRange.value);
+
+          document.getElementById('roiClientsVal').textContent = `${clientsPerWeek} / sem`;
+          document.getElementById('roiTicketVal').textContent = `$${avgTicket.toLocaleString('es-MX')} MXN`;
+
+          const hoursSaved = Math.max(12, Math.round(clientsPerWeek * 0.78));
+          const extraClients = Math.max(4, Math.round(clientsPerWeek * 0.6));
+          const extraMoney = extraClients * avgTicket;
+
+          document.getElementById('roiHoursSaved').textContent = `${hoursSaved} hrs`;
+          document.getElementById('roiExtraClients').textContent = `+${extraClients}`;
+          document.getElementById('roiExtraMoney').textContent = `+$${extraMoney.toLocaleString('es-MX')}`;
+        }
+
+        cRange.addEventListener('input', updateImpact);
+        tRange.addEventListener('input', updateImpact);
+        updateImpact();
+      }
+
+      /* ==========================================================================
+         5. GALERÍA DE TARJETAS CON IMÁGENES UNSPLASH + CAPTURA REAL + SPOTLIGHT
+         ========================================================================== */
+      let activeCat = 'all';
+      function renderHoloCards() {
+        const grid = document.getElementById('holoCardsGrid');
+        const platforms = (window.PLATFORMS || []).filter(
+          (p) => activeCat === 'all' || p.category === activeCat
+        );
+
+        grid.innerHTML = platforms
+          .map((p) => {
+            const media = HOLO_MEDIA[p.id] || HOLO_MEDIA['nailroomspa'];
+            const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+            const kpis = p.visualKpis || p.highlights.slice(0, 3);
+
+            return `
+              <article class="holo-card">
+                <img src="${media.backdrop}" alt="" class="holo-card-backdrop" loading="lazy" />
+                <div class="holo-card-visual">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                    <span class="holo-sector-badge">${p.sectorLabel}</span>
+                    <span style="font-family:var(--font-mono);font-size:11px;color:#10b981;font-weight:700;">
+                      ● ${p.displayDomain}
+                    </span>
+                  </div>
+                  ${window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : ''}
+                </div>
+
+                <div class="holo-card-body">
+                  <div>
+                    <div style="font-size:11.5px;color:var(--neon-cyan);font-weight:700;margin-bottom:6px;">
+                      ${media.liveToast}
+                    </div>
+                    <h3 style="font-family:var(--font-display);font-size:1.38rem;margin-bottom:6px;">
+                      ${p.name}
+                    </h3>
+                    <p style="font-size:0.88rem;color:var(--text-Light);margin-bottom:10px;">
+                      ${p.shortPitch || p.tagline}
+                    </p>
+                    <div class="vfx-kpi-row">
+                      ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="holo-price-triplet" style="margin:12px 0;">
+                      <div class="holo-price-cell">
+                        <small>Pago Único</small>
+                        <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
+                      </div>
+                      <div class="holo-price-cell">
+                        <small>Mensual</small>
+                        <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
+                      </div>
+                      <div class="holo-price-cell">
+                        <small>Familiar</small>
+                        <strong style="color:#10b981;">$${famPrice.toLocaleString('es-MX')}</strong>
+                      </div>
+                    </div>
+
+                    <div style="display:flex;gap:8px;">
+                      <button type="button" class="btn-neon btn-neon-glass" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.openVfxLightbox('${p.id}', 'live')">
+                        ▶ Ver en Vivo
+                      </button>
+                      <button type="button" class="btn-neon btn-neon-primary" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.selectHoloQuote('${p.id}')">
+                        Quiero uno así
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            `;
+          })
+          .join('');
+
+        // Efecto Spotlight que sigue el mouse sobre cada tarjeta
+        grid.querySelectorAll('.holo-card').forEach((card) => {
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+            card.style.setProperty('--my', `${e.clientY - rect.top}px`);
+          });
+        });
+      }
+
+      /* ==========================================================================
+         6. CONFIGURADOR HOLOGRÁFICO DE COTIZACIÓN
+         ========================================================================== */
+      let selectedPlan = 'unico';
+      function initHoloQuoter() {
+        const platforms = window.PLATFORMS || [];
+        const sel = document.getElementById('holoSelectPlatform');
+        if (!sel || !platforms.length) return;
+
+        sel.innerHTML = platforms
+          .map((p) => `<option value="${p.id}">${p.name} (${p.displayDomain})</option>`)
+          .join('');
+
+        function updateQuote() {
+          const p = platforms.find((x) => x.id === sel.value) || platforms[0];
+          const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+          const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+
+          document.getElementById('holoQuoteTitle').textContent = p.name;
+          document.getElementById('holoQuoteDomain').textContent = `● Sitio real de referencia: ${p.displayDomain}`;
+          document.getElementById('holoQuoteTime').textContent = p.timeEstimate;
+
+          if (selectedPlan === 'unico') {
+            document.getElementById('holoQuoteModeLabel').textContent = 'Pago Único Llave en Mano (Sin Rentas):';
+            document.getElementById('holoQuotePrice').textContent = `$${p.basePrice.toLocaleString('es-MX')} MXN`;
+            document.getElementById('holoQuoteSub').textContent = `50% anticipo y 50% al entregarte tu sistema funcionando`;
+          } else if (selectedPlan === 'renta') {
+            document.getElementById('holoQuoteModeLabel').textContent = 'Plan Renta Mensual Todo Incluido:';
+            document.getElementById('holoQuotePrice').textContent = `$${p.monthlyFee.toLocaleString('es-MX')} / mes`;
+            document.getElementById('holoQuoteSub').textContent = `+ Inscripción inicial de $${p.setupFee.toLocaleString('es-MX')} MXN (Incluye soporte y servidor)`;
+          } else {
+            document.getElementById('holoQuoteModeLabel').textContent = 'Precio Especial Familiar / Amigo (-38%):';
+            document.getElementById('holoQuotePrice').textContent = `$${famPrice.toLocaleString('es-MX')} MXN`;
+            document.getElementById('holoQuoteSub').textContent = `O en plan mensual familiar por $${famMonthly.toLocaleString('es-MX')}/mes`;
+          }
+        }
+
+        sel.addEventListener('change', updateQuote);
+
+        document.querySelectorAll('#holoPlanGrid .holo-plan-card').forEach((card) => {
+          card.addEventListener('click', () => {
+            document.querySelectorAll('#holoPlanGrid .holo-plan-card').forEach((c) => c.classList.remove('active'));
+            card.classList.add('active');
+            selectedPlan = card.getAttribute('data-plan');
+            updateQuote();
+          });
+        });
+
+        window.selectHoloQuote = function (id) {
+          sel.value = id;
+          updateQuote();
+          document.getElementById('cotizador-holo').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        document.getElementById('holoWaBtn').addEventListener('click', () => {
+          const p = platforms.find((x) => x.id === sel.value) || platforms[0];
+          const client = document.getElementById('holoClientName').value.trim() || 'Interesado';
+          const priceTxt = document.getElementById('holoQuotePrice').textContent;
+          const msg = `¡Hola Andrés! 👋 Soy *${client}*.\n\nVi tu *Showroom Holográfico 3D (Opción 5)* y me interesa cotizar:\n• *Sistema Base:* ${p.name} (${p.displayDomain})\n• *Modalidad:* ${selectedPlan.toUpperCase()} (${priceTxt})\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
+          window.open(`https://wa.me/524431433732?text=${encodeURIComponent(msg)}`, '_blank');
+        });
+
+        document.getElementById('holoPdfBtn').addEventListener('click', () => {
+          if (typeof generateProposalPdf === 'function') {
+            state.selectedBasePlatformId = sel.value;
+            generateProposalPdf();
+          } else {
+            window.print();
+          }
+        });
+
+        updateQuote();
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        initThreeCosmos();
+        renderHoloStage();
+        initImpactCalculator();
+        renderHoloCards();
+        initHoloQuoter();
+
+        // Auto-avance suave del escenario holográfico cada 7 segundos
+        stageInterval = setInterval(() => {
+          const total = (window.PLATFORMS || []).length || 9;
+          activeStageIdx = (activeStageIdx + 1) % total;
+          renderHoloStage();
+        }, 7000);
+
+        document.querySelectorAll('#holoFilterBar .holo-filter-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#holoFilterBar .holo-filter-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeCat = btn.getAttribute('data-cat');
+            renderHoloCards();
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

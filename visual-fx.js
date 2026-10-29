@@ -145,7 +145,8 @@
     const anchor =
       document.querySelector('.hero') ||
       document.querySelector('.hero-grid') ||
-      document.querySelector('.atelier-hero');
+      document.querySelector('.atelier-hero') ||
+      document.querySelector('.cosmos-hero');
 
     if (!anchor || document.getElementById('vfxInteractiveRoot')) return;
 
