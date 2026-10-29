@@ -233,7 +233,7 @@
 
                 <!-- CAPA ANTES (RECORTADA) -->
                 <div class="vfx-ba-layer vfx-ba-before" id="vfxBaBefore">
-                  <div style="display:flex;justify-content:space-between;align-items:center;width:440px;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
                     <span style="background:#ef4444;color:#ffffff;font-weight:800;font-size:11px;padding:4px 10px;border-radius:999px;">
                       ✕ LLEVANDO TODO A MANO
                     </span>
@@ -245,16 +245,17 @@
                     <div class="vfx-ba-item">💸 Clientes que dejan plantado porque no dieron anticipo</div>
                     <div class="vfx-ba-item">⏳ Horas perdidas anotando datos y haciendo cuentas a mano</div>
                   </div>
-                  <div style="font-size:12px;color:#fecaca;font-weight:700;width:440px;">Consecuencia: Ventas perdidas y estrés todos los días</div>
+                  <div style="font-size:12px;color:#fecaca;font-weight:700;">Consecuencia: Ventas perdidas y estrés todos los días</div>
                 </div>
 
+                <div class="vfx-ba-divider" id="vfxBaDivider"></div>
                 <div class="vfx-ba-handle" id="vfxBaHandle">↔</div>
                 <input type="range" min="8" max="92" value="48" class="vfx-ba-range" id="vfxBaRange" aria-label="Comparar antes y después" />
               </div>
             </div>
 
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:#cbd5e1;">
-              <span>👈 Arrastra el círculo blanco hacia la izquierda o derecha</span>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:#cbd5e1;">
+              <span>👈 Arrastra el círculo blanco hacia los lados</span>
               <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20me%20gustar%C3%ADa%20tener%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noopener" style="color:#38bdf8;font-weight:700;">
                 Quiero mejorar mi negocio →
               </a>
@@ -325,15 +326,13 @@
   }
 
   function initBeforeAfterSlider() {
+    const container = document.getElementById('vfxBaContainer');
     const range = document.getElementById('vfxBaRange');
-    const before = document.getElementById('vfxBaBefore');
-    const handle = document.getElementById('vfxBaHandle');
-    if (!range || !before || !handle) return;
+    if (!container || !range) return;
 
     const update = () => {
       const val = range.value;
-      before.style.width = val + '%';
-      handle.style.left = val + '%';
+      container.style.setProperty('--ba-pos', val + '%');
     };
     range.addEventListener('input', update);
     update();
@@ -431,6 +430,7 @@
   };
 
   function init3DTilt() {
+    if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
     document.addEventListener('mousemove', (e) => {
       const frame = e.target.closest('[data-vfx-tilt]');
       if (!frame) return;

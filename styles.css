@@ -2246,10 +2246,263 @@ code {
   }
 }
 
+/* Tablet Portrait & Small Laptops (641px - 1024px) */
+@media (max-width: 1024px) and (min-width: 641px) {
+  .platforms-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-span-2 {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 760px) {
   .pricing-tiers-grid,
   .config-options-grid.cols-4,
   .payment-mode-bar {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Phones (<= 640px) */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Compact Navbar on Mobile */
+  .nav-inner {
+    height: 64px;
+    gap: 0.5rem;
+  }
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    font-size: 0.92rem;
+    border-radius: 10px;
+  }
+  .brand-name {
+    font-size: 0.96rem;
+  }
+  .brand-role {
+    display: none;
+  }
+  .nav-actions {
+    gap: 0.4rem;
+  }
+  .nav-actions .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-actions .btn-primary.btn-sm {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+  }
+  .nav-actions .btn-primary.btn-sm span {
+    display: none;
+  }
+  .mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-links {
+    top: 64px;
+  }
+
+  /* Hero Section on Mobile */
+  .hero {
+    padding: 2rem 0 2.5rem;
+  }
+  .hero-grid {
+    gap: 2rem;
+  }
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(1.85rem, 7vw, 2.35rem);
+    margin-bottom: 0.95rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.35rem;
+  }
+  .audience-pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .audience-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .audience-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 0.78rem;
+    padding: 0.45rem 0.8rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.75rem;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    text-align: center;
+  }
+  .stat-divider {
+    display: none;
+  }
+  .stat-value {
+    font-size: 1.35rem;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+  }
+
+  /* Hero Showcase Deck on Mobile */
+  .deck-header {
+    padding: 0.65rem 0.85rem;
+  }
+  .deck-url-bar {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .deck-body {
+    padding: 1rem;
+    min-height: auto;
+  }
+  .deck-footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .deck-tab {
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.65rem 0.4rem;
+    font-size: 0.74rem;
+  }
+
+  /* Sections & Catalog on Mobile */
+  .section {
+    padding: 3.25rem 0;
+  }
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  .section-title {
+    font-size: 1.65rem;
+  }
+  .section-desc {
+    font-size: 0.92rem;
+  }
+
+  .catalog-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+  }
+  .catalog-search {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .platform-body {
+    padding: 1.15rem;
+  }
+  .platform-title {
+    font-size: 1.25rem;
+  }
+
+  /* Family Banner & Cards on Mobile */
+  .family-discount-banner {
+    padding: 1.15rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .family-banner-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .family-discount-banner .btn {
+    width: 100%;
+  }
+
+  .config-step-card,
+  .summary-card,
+  .bento-card,
+  .comparison-card,
+  .audience-card {
+    padding: 1.25rem;
+  }
+
+  /* Modal on Mobile */
+  .modal-backdrop {
+    padding: 0.5rem;
+  }
+  .modal-container {
+    max-height: 94vh;
+  }
+  .modal-topbar {
+    padding: 0.85rem 1rem;
+    flex-wrap: wrap;
+  }
+  .modal-content {
+    padding: 1rem;
+  }
+  .live-iframe-wrapper {
+    height: 380px;
+  }
+  .modal-footer {
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .modal-footer .btn {
+    width: 100%;
+  }
+
+  /* Floating WhatsApp Button on Mobile */
+  .floating-wa-btn {
+    bottom: 14px;
+    right: 14px;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
   }
 }

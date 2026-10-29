@@ -525,14 +525,69 @@
       margin: 0.75rem 0 0.35rem;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1024px) {
       .case-study-row, .case-study-row:nth-child(even), .config-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
       }
       .case-study-row:nth-child(even) .case-info,
       .case-study-row:nth-child(even) .case-visual { order: initial; }
       .nav-links { display: none; }
+      .summary-box-editorial { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 1rem; }
+      .nav-inner { height: 64px; gap: 0.5rem; }
+      .brand-serif { font-size: 1.35rem; }
+      .brand-tag { display: none; }
+      .nav .btn-dark { padding: 0.5rem 0.85rem; font-size: 0.78rem; }
+
+      .hero { padding: 2.5rem 0 2.25rem; }
+      .hero-eyebrow { font-size: 0.7rem; padding: 0.3rem 0.75rem; margin-bottom: 1rem; }
+      .hero h1 { font-size: clamp(2.15rem, 8vw, 2.85rem); margin-bottom: 1rem; }
+      .hero-lead { font-size: 1rem; margin-bottom: 1.5rem; }
+      .hero-actions { flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+      .hero-actions .btn { width: 100%; }
+
+      .live-domains-strip { padding: 1rem; border-radius: 14px; }
+      .domains-list {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+      }
+      .domains-list::-webkit-scrollbar { display: none; }
+      .domain-chip { flex-shrink: 0; white-space: nowrap; font-size: 0.74rem; padding: 0.4rem 0.75rem; }
+
+      .editorial-filter-bar { top: 64px; padding: 0.75rem 0 0.5rem; }
+      .filter-row { border-radius: 14px; padding: 0.45rem 0.6rem; }
+      .filter-row > span { display: none; }
+      .filter-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .filter-pills::-webkit-scrollbar { display: none; }
+      .f-pill { flex-shrink: 0; white-space: nowrap; padding: 0.45rem 0.85rem; font-size: 0.8rem; }
+
+      .case-studies-section { padding: 1rem 0 3rem; }
+      .case-study-row { padding: 2.25rem 0; gap: 1.5rem; }
+      .case-title { font-size: 1.85rem; }
+      .case-tagline { font-size: 0.95rem; }
+      .case-pricing-strip { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 0.85rem 1rem; }
+      .case-actions { flex-direction: column; }
+      .case-actions .btn { width: 100%; }
       .apple-cards-grid, .case-grid-2, .case-features { grid-template-columns: 1fr; }
+
+      .apple-config-section { padding: 3.25rem 0; }
+      .step-block h3 { font-size: 1.45rem; }
+      .summary-box-editorial { padding: 1.35rem; border-radius: 16px; }
+      .big-editorial-price { font-size: 2.25rem; }
     }
   </style>
 </head>

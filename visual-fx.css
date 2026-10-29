@@ -399,16 +399,19 @@
 .vfx-ba-container {
   position: relative;
   width: 100%;
-  height: 310px;
+  height: 320px;
   border-radius: 16px;
   overflow: hidden;
   user-select: none;
+  touch-action: pan-y;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 .vfx-ba-layer {
   position: absolute;
   inset: 0;
-  padding: 22px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -420,18 +423,29 @@
 .vfx-ba-before {
   background: linear-gradient(135deg, #450a0a 0%, #1e1b24 100%);
   color: #fecaca;
-  width: 50%;
-  overflow: hidden;
-  border-right: 3px solid #ffffff;
+  width: 100%;
+  clip-path: inset(0 calc(100% - var(--ba-pos, 48%)) 0 0);
+}
+.vfx-ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--ba-pos, 48%);
+  width: 3px;
+  background: #ffffff;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
 }
 .vfx-ba-card-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  width: 440px;
+  gap: 8px;
+  width: 100%;
 }
 .vfx-ba-item {
-  padding: 10px 14px;
+  padding: 9px 12px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -440,6 +454,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  line-height: 1.3;
 }
 .vfx-ba-range {
   position: absolute;
@@ -449,11 +464,12 @@
   opacity: 0;
   cursor: ew-resize;
   z-index: 5;
+  margin: 0;
 }
 .vfx-ba-handle {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: var(--ba-pos, 48%);
   transform: translate(-50%, -50%);
   width: 42px;
   height: 42px;
@@ -512,6 +528,7 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  white-space: nowrap;
 }
 .vfx-lb-dev-btn.active {
   background: #38bdf8;
@@ -553,8 +570,204 @@
   background: #0f172a;
 }
 
-@media (max-width: 980px) {
+/* ==========================================================================
+   7. UNIVERSAL TABLET & MOBILE ADAPTATION (CELULARES Y TABLETS)
+   ========================================================================== */
+
+/* Touch devices & Tablets (<= 1024px) */
+@media (hover: none), (max-width: 1024px) {
+  .vfx-shot-overlay {
+    opacity: 1;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0.92) 100%);
+    padding: 10px 12px;
+  }
+  .vfx-shot-cta {
+    font-size: 11px;
+    padding: 6px 11px;
+  }
+}
+
+@media (max-width: 1024px) {
   .vfx-hub-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .vfx-interactive-hub {
+    margin: 28px auto;
+    padding: 0 16px;
+  }
+  .vfx-hub-card {
+    padding: 22px;
+  }
+}
+
+/* Mobile Phones (<= 640px) */
+@media (max-width: 640px) {
+  /* Compact Top Switcher Bar across all 4 options */
+  .design-switcher-bar,
+  .design-switcher {
+    padding: 6px 10px !important;
+  }
+  .design-switcher-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+  .design-switcher-links,
+  .switcher-pills {
+    width: 100% !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 6px !important;
+    padding-bottom: 2px;
+  }
+  .design-switcher-links::-webkit-scrollbar,
+  .switcher-pills::-webkit-scrollbar {
+    display: none;
+  }
+  .design-switcher-link,
+  .switcher-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+  }
+
+  /* Screenshot Browser Frame on Mobile */
+  .vfx-shot-chrome {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  .vfx-shot-domain {
+    font-size: 10px;
+    padding: 2px 8px;
+    max-width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .vfx-shot-overlay {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+  .vfx-shot-cta {
+    font-size: 10.5px;
+    padding: 6px 9px;
+  }
+
+  /* Filmstrip Carousel on Mobile */
+  .vfx-filmstrip-section {
+    padding: 18px 0;
+  }
+  .vfx-filmstrip-track {
+    gap: 14px;
+  }
+  .vfx-filmstrip-card {
+    width: 255px;
+  }
+  .vfx-filmstrip-card img {
+    height: 145px;
+  }
+  .vfx-filmstrip-meta {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .vfx-filmstrip-domain {
+    font-size: 10px;
+  }
+
+  /* Interactive Simulator & Before/After on Mobile */
+  .vfx-interactive-hub {
+    margin: 20px auto;
+    padding: 0 12px;
+  }
+  .vfx-hub-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+  .vfx-hub-eyebrow {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .vfx-hub-title {
+    font-size: 1.2rem;
+  }
+  .vfx-hub-sub {
+    font-size: 0.84rem;
+    margin-bottom: 12px;
+  }
+  .vfx-sim-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .vfx-sim-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .vfx-sim-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 11.5px;
+    padding: 8px 12px;
+  }
+  .vfx-sim-stage {
+    padding: 14px;
+    min-height: 250px;
+  }
+  .vfx-chat-bubble {
+    font-size: 12px;
+    padding: 10px 12px;
+    max-width: 96%;
+  }
+
+  /* Before/After Slider on Mobile */
+  .vfx-ba-container {
+    height: 360px;
+  }
+  .vfx-ba-layer {
+    padding: 14px;
+  }
+  .vfx-ba-item {
+    font-size: 11.5px;
+    padding: 8px 10px;
+  }
+  .vfx-ba-handle {
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  /* Lightbox on Mobile */
+  .vfx-lightbox {
+    padding: 8px;
+  }
+  .vfx-lb-topbar {
+    padding: 10px 12px;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .vfx-lb-devices {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .vfx-lb-devices::-webkit-scrollbar {
+    display: none;
+  }
+  .vfx-lb-dev-btn {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  .vfx-lb-viewport.mobile {
+    max-width: 100%;
+    border-radius: 16px;
+    border-width: 2px;
   }
 }
