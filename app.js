@@ -1126,21 +1126,21 @@ function updateQuoteSummary() {
   const noteEl = document.getElementById('summaryPriceNote');
 
   if (state.paymentMode === 'onetime') {
-    priceLabelEl.textContent = 'Pago Único (El sistema es tuyo, sin rentas)';
+    priceLabelEl.textContent = 'Pago Único Llave en Mano (Licencia Propia)';
     priceEl.textContent = `$${oneTimeTotal.toLocaleString('es-MX')} MXN`;
-    secondaryEl.textContent = `O si prefieres Renta Mensual: $${setupTotal.toLocaleString('es-MX')} de inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes`;
+    secondaryEl.textContent = `Incluye 1er año dominio .com + 3 meses de servidor y soporte (O Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes)`;
   } else {
-    priceLabelEl.textContent = 'Plan Renta Mensual (Todo Incluido)';
+    priceLabelEl.textContent = '⭐ Plan Renta Mensual (Todo Incluido)';
     priceEl.textContent = `$${monthlyTotal.toLocaleString('es-MX')} / mes`;
-    secondaryEl.textContent = `+ Pago inicial de activación: $${setupTotal.toLocaleString('es-MX')} MXN (o $${oneTimeTotal.toLocaleString('es-MX')} en Pago Único)`;
+    secondaryEl.textContent = `+ Activación inicial: $${setupTotal.toLocaleString('es-MX')} MXN (Incluye servidor, base de datos, respaldos y soporte continuo)`;
   }
 
   if (state.selectedAudienceKey === 'familiar') {
     noteEl.textContent =
-      '💚 Descuento Especial para Familiares y Amigos aplicado (-38% directo sobre el precio normal).';
+      '💚 Descuento Especial para Familiares y Amigos aplicado (-38% directo sobre el precio normal en Pago Único o Mensual).';
   } else {
     noteEl.textContent =
-      '*Ahorras más de la mitad de lo que cobra una agencia tradicional porque partimos de un sistema que ya funciona. Incluye tu logotipo, colores y te enseño a usarlo paso a paso.';
+      '*En Pago Único: 50% al iniciar y 50% contra entrega (incluye 1er año de dominio .com y 3 meses de hospedaje/soporte; después póliza ligera opcional o consumos directos de nube).';
   }
 
   const listEl = document.getElementById('summaryModulesList');
@@ -1275,31 +1275,40 @@ function generateProposalPdf() {
 
   y += 6;
   doc.setFillColor(13, 16, 24);
-  doc.roundedRect(15, y, 180, 36, 3, 3, 'F');
+  doc.roundedRect(15, y, 180, 44, 3, 3, 'F');
 
   doc.setTextColor(6, 182, 212);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(10.5);
-  doc.text('OPCIONES DE PAGO:', 22, y + 9);
+  doc.text('MODALIDADES DE INVERSIÓN DISPONIBLES:', 22, y + 8.5);
 
   doc.setTextColor(255, 255, 255);
-  doc.setFontSize(12.5);
-  doc.text(`Opción 1 · Pago Único (Sistema tuyo sin rentas): $${oneTimeTotal.toLocaleString('es-MX')} MXN`, 22, y + 18);
+  doc.setFontSize(11.8);
+  doc.text(`1) Pago Único (Licencia Llave en Mano): $${oneTimeTotal.toLocaleString('es-MX')} MXN`, 22, y + 17);
 
   doc.setTextColor(52, 211, 153);
   doc.setFontSize(11);
   doc.text(
-    `Opción 2 · Plan Renta Mensual (Todo incluido): $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')} MXN/mes`,
+    `2) Plan Mensual Todo Incluido (Recomendado): $${setupTotal.toLocaleString('es-MX')} activación + $${monthlyTotal.toLocaleString('es-MX')} MXN/mes`,
     22,
-    y + 26
+    y + 25
   );
 
   doc.setTextColor(148, 163, 184);
-  doc.setFontSize(8.5);
+  doc.setFontSize(8.2);
   doc.setFont('helvetica', 'normal');
-  doc.text('En Pago Único: 50% al iniciar y 50% al entregarte tu sistema funcionando.', 22, y + 32.5);
+  doc.text(
+    '• Pago Único: 50% anticipo y 50% contra entrega. Incluye 1er año dominio .com y 3 meses de servidor y soporte técnico.',
+    22,
+    y + 32.5
+  );
+  doc.text(
+    '  (A partir del 4° mes: póliza ligera opcional de hospedaje/soporte desde $490/mes o cuentas de nube/WhatsApp directas del cliente).',
+    22,
+    y + 38
+  );
 
-  y += 48;
+  y += 54;
   doc.setTextColor(71, 85, 105);
   doc.setFontSize(9.5);
   doc.text(
