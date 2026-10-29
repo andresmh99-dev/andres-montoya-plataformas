@@ -181,8 +181,8 @@ const PLATFORMS = [
     id: 'lievitum-pizzalab',
     name: 'Lievitum Pizza LAB · Plataforma Gastronómica',
     repo: 'www.lievitum.com',
-    repoUrl: 'https://www.lievitum.com',
-    liveUrl: 'https://www.lievitum.com',
+    repoUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
+    liveUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
     displayDomain: 'www.lievitum.com',
     category: 'negocios',
     sectorLabel: 'Restaurantes, Cafeterías, Bares y Franquicias',
@@ -572,34 +572,52 @@ function renderHeroDeck() {
     if (!item) return;
 
     urlBar.innerHTML = `<i data-lucide="lock"></i><span>${item.displayDomain}</span>`;
+    const shotImg = item.screenshot || `assets/screenshots/${item.id}.png`;
+    const kpis = item.visualKpis || item.highlights.slice(0, 3);
 
     body.innerHTML = `
       <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.65rem;">
-          <span style="font-size:0.75rem;font-weight:700;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:0.06em;">
+        <div class="vfx-shot-frame" data-vfx-tilt onclick="window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'shot') : openPlatformModal('${item.id}', 'overview')" style="margin-bottom:0.85rem;">
+          <div class="vfx-shot-img-wrap" style="aspect-ratio:16/9;">
+            <img src="${shotImg}" alt="${item.name}" />
+            <div class="vfx-shot-overlay">
+              <button type="button" class="vfx-shot-cta primary" onclick="event.stopPropagation(); window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'live') : openPlatformModal('${item.id}', 'live')">
+                ▶ Probar en Vivo
+              </button>
+              <button type="button" class="vfx-shot-cta" onclick="event.stopPropagation(); window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'shot') : openPlatformModal('${item.id}', 'overview')">
+                🔍 Zoom HD
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.35rem;">
+          <span style="font-size:0.74rem;font-weight:700;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:0.06em;">
             ${item.sectorLabel}
           </span>
-          <span class="preview-repo-tag">${item.displayDomain}</span>
+          <span class="preview-repo-tag">Desde $${item.basePrice.toLocaleString('es-MX')} MXN</span>
         </div>
-        <h3 style="font-family:var(--font-display);font-size:1.45rem;margin-bottom:0.45rem;">
+        <h3 style="font-family:var(--font-display);font-size:1.35rem;margin-bottom:0.3rem;">
           ${item.name}
         </h3>
-        <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:1rem;">
-          ${item.tagline}
+        <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.55rem;">
+          ${item.shortPitch || item.tagline}
         </p>
-        ${item.miniUiHtml}
+        <div class="vfx-kpi-row">
+          ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
+        </div>
       </div>
 
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:1.15rem;padding-top:0.9rem;border-top:1px solid var(--border-subtle);flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:0.85rem;padding-top:0.75rem;border-top:1px solid var(--border-subtle);flex-wrap:wrap;">
         <div style="font-size:0.78rem;color:var(--text-secondary);">
-          ⚡ <strong>${item.codeReadyPct}% del motor listo</strong> · Entrega en ${item.timeEstimate}
+          ⚡ <strong>${item.codeReadyPct}% listo</strong> · Entrega en ${item.timeEstimate}
         </div>
         <div style="display:flex;gap:0.5rem;">
-          <button type="button" class="btn btn-glass btn-sm" onclick="openPlatformModal('${item.id}', 'overview')">
-            <i data-lucide="eye"></i> Ver Sitio y Detalles
+          <button type="button" class="btn btn-glass btn-sm" onclick="window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'live') : openPlatformModal('${item.id}', 'overview')">
+            <i data-lucide="monitor-play"></i> Probar Pantalla
           </button>
           <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${item.id}')">
-            <i data-lucide="wand-2"></i> Quiero una similar
+            <i data-lucide="wand-2"></i> Cotizar
           </button>
         </div>
       </div>
@@ -664,22 +682,17 @@ function renderPlatformsCatalog() {
   }
 
   grid.innerHTML = filtered
-    .map(
-      (p) => `
-      <article class="platform-card" data-category="${p.category}">
-        <div class="platform-preview-window">
-          <div class="preview-topbar">
-            <span class="preview-repo-tag">
-              <i data-lucide="globe" style="width:13px;height:13px;"></i>
-              ${p.displayDomain}
-            </span>
-            <span class="preview-status-pill">
-              <span class="live-dot"></span>
-              ${p.statusLabel}
-            </span>
-          </div>
+    .map((p) => {
+      const kpis = p.visualKpis || p.highlights.slice(0, 3);
+      const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+      const frameHtml = window.renderVfxScreenshotFrame
+        ? window.renderVfxScreenshotFrame(p)
+        : `<div class="platform-preview-window">${p.miniUiHtml}</div>`;
 
-          ${p.miniUiHtml}
+      return `
+      <article class="platform-card" data-category="${p.category}">
+        <div style="padding:14px 14px 0;">
+          ${frameHtml}
         </div>
 
         <div class="platform-body">
@@ -688,50 +701,58 @@ function renderPlatformsCatalog() {
             ${
               p.liveUrl
                 ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" style="font-size:0.76rem;color:var(--accent-emerald);font-weight:700;display:inline-flex;align-items:center;gap:0.25rem;">
-                    Visitar ${p.displayDomain} <i data-lucide="external-link" style="width:13px;height:13px;"></i>
+                    ${p.displayDomain} <i data-lucide="external-link" style="width:13px;height:13px;"></i>
                   </a>`
                 : ''
             }
           </div>
 
           <h3 class="platform-title">${p.name}</h3>
-          <p class="platform-tagline">${p.tagline}</p>
+          <p class="platform-tagline" style="margin-bottom:0.55rem;">${p.shortPitch || p.tagline}</p>
 
-          <div class="ideal-for-box">
-            <strong>Ideal para vender/adaptar a:</strong> ${p.idealFor}
+          <div class="vfx-kpi-row">
+            ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
           </div>
 
-          <div class="platform-highlights">
-            ${p.highlights
-              .map(
-                (h) => `
-              <div class="highlight-item">
-                <i data-lucide="check-circle-2"></i>
-                <span>${h}</span>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;border-radius:12px;background:rgba(15,23,42,0.55);border:1px solid var(--border-subtle);margin:10px 0;font-size:0.76rem;">
+            <div>
+              <div style="opacity:0.7;font-size:0.68rem;">PAGO ÚNICO</div>
+              <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
+            </div>
+            <div>
+              <div style="opacity:0.7;font-size:0.68rem;">RENTA / MES</div>
+              <strong style="color:var(--accent-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}</strong>
+            </div>
+            <div>
+              <div style="opacity:0.7;font-size:0.68rem;">FAMILIAR -38%</div>
+              <strong style="color:var(--accent-emerald);">$${famPrice.toLocaleString('es-MX')}</strong>
+            </div>
+          </div>
+
+          <details class="vfx-details-drawer">
+            <summary>➕ Ver módulos incluidos y tecnologías (${p.stack.length})</summary>
+            <div class="vfx-details-content">
+              <div style="margin-bottom:6px;"><strong>Ideal para:</strong> ${p.idealFor}</div>
+              <div class="platform-stack" style="margin-top:8px;">
+                ${p.stack.map((tech) => `<span class="stack-pill">${tech}</span>`).join('')}
               </div>
-            `
-              )
-              .join('')}
-          </div>
+            </div>
+          </details>
 
-          <div class="platform-stack">
-            ${p.stack.map((tech) => `<span class="stack-pill">${tech}</span>`).join('')}
-          </div>
-
-          <div class="platform-actions">
-            <button type="button" class="btn btn-glass btn-sm" onclick="openPlatformModal('${p.id}', '${p.liveUrl ? 'live' : 'overview'}')">
-              <i data-lucide="${p.liveUrl ? 'monitor-play' : 'layers'}"></i>
-              <span>${p.liveUrl ? 'Ver Sitio Real / Detalles' : 'Inspeccionar Arquitectura'}</span>
+          <div class="platform-actions" style="margin-top:12px;">
+            <button type="button" class="btn btn-glass btn-sm" onclick="window.openVfxLightbox ? window.openVfxLightbox('${p.id}', 'live') : openPlatformModal('${p.id}', '${p.liveUrl ? 'live' : 'overview'}')">
+              <i data-lucide="monitor-play"></i>
+              <span>Probar en Vivo / Zoom</span>
             </button>
             <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${p.id}')">
               <i data-lucide="sparkles"></i>
-              <span>Cotizar una Similar</span>
+              <span>Cotizar</span>
             </button>
           </div>
         </div>
       </article>
-    `
-    )
+    `;
+    })
     .join('');
 
   lucide.createIcons();

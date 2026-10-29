@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="visual-fx.css" />
   <style>
     :root {
       --bg-paper: #faf8f5;
@@ -768,6 +769,7 @@
   </footer>
 
   <script src="app.js"></script>
+  <script src="visual-fx.js"></script>
   <script>
     (function() {
       let currentCat = 'all';
@@ -782,6 +784,9 @@
 
         container.innerHTML = list.map((p, idx) => {
           const num = String(idx + 1).padStart(2, '0');
+          const kpis = p.visualKpis || p.highlights.slice(0, 3);
+          const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
+          const frameHtml = window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : '';
           return `
             <article class="case-study-row">
               <div class="case-info">
@@ -790,76 +795,48 @@
                   <span class="case-sector">${p.sectorLabel}</span>
                 </div>
                 <h2 class="case-title">${p.name}</h2>
-                <p class="case-tagline">${p.tagline}</p>
+                <p class="case-tagline" style="margin-bottom:0.85rem;">${p.shortPitch || p.tagline}</p>
 
-                <div class="case-grid-2">
-                  <div class="case-box">
-                    <h5>El Problema que Resuelve</h5>
-                    <p>${p.problemSolved}</p>
-                  </div>
-                  <div class="case-box">
-                    <h5>¿A quién se puede adaptar?</h5>
-                    <p>${p.idealFor}</p>
-                  </div>
+                <div class="vfx-kpi-row" style="margin-bottom:1.1rem;">
+                  ${kpis.map(k => `<span class="vfx-kpi-pill" style="background:var(--cobalt-soft);border-color:#93c5fd;color:var(--cobalt);">${k}</span>`).join('')}
                 </div>
-
-                <ul class="case-features">
-                  ${p.highlights.map(h => `<li><i data-lucide="check"></i><span>${h}</span></li>`).join('')}
-                </ul>
 
                 <div class="case-pricing-strip">
                   <div>
-                    <strong>Llave en Mano:</strong> Desde $${p.basePrice.toLocaleString('es-MX')} MXN
+                    <strong>Pago Único:</strong> $${p.basePrice.toLocaleString('es-MX')} MXN
                   </div>
                   <div style="color:var(--emerald);font-weight:700;">
-                    Renta Mensual: $${p.setupFee.toLocaleString('es-MX')} setup + $${p.monthlyFee.toLocaleString('es-MX')}/mes
+                    Renta: $${p.monthlyFee.toLocaleString('es-MX')}/mes
+                  </div>
+                  <div style="color:var(--cobalt);font-weight:700;">
+                    Familiar (-38%): $${famPrice.toLocaleString('es-MX')}
                   </div>
                 </div>
 
+                <details class="vfx-details-drawer" style="margin-bottom:1.1rem;">
+                  <summary>➕ Ver para quién es ideal y módulos incluidos</summary>
+                  <div class="vfx-details-content">
+                    <p style="margin-bottom:0.5rem;"><strong>Ideal para:</strong> ${p.idealFor}</p>
+                    <ul class="case-features" style="margin-top:0.5rem;">
+                      ${p.highlights.map(h => `<li><i data-lucide="check"></i><span>${h}</span></li>`).join('')}
+                    </ul>
+                  </div>
+                </details>
+
                 <div class="case-actions">
-                  ${p.liveUrl ? `
-                    <a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn btn-dark">
-                      <span>Visitar Sitio Oficial (${p.displayDomain})</span>
-                      <i data-lucide="arrow-up-right"></i>
-                    </a>
-                  ` : ''}
+                  <button type="button" class="btn btn-dark" onclick="window.openVfxLightbox('${p.id}', 'live')">
+                    <span>Probar en Vivo / Zoom HD</span>
+                    <i data-lucide="monitor-play"></i>
+                  </button>
                   <button type="button" class="btn btn-outline" onclick="pickEditorialPlatform('${p.id}')">
                     <i data-lucide="sliders"></i>
-                    <span>Cotizar una plataforma como esta</span>
+                    <span>Cotizar Similar</span>
                   </button>
                 </div>
               </div>
 
               <div class="case-visual">
-                <div class="browser-frame">
-                  <div class="browser-bar">
-                    <div class="b-dots"><span></span><span></span><span></span></div>
-                    <a href="${p.liveUrl || '#'}" target="_blank" rel="noopener" class="b-url">
-                      <i data-lucide="lock"></i>
-                      <span>${p.displayDomain}</span>
-                    </a>
-                    <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--emerald);font-weight:700;">● ACTIVO</span>
-                  </div>
-                  <div class="browser-viewport" id="viewport-${p.id}">
-                    <div>
-                      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.85rem;">
-                        <span style="font-family:var(--font-mono);font-size:0.72rem;color:#94a3b8;">${p.statusLabel}</span>
-                        <span style="font-family:var(--font-mono);font-size:0.72rem;color:#38bdf8;">${p.codeReadyPct}% motor construido</span>
-                      </div>
-                      ${p.miniUiHtml}
-                    </div>
-                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.25rem;padding-top:0.85rem;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap;gap:0.5rem;">
-                      <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
-                        ${p.stack.slice(0, 4).map(s => `<span style="font-family:var(--font-mono);font-size:0.68rem;padding:0.18rem 0.5rem;border-radius:4px;background:rgba(255,255,255,0.08);color:#cbd5e1;">${s}</span>`).join('')}
-                      </div>
-                      ${p.liveUrl ? `
-                        <button type="button" onclick="loadLiveIframe('${p.id}', '${p.liveUrl}', '${p.displayDomain}')" style="background:#38bdf8;color:#0f172a;border:none;padding:0.4rem 0.8rem;border-radius:6px;font-weight:700;font-size:0.75rem;cursor:pointer;">
-                          ▶ Cargar Sitio en Vivo Aquí
-                        </button>
-                      ` : ''}
-                    </div>
-                  </div>
-                </div>
+                ${frameHtml}
               </div>
             </article>
           `;

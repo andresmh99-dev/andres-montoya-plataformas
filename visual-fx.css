@@ -1,0 +1,560 @@
+/* ==========================================================================
+   VISUAL-FX.CSS — IMÁGENES REALES, ANIMACIONES 3D E INTERACCIONES EN VIVO
+   Andrés Montoya Hernández · Showroom Visual de Plataformas Digitales
+   ========================================================================== */
+
+/* 1. SCROLL REVEAL & FLOATING ANIMATIONS */
+@keyframes vfxFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes vfxPulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+  50% { box-shadow: 0 0 0 9px rgba(16, 185, 129, 0); }
+}
+
+@keyframes vfxMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes vfxScanBeam {
+  0% { top: 4%; opacity: 0.95; }
+  50% { top: 88%; opacity: 1; }
+  100% { top: 4%; opacity: 0.95; }
+}
+
+@keyframes vfxSoundBar {
+  0%, 100% { height: 6px; }
+  50% { height: 24px; }
+}
+
+.vfx-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.vfx-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. 3D TILT SCREENSHOT BROWSER FRAME */
+.vfx-shot-frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b0f19;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.45);
+  transform-style: preserve-3d;
+  transition: transform 0.22s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+}
+.vfx-shot-frame:hover {
+  border-color: rgba(56, 189, 248, 0.65);
+  box-shadow: 0 26px 55px -12px rgba(6, 182, 212, 0.28);
+}
+
+.vfx-shot-chrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+.vfx-shot-dots {
+  display: flex;
+  gap: 5px;
+}
+.vfx-shot-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.vfx-shot-dots span:nth-child(1) { background: #ef4444; }
+.vfx-shot-dots span:nth-child(2) { background: #f59e0b; }
+.vfx-shot-dots span:nth-child(3) { background: #10b981; }
+
+.vfx-shot-domain {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 11px;
+}
+.vfx-shot-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: vfxPulseGlow 2s infinite;
+}
+
+.vfx-shot-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #0f172a;
+}
+.vfx-shot-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+.vfx-shot-frame:hover .vfx-shot-img-wrap img {
+  transform: scale(1.055);
+}
+
+/* Hover Interactive Overlay on every Screenshot */
+.vfx-shot-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.08) 0%, rgba(15, 23, 42, 0.84) 100%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 10px;
+}
+.vfx-shot-frame:hover .vfx-shot-overlay {
+  opacity: 1;
+}
+.vfx-shot-cta {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  border: none;
+  cursor: pointer;
+}
+.vfx-shot-cta.primary {
+  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  color: #ffffff;
+}
+
+/* 3. VISUAL KPI CHIPS & COMPACT CARD PITCH */
+.vfx-kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0;
+}
+.vfx-kpi-pill {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Collapsible Details Drawer so Cards have 65% less text by default */
+.vfx-details-drawer {
+  margin-top: 8px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.25);
+  padding-top: 8px;
+}
+.vfx-details-drawer summary {
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.82;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+.vfx-details-drawer summary::-webkit-details-marker {
+  display: none;
+}
+.vfx-details-drawer summary:hover {
+  opacity: 1;
+}
+.vfx-details-content {
+  margin-top: 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* 4. INFINITE SCREENSHOT FILMSTRIP (CARRUSEL VISUAL AUTOMÁTICO) */
+.vfx-filmstrip-section {
+  padding: 28px 0;
+  overflow: hidden;
+  position: relative;
+}
+.vfx-filmstrip-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  animation: vfxMarquee 42s linear infinite;
+}
+.vfx-filmstrip-track:hover {
+  animation-play-state: paused;
+}
+.vfx-filmstrip-card {
+  width: 340px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.vfx-filmstrip-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #38bdf8;
+}
+.vfx-filmstrip-card img {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.vfx-filmstrip-meta {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0b0f19;
+  color: #f8fafc;
+  font-size: 12px;
+  font-weight: 700;
+}
+.vfx-filmstrip-domain {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #34d399;
+}
+
+/* 5. INTERACTIVE AI & AUTOMATION PLAYGROUND + BEFORE/AFTER SLIDER */
+.vfx-interactive-hub {
+  max-width: 1280px;
+  margin: 42px auto;
+  padding: 0 20px;
+}
+.vfx-hub-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.vfx-hub-card {
+  background: linear-gradient(145deg, #0f172a 0%, #131c31 100%);
+  color: #f8fafc;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vfx-hub-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  width: fit-content;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.vfx-hub-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+.vfx-hub-sub {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+
+/* Simulator Tabs */
+.vfx-sim-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.vfx-sim-tab {
+  padding: 9px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(30, 41, 59, 0.7);
+  color: #cbd5e1;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.vfx-sim-tab:hover {
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+.vfx-sim-tab.active {
+  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 20px -6px rgba(6, 182, 212, 0.55);
+}
+
+/* Live Simulator Stage */
+.vfx-sim-stage {
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 18px;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.vfx-chat-bubble {
+  padding: 12px 15px;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  max-width: 92%;
+  transition: all 0.35s ease;
+}
+.vfx-chat-incoming {
+  background: #1e293b;
+  color: #f1f5f9;
+  border-bottom-left-radius: 4px;
+}
+.vfx-chat-ai {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(6, 182, 212, 0.18) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #ecfdf5;
+  align-self: flex-end;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+}
+.vfx-waveform {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+.vfx-waveform span {
+  width: 3px;
+  height: 10px;
+  background: #38bdf8;
+  border-radius: 2px;
+  animation: vfxSoundBar 0.75s ease-in-out infinite;
+}
+.vfx-waveform span:nth-child(2) { animation-delay: 0.15s; }
+.vfx-waveform span:nth-child(3) { animation-delay: 0.3s; }
+.vfx-waveform span:nth-child(4) { animation-delay: 0.1s; }
+.vfx-waveform span:nth-child(5) { animation-delay: 0.25s; }
+
+/* Draggable Before / After Comparison Slider */
+.vfx-ba-container {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  border-radius: 16px;
+  overflow: hidden;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.vfx-ba-layer {
+  position: absolute;
+  inset: 0;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.vfx-ba-after {
+  background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%);
+  color: #ecfdf5;
+}
+.vfx-ba-before {
+  background: linear-gradient(135deg, #450a0a 0%, #1e1b24 100%);
+  color: #fecaca;
+  width: 50%;
+  overflow: hidden;
+  border-right: 3px solid #ffffff;
+}
+.vfx-ba-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 440px;
+}
+.vfx-ba-item {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vfx-ba-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 5;
+}
+.vfx-ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0f172a;
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* 6. MULTI-DEVICE INTERACTIVE LIGHTBOX (DESKTOP / TABLET / MOBILE) */
+.vfx-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(6, 9, 17, 0.92);
+  backdrop-filter: blur(12px);
+  display: none;
+  flex-direction: column;
+  padding: 18px;
+}
+.vfx-lightbox.open {
+  display: flex;
+}
+.vfx-lb-topbar {
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto 12px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #ffffff;
+}
+.vfx-lb-devices {
+  display: flex;
+  gap: 6px;
+}
+.vfx-lb-dev-btn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #1e293b;
+  color: #cbd5e1;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.vfx-lb-dev-btn.active {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+}
+.vfx-lb-stage {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.vfx-lb-viewport {
+  width: 100%;
+  max-width: 1380px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid #334155;
+  transition: max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.vfx-lb-viewport.tablet {
+  max-width: 820px;
+}
+.vfx-lb-viewport.mobile {
+  max-width: 410px;
+  border-radius: 32px;
+  border-width: 6px;
+}
+.vfx-lb-viewport iframe,
+.vfx-lb-viewport img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+  background: #0f172a;
+}
+
+@media (max-width: 980px) {
+  .vfx-hub-grid {
+    grid-template-columns: 1fr;
+  }
+}

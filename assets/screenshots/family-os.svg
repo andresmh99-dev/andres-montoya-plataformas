@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="50%" stop-color="#FEF3C7"/>
+      <stop offset="100%" stop-color="#ECFDF5"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0F172A" flood-opacity="0.09"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Top Navigation -->
+  <rect x="0" y="0" width="1280" height="72" fill="#FFFFFF" opacity="0.92"/>
+  <circle cx="64" cy="36" r="18" fill="url(#emeraldGrad)"/>
+  <text x="56" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="#FFFFFF">F</text>
+  <text x="94" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="800" fill="#0F172A">FamilyOS · Agenda Escolar con IA</text>
+  <rect x="395" y="23" width="175" height="26" rx="13" fill="#D1FAE5"/>
+  <text x="411" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#065F46">● WhatsApp IA Conectado</text>
+
+  <rect x="1080" y="18" width="150" height="36" rx="18" fill="url(#emeraldGrad)"/>
+  <text x="1107" y="41" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">+ Subir Aviso PDF</text>
+
+  <!-- Left Hero / Value Prop -->
+  <rect x="56" y="108" width="540" height="636" rx="28" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="88" y="140" width="230" height="30" rx="15" fill="#FEF3C7"/>
+  <text x="104" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#92400E">✨ CERO CAPTURA MANUAL EN CASA</text>
+
+  <text x="88" y="218" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#0F172A">Nada importante del</text>
+  <text x="88" y="264" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#059669">colegio se vuelve a perder.</text>
+  <text x="88" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#475569">Reenvía cualquier circular PDF, foto o mensaje del grupo escolar</text>
+  <text x="88" y="334" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#475569">y la IA extrae fechas, materiales, pagos y responsable al instante.</text>
+
+  <!-- WhatsApp Extraction Simulation Box -->
+  <rect x="88" y="366" width="476" height="162" rx="18" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+  <text x="112" y="396" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800" fill="#15803D">📲 CIRCULAR ESCOLAR RECIBIDA POR WHATSAPP (HACE 12 SEG)</text>
+  <rect x="112" y="410" width="428" height="44" rx="10" fill="#FFFFFF"/>
+  <text x="126" y="437" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" fill="#1E293B">📄 "Circular_Octubre_Primaria.pdf" — Mañana llevar cartulina verde y $180</text>
+  <text x="112" y="482" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#065F46">✓ IA detectó: Hijo: Mateo (3°A) · Material: Cartulina · Pago: $180 MXN</text>
+  <text x="112" y="506" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#D97706">⏰ Recordatorio programado hoy 19:30 hrs para Mamá y Papá</text>
+
+  <!-- Family Members Chips -->
+  <text x="88" y="572" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#64748B">VISTA COMPARTIDA EN TIEMPO REAL:</text>
+  <rect x="88" y="588" width="142" height="44" rx="12" fill="#ECFDF5"/>
+  <text x="108" y="615" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#065F46">👦 Mateo · 3°A</text>
+  <rect x="244" y="588" width="142" height="44" rx="12" fill="#EFF6FF"/>
+  <text x="264" y="615" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#1D4ED8">👧 Sofía · Kinder</text>
+  <rect x="400" y="588" width="164" height="44" rx="12" fill="#FEF3C7"/>
+  <text x="418" y="615" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#92400E">👨‍👩‍👧‍👦 Mamá &amp; Papá</text>
+
+  <!-- Right Mobile/Tablet Weekly Family Board -->
+  <rect x="632" y="108" width="592" height="636" rx="28" fill="#0F172A" filter="url(#cardShadow)"/>
+  <text x="668" y="156" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">Tablero Familiar de la Semana</text>
+  <rect x="1050" y="134" width="140" height="30" rx="15" fill="#10B981"/>
+  <text x="1072" y="154" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#052E16">4 Eventos Activos</text>
+
+  <!-- Event 1 -->
+  <rect x="668" y="186" width="520" height="112" rx="16" fill="#1E293B" stroke="#334155"/>
+  <rect x="686" y="204" width="6" height="76" rx="3" fill="#10B981"/>
+  <text x="708" y="226" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Entrega de Maqueta Sistema Solar · Mateo</text>
+  <text x="708" y="252" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" fill="#94A3B8">Jueves 08:00 AM · Material: Bolas unicel y pintura acrílica</text>
+  <rect x="708" y="264" width="148" height="24" rx="12" fill="#064E3B"/>
+  <text x="722" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#6EE7B7">Responsable: Papá ✓</text>
+
+  <!-- Event 2 -->
+  <rect x="668" y="316" width="520" height="112" rx="16" fill="#1E293B" stroke="#334155"/>
+  <rect x="686" y="334" width="6" height="76" rx="3" fill="#F59E0B"/>
+  <text x="708" y="356" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Pago Excursión Granja Didáctica · Sofía</text>
+  <text x="708" y="382" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" fill="#94A3B8">Viernes límite 11:00 AM · Cuota: $320 MXN en sobre cerrado</text>
+  <rect x="708" y="394" width="160" height="24" rx="12" fill="#78350F"/>
+  <text x="722" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#FCD34D">Responsable: Mamá ⏳</text>
+
+  <!-- Event 3 -->
+  <rect x="668" y="446" width="520" height="112" rx="16" fill="#1E293B" stroke="#334155"/>
+  <rect x="686" y="464" width="6" height="76" rx="3" fill="#3B82F6"/>
+  <text x="708" y="486" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Clase de Natación + Pediatra Control</text>
+  <text x="708" y="512" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" fill="#94A3B8">Sábado 10:30 AM · Club Britania / Consultorio Pediátrico</text>
+  <rect x="708" y="524" width="190" height="24" rx="12" fill="#1E3A8A"/>
+  <text x="722" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="11.5" font-weight="700" fill="#93C5FD">Sincronizado en Calendario ✓</text>
+
+  <!-- Bottom Summary Bar -->
+  <rect x="668" y="582" width="520" height="124" rx="18" fill="#064E3B"/>
+  <text x="696" y="622" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">Ahorro promedio: 4.5 horas por semana</text>
+  <text x="696" y="652" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#A7F3D0">Sin instalar nada pesado · Funciona desde WhatsApp y Web App (PWA)</text>
+  <text x="696" y="682" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FCD34D">★ Diseñado para Familias y Colegios en México</text>
+</svg>

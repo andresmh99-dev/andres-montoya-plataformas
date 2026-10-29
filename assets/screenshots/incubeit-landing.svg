@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <defs>
+    <linearGradient id="bgInc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070B19"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <linearGradient id="brandInc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#bgInc)"/>
+
+  <!-- Decorative Glows -->
+  <circle cx="240" cy="180" r="220" fill="#06B6D4" opacity="0.12"/>
+  <circle cx="1040" cy="600" r="260" fill="#8B5CF6" opacity="0.14"/>
+
+  <!-- Top Bar -->
+  <rect x="48" y="32" width="1184" height="64" rx="16" fill="#1E293B" opacity="0.75" stroke="#334155"/>
+  <rect x="76" y="48" width="32" height="32" rx="8" fill="url(#brandInc)"/>
+  <text x="122" y="71" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">INCUBEIT · Automatización &amp; Agentes IA B2B</text>
+  <rect x="1030" y="46" width="174" height="36" rx="18" fill="url(#brandInc)"/>
+  <text x="1055" y="69" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Cotizador PDF en Vivo</text>
+
+  <!-- Left Hero Column -->
+  <rect x="48" y="132" width="600" height="616" rx="24" fill="#0F172A" stroke="#334155"/>
+  <rect x="84" y="168" width="250" height="30" rx="15" fill="#164E63"/>
+  <text x="102" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#67E8F9">⚡ CONSULTORÍA &amp; AGENCIA SAAS / IA</text>
+
+  <text x="84" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="800" fill="#FFFFFF">Multiplica tus ventas</text>
+  <text x="84" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="40" font-weight="800" fill="#38BDF8">con Cotizadores y Bots IA.</text>
+  <text x="84" y="346" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94A3B8">Landing page de alta conversión con simulador de retorno de inversión,</text>
+  <text x="84" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94A3B8">generación instantánea de propuestas en PDF y captura por WhatsApp.</text>
+
+  <!-- KPI Cards -->
+  <rect x="84" y="410" width="256" height="118" rx="16" fill="#1E293B" stroke="#334155"/>
+  <text x="110" y="458" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="800" fill="#38BDF8">+340%</text>
+  <text x="110" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#CBD5E1">Conversión de prospectos B2B</text>
+
+  <rect x="356" y="410" width="256" height="118" rx="16" fill="#1E293B" stroke="#334155"/>
+  <text x="382" y="458" font-family="system-ui, -apple-system, sans-serif" font-size="34" font-weight="800" fill="#A78BFA">15 seg</text>
+  <text x="382" y="490" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#CBD5E1">Para emitir cotización PDF</text>
+
+  <!-- CTA Preview -->
+  <rect x="84" y="558" width="528" height="148" rx="18" fill="#1E1B4B" stroke="#6366F1"/>
+  <text x="112" y="600" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">Motor Comercial Autónomo 24/7</text>
+  <text x="112" y="630" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#C7D2FE">Califica prospectos, calcula presupuestos dinámicos y envía el documento</text>
+  <text x="112" y="652" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#C7D2FE">membretado listo para firma sin intervención humana.</text>
+
+  <!-- Right Interactive Calculator Preview -->
+  <rect x="676" y="132" width="556" height="616" rx="24" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5"/>
+  <text x="712" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF">Simulador de Cotización &amp; ROI en Vivo</text>
+
+  <rect x="712" y="210" width="484" height="84" rx="14" fill="#1E293B"/>
+  <text x="736" y="242" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#94A3B8">1. VOLUMEN DE OPERACIONES MENSUALES</text>
+  <rect x="736" y="258" width="436" height="10" rx="5" fill="#334155"/>
+  <rect x="736" y="258" width="310" height="10" rx="5" fill="url(#brandInc)"/>
+  <circle cx="1046" cy="263" r="11" fill="#38BDF8"/>
+
+  <rect x="712" y="314" width="484" height="154" rx="14" fill="#1E293B"/>
+  <text x="736" y="346" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#94A3B8">2. MÓDULOS DE AUTOMATIZACIÓN SELECCIONADOS</text>
+  <text x="736" y="380" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#67E8F9">✓ Agente de Atención y Calificación WhatsApp 24/7</text>
+  <text x="736" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#67E8F9">✓ Generador Automático de Cotizaciones PDF (jsPDF)</text>
+  <text x="736" y="440" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#67E8F9">✓ Panel de Analítica y Embudo Comercial</text>
+
+  <rect x="712" y="492" width="484" height="218" rx="18" fill="#1E293B" stroke="#8B5CF6"/>
+  <text x="740" y="532" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#A78BFA">PROPUESTA LISTA PARA DESCARGAR</text>
+  <text x="740" y="582" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" fill="#FFFFFF">$16,500 MXN</text>
+  <text x="740" y="612" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#94A3B8">Incluye dominio propio, diseño a medida y generador PDF</text>
+  <rect x="740" y="636" width="428" height="48" rx="12" fill="url(#brandInc)"/>
+  <text x="842" y="666" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">⬇ Descargar Propuesta Formal PDF</text>
+</svg>
