@@ -13,6 +13,7 @@
     },
     'control-ops': {
       screenshot: 'assets/screenshots/control-ops.png',
+      allowIframe: false,
       shortPitch: 'Sigue tus entregas y camiones en vivo, lee documentos PDF en automático y cuida la ganancia de cada viaje.',
       visualKpis: ['📍 Rastreo en Vivo para Clientes', '📄 Lee Documentos Solo', '📈 Control de Ganancias']
     },
@@ -23,7 +24,7 @@
     },
     'lievitum-pizzalab': {
       screenshot: 'assets/screenshots/lievitum-pizzalab.png',
-      livePreviewUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
+      livePreviewUrl: 'https://www.lievitum.com',
       shortPitch: 'Página atractiva para tu restaurante con menú interactivo con fotos, selector de sucursal y pedidos directos a WhatsApp.',
       visualKpis: ['🍕 Menú Digital con Fotos', '📍 Varias Sucursales', '📲 Pedidos a tu WhatsApp']
     },
@@ -34,6 +35,7 @@
     },
     'escalera-britania': {
       screenshot: 'assets/screenshots/escalera-britania.png',
+      allowIframe: false,
       shortPitch: 'Olvídate del Excel en tus torneos: los jugadores suben su marcador desde el celular y la tabla de posiciones se actualiza sola.',
       visualKpis: ['🎾 Página + App para Jugadores', '🏆 Tabla de Posiciones Sola', '📅 Reserva de Canchas']
     },
@@ -44,11 +46,13 @@
     },
     'family-os': {
       screenshot: 'assets/screenshots/family-os.svg',
+      livePreviewUrl: 'https://family-os-ten.vercel.app',
       shortPitch: 'Reenvía cualquier circular de la escuela o mensaje de WhatsApp y conviértelo al instante en un calendario familiar compartido.',
       visualKpis: ['👨‍👩‍👧‍👦 Calendario Mamá y Papá', '📄 Lee Circulares de Escuela', '✅ Avisa Materiales y Pagos']
     },
     'incubeit-landing': {
       screenshot: 'assets/screenshots/incubeit-landing.svg',
+      livePreviewUrl: 'https://andresmh99-dev.github.io/incubeit-landing/',
       shortPitch: 'Página de ventas moderna donde tus clientes calculan su presupuesto al instante y descargan una cotización con tu logo.',
       visualKpis: ['🧮 Calculadora de Precios', '📥 Descarga PDF al Instante', '📲 Manda Clientes a tu WhatsApp']
     }
@@ -62,6 +66,9 @@
         p.screenshot = v.screenshot;
         p.shortPitch = v.shortPitch;
         p.visualKpis = v.visualKpis;
+        if (typeof v.allowIframe === 'boolean') {
+          p.allowIframe = v.allowIframe;
+        }
         if (v.livePreviewUrl) {
           p.livePreviewUrl = v.livePreviewUrl;
         }
@@ -77,14 +84,15 @@
   window.renderVfxScreenshotFrame = function (p, options = {}) {
     const heightStyle = options.height ? `style="height:${options.height};"` : '';
     const shot = p.screenshot || 'assets/screenshots/nailroomspa.png';
+    const targetUrl = p.liveUrl || p.livePreviewUrl || '#';
     return `
       <div class="vfx-shot-frame" data-vfx-tilt onclick="window.openVfxLightbox('${p.id}', 'shot')">
         <div class="vfx-shot-chrome">
           <div class="vfx-shot-dots"><span></span><span></span><span></span></div>
-          <span class="vfx-shot-domain">
+          <a href="${targetUrl}" target="_blank" rel="noopener" class="vfx-shot-domain" onclick="event.stopPropagation();" title="Abrir ${p.displayDomain} en nueva pestaña">
             <span class="vfx-shot-live-dot"></span>
-            ${p.displayDomain}
-          </span>
+            ${p.displayDomain} ↗
+          </a>
           <span class="vfx-shot-status" style="font-size:10px;opacity:0.85;">✓ En línea</span>
         </div>
         <div class="vfx-shot-img-wrap" ${heightStyle}>
@@ -94,9 +102,9 @@
           <button type="button" class="vfx-shot-cta primary" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'live')">
             ▶ Ver Página en Vivo
           </button>
-          <button type="button" class="vfx-shot-cta" onclick="event.stopPropagation(); window.openVfxLightbox('${p.id}', 'shot')">
-            🔍 Ampliar Pantalla
-          </button>
+          <a href="${targetUrl}" target="_blank" rel="noopener" class="vfx-shot-cta" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center;" onclick="event.stopPropagation();">
+            🌐 Abrir Sitio Real ↗
+          </a>
         </div>
       </div>
     `;
@@ -402,7 +410,32 @@
 
     const targetLive = p.livePreviewUrl || p.liveUrl;
     if ((mode === 'desktop' || mode === 'mobile') && targetLive) {
-      viewport.innerHTML = `<iframe src="${targetLive}" title="Vista en vivo de ${p.name}"></iframe>`;
+      if (p.allowIframe === false) {
+        viewport.innerHTML = `
+          <div style="position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#050814;overflow:hidden;">
+            <img src="${p.screenshot}" alt="Pantalla de ${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:blur(4px);" />
+            <div style="position:relative;z-index:2;max-width:520px;margin:20px;padding:28px 24px;border-radius:22px;background:rgba(6,11,25,0.94);border:1px solid rgba(0,242,254,0.45);text-align:center;color:#f8fafc;box-shadow:0 25px 60px rgba(0,0,0,0.8);">
+              <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(16,185,129,0.15);color:#34d399;font-size:11.5px;font-weight:700;margin-bottom:12px;">
+                🔒 Sitio Oficial con Protección de Seguridad Activa
+              </div>
+              <h4 style="font-size:1.35rem;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">${p.name}</h4>
+              <p style="font-size:0.9rem;color:#cbd5e1;margin-bottom:18px;line-height:1.5;">
+                Por seguridad de sus usuarios reales, <strong>${p.displayDomain}</strong> se abre directamente en su propia ventana verificada.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+                <a href="${targetLive}" target="_blank" rel="noopener" class="vfx-shot-cta primary" style="text-decoration:none;padding:12px 20px;font-size:0.92rem;">
+                  🚀 Abrir ${p.displayDomain} en Vivo ↗
+                </a>
+                <button type="button" class="vfx-shot-cta" style="padding:12px 18px;font-size:0.88rem;" onclick="document.querySelector('[data-lb-mode=\\'shot\\']').click()">
+                  📸 Ver Captura HD Aquí
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        viewport.innerHTML = `<iframe src="${targetLive}" title="Vista en vivo de ${p.name}"></iframe>`;
+      }
     } else {
       viewport.innerHTML = `<img src="${p.screenshot}" alt="Pantalla de ${p.name}" />`;
     }

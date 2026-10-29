@@ -202,8 +202,8 @@ const PLATFORMS = [
     id: 'lievitum-pizzalab',
     name: 'Lievitum Pizza LAB · Página y Menú para Restaurantes',
     repo: 'www.lievitum.com',
-    repoUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
-    liveUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
+    repoUrl: 'https://www.lievitum.com',
+    liveUrl: 'https://www.lievitum.com',
     displayDomain: 'www.lievitum.com',
     category: 'negocios',
     sectorLabel: 'Restaurantes, Pizzerías, Cafeterías y Bares',
@@ -447,7 +447,7 @@ const PLATFORMS = [
     name: 'Family OS · Organizador Escolar y Familiar',
     repo: 'andresmh99-dev/agenda-familiar',
     repoUrl: 'https://github.com/andresmh99-dev/agenda-familiar',
-    liveUrl: 'https://agenda-familiar-umber.vercel.app',
+    liveUrl: 'https://family-os-ten.vercel.app',
     displayDomain: 'familyos.mx',
     category: 'personas',
     sectorLabel: 'Familias con Hijos, Colegios y Asociaciones de Padres',
@@ -507,7 +507,7 @@ const PLATFORMS = [
     name: 'INCUBEIT · Página Comercial con Cotizador en Vivo',
     repo: 'andresmh99-dev/incubeit-landing',
     repoUrl: 'https://github.com/andresmh99-dev/incubeit-landing',
-    liveUrl: '',
+    liveUrl: 'https://andresmh99-dev.github.io/incubeit-landing/',
     displayDomain: 'incubeit.mx',
     category: 'empresas',
     sectorLabel: 'Empresas de Servicios, Constructoras, Consultoras y Negocios',
@@ -1189,8 +1189,11 @@ function generateProposalPdf() {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
   const { basePlatform, checkedModules, oneTimeTotal, setupTotal, monthlyTotal } = getCalculatedQuote();
-  const clientName = document.getElementById('clientName')?.value.trim() || 'Cliente / Negocio Interesado';
-  const clientNote = document.getElementById('clientNote')?.value.trim() || 'Sistema personalizado con tu marca';
+  const clientName =
+    document.getElementById('holoClientName')?.value.trim() ||
+    document.getElementById('clientName')?.value.trim() ||
+    'Cliente / Negocio Interesado';
+  const clientNote = document.getElementById('clientNote')?.value.trim() || 'Sistema personalizado con tu logotipo, colores y dominio .com';
   const dateStr = new Date().toLocaleDateString('es-MX', {
     year: 'numeric',
     month: 'long',

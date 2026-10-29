@@ -3,8 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Andrés Montoya Hernández | Sistemas Digitales, Páginas Web y Automatización 3D</title>
-  <meta name="description" content="Catálogo interactivo 3D con demostraciones en vivo de las 9 plataformas digitales creadas por Andrés Montoya Hernández: asistentes de WhatsApp con IA, menús para restaurantes, agendas médicas y logística." />
+  <title>Andrés Montoya Hernández | Sistemas Digitales, Páginas Web y Automatización con IA</title>
+  <meta name="description" content="Catálogo interactivo 3D con demostraciones en vivo de las 9 plataformas digitales creadas por Andrés Montoya Hernández: asistentes de WhatsApp que escuchan audios y agendan solos, menús para restaurantes, agendas médicas y sistemas de logística." />
+  <meta name="author" content="Andrés Montoya Hernández" />
+  <meta name="theme-color" content="#03050c" />
+
+  <!-- Open Graph / Vista previa para WhatsApp, Facebook, LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:title" content="Andrés Montoya Hernández | Sistemas Digitales y Automatización para Negocios" />
+  <meta property="og:description" content="Explora en vivo 9 sistemas reales ya funcionando: WhatsApp que agenda citas solo 24/7, menús digitales sin comisiones, agendas clínicas y control logístico. Compra única o renta mensual." />
+  <meta property="og:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/screenshots/nailroomspa.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Andrés Montoya Hernández | 9 Sistemas Digitales Listos para tu Negocio" />
+  <meta name="twitter:description" content="Tecnología probada y lista para personalizar con tu marca en días: agendas con WhatsApp automático, restaurantes, consultorios, clubes y logística." />
+  <meta name="twitter:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/screenshots/nailroomspa.png" />
+
+  <!-- Favicon SVG Integrado (Cero errores 404) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f2fe'/%3E%3Cstop offset='50%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23ec4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='sans-serif' font-weight='800' font-size='26'%3EAM%3C/text%3E%3C/svg%3E" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -123,6 +141,10 @@
     .holo-card,
     .holo-card-visual,
     .holo-card-body,
+    .steps-grid,
+    .step-card,
+    .faq-grid,
+    .faq-item,
     .quoter-shell,
     .quoter-shell > div {
       min-width: 0;
@@ -480,6 +502,25 @@
       line-height: 1.14;
       word-wrap: break-word;
     }
+    .holo-domain-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #10b981;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 4px 11px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+    .holo-domain-pill:hover {
+      background: rgba(16, 185, 129, 0.25);
+      color: #fff;
+      transform: translateY(-1px);
+    }
     .holo-price-triplet {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -707,10 +748,89 @@
     }
 
     /* ==========================================================================
-       6. FUTURISTIC QUICK QUOTER SECTION
+       6. CÓMO TRABAJAMOS EN 3 PASOS + PREGUNTAS FRECUENTES (CONFIANZA COMERCIAL)
+       ========================================================================== */
+    .process-section {
+      padding: 36px 0 44px;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .step-card {
+      background: rgba(11, 17, 34, 0.8);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      border-radius: 22px;
+      padding: 24px 22px;
+      backdrop-filter: blur(14px);
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #00f2fe 0%, #6366f1 100%);
+      color: #03050c;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .step-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-Light);
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .faq-item {
+      background: rgba(11, 17, 34, 0.78);
+      border: 1px solid var(--border-glass);
+      border-radius: 16px;
+      padding: 16px 20px;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item[open] {
+      border-color: rgba(0, 242, 254, 0.45);
+    }
+    .faq-item summary {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.98rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item p {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: var(--text-Light);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       7. FUTURISTIC QUICK QUOTER SECTION
        ========================================================================== */
     .quoter-section {
-      padding: 48px 0 72px;
+      padding: 40px 0 80px;
     }
     .quoter-shell {
       background: linear-gradient(150deg, rgba(10, 16, 34, 0.9) 0%, rgba(20, 11, 38, 0.9) 100%);
@@ -769,13 +889,40 @@
       max-width: 100%;
     }
 
+    /* Botón Flotante de WhatsApp 24/7 */
+    .wa-floating-btn {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      z-index: 990;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 14px 35px rgba(16, 185, 129, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .wa-floating-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 18px 42px rgba(16, 185, 129, 0.75);
+    }
+
     /* ==========================================================================
-       7. RESPONSIVE TABLET & MOBILE ADAPTATION (100% SIN DESFASES NI DESBORDES)
+       8. RESPONSIVE TABLET & MOBILE ADAPTATION (100% SIN DESFASES NI DESBORDES)
        ========================================================================== */
     @media (max-width: 1080px) {
       .holo-stage-grid,
       .impact-grid,
-      .quoter-shell {
+      .quoter-shell,
+      .steps-grid,
+      .faq-grid {
         grid-template-columns: minmax(0, 1fr);
       }
       .holo-cards-grid {
@@ -953,6 +1100,12 @@
         font-size: 0.82rem;
         padding: 8px 14px;
       }
+      .wa-floating-btn {
+        bottom: 14px;
+        right: 14px;
+        padding: 11px 16px;
+        font-size: 0.82rem;
+      }
     }
   </style>
 </head>
@@ -1119,6 +1272,71 @@
       </div>
     </section>
 
+    <!-- CÓMO TRABAJAMOS EN 3 PASOS + PREGUNTAS FRECUENTES -->
+    <section class="process-section" id="como-trabajamos">
+      <div class="container">
+        <div class="section-head">
+          <span class="holo-badge">🤝 TRATO DIRECTO Y SIN COMPLICACIONES TÉCNICAS</span>
+          <h2>¿Cómo entregamos tu sistema funcionando?</h2>
+          <p style="color:var(--text-Light);">
+            No tienes que saber nada de programación. Yo me encargo de todo de principio a fin y te acompaño personalmente.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Elegimos tu sistema base</h3>
+            <p>Platicamos 15 minutos por WhatsApp o llamada, vemos cuál de los 9 sistemas se adapta mejor a tu negocio y definimos qué funciones necesitas.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Lo personalizo con tu marca</h3>
+            <p>Le coloco tu logotipo, tus colores, tus servicios, precios, horarios y conecto tu propio dominio oficial <code>.com</code> o <code>.mx</code>.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Te enseño a usarlo y arrancamos</h3>
+            <p>Te entrego todo funcionando en celular y computadora, te capacito paso a paso a ti y a tu equipo, y cuentas con mi soporte directo.</p>
+          </div>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item" open>
+            <summary>
+              <span>¿Cuál es la diferencia entre Pago Único y Renta Mensual?</span>
+              <span style="color:var(--neon-cyan);">＋</span>
+            </summary>
+            <p>En <strong>Pago Único</strong> haces una sola inversión (50% al iniciar y 50% al entregar) y el sistema es 100% tuyo sin rentas fijas. En <strong>Renta Mensual</strong> entras con una inversión inicial menor y tu mensualidad ya incluye servidor, mantenimiento, actualizaciones y soporte técnico continuo.</p>
+          </details>
+
+          <details class="faq-item" open>
+            <summary>
+              <span>¿Por qué entregas en semanas lo que una agencia tarda meses?</span>
+              <span style="color:var(--neon-cyan);">＋</span>
+            </summary>
+            <p>Porque no empezamos desde una hoja en blanco. Partimos de mis 9 plataformas que ya están probadas con clientes reales en operación diaria, ahorrándote más del 50% en tiempo y costo de desarrollo.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>¿Mi página tendrá mi propio nombre .com y mi logotipo?</span>
+              <span style="color:var(--neon-cyan);">＋</span>
+            </summary>
+            <p>Sí, al 100%. Tu sistema queda con tu propio dominio (por ejemplo, <code>www.tunegocio.com</code>), tu imagen, tus fotografías, tus precios y conectado directamente a tu número de WhatsApp.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span>¿Se puede adaptar algo especial que solo tenga mi negocio?</span>
+              <span style="color:var(--neon-cyan);">＋</span>
+            </summary>
+            <p>Claro que sí. Además de todo lo que ya incluye cada plataforma, puedo agregar reglas, reportes, calculadoras o funciones hechas exactamente a la medida de tu operación.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- COTIZADOR HOLOGRÁFICO DIRECTO -->
     <section class="quoter-section" id="cotizador-holo">
       <div class="container">
@@ -1164,8 +1382,10 @@
           <div class="quoter-summary-box">
             <div>
               <span class="holo-sector-badge">⚡ RESUMEN DE TU PROPUESTA</span>
-              <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:clamp(1.35rem,2.4vw,1.75rem);margin:10px 0 4px;line-height:1.2;"></h3>
-              <p id="holoQuoteDomain" style="font-family:var(--font-mono);font-size:0.8rem;color:#10b981;margin-bottom:16px;word-break:break-all;"></p>
+              <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:clamp(1.35rem,2.4vw,1.75rem);margin:10px 0 6px;line-height:1.2;"></h3>
+              <div style="margin-bottom:16px;">
+                <a id="holoQuoteDomain" href="#" target="_blank" rel="noopener" class="holo-domain-pill"></a>
+              </div>
 
               <div style="padding:16px 0;border-top:1px solid var(--border-glass);border-bottom:1px solid var(--border-glass);margin-bottom:18px;">
                 <div style="font-size:0.82rem;color:var(--text-Light);" id="holoQuoteModeLabel">Inversión Estimada:</div>
@@ -1193,12 +1413,19 @@
       </div>
     </section>
 
-    <footer style="padding:36px 0;border-top:1px solid var(--border-glass);text-align:center;font-size:0.86rem;color:var(--text-dim);background:rgba(3,5,12,0.9);">
+    <footer style="padding:36px 0 90px;border-top:1px solid var(--border-glass);text-align:center;font-size:0.86rem;color:var(--text-dim);background:rgba(3,5,12,0.9);">
       <div class="container">
-        <p>© 2026 <strong>Andrés Montoya Hernández</strong> · Sistemas Digitales, Páginas Web y Automatización · WhatsApp Directo: <a href="https://wa.me/524431433732" style="color:var(--neon-cyan);font-weight:700;">+52 443 143 3732</a></p>
+        <p style="margin-bottom:8px;">© 2026 <strong>Andrés Montoya Hernández</strong> · Sistemas Digitales, Páginas Web y Automatización con IA</p>
+        <p>WhatsApp Directo: <a href="https://wa.me/524431433732" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:700;">+52 443 143 3732</a> · Morelia / Querétaro / Todo México</p>
       </div>
     </footer>
   </div>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP SIEMPRE VISIBLE -->
+  <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20cat%C3%A1logo%20de%20sistemas%20digitales%20y%20me%20gustar%C3%ADa%20platicar%20sobre%20mi%20negocio." target="_blank" rel="noopener" class="wa-floating-btn" aria-label="Enviar mensaje por WhatsApp a Andrés Montoya">
+    <span>💬</span>
+    <span>WhatsApp Directo · 443 143 3732</span>
+  </a>
 
   <!-- Scripts compartidos -->
   <script src="app.js"></script>
@@ -1208,42 +1435,51 @@
   <script>
     (function () {
       /* ==========================================================================
-         1. IMÁGENES CINEMATOGRÁFICAS DE INTERNET (UNSPLASH HD VERIFICADAS) + EVENTOS EN VIVO
+         1. IMÁGENES CINEMATOGRÁFICAS DE INTERNET (UNSPLASH HD VERIFICADAS) + FILTROS
          ========================================================================== */
       const HOLO_MEDIA = {
         'nailroomspa': {
+          filterGroup: 'negocios',
           backdrop: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80',
           liveToast: '🎙️ Audio de WhatsApp recibido → Cita agendada hoy 5:00 PM'
         },
         'control-ops': {
+          filterGroup: 'empresas',
           backdrop: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
           liveToast: '📍 GPS Activo: Embarque Morelia → Laredo · Ganancia 25.1%'
         },
         'agenda-fenix': {
+          filterGroup: 'profesionales',
           backdrop: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80',
           liveToast: '🏥 Consultorio 3 reservado · Membresía de 10 hrs aplicada'
         },
         'lievitum-pizzalab': {
+          filterGroup: 'negocios',
           backdrop: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80',
           liveToast: '🍕 Nuevo Pedido #104 enviado directo a tu WhatsApp (0% comisión)'
         },
         'psicoterapia-conductual': {
+          filterGroup: 'profesionales',
           backdrop: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=900&q=80',
           liveToast: '📱 Recordatorio de sesión enviado a paciente por WhatsApp'
         },
         'escalera-britania': {
+          filterGroup: 'negocios',
           backdrop: 'https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=900&q=80',
           liveToast: '🎾 Marcador 6-4, 6-3 registrado · Ranking actualizado al instante'
         },
         'inlog-quoter': {
+          filterGroup: 'empresas',
           backdrop: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80',
           liveToast: '⚡ Cotización Óptima vs. Económica generada en PDF en 4 seg'
         },
         'family-os': {
+          filterGroup: 'familiar',
           backdrop: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=80',
           liveToast: '👨‍👩‍👧‍👦 Circular escolar leída → Evento guardado en calendario familiar'
         },
         'incubeit-landing': {
+          filterGroup: 'empresas',
           backdrop: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80',
           liveToast: '🧮 Nuevo prospecto calculó su presupuesto y descargó PDF'
         }
@@ -1413,6 +1649,7 @@
         const media = HOLO_MEDIA[p.id] || HOLO_MEDIA['nailroomspa'];
         const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
         const kpis = p.visualKpis || p.highlights.slice(0, 3);
+        const realLink = p.liveUrl || p.livePreviewUrl || p.repoUrl;
 
         tabsEl.innerHTML = platforms
           .map(
@@ -1447,8 +1684,13 @@
 
           <div class="holo-info-panel">
             <div>
-              <span class="holo-sector-badge">✦ ${p.sectorLabel}</span>
-              <h2 class="holo-platform-title" style="margin:10px 0 8px;">${p.name}</h2>
+              <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+                <span class="holo-sector-badge">✦ ${p.sectorLabel}</span>
+                <a href="${realLink}" target="_blank" rel="noopener" class="holo-domain-pill" title="Abrir ${p.displayDomain} en pestaña nueva">
+                  ● ${p.displayDomain} ↗
+                </a>
+              </div>
+              <h2 class="holo-platform-title" style="margin:6px 0 8px;">${p.name}</h2>
               <p style="color:var(--text-Light);font-size:0.95rem;margin-bottom:14px;">
                 ${p.shortPitch || p.tagline}
               </p>
@@ -1521,15 +1763,18 @@
       let activeCat = 'all';
       function renderHoloCards() {
         const grid = document.getElementById('holoCardsGrid');
-        const platforms = (window.PLATFORMS || []).filter(
-          (p) => activeCat === 'all' || p.category === activeCat
-        );
+        const platforms = (window.PLATFORMS || []).filter((p) => {
+          if (activeCat === 'all') return true;
+          const media = HOLO_MEDIA[p.id];
+          return (media && media.filterGroup === activeCat) || p.category === activeCat;
+        });
 
         grid.innerHTML = platforms
           .map((p) => {
             const media = HOLO_MEDIA[p.id] || HOLO_MEDIA['nailroomspa'];
             const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
             const kpis = p.visualKpis || p.highlights.slice(0, 3);
+            const realLink = p.liveUrl || p.livePreviewUrl || p.repoUrl;
 
             return `
               <article class="holo-card">
@@ -1537,9 +1782,9 @@
                 <div class="holo-card-visual">
                   <div class="holo-card-visual-top">
                     <span class="holo-sector-badge">${p.sectorLabel}</span>
-                    <span style="font-family:var(--font-mono);font-size:11px;color:#10b981;font-weight:700;">
-                      ● ${p.displayDomain}
-                    </span>
+                    <a href="${realLink}" target="_blank" rel="noopener" class="holo-domain-pill" title="Visitar ${p.displayDomain}">
+                      ● ${p.displayDomain} ↗
+                    </a>
                   </div>
                   ${window.renderVfxScreenshotFrame ? window.renderVfxScreenshotFrame(p) : ''}
                 </div>
@@ -1602,7 +1847,7 @@
       }
 
       /* ==========================================================================
-         6. CONFIGURADOR HOLOGRÁFICO DE COTIZACIÓN
+         6. CONFIGURADOR HOLOGRÁFICO DE COTIZACIÓN (WHATSAPP + PDF SINCRONIZADOS)
          ========================================================================== */
       let selectedPlan = 'unico';
       function initHoloQuoter() {
@@ -1614,13 +1859,40 @@
           .map((p, idx) => `<option value="${p.id}">0${idx + 1} · ${p.name.split('·')[0].trim()} (${p.displayDomain})</option>`)
           .join('');
 
+        function syncGlobalState(p) {
+          if (typeof state === 'object' && state) {
+            state.selectedBasePlatformId = p.id;
+            if (selectedPlan === 'familiar') {
+              state.selectedAudienceKey = 'familiar';
+              state.selectedAudienceMultiplier = 0.62;
+              state.selectedAudienceLabel = 'Proyecto Familiar / Amigo (-38% Descuento)';
+              state.paymentMode = 'onetime';
+            } else if (selectedPlan === 'renta') {
+              state.selectedAudienceKey = 'negocio';
+              state.selectedAudienceMultiplier = 1;
+              state.selectedAudienceLabel = 'Plan Renta Mensual Todo Incluido';
+              state.paymentMode = 'monthly';
+            } else {
+              state.selectedAudienceKey = 'negocio';
+              state.selectedAudienceMultiplier = 1;
+              state.selectedAudienceLabel = 'Pago Único Llave en Mano (Sin Rentas)';
+              state.paymentMode = 'onetime';
+            }
+          }
+        }
+
         function updateQuote() {
           const p = platforms.find((x) => x.id === sel.value) || platforms[0];
           const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
           const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
+          const realLink = p.liveUrl || p.livePreviewUrl || p.repoUrl;
+
+          syncGlobalState(p);
 
           document.getElementById('holoQuoteTitle').textContent = p.name;
-          document.getElementById('holoQuoteDomain').textContent = `● Sitio real de referencia: ${p.displayDomain}`;
+          const domEl = document.getElementById('holoQuoteDomain');
+          domEl.textContent = `● Ver sitio real: ${p.displayDomain} ↗`;
+          domEl.href = realLink;
           document.getElementById('holoQuoteTime').textContent = p.timeEstimate;
 
           if (selectedPlan === 'unico') {
@@ -1630,7 +1902,7 @@
           } else if (selectedPlan === 'renta') {
             document.getElementById('holoQuoteModeLabel').textContent = 'Plan Renta Mensual Todo Incluido:';
             document.getElementById('holoQuotePrice').textContent = `$${p.monthlyFee.toLocaleString('es-MX')} / mes`;
-            document.getElementById('holoQuoteSub').textContent = `+ Inscripción inicial de $${p.setupFee.toLocaleString('es-MX')} MXN (Incluye soporte y servidor)`;
+            document.getElementById('holoQuoteSub').textContent = `+ Activación inicial de $${p.setupFee.toLocaleString('es-MX')} MXN (Incluye soporte y servidor)`;
           } else {
             document.getElementById('holoQuoteModeLabel').textContent = 'Precio Especial Familiar / Amigo (-38%):';
             document.getElementById('holoQuotePrice').textContent = `$${famPrice.toLocaleString('es-MX')} MXN`;
@@ -1664,8 +1936,9 @@
         });
 
         document.getElementById('holoPdfBtn').addEventListener('click', () => {
+          const p = platforms.find((x) => x.id === sel.value) || platforms[0];
+          syncGlobalState(p);
           if (typeof generateProposalPdf === 'function') {
-            state.selectedBasePlatformId = sel.value;
             generateProposalPdf();
           } else {
             window.print();
