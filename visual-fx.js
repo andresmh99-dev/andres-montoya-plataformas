@@ -53,7 +53,7 @@
     },
     'incubeit-landing': {
       screenshot: 'assets/screenshots/incubeit-landing.svg',
-      livePreviewUrl: 'https://andresmh99-dev.github.io/incubeit-landing/',
+      livePreviewUrl: 'https://incube-it.com/',
       shortPitch: 'Página de ventas moderna donde tus clientes calculan su presupuesto al instante y descargan una cotización con tu logo.',
       visualKpis: ['🧮 Calculadora de Precios', '📥 Descarga PDF al Instante', '📲 Manda Clientes a tu WhatsApp']
     }
