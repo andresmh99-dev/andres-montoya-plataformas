@@ -1225,18 +1225,19 @@
       </div>
     </section>
 
-    <!-- SECCIÓN 1: CATÁLOGO EJECUTIVO POR GIRO DE NEGOCIO -->
+    <!-- SECCIÓN 1: CATÁLOGO EJECUTIVO POR GIRO DE NEGOCIO Y POR PROBLEMA -->
     <section class="catalog-section" id="galeria-3d">
       <div class="container">
         <div class="section-head">
           <span class="holo-badge">📂 CATÁLOGO EJECUTIVO POR GIRO · 8 EN LÍNEA HOY + 1 EN DESARROLLO</span>
-          <h2>Encuentra la solución exacta para tu giro comercial</h2>
+          <h2>Encuentra la solución exacta para tu giro o problema</h2>
           <p style="color:var(--text-Light);">
-            Filtra por tipo de negocio para ver <strong>qué problema operativo elimina cada plataforma</strong>, probar la pantalla real y comparar sus dos esquemas de inversión.
+            Filtra por el <strong>giro de tu negocio</strong> o toca directamente el <strong>problema operativo que quieres resolver hoy</strong>:
           </p>
         </div>
 
-        <div class="holo-filter-bar" id="holoFilterBar">
+        <!-- FILTRO 1: POR GIRO COMERCIAL -->
+        <div class="holo-filter-bar" id="holoFilterBar" style="margin-bottom:14px;">
           <button type="button" class="holo-filter-btn active" data-cat="all">✨ Todos los Giros (9)</button>
           <button type="button" class="holo-filter-btn" data-cat="profesionales">🩺 Clínicas y Consultorios (2)</button>
           <button type="button" class="holo-filter-btn" data-cat="negocios">🍕 Spas, Restaurantes y Clubes (3)</button>
@@ -1244,14 +1245,33 @@
           <button type="button" class="holo-filter-btn" data-cat="familiar">👨‍👩‍👧‍👦 Organización Familiar (1)</button>
         </div>
 
+        <!-- FILTRO 2: DIAGNÓSTICO RÁPIDO POR PROBLEMA DE NEGOCIO -->
+        <div class="holo-filter-bar" id="painFilterBar" style="margin-bottom:28px;">
+          <span style="font-size:0.76rem;font-weight:800;color:#fde68a;text-transform:uppercase;letter-spacing:0.05em;align-self:center;padding:0 6px;">
+            🎯 ¿Qué te urge resolver?:
+          </span>
+          <button type="button" class="holo-filter-btn" data-pain="citas" style="font-size:0.8rem;padding:8px 14px;border-color:rgba(245,158,11,0.35);">
+            💬 Pierdo citas en WhatsApp / Me dejan plantado
+          </button>
+          <button type="button" class="holo-filter-btn" data-pain="excel" style="font-size:0.8rem;padding:8px 14px;border-color:rgba(245,158,11,0.35);">
+            📊 Llevo todo en Excel o libreta y quiero control
+          </button>
+          <button type="button" class="holo-filter-btn" data-pain="comisiones" style="font-size:0.8rem;padding:8px 14px;border-color:rgba(245,158,11,0.35);">
+            🍕 Quiero pedidos directos (0% comisión a apps)
+          </button>
+          <button type="button" class="holo-filter-btn" data-pain="cotizaciones" style="font-size:0.8rem;padding:8px 14px;border-color:rgba(245,158,11,0.35);">
+            📄 Tardo mucho en armar cotizaciones en PDF
+          </button>
+        </div>
+
         <div class="holo-cards-grid" id="holoCardsGrid"></div>
       </div>
     </section>
 
-    <!-- SECCIÓN 2: CALCULADORA EJECUTIVA DE RETORNO DE INVERSIÓN (ROI) -->
+    <!-- SECCIÓN 2: CALCULADORA EJECUTIVA DE RETORNO DE INVERSIÓN (ROI) + TABLA COMPARATIVA -->
     <section class="impact-section" id="calculadora-impacto">
       <div class="container">
-        <div class="impact-card">
+        <div class="impact-card" style="margin-bottom:28px;">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
             <div>
               <span class="holo-sector-badge">📈 CALCULADORA EJECUTIVA DE RETORNO DE INVERSIÓN (ROI)</span>
@@ -1303,6 +1323,57 @@
                 <small style="font-size:0.72rem;color:var(--text-dim);">Con 2 o 3 ventas extra al mes se cubre tu plan mensual</small>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- TABLA COMPARATIVA EJECUTIVA PARA TOMA DE DECISIONES -->
+        <div class="impact-card" style="padding:28px;">
+          <div style="margin-bottom:18px;">
+            <span class="holo-sector-badge">⚖️ COMPARATIVA EJECUTIVA PARA GERENCIA</span>
+            <h3 style="font-family:var(--font-display);font-size:clamp(1.3rem,2.4vw,1.8rem);margin-top:6px;">
+              ¿Por qué implementar un sistema probado con nosotros vs. otras opciones?
+            </h3>
+          </div>
+
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
+            <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:0.88rem;text-align:left;">
+              <thead>
+                <tr style="border-bottom:1px solid rgba(148,163,184,0.25);">
+                  <th style="padding:12px 14px;color:var(--text-dim);font-weight:700;">Criterio de Decisión</th>
+                  <th style="padding:12px 14px;color:#fca5a5;font-weight:700;">❌ Seguir en Excel / Libreta</th>
+                  <th style="padding:12px 14px;color:#cbd5e1;font-weight:700;">🏢 Agencia Tradicional</th>
+                  <th style="padding:12px 14px;color:var(--neon-cyan);font-weight:800;background:rgba(0,242,254,0.08);border-radius:12px 12px 0 0;">
+                    ✅ Andrés Montoya (Sistemas Probados)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid rgba(148,163,184,0.14);">
+                  <td style="padding:13px 14px;font-weight:700;">Tiempo de puesta en marcha</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Desgaste diario permanente</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">3 a 5 meses de espera</td>
+                  <td style="padding:13px 14px;color:#10b981;font-weight:700;background:rgba(0,242,254,0.06);">⚡ 2 a 4 semanas funcionando</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(148,163,184,0.14);">
+                  <td style="padding:13px 14px;font-weight:700;">Inversión para tu negocio</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Pierdes de $8,000 a $25,000/mes en fugas y citas perdidas</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">$50,000 a $120,000 MXN + igualas caras</td>
+                  <td style="padding:13px 14px;color:var(--neon-cyan);font-weight:700;background:rgba(0,242,254,0.06);">💎 Desde $1,190/mes Todo Incluido (o Pago Único accesible)</td>
+                </tr>
+                <tr style="border-bottom:1px solid rgba(148,163,184,0.14);">
+                  <td style="padding:13px 14px;font-weight:700;">Certeza de resultado</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Errores humanos y falta de control</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Empiezan de cero sin saber cómo quedará</td>
+                  <td style="padding:13px 14px;color:#f8fafc;font-weight:700;background:rgba(0,242,254,0.06);">✓ Pruebas el sistema en vivo antes de contratar</td>
+                </tr>
+                <tr>
+                  <td style="padding:13px 14px;font-weight:700;">Atención y soporte</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Todo depende de ti</td>
+                  <td style="padding:13px 14px;color:var(--text-Light);">Vendedores y tickets lentos</td>
+                  <td style="padding:13px 14px;color:#10b981;font-weight:700;background:rgba(0,242,254,0.06);border-radius:0 0 12px 12px;">🤝 Trato directo 1 a 1 conmigo por WhatsApp</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -1369,6 +1440,36 @@
             </summary>
             <p>No. Todas las pantallas están diseñadas para que cualquier recepcionista, doctor, vendedor o chofer las use desde su celular o computadora tan fácil como usar WhatsApp. Además, incluyo capacitación práctica en cada entrega.</p>
           </details>
+        </div>
+
+        <!-- SELLO EJECUTIVO DE GARANTÍA Y RESPALDO PARA EMPRESAS -->
+        <div class="impact-card" style="margin-top:28px;padding:24px 26px;border-color:rgba(16,185,129,0.45);background:linear-gradient(145deg,rgba(6,28,24,0.82) 0%,rgba(11,17,34,0.9) 100%);">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
+            <div>
+              <span class="holo-sector-badge" style="color:#10b981;border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.12);">
+                🛡️ RESPALDO Y CERTEZA PARA TU NEGOCIO
+              </span>
+              <h3 style="font-family:var(--font-display);font-size:clamp(1.25rem,2.3vw,1.65rem);margin-top:6px;">
+                3 Garantías Ejecutivas en Cada Implementación
+              </h3>
+            </div>
+            <span style="font-size:0.84rem;color:#a7f3d0;font-weight:600;">Trato directo con Andrés Montoya Hernández · Morelia / Querétaro / Todo México</span>
+          </div>
+
+          <div class="steps-grid" style="margin-bottom:0;">
+            <div style="background:rgba(3,5,12,0.55);border:1px solid rgba(16,185,129,0.28);border-radius:16px;padding:16px 18px;">
+              <strong style="display:block;color:#10b981;font-size:0.95rem;margin-bottom:4px;">📝 1. Alcance y Fecha por Escrito</strong>
+              <p style="font-size:0.84rem;color:var(--text-Light);margin:0;">Desde el día 1 recibes tu propuesta formal en PDF con funciones incluidas, tiempos de entrega (2 a 4 semanas) y costos fijos sin sorpresas.</p>
+            </div>
+            <div style="background:rgba(3,5,12,0.55);border:1px solid rgba(16,185,129,0.28);border-radius:16px;padding:16px 18px;">
+              <strong style="display:block;color:#10b981;font-size:0.95rem;margin-bottom:4px;">🔒 2. Esquema Sin Riesgo Financiero</strong>
+              <p style="font-size:0.84rem;color:var(--text-Light);margin:0;">En Pago Único liquidas el 50% final hasta ver tu sistema funcionando con tu marca; o bien entras con inversión ligera en Plan Mensual.</p>
+            </div>
+            <div style="background:rgba(3,5,12,0.55);border:1px solid rgba(16,185,129,0.28);border-radius:16px;padding:16px 18px;">
+              <strong style="display:block;color:#10b981;font-size:0.95rem;margin-bottom:4px;">🎓 3. Capacitación y Soporte Directo</strong>
+              <p style="font-size:0.84rem;color:var(--text-Light);margin:0;">Capacito personalmente a tu equipo para que dominen el sistema desde el primer día y tienes mi WhatsApp directo para cualquier ajuste.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1854,9 +1955,19 @@
          5. GALERÍA DE TARJETAS CON IMÁGENES UNSPLASH + CAPTURA REAL + SPOTLIGHT
          ========================================================================== */
       let activeCat = 'all';
+      let activePain = null;
+      const PAIN_GROUPS = {
+        citas: ['nailroomspa', 'psicoterapia-conductual', 'agenda-fenix'],
+        excel: ['control-ops', 'agenda-fenix', 'escalera-britania', 'family-os'],
+        comisiones: ['lievitum-pizzalab', 'nailroomspa'],
+        cotizaciones: ['inlog-quoter', 'incubeit-landing']
+      };
       function renderHoloCards() {
         const grid = document.getElementById('holoCardsGrid');
         const platforms = (window.PLATFORMS || []).filter((p) => {
+          if (activePain && PAIN_GROUPS[activePain]) {
+            return PAIN_GROUPS[activePain].includes(p.id);
+          }
           if (activeCat === 'all') return true;
           const media = HOLO_MEDIA[p.id];
           return (media && media.filterGroup === activeCat) || p.category === activeCat;
@@ -2085,8 +2196,20 @@
         document.querySelectorAll('#holoFilterBar .holo-filter-btn').forEach((btn) => {
           btn.addEventListener('click', () => {
             document.querySelectorAll('#holoFilterBar .holo-filter-btn').forEach((b) => b.classList.remove('active'));
+            document.querySelectorAll('#painFilterBar .holo-filter-btn').forEach((b) => b.classList.remove('active'));
             btn.classList.add('active');
+            activePain = null;
             activeCat = btn.getAttribute('data-cat');
+            renderHoloCards();
+          });
+        });
+
+        document.querySelectorAll('#painFilterBar .holo-filter-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#holoFilterBar .holo-filter-btn').forEach((b) => b.classList.remove('active'));
+            document.querySelectorAll('#painFilterBar .holo-filter-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            activePain = btn.getAttribute('data-pain');
             renderHoloCards();
           });
         });
