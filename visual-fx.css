@@ -152,7 +152,7 @@
   cursor: pointer;
 }
 .vfx-shot-cta.primary {
-  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
   color: #ffffff;
 }
 
@@ -334,10 +334,10 @@
   color: #ffffff;
 }
 .vfx-sim-tab.active {
-  background: linear-gradient(135deg, #06b6d4 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #10b981 0%, #0284c7 100%);
   border-color: transparent;
   color: #ffffff;
-  box-shadow: 0 8px 20px -6px rgba(6, 182, 212, 0.55);
+  box-shadow: 0 8px 20px -6px rgba(16, 185, 129, 0.45);
 }
 
 /* Live Simulator Stage */
