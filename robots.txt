@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /opcion-1.html
+Disallow: /opcion-2.html
+Disallow: /opcion-3.html
+Disallow: /opcion-4.html
+
+Sitemap: https://andresmh99-dev.github.io/andres-montoya-plataformas/sitemap.xml

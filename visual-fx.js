@@ -7,42 +7,42 @@
 (function () {
   const VISUAL_DATA = {
     'nailroomspa': {
-      screenshot: 'assets/screenshots/nailroomspa.png',
+      screenshot: 'assets/screenshots/nailroomspa.webp',
       shortPitch: 'Tus clientes agendan solos por internet o mandando un audio de WhatsApp; el sistema cobra anticipos y evita citas encimadas.',
       visualKpis: ['🎙️ WhatsApp que entiende Audios', '📅 Cero Citas Encimadas', '💳 Cobro de Anticipos']
     },
     'control-ops': {
-      screenshot: 'assets/screenshots/control-ops.png',
+      screenshot: 'assets/screenshots/control-ops.webp',
       allowIframe: false,
       shortPitch: 'Sigue tus entregas y camiones en vivo, lee documentos PDF en automático y cuida la ganancia de cada viaje.',
       visualKpis: ['📍 Rastreo en Vivo para Clientes', '📄 Lee Documentos Solo', '📈 Control de Ganancias']
     },
     'agenda-fenix': {
-      screenshot: 'assets/screenshots/agenda-fenix.png',
+      screenshot: 'assets/screenshots/agenda-fenix.webp',
       shortPitch: 'Administra la renta de consultorios o espacios por hora, vende paquetes y dale a cada especialista su agenda privada.',
       visualKpis: ['🏥 Renta por Hora o Mes', '🔒 Agenda Privada por Doctor', '💳 Paquetes y Corte en PDF']
     },
     'lievitum-pizzalab': {
-      screenshot: 'assets/screenshots/lievitum-pizzalab.png',
+      screenshot: 'assets/screenshots/lievitum-pizzalab.webp',
       livePreviewUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
       allowIframe: false,
       shortPitch: 'Página atractiva para tu restaurante con menú interactivo con fotos, selector de sucursal y pedidos directos a WhatsApp.',
       visualKpis: ['🍕 Menú Digital con Fotos', '📍 Varias Sucursales', '📲 Pedidos a tu WhatsApp']
     },
     'psicoterapia-conductual': {
-      screenshot: 'assets/screenshots/psicoterapia-privada-v2.png?v=4',
+      screenshot: 'assets/screenshots/psicoterapia-privada.webp',
       allowIframe: false,
       shortPitch: 'Lleva tu consultorio en el celular: tus pacientes agendan solos, llenas su expediente rápido y mandas recordatorios automáticos.',
       visualKpis: ['📱 Se Instala en tu Celular', '📝 Expediente Rápido', '⏰ Recordatorios Automáticos']
     },
     'escalera-britania': {
-      screenshot: 'assets/screenshots/escalera-britania.png',
+      screenshot: 'assets/screenshots/escalera-britania.webp',
       allowIframe: false,
       shortPitch: 'Olvídate del Excel en tus torneos: los jugadores suben su marcador desde el celular y la tabla de posiciones se actualiza sola.',
       visualKpis: ['🎾 Página + App para Jugadores', '🏆 Tabla de Posiciones Sola', '📅 Reserva de Canchas']
     },
     'inlog-quoter': {
-      screenshot: 'assets/screenshots/inlog-quoter.png',
+      screenshot: 'assets/screenshots/inlog-quoter.webp',
       shortPitch: 'Tus clientes cotizan en segundos desde tu página: el sistema compara opciones, suma tu ganancia y entrega un PDF formal.',
       visualKpis: ['⚡ Cotiza en Segundos', '💰 Suma tu Ganancia Solo', '📄 Descarga Cotización PDF']
     },
@@ -85,7 +85,7 @@
 
   window.renderVfxScreenshotFrame = function (p, options = {}) {
     const heightStyle = options.height ? `style="height:${options.height};"` : '';
-    const shot = p.screenshot || 'assets/screenshots/nailroomspa.png';
+    const shot = p.screenshot || 'assets/screenshots/nailroomspa.webp';
     const targetUrl = p.liveUrl || p.livePreviewUrl || '#';
     return `
       <div class="vfx-shot-frame" data-vfx-tilt onclick="window.openVfxLightbox('${p.id}', 'shot')">
@@ -95,7 +95,7 @@
             <span class="vfx-shot-live-dot"></span>
             ${p.displayDomain} ↗
           </a>
-          <span class="vfx-shot-status" style="font-size:10px;opacity:0.85;">✓ En línea</span>
+          <span class="vfx-shot-status" style="font-size:10px;opacity:0.85;">${p.inDevelopment ? '🛠 En desarrollo' : '✓ En línea'}</span>
         </div>
         <div class="vfx-shot-img-wrap" ${heightStyle}>
           <img src="${shot}" alt="Pantalla real de ${p.name}" loading="lazy" />
@@ -171,7 +171,7 @@
           <div style="font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;opacity:0.85;">
             🎬 Galería de Sistemas Reales · Haz clic en cualquier pantalla para verla en grande
           </div>
-          <div style="font-size:12px;opacity:0.75;">Pasa el mouse para pausar · 9 sistemas funcionando hoy</div>
+          <div style="font-size:12px;opacity:0.75;">Pasa el mouse para pausar · 8 sistemas funcionando hoy + 1 en desarrollo</div>
         </div>
         <div class="vfx-filmstrip-track">
           ${doubled

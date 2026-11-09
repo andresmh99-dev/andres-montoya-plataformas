@@ -1,6 +1,6 @@
 /* ==========================================================================
    ANDRÉS MONTOYA HERNÁNDEZ — CATÁLOGO DE PÁGINAS Y SISTEMAS DIGITALES (app.js)
-   9 Sistemas Reales Funcionando Hoy · Explicados en lenguaje claro para todos
+   9 Sistemas Reales (8 Funcionando Hoy + 1 en Desarrollo) · Explicados en lenguaje claro para todos
    WhatsApp Oficial: +52 443 143 3732
    ========================================================================== */
 
@@ -141,8 +141,8 @@ const PLATFORMS = [
     name: 'Consultorios Fénix · Renta de Espacios y Agenda Médica',
     repo: 'andresmh99-dev/agenda-fenix',
     repoUrl: 'https://github.com/andresmh99-dev/agenda-fenix',
-    liveUrl: 'https://agenda-fenix-one.vercel.app',
-    displayDomain: 'consultoriosfenix.com',
+    liveUrl: 'https://www.agendafenix.app',
+    displayDomain: 'agendafenix.app',
     category: 'negocios',
     sectorLabel: 'Centros Médicos, Torres de Consultorios y Coworking',
     statusLabel: 'Funcionando hoy · Morelia Las Américas',
@@ -448,10 +448,11 @@ const PLATFORMS = [
     repo: 'andresmh99-dev/agenda-familiar',
     repoUrl: 'https://github.com/andresmh99-dev/agenda-familiar',
     liveUrl: 'https://family-os-ten.vercel.app',
-    displayDomain: 'familyos.mx',
+    displayDomain: 'Demo en desarrollo',
+    inDevelopment: true,
     category: 'personas',
     sectorLabel: 'Familias con Hijos, Colegios y Asociaciones de Padres',
-    statusLabel: 'Funcionando hoy · App Familiar',
+    statusLabel: 'En desarrollo · Demo disponible',
     basePrice: 14500,
     setupFee: 4900,
     monthlyFee: 990,
