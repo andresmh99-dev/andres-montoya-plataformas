@@ -8,55 +8,64 @@
   const VISUAL_DATA = {
     'nailroomspa': {
       screenshot: 'assets/screenshots/nailroomspa.webp',
-      shortPitch: 'Tus clientes agendan solos por internet o mandando un audio de WhatsApp; el sistema cobra anticipos y evita citas encimadas.',
-      visualKpis: ['🎙️ WhatsApp que entiende Audios', '📅 Cero Citas Encimadas', '💳 Cobro de Anticipos']
+      problemSolved: 'Pierdes citas por no contestar WhatsApp a tiempo o por clientas que no llegan.',
+      shortPitch: 'Agenda automática que responde mensajes y notas de voz de WhatsApp 24/7, aparta horarios sin encimar citas y solicita anticipo.',
+      visualKpis: ['🎙️ Contesta WhatsApp y Audios', '📅 Agenda sin Citas Encimadas', '💳 Control de Anticipos']
     },
     'control-ops': {
       screenshot: 'assets/screenshots/control-ops.webp',
       allowIframe: false,
-      shortPitch: 'Sigue tus entregas y camiones en vivo, lee documentos PDF en automático y cuida la ganancia de cada viaje.',
-      visualKpis: ['📍 Rastreo en Vivo para Clientes', '📄 Lee Documentos Solo', '📈 Control de Ganancias']
+      problemSolved: 'Desorden en Excel, clientes preguntando dónde va su pedido y fugas en gastos de ruta.',
+      shortPitch: 'Panel operativo para empresas de transporte y distribución: lee órdenes en PDF, envía link de rastreo en vivo y calcula la utilidad real de cada viaje.',
+      visualKpis: ['📍 Rastreo en Vivo para Clientes', '📄 Lectura Automática de PDF', '📈 Utilidad Real por Viaje']
     },
     'agenda-fenix': {
       screenshot: 'assets/screenshots/agenda-fenix.webp',
-      shortPitch: 'Administra la renta de consultorios o espacios por hora, vende paquetes y dale a cada especialista su agenda privada.',
-      visualKpis: ['🏥 Renta por Hora o Mes', '🔒 Agenda Privada por Doctor', '💳 Paquetes y Corte en PDF']
+      problemSolved: 'Confusiones de horarios al rentar consultorios, cabinas o salas por hora.',
+      shortPitch: 'Sistema para centros médicos o coworkings: cada especialista reserva su espacio desde el celular, descuenta horas de su paquete y genera cortes de caja en PDF.',
+      visualKpis: ['🏥 Reserva por Hora o Membresía', '🔒 Acceso por Especialista', '💳 Corte de Caja en PDF']
     },
     'lievitum-pizzalab': {
       screenshot: 'assets/screenshots/lievitum-pizzalab.webp',
       livePreviewUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
       allowIframe: false,
-      shortPitch: 'Página atractiva para tu restaurante con menú interactivo con fotos, selector de sucursal y pedidos directos a WhatsApp.',
-      visualKpis: ['🍕 Menú Digital con Fotos', '📍 Varias Sucursales', '📲 Pedidos a tu WhatsApp']
+      problemSolved: 'Las apps de reparto se quedan con hasta el 30% de comisión de tus ventas.',
+      shortPitch: 'Sitio web comercial con menú digital interactivo, selector de sucursal y carrito de pedidos que llega directo y ordenado a tu WhatsApp con 0% de comisión.',
+      visualKpis: ['🍕 Menú Digital con Carrito', '📍 Selector de Sucursal', '📲 Pedidos Directos (0% Comisión)']
     },
     'psicoterapia-conductual': {
       screenshot: 'assets/screenshots/psicoterapia-privada.webp',
       allowIframe: false,
-      shortPitch: 'Lleva tu consultorio en el celular: tus pacientes agendan solos, llenas su expediente rápido y mandas recordatorios automáticos.',
-      visualKpis: ['📱 Se Instala en tu Celular', '📝 Expediente Rápido', '⏰ Recordatorios Automáticos']
+      problemSolved: 'Pacientes que olvidan su cita y expedientes dispersos en papel o computadora.',
+      shortPitch: 'Consultorio digital que se instala en tu celular: tus pacientes agendan en línea, llevas su expediente clínico seguro y envías recordatorios por WhatsApp.',
+      visualKpis: ['📱 App Instalable en Celular', '📝 Expediente Clínico Rápido', '⏰ Recordatorios por WhatsApp']
     },
     'escalera-britania': {
       screenshot: 'assets/screenshots/escalera-britania.webp',
       allowIframe: false,
-      shortPitch: 'Olvídate del Excel en tus torneos: los jugadores suben su marcador desde el celular y la tabla de posiciones se actualiza sola.',
-      visualKpis: ['🎾 Página + App para Jugadores', '🏆 Tabla de Posiciones Sola', '📅 Reserva de Canchas']
+      problemSolved: 'Horas perdidas actualizando tablas de torneos, rankings y horarios de canchas en Excel.',
+      shortPitch: 'Plataforma para clubes deportivos y academias: los socios registran sus marcadores desde el celular y la tabla general de posiciones se actualiza al instante.',
+      visualKpis: ['🎾 App Web para Jugadores', '🏆 Ranking Automático en Vivo', '📅 Asignación de Canchas']
     },
     'inlog-quoter': {
       screenshot: 'assets/screenshots/inlog-quoter.webp',
-      shortPitch: 'Tus clientes cotizan en segundos desde tu página: el sistema compara opciones, suma tu ganancia y entrega un PDF formal.',
-      visualKpis: ['⚡ Cotiza en Segundos', '💰 Suma tu Ganancia Solo', '📄 Descarga Cotización PDF']
+      problemSolved: 'Tardar horas en armar una cotización hace que el cliente le compre a la competencia.',
+      shortPitch: 'Cotizador comercial B2B: tu equipo o tu cliente ingresa los datos del servicio, el sistema calcula costos y márgenes al instante y descarga una propuesta formal en PDF.',
+      visualKpis: ['⚡ Cotizaciones en Segundos', '💰 Margen de Ganancia Protegido', '📄 Propuesta PDF con tu Marca']
     },
     'family-os': {
       screenshot: 'assets/screenshots/family-os.svg',
       livePreviewUrl: 'https://family-os-ten.vercel.app',
-      shortPitch: 'Reenvía cualquier circular de la escuela o mensaje de WhatsApp y conviértelo al instante en un calendario familiar compartido.',
-      visualKpis: ['👨‍👩‍👧‍👦 Calendario Mamá y Papá', '📄 Lee Circulares de Escuela', '✅ Avisa Materiales y Pagos']
+      problemSolved: 'Olvidos de eventos escolares, pagos o tareas por tener todo en chats de WhatsApp.',
+      shortPitch: 'Organizador inteligente: reenvías cualquier circular escolar o aviso de WhatsApp y lo convierte automáticamente en fechas, recordatorios y pendientes compartidos.',
+      visualKpis: ['👨‍👩‍👧‍👦 Calendario Compartido', '📄 Lee Circulares Escolares', '✅ Alertas de Pagos y Tareas']
     },
     'incubeit-landing': {
       screenshot: 'assets/screenshots/incubeit-landing.svg',
       livePreviewUrl: 'https://incube-it.com/',
-      shortPitch: 'Página de ventas moderna donde tus clientes calculan su presupuesto al instante y descargan una cotización con tu logo.',
-      visualKpis: ['🧮 Calculadora de Precios', '📥 Descarga PDF al Instante', '📲 Manda Clientes a tu WhatsApp']
+      problemSolved: 'Páginas web informativas que no convierten visitantes en prospectos reales.',
+      shortPitch: 'Página comercial de alta conversión para empresas de servicios: el visitante calcula su presupuesto en línea, descarga su cotización en PDF y te contacta listo para comprar.',
+      visualKpis: ['🧮 Cotizador Interactivo Web', '📥 Descarga de Propuesta PDF', '📲 Prospectos Calificados a WhatsApp']
     }
   };
 
@@ -66,6 +75,7 @@
       const v = VISUAL_DATA[p.id];
       if (v) {
         p.screenshot = v.screenshot;
+        p.problemSolved = v.problemSolved;
         p.shortPitch = v.shortPitch;
         p.visualKpis = v.visualKpis;
         if (typeof v.allowIframe === 'boolean') {
@@ -487,7 +497,9 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     enrichPlatforms();
-    injectInteractiveVisualSections();
+    if (document.body.dataset.executiveMode !== 'true') {
+      injectInteractiveVisualSections();
+    }
     init3DTilt();
   });
 })();

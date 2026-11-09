@@ -1120,71 +1120,96 @@
     }
   </style>
 </head>
-<body>
-  <!-- MOTOR GRÁFICO 3D INTERACTIVO EN VIVO (THREE.JS WEBGL) -->
+<body data-executive-mode="true">
+  <!-- MOTOR GRÁFICO 3D SUTIL Y EJECUTIVO DE FONDO (THREE.JS WEBGL) -->
   <canvas id="cosmosCanvas"></canvas>
   <div class="cyber-vignette"></div>
 
   <div class="page-layer">
-    <!-- NAVBAR CON SELECTOR DE FONDO 3D EN VIVO -->
+    <!-- BARRA DE NAVEGACIÓN EJECUTIVA (DIRECTA Y CLARA PARA GERENCIA) -->
     <header class="holo-nav">
       <div class="container holo-nav-inner">
         <a href="#" class="holo-brand">
           <div class="holo-orb">AM</div>
           <div>
             <span class="holo-brand-name">Andrés Montoya Hernández</span>
-            <span class="holo-brand-sub">Sistemas Digitales e Inteligencia Artificial en Vivo</span>
+            <span class="holo-brand-sub">Sistemas Web y Automatización para PyMEs y Profesionales</span>
           </div>
         </a>
 
-        <!-- Selector interactivo de fondo 3D animado -->
-        <div class="bg-mode-switcher" aria-label="Cambiar fondo 3D animado">
-          <span class="bg-mode-label">🌌 FONDO 3D:</span>
-          <button type="button" class="bg-mode-btn active" data-bg-mode="globe">🌐 Planeta Holográfico</button>
-          <button type="button" class="bg-mode-btn" data-bg-mode="warp">🚀 Túnel Hiperespacio</button>
-          <button type="button" class="bg-mode-btn" data-bg-mode="waves">🌊 Olas Cibernéticas</button>
-        </div>
+        <!-- Menú ejecutivo de acceso rápido -->
+        <nav class="bg-mode-switcher" aria-label="Navegación ejecutiva">
+          <a href="#galeria-3d" class="bg-mode-btn active" style="text-decoration:none;">📂 1. Soluciones por Giro</a>
+          <a href="#calculadora-impacto" class="bg-mode-btn" style="text-decoration:none;">📈 2. Retorno de Inversión</a>
+          <a href="#como-trabajamos" class="bg-mode-btn" style="text-decoration:none;">🤝 3. Cómo Trabajamos</a>
+          <a href="#cotizador-holo" class="bg-mode-btn" style="text-decoration:none;">📄 4. Precios y Cotizador PDF</a>
+        </nav>
 
-        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20Showroom%20Hologr%C3%A1fico%203D%20y%20quiero%20cotizar%20un%20sistema%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-neon btn-neon-primary holo-nav-wa" style="padding:10px 18px;font-size:0.84rem;width:auto;">
-          <span>💬 WhatsApp · 443 143 3732</span>
+        <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20tu%20cat%C3%A1logo%20ejecutivo%20de%20sistemas%20y%20quiero%20evaluar%20una%20soluci%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-neon btn-neon-primary holo-nav-wa" style="padding:10px 18px;font-size:0.84rem;width:auto;">
+          <span>💬 WhatsApp Directo · 443 143 3732</span>
         </a>
       </div>
     </header>
 
-    <!-- HERO PRINCIPAL + ESCENARIO HOLOGRÁFICO 3D DE LAS 9 PLATAFORMAS -->
+    <!-- PORTADA EJECUTIVA: MENSAJE CLARO PARA DUEÑOS Y GERENTES DE NEGOCIOS -->
     <section class="cosmos-hero">
       <div class="container">
         <div class="cosmos-hero-top">
           <div class="holo-badge">
-            <span>⚡ EXPERIENCIA INTERACTIVA 3D EN VIVO · MUEVE TU CURSOR O TOCA LA PANTALLA</span>
+            <span>✓ 8 SISTEMAS EN OPERACIÓN REAL HOY + 1 EN DESARROLLO · ENTREGA EN 2 A 4 SEMANAS</span>
           </div>
           <h1 class="cosmos-title">
-            Tecnología que hace crecer tu negocio <span class="neon-grad">mientras tú descansas.</span>
+            Automatiza tus citas, ventas y operación diaria <span class="neon-grad">sin contratar más personal.</span>
           </h1>
           <p class="cosmos-sub">
-            Explora en 3D los <strong>9 sistemas que ya construí, 8 de ellos funcionando hoy en internet con clientes reales</strong>: asistentes que contestan notas de voz de WhatsApp y agendan citas solos, menús interactivos para restaurantes, agendas médicas y control de entregas en vivo.
+            Implemento sistemas digitales ya probados en la vida real para <strong>clínicas, restaurantes, distribuidoras y empresas de servicios</strong>. Deja atrás las libretas, el desorden en Excel y los mensajes sin contestar: te entrego tu plataforma lista con tu logotipo y tu propio dominio <code>.com</code>.
           </p>
           <div class="cosmos-cta-row">
             <a href="#galeria-3d" class="btn-neon btn-neon-primary">
-              <span>🚀 Explorar los 9 Sistemas en Acción</span>
-            </a>
-            <a href="#calculadora-impacto" class="btn-neon btn-neon-glass">
-              <span>⚡ Calcular Cuánto Tiempo y Dinero Ahorras</span>
+              <span>📂 Ver Soluciones por Giro de Negocio</span>
             </a>
             <a href="#cotizador-holo" class="btn-neon btn-neon-glass">
-              <span>💎 Ver Precios (Compra, Renta o Familiar -38%)</span>
+              <span>📄 Armar Presupuesto y Descargar PDF</span>
             </a>
+            <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20soy%20due%C3%B1o%2Fgerente%20de%20un%20negocio%20y%20me%20gustar%C3%ADa%20platicar%2015%20minutos%20sobre%20qu%C3%A9%20sistema%20me%20recomiendas." target="_blank" rel="noopener" class="btn-neon btn-neon-glass">
+              <span>💬 Agendar Llamada de 15 min</span>
+            </a>
+          </div>
+
+          <!-- RESUMEN EJECUTIVO DE 3 PILARES (LECTURA EN 10 SEGUNDOS PARA GERENCIA) -->
+          <div class="steps-grid" style="margin-top:32px;margin-bottom:10px;text-align:left;">
+            <div class="step-card" style="padding:18px 20px;">
+              <div style="font-size:0.76rem;font-weight:800;color:var(--neon-cyan);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">
+                1 · Atención y Ventas 24/7
+              </div>
+              <h3 style="font-size:1.08rem;margin-bottom:6px;">Cero clientes perdidos por tardar en contestar</h3>
+              <p style="font-size:0.86rem;">Tus clientes agendan citas, piden a domicilio o cotizan en segundos desde su celular, incluso fuera de horario laboral.</p>
+            </div>
+            <div class="step-card" style="padding:18px 20px;">
+              <div style="font-size:0.76rem;font-weight:800;color:#10b981;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">
+                2 · Control Operativo para Gerencia
+              </div>
+              <h3 style="font-size:1.08rem;margin-bottom:6px;">Cuentas claras, anticipos y reportes en PDF</h3>
+              <p style="font-size:0.86rem;">Elimina citas encimadas, controla quién reservó cada espacio o unidad y consulta tus ingresos reales desde cualquier lugar.</p>
+            </div>
+            <div class="step-card" style="padding:18px 20px;">
+              <div style="font-size:0.76rem;font-weight:800;color:#f59e0b;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:6px;">
+                3 · Sin Riesgo ni Costos de Agencia
+              </div>
+              <h3 style="font-size:1.08rem;margin-bottom:6px;">Sistemas ya probados, listos en semanas</h3>
+              <p style="font-size:0.86rem;">No empezamos de cero: adaptamos plataformas que hoy ya operan con clientes reales, ahorrándote más del 50% en tiempo e inversión.</p>
+            </div>
           </div>
         </div>
 
-        <!-- ESCENARIO HOLOGRÁFICO 3D INTERACTIVO -->
+        <!-- DEMOSTRADOR EJECUTIVO EN VIVO -->
         <div class="holo-stage-wrapper">
           <div class="holo-stage-header">
             <div class="holo-stage-toprow">
               <div style="display:flex;align-items:center;gap:10px;min-width:0;">
-                <span style="width:10px;height:10px;border-radius:50%;background:#00f2fe;box-shadow:0 0 12px #00f2fe;display:inline-block;flex-shrink:0;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 12px #10b981;display:inline-block;flex-shrink:0;"></span>
                 <strong style="font-family:var(--font-mono);font-size:11.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--neon-cyan);">
-                  Escenario Holográfico en Vivo · Toca cualquier sistema:
+                  Demostrador Ejecutivo · Selecciona un caso real para ver qué problema resuelve y cuánto cuesta:
                 </strong>
               </div>
               <div class="holo-stage-arrows">
@@ -1200,25 +1225,48 @@
       </div>
     </section>
 
-    <!-- CALCULADORA INTERACTIVA DE IMPACTO Y AHORRO (CON SLIDERS EN TIEMPO REAL) -->
+    <!-- SECCIÓN 1: CATÁLOGO EJECUTIVO POR GIRO DE NEGOCIO -->
+    <section class="catalog-section" id="galeria-3d">
+      <div class="container">
+        <div class="section-head">
+          <span class="holo-badge">📂 CATÁLOGO EJECUTIVO POR GIRO · 8 EN LÍNEA HOY + 1 EN DESARROLLO</span>
+          <h2>Encuentra la solución exacta para tu giro comercial</h2>
+          <p style="color:var(--text-Light);">
+            Filtra por tipo de negocio para ver <strong>qué problema operativo elimina cada plataforma</strong>, probar la pantalla real y comparar sus dos esquemas de inversión.
+          </p>
+        </div>
+
+        <div class="holo-filter-bar" id="holoFilterBar">
+          <button type="button" class="holo-filter-btn active" data-cat="all">✨ Todos los Giros (9)</button>
+          <button type="button" class="holo-filter-btn" data-cat="profesionales">🩺 Clínicas y Consultorios (2)</button>
+          <button type="button" class="holo-filter-btn" data-cat="negocios">🍕 Spas, Restaurantes y Clubes (3)</button>
+          <button type="button" class="holo-filter-btn" data-cat="empresas">🚛 Logística, Transporte y Empresas B2B (3)</button>
+          <button type="button" class="holo-filter-btn" data-cat="familiar">👨‍👩‍👧‍👦 Organización Familiar (1)</button>
+        </div>
+
+        <div class="holo-cards-grid" id="holoCardsGrid"></div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: CALCULADORA EJECUTIVA DE RETORNO DE INVERSIÓN (ROI) -->
     <section class="impact-section" id="calculadora-impacto">
       <div class="container">
         <div class="impact-card">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
             <div>
-              <span class="holo-sector-badge">🧮 SIMULADOR DE BENEFICIOS EN TIEMPO REAL</span>
+              <span class="holo-sector-badge">📈 CALCULADORA EJECUTIVA DE RETORNO DE INVERSIÓN (ROI)</span>
               <h2 style="font-family:var(--font-display);font-size:clamp(1.45rem,3vw,2.3rem);margin-top:8px;line-height:1.15;">
-                Desliza y descubre cuánto ganas al automatizar tu negocio
+                ¿En cuánto tiempo se paga solo tu sistema?
               </h2>
             </div>
-            <span style="font-size:0.88rem;color:var(--text-Light);">Mueve los controles para ver tu resultado al instante 👇</span>
+            <span style="font-size:0.88rem;color:var(--text-Light);">Ajusta los 2 valores al volumen actual de tu negocio 👇</span>
           </div>
 
           <div class="impact-grid">
             <div>
               <div class="slider-box">
                 <div class="slider-top">
-                  <span>👥 ¿Cuántas citas, pedidos o clientes atiendes por semana?</span>
+                  <span>👥 ¿Cuántas citas, pedidos o servicios atiendes por semana?</span>
                   <span class="slider-val-badge" id="roiClientsVal">45 / sem</span>
                 </div>
                 <input type="range" min="10" max="250" step="5" value="45" class="neon-range" id="roiClientsRange" />
@@ -1226,7 +1274,7 @@
 
               <div class="slider-box" style="margin-bottom:0;">
                 <div class="slider-top">
-                  <span>💵 ¿Cuál es el valor promedio de cada cita, pedido o servicio?</span>
+                  <span>💵 ¿Cuál es el ticket o venta promedio por cliente?</span>
                   <span class="slider-val-badge" id="roiTicketVal">$450 MXN</span>
                 </div>
                 <input type="range" min="150" max="5000" step="50" value="450" class="neon-range" id="roiTicketRange" />
@@ -1237,22 +1285,22 @@
               <div class="impact-metric-box">
                 <div style="font-size:24px;">⏳</div>
                 <div class="impact-big-num" id="roiHoursSaved">36 hrs</div>
-                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Horas libres que recuperas al mes</div>
-                <small style="font-size:0.72rem;color:var(--text-dim);">Sin contestar mensajes ni anotar a mano</small>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Horas administrativas ahorradas al mes</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">Menos carga operativa para ti y tu recepción</small>
               </div>
 
               <div class="impact-metric-box">
                 <div style="font-size:24px;">📈</div>
                 <div class="impact-big-num" style="color:#10b981;" id="roiExtraClients">+27</div>
-                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Clientes extra atendidos al mes</div>
-                <small style="font-size:0.72rem;color:var(--text-dim);">Al responder 24/7 y pedir anticipo</small>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Servicios o ventas extra al mes</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">Al atender 24/7 y reducir inasistencias con anticipo</small>
               </div>
 
               <div class="impact-metric-box">
                 <div style="font-size:24px;">💰</div>
                 <div class="impact-big-num" style="color:#f59e0b;" id="roiExtraMoney">+$12,150</div>
-                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Ingresos recuperados al mes</div>
-                <small style="font-size:0.72rem;color:var(--text-dim);">El sistema se paga solo desde el inicio</small>
+                <div style="font-size:0.82rem;color:var(--text-Light);font-weight:600;">Ingreso mensual adicional estimado</div>
+                <small style="font-size:0.72rem;color:var(--text-dim);">Con 2 o 3 ventas extra al mes se cubre tu plan mensual</small>
               </div>
             </div>
           </div>
@@ -1260,125 +1308,102 @@
       </div>
     </section>
 
-    <!-- GALERÍA HOLOGRÁFICA DE LOS 9 SISTEMAS EN PRODUCCIÓN -->
-    <section class="catalog-section" id="galeria-3d">
-      <div class="container">
-        <div class="section-head">
-          <span class="holo-badge">🌐 8 PLATAFORMAS EN LÍNEA HOY + 1 EN DESARROLLO</span>
-          <h2>Elige el sistema que quieres adaptar con tu marca</h2>
-          <p style="color:var(--text-Light);">
-            Cada tarjeta combina fotografía de tu giro con la <strong>pantalla real funcionando en internet</strong>. Haz clic en cualquiera para probarla en vivo en computadora o celular.
-          </p>
-        </div>
-
-        <div class="holo-filter-bar" id="holoFilterBar">
-          <button type="button" class="holo-filter-btn active" data-cat="all">✨ Todos los Sistemas (9)</button>
-          <button type="button" class="holo-filter-btn" data-cat="negocios">💅 Spas, Pizzerías y Clubes (3)</button>
-          <button type="button" class="holo-filter-btn" data-cat="profesionales">🩺 Clínicas y Consultorios (2)</button>
-          <button type="button" class="holo-filter-btn" data-cat="empresas">🚛 Empresas y Transporte (3)</button>
-          <button type="button" class="holo-filter-btn" data-cat="familiar">👨‍👩‍👧‍👦 Organización Familiar (1)</button>
-        </div>
-
-        <div class="holo-cards-grid" id="holoCardsGrid"></div>
-      </div>
-    </section>
-
-    <!-- CÓMO TRABAJAMOS EN 3 PASOS + PREGUNTAS FRECUENTES -->
+    <!-- SECCIÓN 3: CÓMO TRABAJAMOS EN 3 PASOS + PREGUNTAS DE GERENCIA -->
     <section class="process-section" id="como-trabajamos">
       <div class="container">
         <div class="section-head">
-          <span class="holo-badge">🤝 TRATO DIRECTO Y SIN COMPLICACIONES TÉCNICAS</span>
-          <h2>¿Cómo entregamos tu sistema funcionando?</h2>
+          <span class="holo-badge">🤝 IMPLEMENTACIÓN LLAVE EN MANO · CERO DISTRACCIONES PARA TU OPERACIÓN</span>
+          <h2>¿Cómo implementamos tu sistema en 3 pasos?</h2>
           <p style="color:var(--text-Light);">
-            No tienes que saber nada de programación. Yo me encargo de todo de principio a fin y te acompaño personalmente.
+            Tú sigues enfocado en dirigir tu negocio; yo me encargo de toda la configuración técnica, diseño y puesta en marcha.
           </p>
         </div>
 
         <div class="steps-grid">
           <div class="step-card">
             <span class="step-num">01</span>
-            <h3>Elegimos tu sistema base</h3>
-            <p>Platicamos 15 minutos por WhatsApp o llamada, vemos cuál de los 9 sistemas se adapta mejor a tu negocio y definimos qué funciones necesitas.</p>
+            <h3>Diagnóstico corto (15 min)</h3>
+            <p>Conversamos por WhatsApp o llamada para entender cómo operas hoy, elegir el sistema base ideal y definir las reglas de tu negocio.</p>
           </div>
           <div class="step-card">
             <span class="step-num">02</span>
-            <h3>Lo personalizo con tu marca</h3>
-            <p>Le coloco tu logotipo, tus colores, tus servicios, precios, horarios y conecto tu propio dominio oficial <code>.com</code> o <code>.mx</code>.</p>
+            <h3>Adaptación con tu marca</h3>
+            <p>Configuro tu logotipo, colores institucionales, catálogo de servicios o precios, usuarios de tu equipo y tu propio dominio oficial <code>.com</code> o <code>.mx</code>.</p>
           </div>
           <div class="step-card">
             <span class="step-num">03</span>
-            <h3>Te enseño a usarlo y arrancamos</h3>
-            <p>Te entrego todo funcionando en celular y computadora, te capacito paso a paso a ti y a tu equipo, y cuentas con mi soporte directo.</p>
+            <h3>Capacitación y entrega en vivo</h3>
+            <p>Te entrego el sistema funcionando en celulares y computadoras, capacito a tu personal paso a paso y te acompaño con soporte directo.</p>
           </div>
         </div>
 
         <div class="faq-grid">
           <details class="faq-item" open>
             <summary>
-              <span>¿Cuál es la diferencia entre Pago Único y Plan Mensual Todo Incluido?</span>
+              <span>¿Qué me conviene más como negocio: Plan Mensual o Pago Único?</span>
               <span style="color:var(--neon-cyan);">＋</span>
             </summary>
-            <p>En el <strong>⭐ Plan Mensual Todo Incluido</strong> entras con una activación baja y tu mensualidad ya cubre servidor en la nube, base de datos, respaldos diarios, dominio <code>.com</code> y soporte técnico continuo todo el año.<br/><br/>En <strong>Pago Único (Llave en Mano)</strong> pagas tu sistema en dos partes (50% al iniciar y 50% al entregar) y te incluye el <strong>1er año de dominio .com + 3 meses gratis de servidor y soporte</strong>. A partir del 4° mes tú eliges si contratas una póliza ligera de mantenimiento (desde <code>$490/mes</code>) o conectas directo tus cuentas de servidor/WhatsApp a costo proveedor.</p>
+            <p>El <strong>⭐ Plan Mensual Todo Incluido</strong> es el preferido por el 80% de las PyMEs porque no te descapitalizas: inicias con una activación baja y tu renta mensual ya incluye servidor en la nube, base de datos, respaldos diarios, dominio <code>.com</code> y soporte técnico todo el año.<br/><br/>El <strong>Pago Único (Llave en Mano)</strong> se liquida 50% al iniciar y 50% contra entrega, e incluye el <strong>1er año de dominio .com + 3 meses gratis de servidor y soporte</strong>. Del 4° mes en adelante puedes elegir una póliza ligera opcional (desde <code>$490/mes</code>) o vincular tus propias cuentas de servidor.</p>
           </details>
 
           <details class="faq-item" open>
             <summary>
-              <span>¿Por qué entregas en semanas lo que una agencia tarda meses?</span>
+              <span>¿Por qué entregas en 2 a 4 semanas lo que una agencia tarda meses?</span>
               <span style="color:var(--neon-cyan);">＋</span>
             </summary>
-            <p>Porque no empezamos desde una hoja en blanco. Partimos de mis plataformas que ya están probadas con clientes reales en operación diaria, ahorrándote más del 50% en tiempo y costo de desarrollo.</p>
+            <p>Porque no improvisamos desde cero. Tomamos la arquitectura de nuestras plataformas que ya están probadas en operación real y la personalizamos a las reglas de tu negocio, reduciendo el tiempo de entrega y el costo a menos de la mitad.</p>
           </details>
 
           <details class="faq-item">
             <summary>
-              <span>¿Mi página tendrá mi propio nombre .com y mi logotipo?</span>
+              <span>¿Mi información, clientes y base de datos están seguros?</span>
               <span style="color:var(--neon-cyan);">＋</span>
             </summary>
-            <p>Sí, al 100%. Tu sistema queda con tu propio dominio oficial (por ejemplo, <code>www.tunegocio.com</code>), tu imagen, tus fotografías, tus precios y conectado directamente a tu número de WhatsApp.</p>
+            <p>Totalmente. Cada negocio cuenta con su propia base de datos aislada, conexión segura con certificado SSL (candado <code>https://</code>), respaldos automáticos y accesos controlados por contraseña para ti y tus colaboradores.</p>
           </details>
 
           <details class="faq-item">
             <summary>
-              <span>¿Qué incluye el descuento del -38% para Familiares y Amigos?</span>
+              <span>¿Mi personal necesita conocimientos técnicos para usar el sistema?</span>
               <span style="color:var(--neon-cyan);">＋</span>
             </summary>
-            <p>Si eres familiar o amigo cercano, tienes un <strong>38% de descuento directo</strong> tanto en la modalidad de Pago Único como en el Plan Mensual Todo Incluido, recibiendo exactamente el mismo sistema completo y capacitación.</p>
+            <p>No. Todas las pantallas están diseñadas para que cualquier recepcionista, doctor, vendedor o chofer las use desde su celular o computadora tan fácil como usar WhatsApp. Además, incluyo capacitación práctica en cada entrega.</p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- COTIZADOR HOLOGRÁFICO DIRECTO + COMPARATIVA DE MODALIDADES -->
+    <!-- SECCIÓN 4: COTIZADOR EJECUTIVO DIRECTO + DESCARGA DE PROPUESTA EN PDF -->
     <section class="quoter-section" id="cotizador-holo">
       <div class="container">
         <div class="section-head" style="margin-bottom:26px;">
-          <span class="holo-badge">💎 3 MODALIDADES FLEXIBLES Y TRANSPARENTES</span>
-          <h2>Elige cómo te conviene más invertir en tu sistema</h2>
+          <span class="holo-badge">💎 INVERSIÓN CLARA Y SIN COSTOS OCULTOS</span>
+          <h2>Compara las modalidades y descarga tu propuesta en PDF</h2>
           <p style="color:var(--text-Light);">
-            Sin letras chiquitas: puedes rentarlo con todo incluido mes a mes o comprarlo en pago único llave en mano.
+            Genera en 30 segundos una cotización formal lista para revisar con tus socios o dirección.
           </p>
         </div>
 
-        <!-- TARJETAS EXPLICATIVAS DE LAS 3 MODALIDADES -->
+        <!-- TARJETAS EXPLICATIVAS DE MODALIDADES -->
         <div class="steps-grid" style="margin-bottom:28px;">
           <div class="step-card" style="border-color:rgba(0,242,254,0.55);box-shadow:0 0 30px rgba(0,242,254,0.12);position:relative;">
             <span style="position:absolute;top:16px;right:16px;background:linear-gradient(135deg,#00f2fe,#6366f1);color:#03050c;font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:999px;">
-              ⭐ EL MÁS ELEGIDO
+              ⭐ RECOMENDADO PARA PYMES
             </span>
             <span class="step-num">A</span>
             <h3>Plan Mensual Todo Incluido</h3>
-            <p style="margin-bottom:10px;">Inicias con una cuota baja de activación y pagas una renta mensual fija sin preocuparte por nada técnico.</p>
+            <p style="margin-bottom:10px;">Inicias con una cuota baja de activación y pagas una renta mensual deducible con toda la tecnología y soporte incluidos.</p>
             <ul style="list-style:none;font-size:0.83rem;color:var(--text-Light);display:flex;flex-direction:column;gap:5px;">
-              <li>✅ Servidor rápido y base de datos en la nube incluidos</li>
+              <li>✅ Servidor de alta velocidad y base de datos incluidos</li>
               <li>✅ Respaldos automáticos y renovación de dominio <code>.com</code></li>
-              <li>✅ Soporte técnico directo, ajustes y actualizaciones todo el año</li>
+              <li>✅ Soporte técnico directo, ajustes y mejoras todo el año</li>
             </ul>
           </div>
 
           <div class="step-card">
             <span class="step-num">B</span>
             <h3>Pago Único (Llave en Mano)</h3>
-            <p style="margin-bottom:10px;">Pagas 50% al iniciar y 50% contra entrega. Ideal si prefieres ser dueño de tu licencia sin renta mensual de software.</p>
+            <p style="margin-bottom:10px;">50% de anticipo y 50% contra entrega funcionando. Ideal para empresas que prefieren adquirir su licencia en una sola exhibición.</p>
             <ul style="list-style:none;font-size:0.83rem;color:var(--text-Light);display:flex;flex-direction:column;gap:5px;">
               <li>✅ Incluye <strong>1er año de dominio .com</strong> sin costo</li>
               <li>✅ Incluye <strong>3 meses gratis</strong> de servidor en la nube y soporte</li>
@@ -1388,33 +1413,33 @@
 
           <div class="step-card" style="border-color:rgba(16,185,129,0.45);">
             <span class="step-num" style="background:linear-gradient(135deg,#10b981,#059669);color:#fff;">-38%</span>
-            <h3 style="color:#10b981;">Tarifa Familiar / Amigo</h3>
-            <p style="margin-bottom:10px;">Precio preferencial directo para proyectos de familiares y amigos cercanos que están impulsando su negocio o consultorio.</p>
+            <h3 style="color:#10b981;">Convenio Familiar / Amigo</h3>
+            <p style="margin-bottom:10px;">Tarifa especial directa para proyectos de familiares o amigos cercanos que están digitalizando su consultorio o negocio.</p>
             <ul style="list-style:none;font-size:0.83rem;color:var(--text-Light);display:flex;flex-direction:column;gap:5px;">
-              <li>✅ <strong>38% de descuento</strong> en Pago Único</li>
+              <li>✅ <strong>38% de descuento</strong> en modalidad de Pago Único</li>
               <li>✅ <strong>35% de descuento</strong> en Plan Mensual Todo Incluido</li>
-              <li>✅ Incluye capacitación personal paso a paso</li>
+              <li>✅ Mismo alcance completo y capacitación personal</li>
             </ul>
           </div>
         </div>
 
         <div class="quoter-shell">
           <div>
-            <span class="holo-sector-badge">💎 CONFIGURADOR DE INVERSIÓN AL INSTANTE</span>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.65rem,3vw,2.6rem);margin:10px 0;line-height:1.15;">
-              Arma tu presupuesto en 30 segundos
+            <span class="holo-sector-badge">📄 COTIZADOR EJECUTIVO INSTANTÁNEO</span>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.65rem,3vw,2.5rem);margin:10px 0;line-height:1.15;">
+              Obtén tu cotización formal en 3 pasos
             </h2>
             <p style="color:var(--text-Light);margin-bottom:22px;font-size:0.95rem;">
-              Selecciona el sistema que te gustó y la modalidad que prefieras para ver tu cotización exacta y descargarla en PDF.
+              Elige el sistema base que se adapta a tu giro y descarga al instante tu propuesta detallada en PDF o solicítala por WhatsApp.
             </p>
 
             <label for="holoSelectPlatform" style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
-              1. ELIGE EL SISTEMA DE REFERENCIA
+              1. SELECCIONA EL SISTEMA PARA TU GIRO
             </label>
             <select id="holoSelectPlatform" class="holo-select"></select>
 
             <label style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:8px;">
-              2. ELIGE CÓMO PREFIERES ADQUIRIRLO
+              2. SELECCIONA LA MODALIDAD DE INVERSIÓN
             </label>
             <div class="holo-plan-grid" id="holoPlanGrid">
               <div class="holo-plan-card active" data-plan="renta" style="position:relative;">
@@ -1428,21 +1453,21 @@
                 <span style="font-size:0.74rem;color:var(--text-Light);">Incluye 1er año .com + 3m soporte</span>
               </div>
               <div class="holo-plan-card" data-plan="familiar">
-                <span style="display:inline-block;font-size:9.5px;font-weight:800;background:rgba(16,185,129,0.2);color:#10b981;padding:2px 7px;border-radius:999px;margin-bottom:3px;">ESPECIAL -38%</span>
+                <span style="display:inline-block;font-size:9.5px;font-weight:800;background:rgba(16,185,129,0.2);color:#10b981;padding:2px 7px;border-radius:999px;margin-bottom:3px;">CONVENIO -38%</span>
                 <strong style="display:block;font-size:0.92rem;color:#10b981;">Familiar / Amigo</strong>
-                <span style="font-size:0.74rem;color:var(--text-Light);">Descuento directo en tu sistema</span>
+                <span style="font-size:0.74rem;color:var(--text-Light);">Tarifa preferencial directa</span>
               </div>
             </div>
 
             <label for="holoClientName" style="display:block;font-size:0.82rem;font-weight:700;color:var(--neon-cyan);margin-bottom:6px;">
-              3. TU NOMBRE O EL DE TU NEGOCIO
+              3. NOMBRE DE TU EMPRESA, CONSULTORIO O NEGOCIO
             </label>
-            <input type="text" id="holoClientName" class="holo-input" placeholder="Ej. Dra. Sofía / Pizzería Roma / Transportes del Norte" />
+            <input type="text" id="holoClientName" class="holo-input" placeholder="Ej. Clínica Dental Santa María / Transportes del Bajío / Restaurante Roma" />
           </div>
 
           <div class="quoter-summary-box">
             <div>
-              <span class="holo-sector-badge">⚡ RESUMEN DE TU PROPUESTA</span>
+              <span class="holo-sector-badge">⚡ RESUMEN EJECUTIVO DE PROPUESTA</span>
               <h3 id="holoQuoteTitle" style="font-family:var(--font-display);font-size:clamp(1.35rem,2.4vw,1.75rem);margin:10px 0 6px;line-height:1.2;"></h3>
               <div style="margin-bottom:16px;">
                 <a id="holoQuoteDomain" href="#" target="_blank" rel="noopener" class="holo-domain-pill"></a>
@@ -1455,19 +1480,19 @@
               </div>
 
               <ul id="holoQuoteChecklist" style="list-style:none;display:flex;flex-direction:column;gap:8px;font-size:0.84rem;color:var(--text-Light);margin-bottom:22px;">
-                <li>✅ <strong>Entrega estimada:</strong> <span id="holoQuoteTime"></span></li>
-                <li>✅ <strong>Personalizado:</strong> Con tu logotipo, colores y dominio <code>.com</code></li>
+                <li>✅ <strong>Tiempo de implementación:</strong> <span id="holoQuoteTime"></span></li>
+                <li>✅ <strong>Personalización completa:</strong> Tu logotipo, colores y dominio <code>.com</code></li>
                 <li id="holoQuoteHostingNote">✅ <strong>Todo incluido:</strong> Servidor, base de datos, respaldos y soporte continuo</li>
-                <li>✅ <strong>Trato directo:</strong> Capacitación y garantía con Andrés Montoya Hernández</li>
+                <li>✅ <strong>Garantía y capacitación:</strong> Trato directo con Andrés Montoya Hernández</li>
               </ul>
             </div>
 
             <div style="display:flex;flex-direction:column;gap:10px;">
               <button type="button" id="holoWaBtn" class="btn-neon btn-neon-primary" style="width:100%;">
-                <span>📲 Enviar Cotización por WhatsApp (443 143 3732)</span>
+                <span>📲 Solicitar Implementación o Demo por WhatsApp</span>
               </button>
               <button type="button" id="holoPdfBtn" class="btn-neon btn-neon-glass" style="width:100%;">
-                <span>📄 Descargar Cotización Formal en PDF</span>
+                <span>📄 Descargar Propuesta Formal en PDF</span>
               </button>
             </div>
           </div>
@@ -1477,7 +1502,7 @@
 
     <footer style="padding:36px 0 90px;border-top:1px solid var(--border-glass);text-align:center;font-size:0.86rem;color:var(--text-dim);background:rgba(3,5,12,0.9);">
       <div class="container">
-        <p style="margin-bottom:8px;">© 2026 <strong>Andrés Montoya Hernández</strong> · Sistemas Digitales, Páginas Web y Automatización con IA</p>
+        <p style="margin-bottom:8px;">© 2026 <strong>Andrés Montoya Hernández</strong> · Sistemas Digitales, Páginas Web y Automatización para Negocios</p>
         <p style="margin-bottom:10px;">WhatsApp Directo: <a href="https://wa.me/524431433732" target="_blank" rel="noopener" style="color:var(--neon-cyan);font-weight:700;">+52 443 143 3732</a> · Morelia / Querétaro / Todo México</p>
         <p style="font-size:0.8rem;">
           <a href="aviso-de-privacidad.html" style="color:#94a3b8;text-decoration:underline;text-underline-offset:3px;">🔒 Aviso de Privacidad (LFPDPPP)</a>
@@ -1495,8 +1520,8 @@
   </a>
 
   <!-- Scripts compartidos -->
-  <script src="app.js?v=6"></script>
-  <script src="visual-fx.js?v=6"></script>
+  <script src="app.js?v=7"></script>
+  <script src="visual-fx.js?v=7"></script>
 
   <!-- MOTOR 3D INTERACTIVO (THREE.JS) + LÓGICA DE OPCIÓN 5 -->
   <script>
@@ -1758,8 +1783,13 @@
                 </a>
               </div>
               <h2 class="holo-platform-title" style="margin:6px 0 8px;">${p.name}</h2>
-              <p style="color:var(--text-Light);font-size:0.95rem;margin-bottom:14px;">
-                ${p.shortPitch || p.tagline}
+              ${p.problemSolved ? `
+                <div style="background:rgba(245,158,11,0.1);border-left:3px solid #f59e0b;padding:8px 12px;border-radius:0 10px 10px 0;font-size:0.84rem;color:#fde68a;margin-bottom:10px;">
+                  <strong>🎯 Problema que elimina:</strong> ${p.problemSolved}
+                </div>
+              ` : ''}
+              <p style="color:var(--text-Light);font-size:0.93rem;margin-bottom:14px;">
+                <strong>✅ Cómo funciona:</strong> ${p.shortPitch || p.tagline}
               </p>
               <div class="vfx-kpi-row" style="margin-bottom:16px;">
                 ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
@@ -1767,27 +1797,23 @@
             </div>
 
             <div>
-              <div class="holo-price-triplet" style="margin-bottom:16px;">
-                <div class="holo-price-cell">
-                  <small>Pago Único</small>
-                  <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
+              <div class="holo-price-triplet" style="grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:16px;">
+                <div class="holo-price-cell" style="background:rgba(0,242,254,0.08);border-radius:10px;padding:6px 8px;border:1px solid rgba(0,242,254,0.28);">
+                  <small style="color:var(--neon-cyan);">⭐ Plan Mensual (Todo Incluido)</small>
+                  <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')} / mes</strong>
                 </div>
-                <div class="holo-price-cell">
-                  <small>Renta Mensual</small>
-                  <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
-                </div>
-                <div class="holo-price-cell">
-                  <small>Familiar (-38%)</small>
-                  <strong style="color:#10b981;">$${famPrice.toLocaleString('es-MX')}</strong>
+                <div class="holo-price-cell" style="padding:6px 8px;">
+                  <small>Pago Único (Llave en Mano)</small>
+                  <strong>$${p.basePrice.toLocaleString('es-MX')} MXN</strong>
                 </div>
               </div>
 
               <div class="holo-stage-actions" style="display:flex;gap:10px;flex-wrap:wrap;">
                 <button type="button" class="btn-neon btn-neon-primary" style="flex:1;" onclick="window.openVfxLightbox('${p.id}', 'live')">
-                  ▶ Probar Página en Vivo
+                  ▶ Probar Sistema en Vivo
                 </button>
                 <button type="button" class="btn-neon btn-neon-glass" style="flex:1;" onclick="window.selectHoloQuote('${p.id}')">
-                  💎 Cotizar Este Sistema
+                  📄 Cotizar y Descargar PDF
                 </button>
               </div>
             </div>
@@ -1858,14 +1884,16 @@
 
                 <div class="holo-card-body">
                   <div>
-                    <div style="font-size:11.5px;color:var(--neon-cyan);font-weight:700;margin-bottom:6px;line-height:1.35;">
-                      ${media.liveToast}
-                    </div>
-                    <h3 style="font-family:var(--font-display);font-size:1.32rem;margin-bottom:6px;line-height:1.2;">
+                    <h3 style="font-family:var(--font-display);font-size:1.32rem;margin-bottom:8px;line-height:1.2;">
                       ${p.name}
                     </h3>
-                    <p style="font-size:0.88rem;color:var(--text-Light);margin-bottom:10px;">
-                      ${p.shortPitch || p.tagline}
+                    ${p.problemSolved ? `
+                      <div style="background:rgba(245,158,11,0.09);border-left:3px solid #f59e0b;padding:7px 10px;border-radius:0 8px 8px 0;font-size:0.8rem;color:#fde68a;margin-bottom:8px;line-height:1.35;">
+                        <strong>🎯 Problema que elimina:</strong> ${p.problemSolved}
+                      </div>
+                    ` : ''}
+                    <p style="font-size:0.86rem;color:var(--text-Light);margin-bottom:10px;line-height:1.45;">
+                      <strong>✅ Solución:</strong> ${p.shortPitch || p.tagline}
                     </p>
                     <div class="vfx-kpi-row">
                       ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
@@ -1873,27 +1901,23 @@
                   </div>
 
                   <div>
-                    <div class="holo-price-triplet" style="margin:12px 0;">
-                      <div class="holo-price-cell">
+                    <div class="holo-price-triplet" style="grid-template-columns:repeat(2,minmax(0,1fr));margin:12px 0;">
+                      <div class="holo-price-cell" style="background:rgba(0,242,254,0.08);border-radius:10px;padding:6px 8px;border:1px solid rgba(0,242,254,0.28);">
+                        <small style="color:var(--neon-cyan);">⭐ Plan Mensual</small>
+                        <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')} / mes</strong>
+                      </div>
+                      <div class="holo-price-cell" style="padding:6px 8px;">
                         <small>Pago Único</small>
-                        <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
-                      </div>
-                      <div class="holo-price-cell">
-                        <small>Mensual</small>
-                        <strong style="color:var(--neon-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
-                      </div>
-                      <div class="holo-price-cell">
-                        <small>Familiar</small>
-                        <strong style="color:#10b981;">$${famPrice.toLocaleString('es-MX')}</strong>
+                        <strong>$${p.basePrice.toLocaleString('es-MX')} MXN</strong>
                       </div>
                     </div>
 
                     <div class="holo-card-actions" style="display:flex;gap:8px;">
                       <button type="button" class="btn-neon btn-neon-glass" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.openVfxLightbox('${p.id}', 'live')">
-                        ▶ Ver en Vivo
+                        ▶ Probar en Vivo
                       </button>
                       <button type="button" class="btn-neon btn-neon-primary" style="flex:1;padding:10px;font-size:0.82rem;" onclick="window.selectHoloQuote('${p.id}')">
-                        💎 Quiero uno así
+                        📄 Cotizar en PDF
                       </button>
                     </div>
                   </div>
