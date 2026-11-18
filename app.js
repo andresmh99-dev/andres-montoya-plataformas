@@ -5,6 +5,7 @@
    ========================================================================== */
 
 const OWNER_INFO = {
+  brandName: 'AM Kortex',
   fullName: 'Andrés Montoya Hernández',
   whatsapp: '524431433732',
   whatsappDisplay: '443 143 3732',
@@ -1201,13 +1202,13 @@ function generateProposalPdf() {
     day: 'numeric'
   });
 
-  doc.setFillColor(13, 16, 24);
+  doc.setFillColor(8, 18, 33);
   doc.rect(0, 0, 210, 42, 'F');
 
-  doc.setTextColor(6, 182, 212);
+  doc.setTextColor(16, 185, 129);
   doc.setFontSize(10);
   doc.setFont('helvetica', 'bold');
-  doc.text('ANDRÉS MONTOYA HERNÁNDEZ · SISTEMAS Y PÁGINAS DIGITALES PARA NEGOCIOS', 15, 16);
+  doc.text('AM KORTEX · DIRIGIDO POR ANDRÉS MONTOYA HERNÁNDEZ · SISTEMAS DIGITALES', 15, 16);
 
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(17);
@@ -1313,11 +1314,11 @@ function generateProposalPdf() {
   doc.setTextColor(71, 85, 105);
   doc.setFontSize(9.5);
   doc.text(
-    `Para comenzar o ver una demostración en vivo, escríbeme por WhatsApp al +52 ${OWNER_INFO.whatsappDisplay} (${OWNER_INFO.fullName}).`,
+    `Para comenzar o ver una demostración en vivo, escríbeme por WhatsApp al +52 ${OWNER_INFO.whatsappDisplay} (${OWNER_INFO.brandName} · ${OWNER_INFO.fullName}).`,
     15,
     y
   );
 
   const safeSlug = basePlatform.id.replace(/[^a-z0-9]/gi, '-');
-  doc.save(`Presupuesto-${safeSlug}-Andres-Montoya.pdf`);
+  doc.save(`Propuesta-AM-Kortex-${safeSlug}.pdf`);
 }

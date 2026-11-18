@@ -1,6 +1,6 @@
 # 📲 Kit Comercial de Ventas: WhatsApp Business + Guiones de Anuncios (PyMEs)
 
-**Desarrollador:** Andrés Montoya Hernández · `+52 443 143 3732`  
+**Firma Comercial:** **AM Kortex** · Dirigido por Andrés Montoya Hernández · `+52 443 143 3732`  
 **Catálogo Oficial en Vivo:** https://andresmh99-dev.github.io/andres-montoya-plataformas/
 
 ---
@@ -10,13 +10,13 @@
 ### A) Mensaje de Bienvenida Automático
 *(Configúralo en WhatsApp Business → Herramientas para la empresa → Mensaje de bienvenida)*
 
-> ¡Hola! 👋 Soy **Andrés Montoya**, desarrollador de plataformas digitales y automatización para negocios.
+> ¡Hola! 👋 Soy **Andrés Montoya**, fundador de **AM Kortex** (sistemas digitales y automatización para negocios).
 >
 > Para darte una recomendación exacta y sin compromiso, cuéntame:
 > 1️⃣ ¿Cuál es el **giro de tu negocio o consultorio**?
 > 2️⃣ ¿Qué te gustaría automatizar primero (citas por WhatsApp, pedidos sin comisiones, cotizaciones en PDF o control operativo)?
 >
-> Mientras te respondo, aquí puedes probar mis **9 sistemas en vivo** y descargar tu presupuesto en PDF:
+> Mientras te respondo, aquí puedes probar nuestros **sistemas en vivo** y descargar tu presupuesto en PDF:
 > 👉 https://andresmh99-dev.github.io/andres-montoya-plataformas/
 
 ---
@@ -67,17 +67,17 @@
 ## 2. Guiones de Video de 30 Segundos (Para Reels / TikTok / Meta Ads)
 
 ### Guion 1: Para Dueños de Spas, Clínicas y Consultorios (El dolor del WhatsApp)
-* **Visual (0-5 seg):** Graba la pantalla de tu celular mostrando la tarjeta de *Nail Room Spa* en tu página.
+* **Visual (0-5 seg):** Graba la pantalla de tu celular mostrando la tarjeta de *Nail Room Spa* en tu página de **AM Kortex**.
 * **Voz:** *"¿Cuántas citas o clientes pierdes a la semana por no contestar WhatsApp a tiempo o porque te dejan plantado?"*
 * **Visual (5-20 seg):** Muestra cómo el sistema contesta hasta notas de voz, revisa la agenda sin encimar horarios y pide anticipo automático.
-* **Voz:** *"Construí este sistema que escucha notas de voz de WhatsApp, revisa tu agenda solo y aparta la cita con anticipo las 24 horas. Y como ya lo tengo construido y probado, te lo entrego en semanas con tu logotipo y tu propio dominio .com por una fracción de lo que cobra una agencia."*
-* **Cierre (20-30 seg):** Muestra el cotizador en PDF de tu página.
-* **Voz:** *"Toca el botón de abajo, prueba mis 9 sistemas en vivo y descarga tu cotización en PDF en 30 segundos."*
+* **Voz:** *"En **AM Kortex** ya construimos este sistema que escucha notas de voz de WhatsApp, revisa tu agenda solo y aparta la cita con anticipo las 24 horas. Y como ya está probado en operación real, te lo entregamos en semanas con tu logotipo y tu propio dominio .com por una fracción de lo que cobra una agencia."*
+* **Cierre (20-30 seg):** Muestra el cotizador en PDF de **AM Kortex**.
+* **Voz:** *"Toca el botón de abajo, prueba nuestros sistemas en vivo y descarga tu cotización en PDF en 30 segundos."*
 
 ### Guion 2: Para Gerentes de PyMEs, Logística y Empresas (El dolor del Excel y Cotizaciones)
-* **Visual (0-5 seg):** Graba la pantalla en la Tabla Comparativa (*Seguir en Excel vs. Agencia vs. Sistemas Probados*).
+* **Visual (0-5 seg):** Graba la pantalla en la Tabla Comparativa (*Seguir en Excel vs. Agencia vs. AM Kortex*).
 * **Voz:** *"Si diriges una pequeña o mediana empresa y sigues llevando tus pedidos, rutas o cotizaciones en hojas de Excel, estás perdiendo horas de tu equipo y dinero cada mes."*
 * **Visual (5-20 seg):** Muestra la pantalla de *InLog* y *Consultorios Fénix*.
-* **Voz:** *"Implemento plataformas web listas para operar: desde sistemas que leen pedidos en PDF y calculan la ganancia de cada viaje, hasta cotizadores que generan propuestas en PDF en 5 segundos."*
+* **Voz:** *"En **AM Kortex** implementamos plataformas web listas para operar: desde sistemas que leen pedidos en PDF y calculan la ganancia de cada viaje, hasta cotizadores que generan propuestas en PDF en 5 segundos."*
 * **Cierre (20-30 seg):** Muestra el botón de WhatsApp y el cotizador.
 * **Voz:** *"Entra al enlace, prueba las plataformas reales en vivo y cotiza la tuya hoy mismo."*
