@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>AM Kortex | Sistemas Digitales, Páginas Web y Automatización para Negocios · Andrés Montoya</title>
-  <meta name="description" content="AM Kortex (dirigido por Andrés Montoya Hernández): sistemas digitales probados para clínicas, restaurantes, spas, clubes y empresas. Demostraciones en vivo y cotizador en PDF." />
+  <title>AM Kortex | Sistemas web probados para PyMEs en Morelia y Querétaro</title>
+  <meta name="description" content="Sistemas web ya operando con clientes reales: citas con WhatsApp, consultorios, restaurantes, clubes y logística. Con tu marca en 2 a 4 semanas, desde $790/mes + IVA. Agenda una demo de 15 minutos." />
   <meta name="author" content="AM Kortex · Andrés Montoya Hernández" />
   <meta name="theme-color" content="#080d16" />
-  <!-- URL BASE DEL SITIO: al conectar el dominio amkortex.com, reemplazar en canonical, og:url, og:image, twitter:image, JSON-LD, robots.txt y sitemap.xml -->
+  <!-- URL BASE DEL SITIO: al conectar el dominio amkortex.com, reemplazar en canonical, og:url, og:image, twitter:image, JSON-LD, robots.txt y sitemap.xml. Al tener correo empresarial, reemplazar andresmh99@gmail.com aquí y en aviso-de-privacidad.html -->
   <link rel="canonical" href="https://andresmh99-dev.github.io/andres-montoya-plataformas/" />
 
   <!-- Open Graph / Vista previa para WhatsApp, Facebook, LinkedIn -->
@@ -16,18 +16,18 @@
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="AM Kortex · Sistemas Digitales y Automatización" />
   <meta property="og:url" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/" />
-  <meta property="og:title" content="AM Kortex | Sistemas Digitales y Automatización para Negocios" />
-  <meta property="og:description" content="Mira en vivo sistemas reales funcionando: WhatsApp que agenda citas solo 24/7, menús digitales sin comisiones, agendas clínicas y control logístico. Compra única o plan mensual." />
-  <meta property="og:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg" />
+  <meta property="og:title" content="AM Kortex | Sistemas web probados para tu PyME" />
+  <meta property="og:description" content="6 sistemas y 2 páginas web operando hoy con clientes reales. Citas con WhatsApp, consultorios, restaurantes, clubes y logística, con tu marca en 2 a 4 semanas. Desde $790/mes + IVA." />
+  <meta property="og:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="AM Kortex · Sistemas Digitales por Andrés Montoya" />
+  <meta property="og:image:alt" content="AM Kortex: sistemas web probados para PyMEs, con capturas de InLog, Nail Room y Consultorios Fénix" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AM Kortex | Sistemas Digitales y Automatización para Negocios" />
-  <meta name="twitter:description" content="Tecnología probada y lista para personalizar con tu marca en semanas: agendas con WhatsApp automático, restaurantes, consultorios, clubes y logística." />
-  <meta name="twitter:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg" />
+  <meta name="twitter:title" content="AM Kortex | Sistemas web probados para tu PyME" />
+  <meta name="twitter:description" content="6 sistemas y 2 páginas web operando hoy. Con tu marca en 2 a 4 semanas, desde $790/mes + IVA. Agenda una demo de 15 minutos." />
+  <meta name="twitter:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2" />
 
   <!-- Datos estructurados para Google (negocio de servicios profesionales) -->
   <script type="application/ld+json">
@@ -37,8 +37,9 @@
     "name": "AM Kortex",
     "description": "Sistemas web probados para PyMEs: agendas y citas con WhatsApp, consultorios, restaurantes, clubes deportivos y control logístico, personalizados con tu marca en 2 a 4 semanas.",
     "url": "https://andresmh99-dev.github.io/andres-montoya-plataformas/",
-    "image": "https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg",
+    "image": "https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2",
     "telephone": "+52 443 143 3732",
+    "email": "andresmh99@gmail.com",
     "priceRange": "$$",
     "currenciesAccepted": "MXN",
     "areaServed": [
@@ -840,8 +841,15 @@
     }
     .range-input {
       width: 100%;
+      min-height: 32px;
       accent-color: var(--color-accent);
       cursor: pointer;
+    }
+    .roi-assumptions {
+      margin: var(--space-4) 0 var(--space-6);
+      font-size: 0.82rem;
+      color: var(--color-ink-dim);
+      max-width: 90ch;
     }
     .roi-kpi-grid {
       display: grid;
@@ -1140,6 +1148,18 @@
       line-height: 1.1;
       margin: var(--space-2) 0;
     }
+    .quote-mail-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .quote-mail-link:hover { color: var(--color-ink); }
     .proposal-list {
       list-style: none;
       display: flex;
@@ -1164,6 +1184,11 @@
       gap: var(--space-4);
       font-size: 0.88rem;
       color: var(--color-ink-dim);
+    }
+    .footer-meta {
+      display: block;
+      margin-top: var(--space-1);
+      font-size: 0.8rem;
     }
     .b2b-footer-links {
       display: flex;
@@ -1551,6 +1576,16 @@
       .sys-actions { flex-direction: column; }
       .btn { width: 100%; }
 
+      /* Enlaces de texto con área de toque de al menos 32 px */
+      .domain-mono,
+      .hero-showcase-head a,
+      .b2b-footer-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+      }
+      .live-btn-inline { min-height: 36px; }
+
       /* Encabezado compacto */
       .brand-role { display: none; }
       .b2b-nav-inner { min-height: 60px; gap: var(--space-3); }
@@ -1803,7 +1838,7 @@
       <div class="section-header-split reveal-item">
         <h2 class="section-h2">Retorno de inversión y comparativa para gerencia</h2>
         <p class="section-desc">
-          Ajusta el volumen de citas o servicios de tu negocio y compara nuestra entrega contra agencias o seguir operando en Excel.
+          Ajusta el volumen de tu negocio para ver una estimación de lo que recuperas, y compara contra una agencia o seguir en Excel.
         </p>
       </div>
 
@@ -1829,21 +1864,25 @@
         <div class="roi-kpi-grid">
           <div class="roi-kpi-cell spotlight-panel reveal-item">
             <div class="roi-kpi-num" id="roiHoursSaved">36 hrs</div>
-            <div class="roi-kpi-label">Horas libres al mes</div>
-            <div class="roi-kpi-sub">Menos captura en recepción</div>
+            <div class="roi-kpi-label">Horas libres al mes (est.)</div>
+            <div class="roi-kpi-sub">Menos captura y confirmaciones</div>
           </div>
           <div class="roi-kpi-cell spotlight-panel reveal-item reveal-d1">
-            <div class="roi-kpi-num" id="roiExtraClients">+27</div>
-            <div class="roi-kpi-label">Clientes extra al mes</div>
+            <div class="roi-kpi-num" id="roiExtraClients">+10</div>
+            <div class="roi-kpi-label">Citas o ventas recuperadas (est.)</div>
             <div class="roi-kpi-sub">Respuestas 24/7 y anticipos</div>
           </div>
           <div class="roi-kpi-cell spotlight-panel reveal-item reveal-d2">
-            <div class="roi-kpi-num" style="color:var(--color-ink-amber);" id="roiExtraMoney">+$12,150</div>
-            <div class="roi-kpi-label">Ingreso mensual extra</div>
-            <div class="roi-kpi-sub">Se paga con 2 a 3 ventas</div>
+            <div class="roi-kpi-num" style="color:var(--color-ink-amber);" id="roiExtraMoney">+$4,500</div>
+            <div class="roi-kpi-label">Ingreso mensual recuperado (est.)</div>
+            <div class="roi-kpi-sub">Citas o ventas recuperadas × tu ticket</div>
           </div>
         </div>
       </div>
+      <p class="roi-assumptions">
+        Estimación ilustrativa, no garantía. Supone unos 10 minutos ahorrados de captura y confirmación por cita o pedido,
+        y recuperar alrededor del 5% de las citas o ventas que hoy se pierden por no contestar a tiempo. Tu resultado depende de tu operación.
+      </p>
 
       <div class="table-container reveal-item">
         <table class="b2b-table">
@@ -1864,8 +1903,8 @@
             </tr>
             <tr>
               <td>Inversión estimada</td>
-              <td data-label="Seguir en Excel o libreta">Fugas de $8,000 a $25,000/mes</td>
-              <td data-label="Agencia tradicional">$50,000 a $120,000 MXN</td>
+              <td data-label="Seguir en Excel o libreta">Costo oculto: horas de captura, errores y citas perdidas</td>
+              <td data-label="Agencia tradicional">Proyecto desde cero, normalmente de $50,000 MXN en adelante</td>
               <td data-label="AM Kortex" class="col-win">Desde $790/mes + IVA (+ activación) o Pago Único</td>
             </tr>
             <tr>
@@ -2075,6 +2114,7 @@
             <button type="button" id="holoPdfBtn" class="btn btn-secondary" style="width:100%;white-space:normal;height:auto;text-align:center;">
               Descargar propuesta formal en PDF
             </button>
+            <a id="holoMailBtn" href="mailto:andresmh99@gmail.com" class="quote-mail-link">Prefiero que me escriban por correo</a>
           </div>
         </div>
       </div>
@@ -2083,12 +2123,14 @@
 
   <footer class="b2b-footer">
     <div class="container b2b-footer-inner">
-      <div>
+      <div class="footer-brand">
         <strong style="color:var(--color-ink);">AM Kortex</strong>, Sistemas Web y Automatización por Andrés Montoya Hernández
+        <span class="footer-meta">Morelia, Michoacán · Atención remota en todo México · Precios en MXN + IVA, con factura</span>
       </div>
       <div class="b2b-footer-links">
-        <a href="aviso-de-privacidad.html">Aviso de Privacidad (LFPDPPP)</a>
         <a href="https://wa.me/524431433732" target="_blank" rel="noopener" style="color:var(--color-ink-emerald);font-weight:700;">WhatsApp +52 443 143 3732</a>
+        <a href="mailto:andresmh99@gmail.com?subject=Contacto%20desde%20AM%20Kortex">andresmh99@gmail.com</a>
+        <a href="aviso-de-privacidad.html">Aviso de Privacidad</a>
       </div>
     </div>
   </footer>
@@ -2233,8 +2275,11 @@
           const avgTicket = Number(tRange.value);
           document.getElementById('roiClientsVal').textContent = `${clientsPerWeek} / sem`;
           document.getElementById('roiTicketVal').textContent = `$${avgTicket.toLocaleString('es-MX')} MXN`;
-          const hoursSaved = Math.max(12, Math.round(clientsPerWeek * 0.78));
-          const extraClients = Math.max(4, Math.round(clientsPerWeek * 0.6));
+          // Supuestos conservadores (ver nota bajo los indicadores):
+          // ~4.3 semanas por mes, ~10 min ahorrados por cita y ~5% de citas o ventas recuperadas.
+          const perMonth = clientsPerWeek * 4.3;
+          const hoursSaved = Math.round((perMonth * 10) / 60);
+          const extraClients = Math.max(1, Math.round(perMonth * 0.05));
           const extraMoney = extraClients * avgTicket;
           animateNumber(document.getElementById('roiHoursSaved'), hoursSaved, (v) => `${v} hrs`);
           animateNumber(document.getElementById('roiExtraClients'), extraClients, (v) => `+${v}`);
@@ -2526,6 +2571,29 @@
           const msg = `Hola Andrés, soy *${client}*.\n\nVi el catálogo de *AM Kortex* y me interesa cotizar:\n• Sistema: ${p.name} (${p.displayDomain})\n• Modalidad: ${selectedPlan === 'unico' ? 'Pago Único' : 'Plan Mensual'} (${priceTxt})\n• Detalle: ${subTxt}\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
           window.open(`https://wa.me/524431433732?text=${encodeURIComponent(msg)}`, '_blank');
         });
+
+        const mailBtn = document.getElementById('holoMailBtn');
+        if (mailBtn) {
+          mailBtn.addEventListener('click', (ev) => {
+            ev.preventDefault();
+            const p = platforms.find((x) => x.id === sel.value) || platforms[0];
+            const client = document.getElementById('holoClientName').value.trim() || '';
+            const modo = selectedPlan === 'unico' ? 'Pago Único' : 'Plan Mensual';
+            const priceTxt = selectedPlan === 'unico'
+              ? `$${p.basePrice.toLocaleString('es-MX')} MXN + IVA`
+              : `$${p.monthlyFee.toLocaleString('es-MX')} / mes + IVA`;
+            const subject = `Cotización AM Kortex: ${p.name.split('·')[0].trim()}${client ? ' · ' + client : ''}`;
+            const body =
+              `Hola Andrés,\n\nMe interesa cotizar un sistema como ${p.name} (${p.displayDomain}).\n` +
+              `Modalidad: ${modo} (${priceTxt})\n` +
+              `Empresa o negocio: ${client || '(escribe aquí)'}\n\n` +
+              `Mi teléfono: \n¿Cuándo podemos platicar?\n`;
+            if (window.trackCommercialEvent) {
+              window.trackCommercialEvent('quote_email_click', 'Contact', { system: p.id, plan: selectedPlan });
+            }
+            window.location.href = `mailto:andresmh99@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          });
+        }
 
         document.getElementById('holoPdfBtn').addEventListener('click', () => {
           const p = platforms.find((x) => x.id === sel.value) || platforms[0];
