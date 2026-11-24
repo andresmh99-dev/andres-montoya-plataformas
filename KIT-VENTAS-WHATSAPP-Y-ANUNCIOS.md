@@ -31,7 +31,7 @@
 > 2. **Consultorio Digital en tu Celular (`psicoterapiaconductual.net`):** Agenda en línea, expediente clínico rápido y recordatorios por WhatsApp.
 > 3. **Renta de Consultorios / Cabinas por Hora (`agendafenix.app`):** Ideal si rentas espacios a otros especialistas por hora o paquete.
 >
-> 💡 **Inversión:** Desde **$1,190/mes Todo Incluido** (servidor, dominio y soporte) o en **Pago Único Llave en Mano**.
+> 💡 **Inversión:** Desde **$1,190/mes + IVA Todo Incluido** (servidor, dominio y soporte; plazo mínimo 12 meses) o en **Pago Único Llave en Mano**.
 > ¿Te gustaría que agendemos una llamada de 10 minutos para mostrarte cómo se vería con tu marca?
 
 #### `/restaurantes` (Para Pizzerías, Cafeterías, Restaurantes, Clubes)
@@ -57,8 +57,10 @@
 >
 > ✅ **1. Acuerdo por escrito:** Te envío tu propuesta formal en PDF con alcance, fecha de entrega (2 a 4 semanas) y costos fijos.
 > ✅ **2. Modalidad a tu medida:**
-> • **⭐ Plan Mensual Todo Incluido:** Entras con una activación baja y tu mensualidad cubre servidor, base de datos, dominio `.com`, respaldos y soporte todo el año.
-> • **Pago Único (Llave en Mano):** 50% de anticipo y 50% hasta que te entrego el sistema funcionando con tu marca (incluye 1er año de dominio `.com` y 3 meses gratis de servidor y soporte).
+> • **⭐ Plan Mensual Todo Incluido:** Entras con una activación baja y tu mensualidad cubre servidor, base de datos, dominio `.com`, respaldos y soporte con ajustes de hasta 2 horas al mes (plazo mínimo de 12 meses).
+> • **Pago Único (Llave en Mano):** 50% de anticipo y 50% hasta que te entrego el sistema funcionando con tu marca (incluye 1er año de dominio `.com` y 3 meses gratis de servidor y soporte; después, póliza opcional según el sistema).
+>
+> _Todos los precios son en MXN + IVA, con factura._
 >
 > ¿Prefieres que te arme la propuesta en **Plan Mensual** o en **Pago Único**? ¿A nombre de qué empresa o negocio la generamos?
 

@@ -26,6 +26,7 @@ const PLATFORMS = [
     basePrice: 23500,
     setupFee: 8900,
     monthlyFee: 2190,
+    polizaFee: 890,
     codeReadyPct: 85,
     timeEstimate: '2 a 3 semanas',
     tagline:
@@ -88,6 +89,7 @@ const PLATFORMS = [
     basePrice: 40000,
     setupFee: 15000,
     monthlyFee: 3600,
+    polizaFee: 1490,
     codeReadyPct: 82,
     timeEstimate: '3 a 5 semanas',
     tagline:
@@ -150,6 +152,7 @@ const PLATFORMS = [
     basePrice: 23500,
     setupFee: 8900,
     monthlyFee: 2190,
+    polizaFee: 890,
     codeReadyPct: 88,
     timeEstimate: '2 a 3 semanas',
     tagline:
@@ -202,16 +205,17 @@ const PLATFORMS = [
   {
     id: 'lievitum-pizzalab',
     name: 'Lievitum Pizza LAB · Página y Menú para Restaurantes',
-    repo: 'www.lievitum.com',
+    repo: 'lustrous-stardust-5c82d0.netlify.app',
     repoUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
     liveUrl: 'https://lustrous-stardust-5c82d0.netlify.app/',
-    displayDomain: 'www.lievitum.com',
+    displayDomain: 'Demo · Lievitum Pizza LAB',
     category: 'negocios',
     sectorLabel: 'Restaurantes, Pizzerías, Cafeterías y Bares',
     statusLabel: 'Funcionando hoy · Morelia y Querétaro',
     basePrice: 12000,
     setupFee: 4000,
     monthlyFee: 790,
+    polizaFee: 490,
     codeReadyPct: 92,
     timeEstimate: '5 a 10 días',
     tagline:
@@ -245,7 +249,7 @@ const PLATFORMS = [
     miniUiHtml: `
       <div class="mini-ui">
         <div class="mini-ui-header">
-          <span>🍕 lievitum.com · Sucursal Morelia / Querétaro</span>
+          <span>🍕 Lievitum Pizza LAB · Sucursal Morelia / Querétaro</span>
           <span class="mini-chip green">Abierto Hoy · 1:00 pm a 10:00 pm</span>
         </div>
         <div class="mini-ui-row">
@@ -272,6 +276,7 @@ const PLATFORMS = [
     basePrice: 15000,
     setupFee: 5200,
     monthlyFee: 1190,
+    polizaFee: 590,
     codeReadyPct: 90,
     timeEstimate: '1 a 2 semanas',
     tagline:
@@ -334,6 +339,7 @@ const PLATFORMS = [
     basePrice: 23500,
     setupFee: 8900,
     monthlyFee: 2190,
+    polizaFee: 890,
     codeReadyPct: 84,
     timeEstimate: '2 a 3 semanas',
     tagline:
@@ -395,6 +401,7 @@ const PLATFORMS = [
     basePrice: 40000,
     setupFee: 15000,
     monthlyFee: 3600,
+    polizaFee: 1490,
     codeReadyPct: 80,
     timeEstimate: '3 a 4 semanas',
     tagline:
@@ -457,6 +464,7 @@ const PLATFORMS = [
     basePrice: 15000,
     setupFee: 5200,
     monthlyFee: 1190,
+    polizaFee: 590,
     codeReadyPct: 82,
     timeEstimate: '1 a 2 semanas',
     tagline:
@@ -517,6 +525,7 @@ const PLATFORMS = [
     basePrice: 12000,
     setupFee: 4000,
     monthlyFee: 790,
+    polizaFee: 490,
     codeReadyPct: 95,
     timeEstimate: '5 a 10 días',
     tagline:
@@ -746,7 +755,6 @@ function renderPlatformsCatalog() {
   grid.innerHTML = filtered
     .map((p) => {
       const kpis = p.visualKpis || p.highlights.slice(0, 3);
-      const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
       const frameHtml = window.renderVfxScreenshotFrame
         ? window.renderVfxScreenshotFrame(p)
         : `<div class="platform-preview-window">${p.miniUiHtml}</div>`;
@@ -776,7 +784,7 @@ function renderPlatformsCatalog() {
             ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
           </div>
 
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:10px;border-radius:12px;background:rgba(15,23,42,0.55);border:1px solid var(--border-subtle);margin:10px 0;font-size:0.76rem;">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:10px;border-radius:12px;background:rgba(15,23,42,0.55);border:1px solid var(--border-subtle);margin:10px 0;font-size:0.76rem;">
             <div>
               <div style="opacity:0.7;font-size:0.68rem;">PAGO ÚNICO</div>
               <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
@@ -785,10 +793,7 @@ function renderPlatformsCatalog() {
               <div style="opacity:0.7;font-size:0.68rem;">PLAN MENSUAL</div>
               <strong style="color:var(--accent-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/mes</strong>
             </div>
-            <div>
-              <div style="opacity:0.7;font-size:0.68rem;">FAMILIAR -38%</div>
-              <strong style="color:var(--accent-emerald);">$${famPrice.toLocaleString('es-MX')}</strong>
-            </div>
+            <div style="grid-column:1 / -1;opacity:0.7;font-size:0.68rem;">Precios en MXN + IVA · Plan Mensual + activación $${p.setupFee.toLocaleString('es-MX')}</div>
           </div>
 
           <details class="vfx-details-drawer">
@@ -984,10 +989,10 @@ function renderModalView(platformId, viewMode) {
           <div class="modal-section-box">
             <h4>💰 Formas de Adquirirlo</h4>
             <p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:0.4rem;">
-              • <strong>Un Solo Pago (Tuyo para siempre):</strong> Desde <strong>$${p.basePrice.toLocaleString('es-MX')} MXN</strong>
+              • <strong>Un Solo Pago (Tuyo para siempre):</strong> Desde <strong>$${p.basePrice.toLocaleString('es-MX')} MXN + IVA</strong>
             </p>
             <p style="font-size:0.86rem;color:var(--accent-emerald);font-weight:600;">
-              • <strong>Plan Renta Mensual (Todo incluido):</strong> Activación $${p.setupFee.toLocaleString('es-MX')} + $${p.monthlyFee.toLocaleString('es-MX')}/mes
+              • <strong>Plan Renta Mensual (Todo incluido):</strong> Activación $${p.setupFee.toLocaleString('es-MX')} + $${p.monthlyFee.toLocaleString('es-MX')}/mes + IVA (plazo mínimo 12 meses)
             </p>
           </div>
 
@@ -1080,13 +1085,6 @@ window.selectPlatformForQuote = function (platformId) {
   if (cotizador) cotizador.scrollIntoView({ behavior: 'smooth' });
 };
 
-window.activateFamilyDiscount = function () {
-  const familyBtn = document.querySelector('#step1Audience .config-opt[data-audience="familiar"]');
-  if (familyBtn) familyBtn.click();
-  const cotizador = document.getElementById('cotizador');
-  if (cotizador) cotizador.scrollIntoView({ behavior: 'smooth' });
-};
-
 function getCalculatedQuote() {
   const basePlatform = PLATFORMS.find((p) => p.id === state.selectedBasePlatformId) || PLATFORMS[0];
   const checkedModules = Array.from(document.querySelectorAll('#step3Modules input[type="checkbox"]:checked')).map(
@@ -1103,17 +1101,12 @@ function getCalculatedQuote() {
   const baseOneTimeRaw = basePlatform.basePrice + modulesOneTimeTotal;
   const baseSetupRaw = basePlatform.setupFee + modulesOneTimeTotal * 0.35;
   const baseMonthlyRaw = basePlatform.monthlyFee + modulesMonthlyTotal;
-  const isFamiliar = state.selectedAudienceKey === 'familiar';
 
   let oneTimeTotal;
   let setupTotal;
   let monthlyTotal;
 
-  if (isFamiliar) {
-    oneTimeTotal = Math.round((baseOneTimeRaw * 0.62) / 100) * 100;
-    setupTotal = Math.round((baseSetupRaw * 0.62) / 100) * 100;
-    monthlyTotal = Math.round((baseMonthlyRaw * 0.65) / 50) * 50;
-  } else if (state.selectedAudienceMultiplier === 1) {
+  if (state.selectedAudienceMultiplier === 1) {
     oneTimeTotal = Math.round(baseOneTimeRaw);
     setupTotal = Math.round(baseSetupRaw);
     monthlyTotal = Math.round(baseMonthlyRaw);
@@ -1148,21 +1141,16 @@ function updateQuoteSummary() {
 
   if (state.paymentMode === 'onetime') {
     priceLabelEl.textContent = 'Pago Único Llave en Mano (Licencia Propia)';
-    priceEl.textContent = `$${oneTimeTotal.toLocaleString('es-MX')} MXN`;
-    secondaryEl.textContent = `Incluye 1er año dominio .com + 3 meses de servidor y soporte (O Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes)`;
+    priceEl.textContent = `$${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA`;
+    secondaryEl.textContent = `Incluye 1er año dominio .com + 3 meses de servidor y soporte (O Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes + IVA)`;
   } else {
     priceLabelEl.textContent = '⭐ Plan Renta Mensual (Todo Incluido)';
-    priceEl.textContent = `$${monthlyTotal.toLocaleString('es-MX')} / mes`;
-    secondaryEl.textContent = `+ Activación inicial: $${setupTotal.toLocaleString('es-MX')} MXN (Incluye servidor, base de datos, respaldos y soporte continuo)`;
+    priceEl.textContent = `$${monthlyTotal.toLocaleString('es-MX')} / mes + IVA`;
+    secondaryEl.textContent = `+ Activación inicial: $${setupTotal.toLocaleString('es-MX')} MXN + IVA (servidor, base de datos, respaldos y soporte hasta 2 h/mes · plazo mínimo 12 meses)`;
   }
 
-  if (state.selectedAudienceKey === 'familiar') {
-    noteEl.textContent =
-      '💚 Descuento Especial para Familiares y Amigos aplicado (-38% directo sobre el precio normal en Pago Único o Mensual).';
-  } else {
-    noteEl.textContent =
-      '*En Pago Único: 50% al iniciar y 50% contra entrega (incluye 1er año de dominio .com y 3 meses de hospedaje/soporte; después póliza ligera opcional o consumos directos de nube).';
-  }
+  noteEl.textContent =
+    `*Precios en MXN + IVA. En Pago Único: 50% al iniciar y 50% contra entrega (incluye 1er año de dominio .com y 3 meses de hospedaje/soporte; desde el 4° mes póliza opcional de $${basePlatform.polizaFee.toLocaleString('es-MX')}/mes + IVA o nube propia).`;
 
   const listEl = document.getElementById('summaryModulesList');
   const items = [
@@ -1183,8 +1171,8 @@ function sendConfigurationViaWhatsapp() {
   const modulesText = checkedModules.map((m) => `• ${m.label}`).join('\n');
   const modalityText =
     state.paymentMode === 'onetime'
-      ? `Pago Único: *$${oneTimeTotal.toLocaleString('es-MX')} MXN* (o en Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes)`
-      : `Plan Mensual: *$${monthlyTotal.toLocaleString('es-MX')} MXN/mes* + Inicio $${setupTotal.toLocaleString('es-MX')} MXN (o Pago Único: $${oneTimeTotal.toLocaleString('es-MX')} MXN)`;
+      ? `Pago Único: *$${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA* (o en Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes + IVA)`
+      : `Plan Mensual: *$${monthlyTotal.toLocaleString('es-MX')} MXN/mes + IVA* + Inicio $${setupTotal.toLocaleString('es-MX')} MXN (o Pago Único: $${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA)`;
 
   const message =
     `¡Hola Andrés! 👋 Soy *${clientName}*.\n\n` +
@@ -1296,21 +1284,21 @@ function generateProposalPdf() {
 
   y += 6;
   doc.setFillColor(13, 16, 24);
-  doc.roundedRect(15, y, 180, 44, 3, 3, 'F');
+  doc.roundedRect(15, y, 180, 55, 3, 3, 'F');
 
   doc.setTextColor(6, 182, 212);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(10.5);
-  doc.text('MODALIDADES DE INVERSIÓN DISPONIBLES:', 22, y + 8.5);
+  doc.text('MODALIDADES DE INVERSIÓN (PRECIOS EN MXN + IVA):', 22, y + 8.5);
 
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(11.8);
-  doc.text(`1) Pago Único (Licencia Llave en Mano): $${oneTimeTotal.toLocaleString('es-MX')} MXN`, 22, y + 17);
+  doc.text(`1) Pago Único (Licencia Llave en Mano): $${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA`, 22, y + 17);
 
   doc.setTextColor(52, 211, 153);
   doc.setFontSize(11);
   doc.text(
-    `2) Plan Mensual Todo Incluido (Recomendado): $${setupTotal.toLocaleString('es-MX')} activación + $${monthlyTotal.toLocaleString('es-MX')} MXN/mes`,
+    `2) Plan Mensual (Recomendado): $${setupTotal.toLocaleString('es-MX')} activación + $${monthlyTotal.toLocaleString('es-MX')} MXN/mes + IVA`,
     22,
     y + 25
   );
@@ -1324,16 +1312,29 @@ function generateProposalPdf() {
     y + 32.5
   );
   doc.text(
-    '  (A partir del 4° mes: póliza ligera opcional de hospedaje/soporte desde $490/mes o cuentas de nube/WhatsApp directas del cliente).',
+    `  (A partir del 4° mes: póliza opcional de hospedaje/soporte de $${basePlatform.polizaFee.toLocaleString('es-MX')}/mes + IVA o nube/WhatsApp propios del cliente).`,
     22,
     y + 38
   );
+  doc.text(
+    '• Plan Mensual: plazo mínimo de 12 meses. Incluye servidor, base de datos, respaldos, dominio .com y soporte',
+    22,
+    y + 44.5
+  );
+  doc.text(
+    '  directo con ajustes y mejoras de hasta 2 horas al mes (lo adicional se cotiza aparte).',
+    22,
+    y + 50
+  );
 
-  y += 54;
+  y += 65;
   doc.setTextColor(71, 85, 105);
   doc.setFontSize(9.5);
   doc.text(
-    `Para comenzar o ver una demostración en vivo, escríbeme por WhatsApp al +52 ${OWNER_INFO.whatsappDisplay} (${OWNER_INFO.brandName} · ${OWNER_INFO.fullName}).`,
+    doc.splitTextToSize(
+      `Para comenzar o ver una demostración en vivo, escríbeme por WhatsApp al +52 ${OWNER_INFO.whatsappDisplay} (${OWNER_INFO.brandName} · ${OWNER_INFO.fullName}).`,
+      180
+    ),
     15,
     y
   );

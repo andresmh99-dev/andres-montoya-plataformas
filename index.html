@@ -1136,7 +1136,7 @@
     /* Modalidades + Cotizador B2B */
     .modes-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-6);
       margin-bottom: var(--space-8);
     }
@@ -1190,7 +1190,7 @@
     }
     .plan-options {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-3);
       margin-bottom: var(--space-5);
     }
@@ -1476,7 +1476,7 @@
           </div>
           <div class="proof-item">
             <span class="proof-num">Desde $790/m</span>
-            <span class="proof-desc">Plan Mensual (+ activación) o Pago Único</span>
+            <span class="proof-desc">+ IVA · Plan Mensual (+ activación) o Pago Único</span>
           </div>
         </div>
       </div>
@@ -1626,7 +1626,7 @@
               <td>Inversión estimada</td>
               <td>Fugas de $8,000 a $25,000/mes</td>
               <td>$50,000 a $120,000 MXN</td>
-              <td class="col-win">Desde $790/mes (+ activación) o Pago Único</td>
+              <td class="col-win">Desde $790/mes + IVA (+ activación) o Pago Único</td>
             </tr>
             <tr>
               <td>Certeza técnica</td>
@@ -1692,7 +1692,15 @@
             <span>¿Qué conviene más: Plan Mensual o Pago Único?</span>
             <span class="faq-plus">+</span>
           </summary>
-          <p>En <strong>Plan Mensual Todo Incluido</strong> inicias con activación baja y la mensualidad cubre servidor, base de datos, respaldos, dominio <code>.com</code> y soporte todo el año. En <strong>Pago Único</strong> pagas 50% al iniciar y 50% contra entrega con 1er año de dominio y 3 meses gratis de servidor y soporte.</p>
+          <p>En <strong>Plan Mensual Todo Incluido</strong> inicias con activación baja y la mensualidad cubre servidor, base de datos, respaldos, dominio <code>.com</code> y soporte directo con ajustes y mejoras de hasta 2 horas al mes (lo adicional se cotiza aparte), con un plazo mínimo de 12 meses. En <strong>Pago Único</strong> pagas 50% al iniciar y 50% contra entrega con 1er año de dominio y 3 meses gratis de servidor y soporte; desde el 4° mes eliges una póliza opcional ($490 a $1,490/mes según el sistema) o tu propia nube.</p>
+        </details>
+
+        <details class="faq-row">
+          <summary>
+            <span>¿Los precios incluyen IVA? ¿Emiten factura?</span>
+            <span class="faq-plus">+</span>
+          </summary>
+          <p>Todos los precios están en pesos mexicanos <strong>más IVA</strong>. Cada pago se respalda con factura (CFDI), por lo que la mensualidad es deducible para tu negocio.</p>
         </details>
 
         <details class="faq-row" open>
@@ -1736,11 +1744,12 @@
         <div class="mode-panel is-primary spotlight-panel reveal-item">
           <strong style="font-size:0.84rem;color:var(--color-ink-emerald);">Recomendado para PyMEs</strong>
           <h3 style="font-size:1.25rem;margin:var(--space-1) 0 var(--space-2);">Plan Mensual Todo Incluido</h3>
-          <p style="font-size:0.9rem;color:var(--color-ink-muted);">Cuota inicial baja y mensualidad fija deducible con infraestructura y soporte técnico incluidos.</p>
+          <p style="font-size:0.9rem;color:var(--color-ink-muted);">Cuota inicial baja y mensualidad fija deducible (precios + IVA, con factura) con infraestructura y soporte técnico incluidos.</p>
           <ul class="mode-list">
             <li>• Servidor en la nube y base de datos</li>
             <li>• Respaldos automáticos y dominio .com</li>
-            <li>• Soporte directo y mejoras todo el año</li>
+            <li>• Soporte directo y ajustes hasta 2 h/mes</li>
+            <li>• Plazo mínimo de 12 meses</li>
           </ul>
         </div>
 
@@ -1751,20 +1760,10 @@
           <ul class="mode-list">
             <li>• Incluye 1er año de dominio .com</li>
             <li>• Incluye 3 meses gratis de servidor y soporte</li>
-            <li>• Desde el 4° mes: póliza desde $490/m o nube propia</li>
+            <li>• Desde el 4° mes: póliza de $490 a $1,490/m según el sistema, o nube propia</li>
           </ul>
         </div>
 
-        <div class="mode-panel spotlight-panel reveal-item reveal-d2">
-          <strong style="font-size:0.84rem;color:var(--color-ink-emerald);">Descuento -38%</strong>
-          <h3 style="font-size:1.25rem;margin:var(--space-1) 0 var(--space-2);">Convenio Familiar / Amigo</h3>
-          <p style="font-size:0.9rem;color:var(--color-ink-muted);">Tarifa preferencial para familiares y conocidos cercanos impulsando su consultorio o empresa.</p>
-          <ul class="mode-list">
-            <li>• 38% de descuento en Pago Único</li>
-            <li>• 35% de descuento en Plan Mensual</li>
-            <li>• Mismo alcance completo y capacitación</li>
-          </ul>
-        </div>
       </div>
 
       <div class="quoter-layout reveal-item">
@@ -1786,10 +1785,6 @@
             <button type="button" class="holo-plan-card" data-plan="unico">
               <strong style="display:block;font-size:0.92rem;">Pago Único</strong>
               <span style="font-size:0.78rem;color:var(--color-ink-dim);">1 año .com + 3m soporte</span>
-            </button>
-            <button type="button" class="holo-plan-card" data-plan="familiar">
-              <strong style="display:block;font-size:0.92rem;">Familiar (-38%)</strong>
-              <span style="font-size:0.78rem;color:var(--color-ink-dim);">Convenio directo</span>
             </button>
           </div>
 
@@ -1819,10 +1814,10 @@
           </div>
 
           <div style="display:flex;flex-direction:column;gap:var(--space-3);">
-            <button type="button" id="holoWaBtn" class="btn btn-primary" style="width:100%;">
+            <button type="button" id="holoWaBtn" class="btn btn-primary" style="width:100%;white-space:normal;height:auto;text-align:center;">
               Solicitar por WhatsApp (443 143 3732)
             </button>
-            <button type="button" id="holoPdfBtn" class="btn btn-secondary" style="width:100%;">
+            <button type="button" id="holoPdfBtn" class="btn btn-secondary" style="width:100%;white-space:normal;height:auto;text-align:center;">
               Descargar propuesta formal en PDF
             </button>
           </div>
@@ -1848,7 +1843,7 @@
     <span>WhatsApp 443 143 3732</span>
   </a>
 
-  <script src="app.js?v=10"></script>
+  <script src="app.js?v=11"></script>
   <script src="visual-fx.js?v=8"></script>
   <script>
     (function () {
@@ -1975,11 +1970,11 @@
               <div class="stage-foot-prices">
                 <div class="price-inline-group">
                   <div>
-                    <span class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')} / mes</span>
+                    <span class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')} / mes + IVA</span>
                     <span class="price-inline-sub">+ $${p.setupFee.toLocaleString('es-MX')} activación · Todo incluido</span>
                   </div>
                   <div>
-                    <span class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')} MXN</span>
+                    <span class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')} MXN + IVA</span>
                     <span class="price-inline-sub">Pago Único (50% inicio · 50% entrega)</span>
                   </div>
                 </div>
@@ -2054,12 +2049,12 @@
               <div>
                 <span class="price-inline-sub">Plan Mensual</span>
                 <strong class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
-                <span class="price-inline-sub">+ $${p.setupFee.toLocaleString('es-MX')} activación</span>
+                <span class="price-inline-sub">+ $${p.setupFee.toLocaleString('es-MX')} activación · + IVA</span>
               </div>
               <div>
                 <span class="price-inline-sub">Pago Único</span>
                 <strong class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')} MXN</strong>
-                <span class="price-inline-sub">50% inicio · 50% entrega</span>
+                <span class="price-inline-sub">+ IVA · 50% inicio · 50% entrega</span>
               </div>
             </div>
             <div class="sys-actions">
@@ -2226,12 +2221,7 @@
         function syncGlobalState(p) {
           if (typeof state === 'object' && state) {
             state.selectedBasePlatformId = p.id;
-            if (selectedPlan === 'familiar') {
-              state.selectedAudienceKey = 'familiar';
-              state.selectedAudienceMultiplier = 0.62;
-              state.selectedAudienceLabel = 'Proyecto Familiar / Amigo (-38% Descuento)';
-              state.paymentMode = 'onetime';
-            } else if (selectedPlan === 'renta') {
+            if (selectedPlan === 'renta') {
               state.selectedAudienceKey = 'negocio';
               state.selectedAudienceMultiplier = 1;
               state.selectedAudienceLabel = 'Plan Renta Mensual Todo Incluido';
@@ -2247,9 +2237,6 @@
 
         function updateQuote() {
           const p = platforms.find((x) => x.id === sel.value) || platforms[0];
-          const famPrice = Math.round((p.basePrice * 0.62) / 100) * 100;
-          const famMonthly = Math.round((p.monthlyFee * 0.65) / 50) * 50;
-          const famSetup = Math.round((p.setupFee * 0.62) / 100) * 100;
           const realLink = p.liveUrl || p.livePreviewUrl || p.repoUrl;
 
           syncGlobalState(p);
@@ -2264,20 +2251,15 @@
 
           const priceEl = document.getElementById('holoQuotePrice');
           if (selectedPlan === 'unico') {
-            document.getElementById('holoQuoteModeLabel').textContent = 'Pago Único Llave en Mano:';
+            document.getElementById('holoQuoteModeLabel').textContent = 'Pago Único Llave en Mano (MXN + IVA):';
             animateNumber(priceEl, p.basePrice, (v) => `$${v.toLocaleString('es-MX')} MXN`);
             document.getElementById('holoQuoteSub').textContent = '50% anticipo y 50% contra entrega (incluye 1 año .com y 3 meses soporte)';
-            hostNote.innerHTML = '• <strong>Desde el 4° mes:</strong> Póliza ligera opcional (desde $490/mes) o nube propia';
-          } else if (selectedPlan === 'renta') {
-            document.getElementById('holoQuoteModeLabel').textContent = 'Plan Mensual Todo Incluido (Más elegido):';
-            animateNumber(priceEl, p.monthlyFee, (v) => `$${v.toLocaleString('es-MX')} / mes`);
-            document.getElementById('holoQuoteSub').textContent = `+ Activación inicial de $${p.setupFee.toLocaleString('es-MX')} MXN (servidor, base de datos y soporte incluidos)`;
-            hostNote.innerHTML = '• <strong>Todo incluido:</strong> Servidor, dominio .com, respaldos y soporte continuo';
+            hostNote.innerHTML = `• <strong>Desde el 4° mes:</strong> Póliza opcional de $${p.polizaFee.toLocaleString('es-MX')}/mes + IVA o nube propia`;
           } else {
-            document.getElementById('holoQuoteModeLabel').textContent = 'Convenio Familiar / Amigo (-38%):';
-            animateNumber(priceEl, famPrice, (v) => `$${v.toLocaleString('es-MX')} MXN`);
-            document.getElementById('holoQuoteSub').textContent = `Pago Único (-38%) o Mensual Familiar por $${famMonthly.toLocaleString('es-MX')}/mes (+ inicio $${famSetup.toLocaleString('es-MX')})`;
-            hostNote.innerHTML = '• <strong>Beneficio familiar:</strong> 1er año dominio .com y capacitación personal';
+            document.getElementById('holoQuoteModeLabel').textContent = 'Plan Mensual Todo Incluido (MXN + IVA):';
+            animateNumber(priceEl, p.monthlyFee, (v) => `$${v.toLocaleString('es-MX')} / mes`);
+            document.getElementById('holoQuoteSub').textContent = `+ Activación inicial de $${p.setupFee.toLocaleString('es-MX')} MXN + IVA · plazo mínimo 12 meses`;
+            hostNote.innerHTML = '• <strong>Todo incluido:</strong> Servidor, dominio .com, respaldos y soporte hasta 2 h/mes';
           }
         }
 
@@ -2300,9 +2282,11 @@
         document.getElementById('holoWaBtn').addEventListener('click', () => {
           const p = platforms.find((x) => x.id === sel.value) || platforms[0];
           const client = document.getElementById('holoClientName').value.trim() || 'Interesado';
-          const priceTxt = document.getElementById('holoQuotePrice').textContent;
+          const priceTxt = selectedPlan === 'unico'
+            ? `$${p.basePrice.toLocaleString('es-MX')} MXN + IVA`
+            : `$${p.monthlyFee.toLocaleString('es-MX')} / mes + IVA`;
           const subTxt = document.getElementById('holoQuoteSub').textContent;
-          const msg = `Hola Andrés, soy *${client}*.\n\nVi el catálogo de *AM Kortex* y me interesa cotizar:\n• Sistema: ${p.name} (${p.displayDomain})\n• Modalidad: ${selectedPlan.toUpperCase()} (${priceTxt})\n• Detalle: ${subTxt}\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
+          const msg = `Hola Andrés, soy *${client}*.\n\nVi el catálogo de *AM Kortex* y me interesa cotizar:\n• Sistema: ${p.name} (${p.displayDomain})\n• Modalidad: ${selectedPlan === 'unico' ? 'Pago Único' : 'Plan Mensual'} (${priceTxt})\n• Detalle: ${subTxt}\n\n¿Podemos platicar para adaptarlo a mi negocio?`;
           window.open(`https://wa.me/524431433732?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
