@@ -669,6 +669,149 @@
       gap: var(--space-2);
     }
 
+    /* Carrusel 3D Interactivo (Coverflow Ejecutivo) */
+    .catalog-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    .catalog-toolbar .filter-strip {
+      margin-bottom: 0;
+    }
+    .view-switch {
+      display: inline-flex;
+      padding: var(--space-1);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-line);
+      background: var(--color-surface);
+      gap: var(--space-1);
+      flex-shrink: 0;
+    }
+    .view-switch-btn {
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+      border: none;
+      background: transparent;
+      color: var(--color-ink-muted);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .view-switch-btn.active {
+      background: var(--color-accent);
+      color: var(--color-accent-ink);
+    }
+
+    .carousel-3d-shell {
+      margin-top: var(--space-6);
+      color: var(--color-ink);
+    }
+    .carousel-3d-stage {
+      position: relative;
+      perspective: 1400px;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: clip;
+      touch-action: pan-y;
+      user-select: none;
+    }
+    .carousel-3d-stage:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+      border-radius: var(--radius-lg);
+    }
+    .c3d-slide {
+      position: absolute;
+      width: min(460px, calc(100% - var(--space-8)));
+      background: var(--color-surface);
+      color: var(--color-ink);
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-4);
+      transform-style: preserve-3d;
+      transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.42s ease, border-color 0.25s ease;
+      will-change: transform, opacity;
+    }
+    .c3d-slide.is-center {
+      background: var(--color-surface-raised);
+      border-color: var(--color-line-strong);
+      box-shadow: 0 28px 60px -18px var(--color-shadow);
+    }
+    .c3d-slide.is-side {
+      cursor: pointer;
+    }
+    .c3d-shield {
+      position: absolute;
+      inset: 0;
+      z-index: 6;
+      cursor: pointer;
+      border-radius: var(--radius-lg);
+    }
+    .c3d-slide.is-center .c3d-shield {
+      display: none;
+    }
+    .carousel-3d-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
+    }
+    .carousel-3d-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .carousel-status {
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      color: var(--color-ink-muted);
+      font-variant-numeric: tabular-nums;
+      min-width: 200px;
+      text-align: center;
+    }
+    .carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .c3d-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-line);
+      background: var(--color-surface);
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .c3d-dot.active {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      transform: scale(1.25);
+    }
+    .carousel-hint {
+      font-size: 0.82rem;
+      color: var(--color-ink-dim);
+      text-align: center;
+    }
+
     /* ROI y Comparativa */
     .roi-split {
       display: grid;
@@ -1127,6 +1270,8 @@
 
     @media (max-width: 680px) {
       .container { padding: 0 var(--space-4); }
+      .carousel-3d-stage { min-height: 580px; }
+      .c3d-slide { padding: var(--space-4); }
       .proof-strip,
       .roi-kpi-grid,
       .plan-options,
@@ -1245,12 +1390,19 @@
         </p>
       </div>
 
-      <div class="filter-strip" id="holoFilterBar">
-        <button type="button" class="filter-btn active" data-cat="all">Todos los giros (9)</button>
-        <button type="button" class="filter-btn" data-cat="profesionales">Clínicas y Consultorios (2)</button>
-        <button type="button" class="filter-btn" data-cat="negocios">Spas, Restaurantes y Clubes (3)</button>
-        <button type="button" class="filter-btn" data-cat="empresas">Logística y Empresas B2B (3)</button>
-        <button type="button" class="filter-btn" data-cat="familiar">Organización Familiar (1)</button>
+      <div class="catalog-toolbar">
+        <div class="filter-strip" id="holoFilterBar">
+          <button type="button" class="filter-btn active" data-cat="all">Todos los giros (9)</button>
+          <button type="button" class="filter-btn" data-cat="profesionales">Clínicas y Consultorios (2)</button>
+          <button type="button" class="filter-btn" data-cat="negocios">Spas, Restaurantes y Clubes (3)</button>
+          <button type="button" class="filter-btn" data-cat="empresas">Logística y Empresas B2B (3)</button>
+          <button type="button" class="filter-btn" data-cat="familiar">Organización Familiar (1)</button>
+        </div>
+
+        <div class="view-switch" id="catalogViewToggle" role="group" aria-label="Cambiar vista de proyectos">
+          <button type="button" class="view-switch-btn active" data-view="3d">Carrusel 3D</button>
+          <button type="button" class="view-switch-btn" data-view="grid">Ver todos</button>
+        </div>
       </div>
 
       <div class="filter-strip" id="painFilterBar">
@@ -1261,7 +1413,22 @@
         <button type="button" class="filter-btn is-pain" data-pain="cotizaciones">Cotizaciones lentas</button>
       </div>
 
-      <div class="catalog-grid" id="holoCardsGrid"></div>
+      <!-- VISTA 1: CARRUSEL 3D INTERACTIVO -->
+      <div class="carousel-3d-shell" id="carousel3dShell">
+        <div class="carousel-3d-stage" id="carousel3dStage" tabindex="0" aria-label="Carrusel 3D de proyectos AM Kortex"></div>
+        <div class="carousel-3d-nav">
+          <div class="carousel-3d-bar">
+            <button type="button" class="mini-ctrl-btn" id="carouselPrevBtn">Anterior</button>
+            <span class="carousel-status" id="carouselStatus"></span>
+            <button type="button" class="mini-ctrl-btn" id="carouselNextBtn">Siguiente</button>
+          </div>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <p class="carousel-hint">Haz clic en las tarjetas laterales o desliza hacia los lados para girar en 3D</p>
+        </div>
+      </div>
+
+      <!-- VISTA 2: CUADRÍCULA COMPLETA -->
+      <div class="catalog-grid" id="holoCardsGrid" hidden></div>
     </div>
   </section>
 
@@ -1685,58 +1852,187 @@
 
       let activeCat = 'all';
       let activePain = null;
+      let catalogView = '3d';
+      let carouselIdx = 0;
 
-      function renderCards() {
-        const grid = document.getElementById('holoCardsGrid');
-        const platforms = (window.PLATFORMS || []).filter((p) => {
+      function getFilteredPlatforms() {
+        return (window.PLATFORMS || []).filter((p) => {
           if (activePain && PAIN_GROUPS[activePain]) {
             return PAIN_GROUPS[activePain].includes(p.id);
           }
           if (activeCat === 'all') return true;
           return GROUP_MAP[p.id] === activeCat || p.category === activeCat;
         });
+      }
 
-        grid.innerHTML = platforms
-          .map((p) => {
-            return `
-              <article class="sys-item">
-                <div>
-                  <div class="sys-header-row">
-                    <span>${p.sectorLabel.split(',')[0]}</span>
-                    <span style="color:${p.inDevelopment ? 'var(--color-ink-amber)' : 'var(--color-ink-emerald)'};font-weight:600;">
-                      ${p.inDevelopment ? 'Demo en desarrollo' : 'En línea'}
-                    </span>
-                  </div>
-                  ${renderProductFigure(p)}
-                  <h3 class="sys-item-title">${p.name}</h3>
-                  ${p.problemSolved ? `<p class="sys-problem-txt"><strong>Problema:</strong> ${p.problemSolved}</p>` : ''}
-                  <p class="sys-solution-txt">${p.shortPitch || p.tagline}</p>
-                </div>
+      function buildProjectCardBody(p) {
+        return `
+          <div>
+            <div class="sys-header-row">
+              <span>${p.sectorLabel.split(',')[0]}</span>
+              <span style="color:${p.inDevelopment ? 'var(--color-ink-amber)' : 'var(--color-ink-emerald)'};font-weight:600;">
+                ${p.inDevelopment ? 'Demo en desarrollo' : 'En línea'}
+              </span>
+            </div>
+            ${renderProductFigure(p)}
+            <h3 class="sys-item-title">${p.name}</h3>
+            ${p.problemSolved ? `<p class="sys-problem-txt"><strong>Problema:</strong> ${p.problemSolved}</p>` : ''}
+            <p class="sys-solution-txt">${p.shortPitch || p.tagline}</p>
+          </div>
 
-                <div>
-                  <div class="sys-price-bar">
-                    <div>
-                      <span class="price-inline-sub">Plan Mensual</span>
-                      <strong class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
-                    </div>
-                    <div>
-                      <span class="price-inline-sub">Pago Único</span>
-                      <strong class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')}</strong>
-                    </div>
-                  </div>
-                  <div class="sys-actions">
-                    <button type="button" class="btn btn-secondary" style="flex:1;" onclick="window.openVfxLightbox('${p.id}', 'live')">
-                      Ver en vivo
-                    </button>
-                    <button type="button" class="btn btn-primary" style="flex:1;" onclick="window.selectHoloQuote('${p.id}')">
-                      Cotizar PDF
-                    </button>
-                  </div>
-                </div>
+          <div>
+            <div class="sys-price-bar">
+              <div>
+                <span class="price-inline-sub">Plan Mensual</span>
+                <strong class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')}/m</strong>
+              </div>
+              <div>
+                <span class="price-inline-sub">Pago Único</span>
+                <strong class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')}</strong>
+              </div>
+            </div>
+            <div class="sys-actions">
+              <button type="button" class="btn btn-secondary" style="flex:1;" onclick="window.openVfxLightbox('${p.id}', 'live')">
+                Ver en vivo
+              </button>
+              <button type="button" class="btn btn-primary" style="flex:1;" onclick="window.selectHoloQuote('${p.id}')">
+                Cotizar PDF
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function updateCarouselPositions() {
+        const stage = document.getElementById('carousel3dStage');
+        const statusEl = document.getElementById('carouselStatus');
+        const dotsEl = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('carouselPrevBtn');
+        const nextBtn = document.getElementById('carouselNextBtn');
+        if (!stage) return;
+
+        const slides = Array.from(stage.querySelectorAll('.c3d-slide'));
+        const n = slides.length;
+        if (!n) return;
+
+        if (carouselIdx >= n) carouselIdx = 0;
+        if (carouselIdx < 0) carouselIdx = n - 1;
+
+        const isMobile = window.innerWidth < 768;
+        const stepX1 = isMobile ? 148 : 320;
+        const stepX2 = isMobile ? 220 : 540;
+
+        slides.forEach((slide, idx) => {
+          let d = idx - carouselIdx;
+          if (n > 2) {
+            if (d > n / 2) d -= n;
+            if (d < -n / 2) d += n;
+          }
+
+          slide.classList.remove('is-center', 'is-side');
+
+          if (d === 0) {
+            slide.classList.add('is-center');
+            slide.style.transform = 'translateX(0px) translateZ(0px) rotateY(0deg) scale(1)';
+            slide.style.opacity = '1';
+            slide.style.zIndex = '10';
+            slide.style.pointerEvents = 'auto';
+          } else if (Math.abs(d) === 1) {
+            slide.classList.add('is-side');
+            slide.style.transform = `translateX(${d * stepX1}px) translateZ(-170px) rotateY(${-d * 28}deg) scale(0.86)`;
+            slide.style.opacity = isMobile ? '0.45' : '0.72';
+            slide.style.zIndex = '6';
+            slide.style.pointerEvents = 'auto';
+          } else if (Math.abs(d) === 2 && !isMobile) {
+            slide.classList.add('is-side');
+            const dir = d > 0 ? 1 : -1;
+            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-320px) rotateY(${-dir * 22}deg) scale(0.72)`;
+            slide.style.opacity = '0.35';
+            slide.style.zIndex = '3';
+            slide.style.pointerEvents = 'auto';
+          } else {
+            const dir = d > 0 ? 1 : -1;
+            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-420px) rotateY(${-dir * 28}deg) scale(0.6)`;
+            slide.style.opacity = '0';
+            slide.style.zIndex = '1';
+            slide.style.pointerEvents = 'none';
+          }
+        });
+
+        const activeSlide = slides[carouselIdx];
+        if (activeSlide) {
+          stage.style.minHeight = `${Math.max(580, activeSlide.offsetHeight + 24)}px`;
+        }
+
+        const activeData = getFilteredPlatforms()[carouselIdx];
+        if (statusEl && activeData) {
+          const num = String(carouselIdx + 1).padStart(2, '0');
+          const tot = String(n).padStart(2, '0');
+          statusEl.textContent = `${num} de ${tot}: ${activeData.name.split('·')[0].trim()}`;
+        }
+
+        if (dotsEl) {
+          dotsEl.innerHTML = Array.from({ length: n })
+            .map((_, idx) => `<button type="button" class="c3d-dot ${idx === carouselIdx ? 'active' : ''}" data-dot-idx="${idx}" aria-label="Ver proyecto ${idx + 1}"></button>`)
+            .join('');
+          dotsEl.querySelectorAll('[data-dot-idx]').forEach((dot) => {
+            dot.addEventListener('click', () => {
+              carouselIdx = Number(dot.getAttribute('data-dot-idx'));
+              updateCarouselPositions();
+            });
+          });
+        }
+
+        if (prevBtn) prevBtn.disabled = n <= 1;
+        if (nextBtn) nextBtn.disabled = n <= 1;
+      }
+
+      function renderCarousel3d() {
+        const stage = document.getElementById('carousel3dStage');
+        if (!stage) return;
+        const platforms = getFilteredPlatforms();
+
+        stage.innerHTML = platforms
+          .map(
+            (p, idx) => `
+              <article class="c3d-slide" data-slide-idx="${idx}">
+                <div class="c3d-shield" aria-hidden="true"></div>
+                ${buildProjectCardBody(p)}
               </article>
-            `;
-          })
+            `
+          )
           .join('');
+
+        stage.querySelectorAll('.c3d-slide').forEach((slide) => {
+          const shield = slide.querySelector('.c3d-shield');
+          if (shield) {
+            shield.addEventListener('click', () => {
+              carouselIdx = Number(slide.getAttribute('data-slide-idx'));
+              updateCarouselPositions();
+            });
+          }
+        });
+
+        updateCarouselPositions();
+      }
+
+      function renderCards() {
+        const grid = document.getElementById('holoCardsGrid');
+        const shell3d = document.getElementById('carousel3dShell');
+        const platforms = getFilteredPlatforms();
+
+        if (catalogView === '3d') {
+          if (shell3d) shell3d.hidden = false;
+          if (grid) grid.hidden = true;
+          renderCarousel3d();
+          return;
+        }
+
+        if (shell3d) shell3d.hidden = true;
+        if (grid) {
+          grid.hidden = false;
+          grid.innerHTML = platforms.map((p) => `<article class="sys-item">${buildProjectCardBody(p)}</article>`).join('');
+        }
       }
 
       let selectedPlan = 'renta';
@@ -1884,6 +2180,7 @@
             btn.classList.add('active');
             activePain = null;
             activeCat = btn.getAttribute('data-cat');
+            carouselIdx = 0;
             renderCards();
           });
         });
@@ -1893,9 +2190,70 @@
             document.querySelectorAll('#holoFilterBar .filter-btn, #painFilterBar .filter-btn').forEach((b) => b.classList.remove('active'));
             btn.classList.add('active');
             activePain = btn.getAttribute('data-pain');
+            carouselIdx = 0;
             renderCards();
           });
         });
+
+        document.querySelectorAll('#catalogViewToggle .view-switch-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('#catalogViewToggle .view-switch-btn').forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+            catalogView = btn.getAttribute('data-view') || '3d';
+            renderCards();
+          });
+        });
+
+        const cPrev = document.getElementById('carouselPrevBtn');
+        const cNext = document.getElementById('carouselNextBtn');
+        if (cPrev) {
+          cPrev.addEventListener('click', () => {
+            const total = getFilteredPlatforms().length;
+            if (total <= 1) return;
+            carouselIdx = (carouselIdx - 1 + total) % total;
+            updateCarouselPositions();
+          });
+        }
+        if (cNext) {
+          cNext.addEventListener('click', () => {
+            const total = getFilteredPlatforms().length;
+            if (total <= 1) return;
+            carouselIdx = (carouselIdx + 1) % total;
+            updateCarouselPositions();
+          });
+        }
+
+        const cStage = document.getElementById('carousel3dStage');
+        if (cStage) {
+          let dragStartX = null;
+          cStage.addEventListener('pointerdown', (e) => {
+            if (e.target.closest('button, a')) return;
+            dragStartX = e.clientX;
+          });
+          cStage.addEventListener('pointerup', (e) => {
+            if (dragStartX === null) return;
+            const dx = e.clientX - dragStartX;
+            dragStartX = null;
+            const total = getFilteredPlatforms().length;
+            if (total <= 1 || Math.abs(dx) < 45) return;
+            carouselIdx = dx < 0 ? (carouselIdx + 1) % total : (carouselIdx - 1 + total) % total;
+            updateCarouselPositions();
+          });
+          cStage.addEventListener('keydown', (e) => {
+            const total = getFilteredPlatforms().length;
+            if (total <= 1) return;
+            if (e.key === 'ArrowRight') {
+              carouselIdx = (carouselIdx + 1) % total;
+              updateCarouselPositions();
+            } else if (e.key === 'ArrowLeft') {
+              carouselIdx = (carouselIdx - 1 + total) % total;
+              updateCarouselPositions();
+            }
+          });
+          window.addEventListener('resize', () => {
+            if (catalogView === '3d') updateCarouselPositions();
+          });
+        }
       });
     })();
   </script>
