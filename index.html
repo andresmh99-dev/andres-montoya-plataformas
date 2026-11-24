@@ -1475,7 +1475,7 @@
             <span class="proof-desc">Entrega llave en mano con tu marca</span>
           </div>
           <div class="proof-item">
-            <span class="proof-num">Desde $690/m</span>
+            <span class="proof-num">Desde $790/m</span>
             <span class="proof-desc">Plan Mensual (+ activación) o Pago Único</span>
           </div>
         </div>
@@ -1510,11 +1510,10 @@
 
       <div class="catalog-toolbar">
         <div class="filter-strip" id="holoFilterBar">
-          <button type="button" class="filter-btn active" data-cat="all">Todos los giros (9)</button>
-          <button type="button" class="filter-btn" data-cat="profesionales">Clínicas y Consultorios (2)</button>
-          <button type="button" class="filter-btn" data-cat="negocios">Spas, Restaurantes y Clubes (3)</button>
-          <button type="button" class="filter-btn" data-cat="empresas">Logística y Empresas B2B (3)</button>
-          <button type="button" class="filter-btn" data-cat="familiar">Organización Familiar (1)</button>
+          <button type="button" class="filter-btn active" data-cat="all">Todos (9)</button>
+          <button type="button" class="filter-btn" data-cat="citas">Citas y Agendas (3)</button>
+          <button type="button" class="filter-btn" data-cat="comercios">Comercios, Clubes y Escuelas (3)</button>
+          <button type="button" class="filter-btn" data-cat="empresas">Empresas B2B y Logística (3)</button>
         </div>
 
         <div class="view-switch" id="catalogViewToggle" role="group" aria-label="Cambiar vista de proyectos">
@@ -1627,7 +1626,7 @@
               <td>Inversión estimada</td>
               <td>Fugas de $8,000 a $25,000/mes</td>
               <td>$50,000 a $120,000 MXN</td>
-              <td class="col-win">Desde $690/mes (+ activación) o Pago Único</td>
+              <td class="col-win">Desde $790/mes (+ activación) o Pago Único</td>
             </tr>
             <tr>
               <td>Certeza técnica</td>
@@ -1849,7 +1848,7 @@
     <span>WhatsApp 443 143 3732</span>
   </a>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
   <script src="visual-fx.js?v=8"></script>
   <script>
     (function () {
@@ -1889,15 +1888,15 @@
       }
 
       const GROUP_MAP = {
-        nailroomspa: 'negocios',
-        'lievitum-pizzalab': 'negocios',
-        'escalera-britania': 'negocios',
-        'agenda-fenix': 'profesionales',
-        'psicoterapia-conductual': 'profesionales',
+        nailroomspa: 'citas',
+        'agenda-fenix': 'citas',
+        'psicoterapia-conductual': 'citas',
+        'lievitum-pizzalab': 'comercios',
+        'escalera-britania': 'comercios',
+        'family-os': 'comercios',
         'control-ops': 'empresas',
         'inlog-quoter': 'empresas',
-        'incubeit-landing': 'empresas',
-        'family-os': 'familiar'
+        'incubeit-landing': 'empresas'
       };
 
       const PAIN_GROUPS = {
@@ -2031,7 +2030,7 @@
             return PAIN_GROUPS[activePain].includes(p.id);
           }
           if (activeCat === 'all') return true;
-          return GROUP_MAP[p.id] === activeCat || p.category === activeCat;
+          return GROUP_MAP[p.id] === activeCat;
         });
       }
 
