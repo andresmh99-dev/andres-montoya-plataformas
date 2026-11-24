@@ -68,6 +68,8 @@
       --color-line-strong: rgba(16, 185, 129, 0.45);
       --color-line-amber: rgba(245, 158, 11, 0.35);
       --color-shadow: rgba(2, 5, 10, 0.55);
+      --color-spotlight: rgba(16, 185, 129, 0.1);
+      --color-spotlight-edge: rgba(148, 163, 184, 0.22);
 
       --font-display: 'Space Grotesk', sans-serif;
       --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -220,15 +222,50 @@
       align-items: center;
       gap: var(--space-6);
     }
+    .read-progress-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: transparent;
+      pointer-events: none;
+    }
+    .read-progress-bar {
+      height: 100%;
+      width: 100%;
+      background: var(--color-accent);
+      transform-origin: left center;
+      transform: scaleX(0);
+      will-change: transform;
+    }
     .b2b-nav-link {
+      position: relative;
+      padding: var(--space-1) 0;
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--color-ink-muted);
       white-space: nowrap;
       transition: color 0.2s ease;
     }
-    .b2b-nav-link:hover {
-      color: var(--color-ink);
+    .b2b-nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 0.22s ease;
+    }
+    .b2b-nav-link:hover,
+    .b2b-nav-link.is-active {
+      color: var(--color-ink-emerald);
+    }
+    .b2b-nav-link.is-active::after {
+      transform: scaleX(1);
     }
 
     /* Botones B2B */
@@ -341,6 +378,41 @@
       border-radius: var(--radius-lg);
       padding: var(--space-5);
       min-width: 0;
+    }
+    .stage-progress-track {
+      height: 2px;
+      width: 100%;
+      background: var(--color-line);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      margin-bottom: var(--space-3);
+    }
+    .stage-progress-fill {
+      height: 100%;
+      width: 100%;
+      background: var(--color-accent);
+      transform-origin: left center;
+      animation: stageProgress 8s linear infinite;
+    }
+    .stage-surface:hover .stage-progress-fill,
+    .stage-surface:focus-within .stage-progress-fill,
+    .stage-surface.is-paused .stage-progress-fill {
+      animation-play-state: paused;
+    }
+    @keyframes stageProgress {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @keyframes stageFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .stage-animated {
+      animation: stageFadeIn 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .mini-ctrl-btn[aria-pressed="true"] {
+      border-color: var(--color-line-strong);
+      color: var(--color-ink-emerald);
     }
     .stage-controls-top {
       display: flex;
@@ -1018,6 +1090,48 @@
       color: var(--color-ink-muted);
       max-width: var(--measure);
     }
+    .faq-plus {
+      display: inline-block;
+      color: var(--color-ink-emerald);
+      font-weight: 700;
+      transition: transform 0.25s ease;
+    }
+    .faq-row[open] .faq-plus {
+      transform: rotate(45deg);
+    }
+    .faq-row[open] p {
+      animation: stageFadeIn 0.28s ease both;
+    }
+
+    /* Editorial Scroll Reveal + Surface Spotlight */
+    .js .reveal-item {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .js .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 80ms; }
+    .reveal-d2 { transition-delay: 160ms; }
+
+    .spotlight-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(360px circle at var(--sx, 50%) var(--sy, 50%), var(--color-spotlight), transparent 62%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .spotlight-panel:hover::after {
+      opacity: 1;
+    }
 
     /* Modalidades + Cotizador B2B */
     .modes-grid {
@@ -1298,6 +1412,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      .js .reveal-item {
+        opacity: 1 !important;
+        transform: none !important;
+      }
       *, *::before, *::after {
         animation: none !important;
         transition: none !important;
@@ -1329,6 +1447,7 @@
         WhatsApp Directo
       </a>
     </div>
+    <div class="read-progress-track" aria-hidden="true"><div class="read-progress-bar" id="readProgressBar"></div></div>
   </header>
 
   <!-- SPLIT HERO EJECUTIVO (1 SOLA PANTALLA) -->
@@ -1363,14 +1482,16 @@
       </div>
 
       <!-- DEMOSTRADOR EJECUTIVO EN VIVO -->
-      <div class="stage-surface">
+      <div class="stage-surface" id="heroStageSurface">
         <div class="stage-controls-top">
           <span class="stage-heading-label">Sistemas reales en operación</span>
           <div class="stage-arrows">
             <button type="button" class="mini-ctrl-btn" id="holoPrevBtn">Anterior</button>
+            <button type="button" class="mini-ctrl-btn" id="holoPauseBtn" aria-pressed="false">Pausar</button>
             <button type="button" class="mini-ctrl-btn" id="holoNextBtn">Siguiente</button>
           </div>
         </div>
+        <div class="stage-progress-track" aria-hidden="true"><div class="stage-progress-fill" id="stageProgressFill"></div></div>
         <div class="stage-tabs" id="holoStageTabs"></div>
         <div id="holoStageContent"></div>
       </div>
@@ -1380,7 +1501,7 @@
   <!-- SECCIÓN 1: DIRECTORIO POR GIRO Y POR PROBLEMA -->
   <section class="catalog-band" id="galeria-3d">
     <div class="container">
-      <div class="section-header-split">
+      <div class="section-header-split reveal-item">
         <h2 class="section-h2">Soluciones listas según el giro de tu negocio</h2>
         <p class="section-desc">
           Filtra por industria o por el problema operativo que necesitas eliminar para revisar pantallas reales y costos transparentes.
@@ -1440,7 +1561,7 @@
   <!-- SECCIÓN 2: RETORNO DE INVERSIÓN Y COMPARATIVA -->
   <section class="roi-band" id="calculadora-impacto">
     <div class="container">
-      <div class="section-header-split">
+      <div class="section-header-split reveal-item">
         <h2 class="section-h2">Retorno de inversión y comparativa para gerencia</h2>
         <p class="section-desc">
           Ajusta el volumen de citas o servicios de tu negocio y compara nuestra entrega contra agencias o seguir operando en Excel.
@@ -1467,17 +1588,17 @@
         </div>
 
         <div class="roi-kpi-grid">
-          <div class="roi-kpi-cell">
+          <div class="roi-kpi-cell spotlight-panel reveal-item">
             <div class="roi-kpi-num" id="roiHoursSaved">36 hrs</div>
             <div class="roi-kpi-label">Horas libres al mes</div>
             <div class="roi-kpi-sub">Menos captura en recepción</div>
           </div>
-          <div class="roi-kpi-cell">
+          <div class="roi-kpi-cell spotlight-panel reveal-item reveal-d1">
             <div class="roi-kpi-num" id="roiExtraClients">+27</div>
             <div class="roi-kpi-label">Clientes extra al mes</div>
             <div class="roi-kpi-sub">Respuestas 24/7 y anticipos</div>
           </div>
-          <div class="roi-kpi-cell">
+          <div class="roi-kpi-cell spotlight-panel reveal-item reveal-d2">
             <div class="roi-kpi-num" style="color:var(--color-ink-amber);" id="roiExtraMoney">+$12,150</div>
             <div class="roi-kpi-label">Ingreso mensual extra</div>
             <div class="roi-kpi-sub">Se paga con 2 a 3 ventas</div>
@@ -1485,7 +1606,7 @@
         </div>
       </div>
 
-      <div class="table-container">
+      <div class="table-container reveal-item">
         <table class="b2b-table">
           <thead>
             <tr>
@@ -1529,7 +1650,7 @@
   <!-- SECCIÓN 3: PROCESO, GARANTÍAS Y PREGUNTAS CLAVE -->
   <section class="process-band" id="como-trabajamos">
     <div class="container">
-      <div class="section-header-split">
+      <div class="section-header-split reveal-item">
         <h2 class="section-h2">Implementación llave en mano sin distraer tu operación</h2>
         <p class="section-desc">
           Nosotros configuramos la plataforma con tu imagen y capacitamos a tu equipo para que arranques sin fricción.
@@ -1537,21 +1658,21 @@
       </div>
 
       <div class="process-list">
-        <div class="process-step">
+        <div class="process-step reveal-item">
           <h3>01. Revisión operativa de 15 minutos</h3>
           <p>Analizamos cómo atiende hoy tu negocio, elegimos el sistema base ideal y definimos reglas, precios y usuarios.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal-item reveal-d1">
           <h3>02. Personalización con tu marca</h3>
           <p>Configuro logotipo, colores corporativos, catálogos, horarios y conecto tu dominio oficial <code>.com</code> o <code>.mx</code>.</p>
         </div>
-        <div class="process-step">
+        <div class="process-step reveal-item reveal-d2">
           <h3>03. Capacitación y soporte directo</h3>
           <p>Entregamos funcionando en celular y computadora, capacitamos a tu equipo y quedamos disponibles vía WhatsApp directo.</p>
         </div>
       </div>
 
-      <div class="guarantee-strip">
+      <div class="guarantee-strip spotlight-panel reveal-item">
         <div class="guarantee-item">
           <strong>1. Alcance y fecha por escrito</strong>
           <p>Propuesta formal en PDF desde el día uno con funciones exactas, tiempo de entrega y precio fijo.</p>
@@ -1570,7 +1691,7 @@
         <details class="faq-row" open>
           <summary>
             <span>¿Qué conviene más: Plan Mensual o Pago Único?</span>
-            <span>+</span>
+            <span class="faq-plus">+</span>
           </summary>
           <p>En <strong>Plan Mensual Todo Incluido</strong> inicias con activación baja y la mensualidad cubre servidor, base de datos, respaldos, dominio <code>.com</code> y soporte todo el año. En <strong>Pago Único</strong> pagas 50% al iniciar y 50% contra entrega con 1er año de dominio y 3 meses gratis de servidor y soporte.</p>
         </details>
@@ -1578,7 +1699,7 @@
         <details class="faq-row" open>
           <summary>
             <span>¿Por qué entregan en semanas lo que una agencia tarda meses?</span>
-            <span>+</span>
+            <span class="faq-plus">+</span>
           </summary>
           <p>Partimos de arquitecturas probadas en clientes reales y las adaptamos a tus reglas operativas, reduciendo tiempo y costo a menos de la mitad.</p>
         </details>
@@ -1586,7 +1707,7 @@
         <details class="faq-row">
           <summary>
             <span>¿La base de datos de mis clientes está segura?</span>
-            <span>+</span>
+            <span class="faq-plus">+</span>
           </summary>
           <p>Cada cliente opera con base de datos aislada, cifrado HTTPS, respaldos automáticos y cuentas individuales por usuario y contraseña.</p>
         </details>
@@ -1594,7 +1715,7 @@
         <details class="faq-row">
           <summary>
             <span>¿Mi personal necesita conocimientos técnicos?</span>
-            <span>+</span>
+            <span class="faq-plus">+</span>
           </summary>
           <p>No. La interfaz está diseñada para usarse desde el celular o computadora tan rápido como WhatsApp, e incluye capacitación práctica.</p>
         </details>
@@ -1605,7 +1726,7 @@
   <!-- SECCIÓN 4: MODALIDADES Y COTIZADOR PDF -->
   <section class="quoter-band" id="cotizador-holo">
     <div class="container">
-      <div class="section-header-split">
+      <div class="section-header-split reveal-item">
         <h2 class="section-h2">Modalidades claras y cotizador en PDF</h2>
         <p class="section-desc">
           Elige cómo prefieres invertir y descarga en 30 segundos una propuesta formal para dirección o socios.
@@ -1613,7 +1734,7 @@
       </div>
 
       <div class="modes-grid">
-        <div class="mode-panel is-primary">
+        <div class="mode-panel is-primary spotlight-panel reveal-item">
           <strong style="font-size:0.84rem;color:var(--color-ink-emerald);">Recomendado para PyMEs</strong>
           <h3 style="font-size:1.25rem;margin:var(--space-1) 0 var(--space-2);">Plan Mensual Todo Incluido</h3>
           <p style="font-size:0.9rem;color:var(--color-ink-muted);">Cuota inicial baja y mensualidad fija deducible con infraestructura y soporte técnico incluidos.</p>
@@ -1624,7 +1745,7 @@
           </ul>
         </div>
 
-        <div class="mode-panel">
+        <div class="mode-panel spotlight-panel reveal-item reveal-d1">
           <strong style="font-size:0.84rem;color:var(--color-ink-dim);">Propiedad directa</strong>
           <h3 style="font-size:1.25rem;margin:var(--space-1) 0 var(--space-2);">Pago Único (Llave en Mano)</h3>
           <p style="font-size:0.9rem;color:var(--color-ink-muted);">50% al iniciar y 50% al entregar operando. Ideal para adquirir licencia propia.</p>
@@ -1635,7 +1756,7 @@
           </ul>
         </div>
 
-        <div class="mode-panel">
+        <div class="mode-panel spotlight-panel reveal-item reveal-d2">
           <strong style="font-size:0.84rem;color:var(--color-ink-emerald);">Descuento -38%</strong>
           <h3 style="font-size:1.25rem;margin:var(--space-1) 0 var(--space-2);">Convenio Familiar / Amigo</h3>
           <p style="font-size:0.9rem;color:var(--color-ink-muted);">Tarifa preferencial para familiares y conocidos cercanos impulsando su consultorio o empresa.</p>
@@ -1647,7 +1768,7 @@
         </div>
       </div>
 
-      <div class="quoter-layout">
+      <div class="quoter-layout reveal-item">
         <div>
           <h3 style="font-size:1.55rem;margin-bottom:var(--space-2);">Genera tu propuesta en 3 pasos</h3>
           <p style="color:var(--color-ink-muted);margin-bottom:var(--space-5);font-size:0.94rem;">
@@ -1677,7 +1798,7 @@
           <input type="text" id="holoClientName" class="field-control" style="margin-bottom:0;" placeholder="Ej. Clínica Dental Santa María / Transportes del Bajío" />
         </div>
 
-        <div class="proposal-summary">
+        <div class="proposal-summary spotlight-panel">
           <div>
             <h3 id="holoQuoteTitle" style="font-size:1.35rem;line-height:1.2;margin-bottom:var(--space-3);"></h3>
             <div style="margin-bottom:var(--space-4);">
@@ -1732,7 +1853,40 @@
   <script src="visual-fx.js?v=8"></script>
   <script>
     (function () {
+      document.documentElement.classList.add('js');
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const EXT_ICON = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';
+
+      function animateNumber(el, targetNum, formatFn, duration = 260) {
+        if (!el) return;
+        if (el._animFrame) cancelAnimationFrame(el._animFrame);
+        const prev = el.dataset.numVal;
+        if (reducedMotion || prev === undefined) {
+          el.dataset.numVal = String(targetNum);
+          el.textContent = formatFn(targetNum);
+          return;
+        }
+        const from = Number(prev);
+        el.dataset.numVal = String(targetNum);
+        if (!Number.isFinite(from) || from === targetNum) {
+          el.textContent = formatFn(targetNum);
+          return;
+        }
+        const startTime = performance.now();
+        function step(now) {
+          const progress = Math.min(1, (now - startTime) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(from + (targetNum - from) * eased);
+          el.textContent = formatFn(current);
+          if (progress < 1) {
+            el._animFrame = requestAnimationFrame(step);
+          } else {
+            el._animFrame = null;
+            el.textContent = formatFn(targetNum);
+          }
+        }
+        el._animFrame = requestAnimationFrame(step);
+      }
 
       const GROUP_MAP = {
         nailroomspa: 'negocios',
@@ -1776,6 +1930,15 @@
 
       let activeStageIdx = 0;
       let stageInterval = null;
+      let stagePaused = false;
+
+      function resetStageProgress() {
+        const fill = document.getElementById('stageProgressFill');
+        if (!fill) return;
+        fill.style.animation = 'none';
+        void fill.offsetWidth;
+        fill.style.animation = '';
+      }
 
       function renderStage() {
         const platforms = window.PLATFORMS || [];
@@ -1796,42 +1959,44 @@
         tabsEl.querySelectorAll('[data-stage-idx]').forEach((btn) => {
           btn.addEventListener('click', () => {
             activeStageIdx = Number(btn.getAttribute('data-stage-idx'));
-            clearInterval(stageInterval);
             renderStage();
           });
         });
 
         contentEl.innerHTML = `
-          ${renderProductFigure(p)}
-          <div class="stage-summary-foot">
-            <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--space-2);">
-              <h2 class="stage-system-name">${p.name}</h2>
-              <span style="font-size:0.8rem;color:var(--color-ink-dim);">${p.inDevelopment ? 'En desarrollo' : 'En operación real'}</span>
-            </div>
-            ${p.problemSolved ? `<div class="stage-problem-line"><strong>Elimina:</strong> ${p.problemSolved}</div>` : ''}
-            <p style="font-size:0.9rem;color:var(--color-ink-muted);max-width:var(--measure);">${p.shortPitch || p.tagline}</p>
-            <div class="stage-foot-prices">
-              <div class="price-inline-group">
-                <div>
-                  <span class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')} / mes</span>
-                  <span class="price-inline-sub">Plan Mensual Todo Incluido</span>
-                </div>
-                <div>
-                  <span class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')} MXN</span>
-                  <span class="price-inline-sub">Pago Único Llave en Mano</span>
-                </div>
+          <div class="stage-animated">
+            ${renderProductFigure(p)}
+            <div class="stage-summary-foot">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:var(--space-2);">
+                <h2 class="stage-system-name">${p.name}</h2>
+                <span style="font-size:0.8rem;color:var(--color-ink-dim);">${p.inDevelopment ? 'En desarrollo' : 'En operación real'}</span>
               </div>
-              <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
-                <a href="${realLink}" target="_blank" rel="noopener" class="btn btn-secondary" style="min-height:38px;padding:var(--space-2) var(--space-3);font-size:0.84rem;">
-                  <span>Abrir sitio</span> ${EXT_ICON}
-                </a>
-                <button type="button" class="btn btn-primary" style="min-height:38px;padding:var(--space-2) var(--space-4);font-size:0.84rem;" onclick="window.selectHoloQuote('${p.id}')">
-                  Cotizar PDF
-                </button>
+              ${p.problemSolved ? `<div class="stage-problem-line"><strong>Elimina:</strong> ${p.problemSolved}</div>` : ''}
+              <p style="font-size:0.9rem;color:var(--color-ink-muted);max-width:var(--measure);">${p.shortPitch || p.tagline}</p>
+              <div class="stage-foot-prices">
+                <div class="price-inline-group">
+                  <div>
+                    <span class="price-inline-val" style="color:var(--color-ink-emerald);">$${p.monthlyFee.toLocaleString('es-MX')} / mes</span>
+                    <span class="price-inline-sub">Plan Mensual Todo Incluido</span>
+                  </div>
+                  <div>
+                    <span class="price-inline-val">$${p.basePrice.toLocaleString('es-MX')} MXN</span>
+                    <span class="price-inline-sub">Pago Único Llave en Mano</span>
+                  </div>
+                </div>
+                <div style="display:flex;gap:var(--space-2);flex-wrap:wrap;">
+                  <a href="${realLink}" target="_blank" rel="noopener" class="btn btn-secondary" style="min-height:38px;padding:var(--space-2) var(--space-3);font-size:0.84rem;">
+                    <span>Abrir sitio</span> ${EXT_ICON}
+                  </a>
+                  <button type="button" class="btn btn-primary" style="min-height:38px;padding:var(--space-2) var(--space-4);font-size:0.84rem;" onclick="window.selectHoloQuote('${p.id}')">
+                    Cotizar PDF
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         `;
+        resetStageProgress();
       }
 
       function initImpactCalculator() {
@@ -1846,9 +2011,9 @@
           const hoursSaved = Math.max(12, Math.round(clientsPerWeek * 0.78));
           const extraClients = Math.max(4, Math.round(clientsPerWeek * 0.6));
           const extraMoney = extraClients * avgTicket;
-          document.getElementById('roiHoursSaved').textContent = `${hoursSaved} hrs`;
-          document.getElementById('roiExtraClients').textContent = `+${extraClients}`;
-          document.getElementById('roiExtraMoney').textContent = `+$${extraMoney.toLocaleString('es-MX')}`;
+          animateNumber(document.getElementById('roiHoursSaved'), hoursSaved, (v) => `${v} hrs`);
+          animateNumber(document.getElementById('roiExtraClients'), extraClients, (v) => `+${v}`);
+          animateNumber(document.getElementById('roiExtraMoney'), extraMoney, (v) => `+$${v.toLocaleString('es-MX')}`);
         }
         cRange.addEventListener('input', updateImpact);
         tRange.addEventListener('input', updateImpact);
@@ -2096,19 +2261,20 @@
           document.getElementById('holoQuoteTime').textContent = p.timeEstimate;
           const hostNote = document.getElementById('holoQuoteHostingNote');
 
+          const priceEl = document.getElementById('holoQuotePrice');
           if (selectedPlan === 'unico') {
             document.getElementById('holoQuoteModeLabel').textContent = 'Pago Único Llave en Mano:';
-            document.getElementById('holoQuotePrice').textContent = `$${p.basePrice.toLocaleString('es-MX')} MXN`;
+            animateNumber(priceEl, p.basePrice, (v) => `$${v.toLocaleString('es-MX')} MXN`);
             document.getElementById('holoQuoteSub').textContent = '50% anticipo y 50% contra entrega (incluye 1 año .com y 3 meses soporte)';
             hostNote.innerHTML = '• <strong>Desde el 4° mes:</strong> Póliza ligera opcional (desde $490/mes) o nube propia';
           } else if (selectedPlan === 'renta') {
             document.getElementById('holoQuoteModeLabel').textContent = 'Plan Mensual Todo Incluido (Más elegido):';
-            document.getElementById('holoQuotePrice').textContent = `$${p.monthlyFee.toLocaleString('es-MX')} / mes`;
+            animateNumber(priceEl, p.monthlyFee, (v) => `$${v.toLocaleString('es-MX')} / mes`);
             document.getElementById('holoQuoteSub').textContent = `+ Activación inicial de $${p.setupFee.toLocaleString('es-MX')} MXN (servidor, base de datos y soporte incluidos)`;
             hostNote.innerHTML = '• <strong>Todo incluido:</strong> Servidor, dominio .com, respaldos y soporte continuo';
           } else {
             document.getElementById('holoQuoteModeLabel').textContent = 'Convenio Familiar / Amigo (-38%):';
-            document.getElementById('holoQuotePrice').textContent = `$${famPrice.toLocaleString('es-MX')} MXN`;
+            animateNumber(priceEl, famPrice, (v) => `$${v.toLocaleString('es-MX')} MXN`);
             document.getElementById('holoQuoteSub').textContent = `Pago Único (-38%) o Mensual Familiar por $${famMonthly.toLocaleString('es-MX')}/mes (+ inicio $${famSetup.toLocaleString('es-MX')})`;
             hostNote.innerHTML = '• <strong>Beneficio familiar:</strong> 1er año dominio .com y capacitación personal';
           }
@@ -2152,11 +2318,103 @@
         updateQuote();
       }
 
+      function initScrollRevealAndProgress() {
+        const revealEls = Array.from(document.querySelectorAll('.reveal-item'));
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+          revealEls.forEach((el) => el.classList.add('is-visible'));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+          );
+          revealEls.forEach((el) => io.observe(el));
+        }
+
+        const progressBar = document.getElementById('readProgressBar');
+        const navLinks = Array.from(document.querySelectorAll('.b2b-nav-link'));
+        const sectionTargets = ['galeria-3d', 'calculadora-impacto', 'como-trabajamos', 'cotizador-holo']
+          .map((id) => ({ id, el: document.getElementById(id) }))
+          .filter((item) => item.el);
+
+        let ticking = false;
+        function onScrollUpdate() {
+          ticking = false;
+          const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+          if (progressBar) {
+            progressBar.style.transform = `scaleX(${ratio.toFixed(4)})`;
+          }
+
+          let currentId = '';
+          const probeY = window.scrollY + window.innerHeight * 0.32;
+          sectionTargets.forEach(({ id, el }) => {
+            if (el.offsetTop <= probeY) currentId = id;
+          });
+          navLinks.forEach((lnk) => {
+            lnk.classList.toggle('is-active', lnk.getAttribute('href') === `#${currentId}`);
+          });
+        }
+
+        window.addEventListener('scroll', () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(onScrollUpdate);
+        }, { passive: true });
+        onScrollUpdate();
+      }
+
+      function initSpotlights() {
+        if (reducedMotion || (window.matchMedia && !window.matchMedia('(hover: hover)').matches)) return;
+        document.querySelectorAll('.spotlight-panel').forEach((panel) => {
+          panel.addEventListener('pointermove', (e) => {
+            const rect = panel.getBoundingClientRect();
+            panel.style.setProperty('--sx', `${(e.clientX - rect.left).toFixed(1)}px`);
+            panel.style.setProperty('--sy', `${(e.clientY - rect.top).toFixed(1)}px`);
+          });
+        });
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         renderStage();
         initImpactCalculator();
         renderCards();
         initQuoter();
+        initScrollRevealAndProgress();
+        initSpotlights();
+
+        const stageSurface = document.getElementById('heroStageSurface');
+        const pauseBtn = document.getElementById('holoPauseBtn');
+
+        function startStageAutoplay() {
+          clearInterval(stageInterval);
+          if (stagePaused || reducedMotion) return;
+          stageInterval = setInterval(() => {
+            const total = (window.PLATFORMS || []).length || 9;
+            activeStageIdx = (activeStageIdx + 1) % total;
+            renderStage();
+          }, 8000);
+        }
+
+        if (pauseBtn && stageSurface) {
+          pauseBtn.addEventListener('click', () => {
+            stagePaused = !stagePaused;
+            stageSurface.classList.toggle('is-paused', stagePaused);
+            pauseBtn.setAttribute('aria-pressed', String(stagePaused));
+            pauseBtn.textContent = stagePaused ? 'Reanudar' : 'Pausar';
+            if (stagePaused) {
+              clearInterval(stageInterval);
+            } else {
+              resetStageProgress();
+              startStageAutoplay();
+            }
+          });
+        }
 
         const prevBtn = document.getElementById('holoPrevBtn');
         const nextBtn = document.getElementById('holoNextBtn');
@@ -2164,26 +2422,23 @@
           prevBtn.addEventListener('click', () => {
             const total = (window.PLATFORMS || []).length || 9;
             activeStageIdx = (activeStageIdx - 1 + total) % total;
-            clearInterval(stageInterval);
             renderStage();
+            startStageAutoplay();
           });
           nextBtn.addEventListener('click', () => {
             const total = (window.PLATFORMS || []).length || 9;
             activeStageIdx = (activeStageIdx + 1) % total;
-            clearInterval(stageInterval);
             renderStage();
+            startStageAutoplay();
           });
         }
 
-        const stageSurface = document.querySelector('.stage-surface');
-        stageInterval = setInterval(() => {
-          const total = (window.PLATFORMS || []).length || 9;
-          activeStageIdx = (activeStageIdx + 1) % total;
-          renderStage();
-        }, 8000);
+        startStageAutoplay();
         if (stageSurface) {
           stageSurface.addEventListener('mouseenter', () => clearInterval(stageInterval));
+          stageSurface.addEventListener('mouseleave', () => startStageAutoplay());
           stageSurface.addEventListener('focusin', () => clearInterval(stageInterval));
+          stageSurface.addEventListener('focusout', () => startStageAutoplay());
         }
 
         document.querySelectorAll('#holoFilterBar .filter-btn').forEach((btn) => {
@@ -2251,6 +2506,22 @@
             carouselIdx = dx < 0 ? (carouselIdx + 1) % total : (carouselIdx - 1 + total) % total;
             updateCarouselPositions();
           });
+          if (!reducedMotion && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+            cStage.addEventListener('pointermove', (e) => {
+              const centerSlide = e.target.closest('.c3d-slide.is-center');
+              if (!centerSlide) return;
+              const rect = centerSlide.getBoundingClientRect();
+              const x = (e.clientX - rect.left) / rect.width - 0.5;
+              const y = (e.clientY - rect.top) / rect.height - 0.5;
+              centerSlide.style.transform = `translateX(0px) translateZ(60px) rotateY(${(x * 4.5).toFixed(2)}deg) rotateX(${(-y * 4.5).toFixed(2)}deg) scale(1)`;
+            });
+            cStage.addEventListener('pointerleave', () => {
+              const centerSlide = cStage.querySelector('.c3d-slide.is-center');
+              if (centerSlide) {
+                centerSlide.style.transform = 'translateX(0px) translateZ(60px) rotateY(0deg) rotateX(0deg) scale(1)';
+              }
+            });
+          }
           cStage.addEventListener('keydown', (e) => {
             const total = getFilteredPlatforms().length;
             if (total <= 1) return;
