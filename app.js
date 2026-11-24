@@ -80,8 +80,8 @@ const PLATFORMS = [
     name: 'InLog · Control de Embarques, Rutas y Cobranza',
     repo: 'andresmh99-dev/control-ops',
     repoUrl: 'https://github.com/andresmh99-dev/control-ops',
-    liveUrl: 'https://ops.in-log.net',
-    displayDomain: 'ops.in-log.net',
+    liveUrl: 'https://ops.in-log.net/sitio',
+    displayDomain: 'ops.in-log.net/sitio',
     category: 'empresas',
     sectorLabel: 'Empresas de Transporte, Logística y Distribución',
     statusLabel: 'Funcionando hoy · Morelia y Laredo TX',
@@ -1100,9 +1100,28 @@ function getCalculatedQuote() {
   const modulesOneTimeTotal = checkedModules.reduce((acc, m) => acc + m.cost, 0);
   const modulesMonthlyTotal = checkedModules.reduce((acc, m) => acc + m.monthly, 0);
 
-  const oneTimeTotal = Math.round(((basePlatform.basePrice + modulesOneTimeTotal) * state.selectedAudienceMultiplier) / 500) * 500;
-  const setupTotal = Math.round(((basePlatform.setupFee + modulesOneTimeTotal * 0.35) * state.selectedAudienceMultiplier) / 100) * 100;
-  const monthlyTotal = Math.round(((basePlatform.monthlyFee + modulesMonthlyTotal) * state.selectedAudienceMultiplier) / 50) * 50;
+  const baseOneTimeRaw = basePlatform.basePrice + modulesOneTimeTotal;
+  const baseSetupRaw = basePlatform.setupFee + modulesOneTimeTotal * 0.35;
+  const baseMonthlyRaw = basePlatform.monthlyFee + modulesMonthlyTotal;
+  const isFamiliar = state.selectedAudienceKey === 'familiar';
+
+  let oneTimeTotal;
+  let setupTotal;
+  let monthlyTotal;
+
+  if (isFamiliar) {
+    oneTimeTotal = Math.round((baseOneTimeRaw * 0.62) / 100) * 100;
+    setupTotal = Math.round((baseSetupRaw * 0.62) / 100) * 100;
+    monthlyTotal = Math.round((baseMonthlyRaw * 0.65) / 50) * 50;
+  } else if (state.selectedAudienceMultiplier === 1) {
+    oneTimeTotal = Math.round(baseOneTimeRaw);
+    setupTotal = Math.round(baseSetupRaw);
+    monthlyTotal = Math.round(baseMonthlyRaw);
+  } else {
+    oneTimeTotal = Math.round((baseOneTimeRaw * state.selectedAudienceMultiplier) / 100) * 100;
+    setupTotal = Math.round((baseSetupRaw * state.selectedAudienceMultiplier) / 100) * 100;
+    monthlyTotal = Math.round((baseMonthlyRaw * state.selectedAudienceMultiplier) / 50) * 50;
+  }
 
   return {
     basePlatform,
