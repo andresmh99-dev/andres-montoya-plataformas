@@ -109,6 +109,7 @@
       -webkit-text-size-adjust: 100%;
     }
 
+    [hidden] { display: none !important; }
     a { color: inherit; text-decoration: none; }
     img, svg { max-width: 100%; display: block; }
     code {
@@ -712,14 +713,19 @@
       margin-top: var(--space-6);
       color: var(--color-ink);
     }
+    .carousel-3d-viewport {
+      position: relative;
+      perspective: 1100px;
+      overflow-x: clip;
+      padding: var(--space-4) 0 var(--space-6);
+    }
     .carousel-3d-stage {
       position: relative;
-      perspective: 1400px;
-      min-height: 600px;
+      min-height: 620px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: clip;
+      transform-style: preserve-3d;
       touch-action: pan-y;
       user-select: none;
     }
@@ -727,6 +733,34 @@
       outline: 2px solid var(--color-accent);
       outline-offset: 4px;
       border-radius: var(--radius-lg);
+    }
+    .carousel-side-btn {
+      position: absolute;
+      top: 50%;
+      z-index: 30;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-line-strong);
+      background: var(--color-surface-nav);
+      color: var(--color-ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+    .carousel-side-btn.is-prev { left: var(--space-3); }
+    .carousel-side-btn.is-next { right: var(--space-3); }
+    .carousel-side-btn:hover {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-accent-ink);
+      transform: translateY(-50%) scale(1.06);
+    }
+    @media (max-width: 768px) {
+      .carousel-side-btn { display: none; }
     }
     .c3d-slide {
       position: absolute;
@@ -1346,7 +1380,7 @@
         </p>
         <div class="hero-cta-group">
           <a href="#cotizador-holo" class="btn btn-primary">Cotizar en PDF</a>
-          <a href="#galeria-3d" class="btn btn-secondary">Ver los 9 sistemas</a>
+          <a href="#galeria-3d" class="btn btn-secondary">Explorar en Carrusel 3D</a>
         </div>
 
         <div class="proof-strip">
@@ -1415,7 +1449,15 @@
 
       <!-- VISTA 1: CARRUSEL 3D INTERACTIVO -->
       <div class="carousel-3d-shell" id="carousel3dShell">
-        <div class="carousel-3d-stage" id="carousel3dStage" tabindex="0" aria-label="Carrusel 3D de proyectos AM Kortex"></div>
+        <div class="carousel-3d-viewport">
+          <button type="button" class="carousel-side-btn is-prev" id="carouselSidePrev" aria-label="Proyecto anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-3d-stage" id="carousel3dStage" tabindex="0" aria-label="Carrusel 3D de proyectos AM Kortex"></div>
+          <button type="button" class="carousel-side-btn is-next" id="carouselSideNext" aria-label="Siguiente proyecto">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
         <div class="carousel-3d-nav">
           <div class="carousel-3d-bar">
             <button type="button" class="mini-ctrl-btn" id="carouselPrevBtn">Anterior</button>
@@ -1919,7 +1961,7 @@
         if (carouselIdx < 0) carouselIdx = n - 1;
 
         const isMobile = window.innerWidth < 768;
-        const stepX1 = isMobile ? 148 : 320;
+        const stepX1 = isMobile ? 155 : 340;
         const stepX2 = isMobile ? 220 : 540;
 
         slides.forEach((slide, idx) => {
@@ -1933,26 +1975,29 @@
 
           if (d === 0) {
             slide.classList.add('is-center');
-            slide.style.transform = 'translateX(0px) translateZ(0px) rotateY(0deg) scale(1)';
+            slide.style.transform = 'translateX(0px) translateZ(60px) rotateY(0deg) scale(1)';
             slide.style.opacity = '1';
-            slide.style.zIndex = '10';
+            slide.style.zIndex = '20';
             slide.style.pointerEvents = 'auto';
           } else if (Math.abs(d) === 1) {
             slide.classList.add('is-side');
-            slide.style.transform = `translateX(${d * stepX1}px) translateZ(-170px) rotateY(${-d * 28}deg) scale(0.86)`;
-            slide.style.opacity = isMobile ? '0.45' : '0.72';
-            slide.style.zIndex = '6';
+            const rot1 = isMobile ? -d * 34 : -d * 40;
+            const z1 = isMobile ? -140 : -120;
+            const s1 = isMobile ? 0.82 : 0.86;
+            slide.style.transform = `translateX(${d * stepX1}px) translateZ(${z1}px) rotateY(${rot1}deg) scale(${s1})`;
+            slide.style.opacity = isMobile ? '0.5' : '0.78';
+            slide.style.zIndex = '12';
             slide.style.pointerEvents = 'auto';
           } else if (Math.abs(d) === 2 && !isMobile) {
             slide.classList.add('is-side');
             const dir = d > 0 ? 1 : -1;
-            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-320px) rotateY(${-dir * 22}deg) scale(0.72)`;
-            slide.style.opacity = '0.35';
-            slide.style.zIndex = '3';
+            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-260px) rotateY(${-dir * 54}deg) scale(0.72)`;
+            slide.style.opacity = '0.42';
+            slide.style.zIndex = '6';
             slide.style.pointerEvents = 'auto';
           } else {
             const dir = d > 0 ? 1 : -1;
-            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-420px) rotateY(${-dir * 28}deg) scale(0.6)`;
+            slide.style.transform = `translateX(${dir * stepX2}px) translateZ(-380px) rotateY(${-dir * 60}deg) scale(0.6)`;
             slide.style.opacity = '0';
             slide.style.zIndex = '1';
             slide.style.pointerEvents = 'none';
@@ -1961,7 +2006,7 @@
 
         const activeSlide = slides[carouselIdx];
         if (activeSlide) {
-          stage.style.minHeight = `${Math.max(580, activeSlide.offsetHeight + 24)}px`;
+          stage.style.minHeight = `${Math.max(600, activeSlide.offsetHeight + 32)}px`;
         }
 
         const activeData = getFilteredPlatforms()[carouselIdx];
@@ -1983,8 +2028,12 @@
           });
         }
 
+        const sPrev = document.getElementById('carouselSidePrev');
+        const sNext = document.getElementById('carouselSideNext');
         if (prevBtn) prevBtn.disabled = n <= 1;
         if (nextBtn) nextBtn.disabled = n <= 1;
+        if (sPrev) sPrev.disabled = n <= 1;
+        if (sNext) sNext.disabled = n <= 1;
       }
 
       function renderCarousel3d() {
@@ -2204,24 +2253,24 @@
           });
         });
 
-        const cPrev = document.getElementById('carouselPrevBtn');
-        const cNext = document.getElementById('carouselNextBtn');
-        if (cPrev) {
-          cPrev.addEventListener('click', () => {
+        [document.getElementById('carouselPrevBtn'), document.getElementById('carouselSidePrev')].forEach((btn) => {
+          if (!btn) return;
+          btn.addEventListener('click', () => {
             const total = getFilteredPlatforms().length;
             if (total <= 1) return;
             carouselIdx = (carouselIdx - 1 + total) % total;
             updateCarouselPositions();
           });
-        }
-        if (cNext) {
-          cNext.addEventListener('click', () => {
+        });
+        [document.getElementById('carouselNextBtn'), document.getElementById('carouselSideNext')].forEach((btn) => {
+          if (!btn) return;
+          btn.addEventListener('click', () => {
             const total = getFilteredPlatforms().length;
             if (total <= 1) return;
             carouselIdx = (carouselIdx + 1) % total;
             updateCarouselPositions();
           });
-        }
+        });
 
         const cStage = document.getElementById('carousel3dStage');
         if (cStage) {

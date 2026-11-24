@@ -4,5 +4,8 @@ Disallow: /opcion-1.html
 Disallow: /opcion-2.html
 Disallow: /opcion-3.html
 Disallow: /opcion-4.html
+Disallow: /opcion-5.html
+Disallow: /hallmark-a.html
+Disallow: /hallmark-b.html
 
 Sitemap: https://andresmh99-dev.github.io/andres-montoya-plataformas/sitemap.xml
