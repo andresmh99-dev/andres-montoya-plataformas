@@ -44,7 +44,14 @@ function loadFromIndex() {
     if (!m) throw new Error(`No encontré ${name} en index.html`);
     return vm.runInNewContext(`(${m[1]})`);
   };
-  return { GROUP_MAP: grab('GROUP_MAP'), TIER_INFO: grab('TIER_INFO'), TIER_SHORT_NAMES: grab('TIER_SHORT_NAMES') };
+  const faq = html.match(/<!-- FAQ-OBJECIONES:INICIO[^>]*-->([\s\S]*?)<!-- FAQ-OBJECIONES:FIN -->/);
+  if (!faq) throw new Error('No encontré el bloque FAQ-OBJECIONES en index.html');
+  return {
+    GROUP_MAP: grab('GROUP_MAP'),
+    TIER_INFO: grab('TIER_INFO'),
+    TIER_SHORT_NAMES: grab('TIER_SHORT_NAMES'),
+    FAQ_HTML: faq[1].trim()
+  };
 }
 
 // ---------------------------------------------------------------- páginas
@@ -218,7 +225,7 @@ function page(g, list, all, idx) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=2" />
+  <link rel="stylesheet" href="site.css?v=3" />
   <script src="analytics.js?v=1" defer></script>
 </head>
 <body>
@@ -281,11 +288,24 @@ function page(g, list, all, idx) {
         </div>
         <div class="tier-grid is-compact">${tierCards(list, all, TIER_INFO, TIER_SHORT_NAMES)}
         </div>
-        <p class="pricing-note">Precios en MXN + IVA, con factura. Plan Mensual con plazo mínimo de 12 meses y soporte de hasta 2 h/mes. Pago Único: 50% al iniciar y 50% al entregar. <a href="./#precios" style="color:var(--color-ink-emerald);font-weight:600;">Ver los 4 escalones</a></p>
+        <p class="pricing-note">Precios en MXN + IVA, con factura. Plan Mensual con plazo mínimo de 12 meses y soporte de hasta 2 h/mes (horas adicionales a $500 + IVA). Pago Único: 50% al iniciar y 50% al entregar.</p>
+        <p class="giro-others"><a href="./#precios">Ver los 4 escalones →</a></p>
       </div>
     </section>
 
-    <section class="process-band">
+    <section class="process-band" id="preguntas">
+      <div class="container">
+        <div class="section-header-split">
+          <h2 class="section-h2">Preguntas antes de contratar</h2>
+          <p class="section-desc">Lo que más nos preguntan sobre propiedad, datos, WhatsApp y cambios.</p>
+        </div>
+        <div class="faq-columns">
+          ${idx.FAQ_HTML}
+        </div>
+      </div>
+    </section>
+
+    <section class="process-band" style="border-top:1px solid var(--color-line);">
       <div class="container">
         <div class="section-header-split">
           <h2 class="section-h2">Cómo lo implementamos</h2>

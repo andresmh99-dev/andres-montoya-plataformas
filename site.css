@@ -926,6 +926,7 @@ h1, h2, h3 {
   border-color: var(--color-line-strong);
 }
 .faq-row summary {
+  min-height: 32px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1rem;

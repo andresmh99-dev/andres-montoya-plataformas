@@ -619,7 +619,7 @@ function generateProposalPdf() {
     y + 44.5
   );
   doc.text(
-    '  directo con ajustes y mejoras de hasta 2 horas al mes (lo adicional se cotiza aparte).',
+    '  directo con ajustes y mejoras de hasta 2 horas al mes (horas adicionales: $500/hora + IVA).',
     22,
     y + 50
   );
