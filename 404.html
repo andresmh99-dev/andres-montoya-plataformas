@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<!-- GitHub Pages muestra esta página en cualquier dirección que no exista.
-     Las rutas son absolutas porque se sirve desde cualquier URL del sitio.
-     Al conectar amkortex.com, cambiar /andres-montoya-plataformas/ por / -->
+<!-- Cloudflare Pages muestra esta página en cualquier dirección que no exista.
+     Las rutas son absolutas porque se sirve desde cualquier URL del sitio. -->
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- Sitio anterior en GitHub Pages: manda cada visita a la misma página en amkortex.com -->
+  <script>
+    if (location.hostname === 'andresmh99-dev.github.io') {
+      location.replace('https://amkortex.com' + location.pathname.replace(/^\/andres-montoya-plataformas/, '') + location.search + location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Página no encontrada | AM Kortex</title>
   <meta name="robots" content="noindex" />
@@ -13,12 +18,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/andres-montoya-plataformas/site.css?v=3" />
+  <link rel="stylesheet" href="/site.css?v=3" />
 </head>
 <body>
   <header class="b2b-nav">
     <div class="container b2b-nav-inner">
-      <a href="/andres-montoya-plataformas/" class="brand-lockup" aria-label="AM Kortex, ir al inicio">
+      <a href="/" class="brand-lockup" aria-label="AM Kortex, ir al inicio">
         <span class="brand-square">AM</span>
         <span>
           <span class="brand-name">AM Kortex</span>
@@ -34,14 +39,14 @@
       <h1 class="hero-h1">Esta página no existe o cambió de lugar.</h1>
       <p class="hero-lede">Puede que el enlace esté incompleto. Desde aquí puedes ver los sistemas, los precios o escribirme directo.</p>
       <div class="hero-cta-group">
-        <a href="/andres-montoya-plataformas/" class="btn btn-primary">Ir al inicio</a>
-        <a href="/andres-montoya-plataformas/#galeria-3d" class="btn btn-secondary">Ver los sistemas</a>
+        <a href="/" class="btn btn-primary">Ir al inicio</a>
+        <a href="/#galeria-3d" class="btn btn-secondary">Ver los sistemas</a>
         <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20llegu%C3%A9%20a%20un%20enlace%20roto%20de%20AM%20Kortex%20y%20quiero%20informaci%C3%B3n." target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp 443 143 3732</a>
       </div>
       <p class="giro-others">Por giro:
-        <a href="/andres-montoya-plataformas/sistemas-de-citas-y-agendas.html">Citas y agendas</a> ·
-        <a href="/andres-montoya-plataformas/sistemas-para-comercios-clubes-y-escuelas.html">Comercios, clubes y escuelas</a> ·
-        <a href="/andres-montoya-plataformas/sistemas-para-empresas-y-logistica.html">Empresas y logística</a>
+        <a href="/sistemas-de-citas-y-agendas.html">Citas y agendas</a> ·
+        <a href="/sistemas-para-comercios-clubes-y-escuelas.html">Comercios, clubes y escuelas</a> ·
+        <a href="/sistemas-para-empresas-y-logistica.html">Empresas y logística</a>
       </p>
     </div>
   </main>

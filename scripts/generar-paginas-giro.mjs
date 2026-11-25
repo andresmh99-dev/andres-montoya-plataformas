@@ -13,9 +13,9 @@ import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://andresmh99-dev.github.io/andres-montoya-plataformas/';
+const SITE = 'https://amkortex.com/';
 const WA = '524431433732';
-const EMAIL = 'andresmh99@gmail.com';
+const EMAIL = 'contacto@amkortex.com';
 
 // ---------------------------------------------------------------- datos del catálogo
 function loadPlatforms() {
@@ -203,6 +203,12 @@ function page(g, list, all, idx) {
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- Sitio anterior en GitHub Pages: manda cada visita a la misma página en amkortex.com -->
+  <script>
+    if (location.hostname === 'andresmh99-dev.github.io') {
+      location.replace('https://amkortex.com' + location.pathname.replace(/^\\/andres-montoya-plataformas/, '') + location.search + location.hash);
+    }
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>${esc(g.title)}</title>
   <meta name="description" content="${esc(g.description)}" />

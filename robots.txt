@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://andresmh99-dev.github.io/andres-montoya-plataformas/sitemap.xml
+Sitemap: https://amkortex.com/sitemap.xml

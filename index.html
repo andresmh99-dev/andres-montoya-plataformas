@@ -2,23 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- Sitio anterior en GitHub Pages: manda cada visita a la misma página en amkortex.com -->
+  <script>
+    if (location.hostname === 'andresmh99-dev.github.io') {
+      location.replace('https://amkortex.com' + location.pathname.replace(/^\/andres-montoya-plataformas/, '') + location.search + location.hash);
+    }
+  </script>
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>AM Kortex | Sistemas web probados para PyMEs en Morelia y Querétaro</title>
   <meta name="description" content="Sistemas web ya operando con clientes reales: citas con WhatsApp, consultorios, restaurantes, clubes y logística. Con tu marca en 2 a 4 semanas, desde $790/mes + IVA. Agenda una demo de 15 minutos." />
   <meta name="author" content="AM Kortex · Andrés Montoya Hernández" />
   <meta name="theme-color" content="#080d16" />
-  <!-- URL BASE DEL SITIO: al conectar el dominio amkortex.com, reemplazar en canonical, og:url, og:image, twitter:image, JSON-LD, robots.txt y sitemap.xml. Al tener correo empresarial, reemplazar andresmh99@gmail.com aquí y en aviso-de-privacidad.html -->
-  <link rel="canonical" href="https://andresmh99-dev.github.io/andres-montoya-plataformas/" />
+  <!-- Dominio: amkortex.com (Cloudflare Pages). Correo de contacto: contacto@amkortex.com -->
+  <link rel="canonical" href="https://amkortex.com/" />
 
   <!-- Open Graph / Vista previa para WhatsApp, Facebook, LinkedIn -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="AM Kortex · Sistemas Digitales y Automatización" />
-  <meta property="og:url" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/" />
+  <meta property="og:url" content="https://amkortex.com/" />
   <meta property="og:title" content="AM Kortex | Sistemas web probados para tu PyME" />
   <meta property="og:description" content="6 sistemas y 2 páginas web operando hoy con clientes reales. Citas con WhatsApp, consultorios, restaurantes, clubes y logística, con tu marca en 2 a 4 semanas. Desde $790/mes + IVA." />
-  <meta property="og:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2" />
+  <meta property="og:image" content="https://amkortex.com/assets/og-image.jpg?v=2" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="AM Kortex: sistemas web probados para PyMEs, con capturas de InLog, Nail Room y Consultorios Fénix" />
@@ -27,7 +33,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AM Kortex | Sistemas web probados para tu PyME" />
   <meta name="twitter:description" content="6 sistemas y 2 páginas web operando hoy. Con tu marca en 2 a 4 semanas, desde $790/mes + IVA. Agenda una demo de 15 minutos." />
-  <meta name="twitter:image" content="https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2" />
+  <meta name="twitter:image" content="https://amkortex.com/assets/og-image.jpg?v=2" />
 
   <!-- Datos estructurados para Google (negocio de servicios profesionales) -->
   <script type="application/ld+json">
@@ -36,10 +42,10 @@
     "@type": "ProfessionalService",
     "name": "AM Kortex",
     "description": "Sistemas web probados para PyMEs: agendas y citas con WhatsApp, consultorios, restaurantes, clubes deportivos y control logístico, personalizados con tu marca en 2 a 4 semanas.",
-    "url": "https://andresmh99-dev.github.io/andres-montoya-plataformas/",
-    "image": "https://andresmh99-dev.github.io/andres-montoya-plataformas/assets/og-image.jpg?v=2",
+    "url": "https://amkortex.com/",
+    "image": "https://amkortex.com/assets/og-image.jpg?v=2",
     "telephone": "+52 443 143 3732",
-    "email": "andresmh99@gmail.com",
+    "email": "contacto@amkortex.com",
     "priceRange": "$$",
     "currenciesAccepted": "MXN",
     "areaServed": [
@@ -520,7 +526,7 @@
             <button type="button" id="holoPdfBtn" class="btn btn-secondary" style="width:100%;white-space:normal;height:auto;text-align:center;">
               Descargar propuesta formal en PDF
             </button>
-            <a id="holoMailBtn" href="mailto:andresmh99@gmail.com" class="quote-mail-link">Prefiero que me escriban por correo</a>
+            <a id="holoMailBtn" href="mailto:contacto@amkortex.com" class="quote-mail-link">Prefiero que me escriban por correo</a>
           </div>
         </div>
       </div>
@@ -535,7 +541,7 @@
       </div>
       <div class="b2b-footer-links">
         <a href="https://wa.me/524431433732" target="_blank" rel="noopener" style="color:var(--color-ink-emerald);font-weight:700;">WhatsApp +52 443 143 3732</a>
-        <a href="mailto:andresmh99@gmail.com?subject=Contacto%20desde%20AM%20Kortex">andresmh99@gmail.com</a>
+        <a href="mailto:contacto@amkortex.com?subject=Contacto%20desde%20AM%20Kortex">contacto@amkortex.com</a>
         <a href="aviso-de-privacidad.html">Aviso de Privacidad</a>
       </div>
       <nav class="footer-giros" aria-label="Soluciones por giro">
@@ -1019,7 +1025,7 @@
             if (window.trackCommercialEvent) {
               window.trackCommercialEvent('quote_email_click', 'Contact', { system: p.id, plan: selectedPlan });
             }
-            window.location.href = `mailto:andresmh99@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = `mailto:contacto@amkortex.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
           });
         }
 
