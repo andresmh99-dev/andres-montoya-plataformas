@@ -57,10 +57,10 @@
 >
 > ✅ **1. Acuerdo por escrito:** Te envío tu propuesta formal en PDF con alcance, fecha de entrega (2 a 4 semanas) y costos fijos.
 > ✅ **2. Modalidad a tu medida:**
-> • **⭐ Plan Mensual Todo Incluido:** Entras con una activación baja y tu mensualidad cubre servidor, base de datos, dominio `.com`, respaldos y soporte con ajustes de hasta 2 horas al mes (plazo mínimo de 12 meses).
+> • **⭐ Plan Mensual Todo Incluido:** Entras con una activación baja y tu mensualidad cubre servidor, base de datos, dominio `.com`, respaldos y soporte con ajustes de hasta 2 horas al mes; horas adicionales a $500 + IVA (plazo mínimo de 12 meses).
 > • **Pago Único (Llave en Mano):** 50% de anticipo y 50% hasta que te entrego el sistema funcionando con tu marca (incluye 1er año de dominio `.com` y 3 meses gratis de servidor y soporte; después, póliza opcional según el sistema).
 >
-> _Todos los precios son en MXN + IVA, con factura._
+> _Todos los precios son en MXN + IVA, con factura. Tus datos, tu dominio y tu marca siempre son tuyos; la cuenta de WhatsApp Business queda a tu nombre._
 >
 > ¿Prefieres que te arme la propuesta en **Plan Mensual** o en **Pago Único**? ¿A nombre de qué empresa o negocio la generamos?
 

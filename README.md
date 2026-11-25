@@ -28,8 +28,27 @@ Página personal y catálogo comercial interactivo diseñado para presentar y ve
 
 ---
 
-## 💻 Cómo abrir y usar tu página
+## 💻 Estructura del sitio
 
-1. **Apertura directa:** Haz doble clic sobre [`index.html`](./index.html) para abrirla en cualquier navegador, o sírvela localmente.
-2. **Configurar tu WhatsApp y Correo:** En la tarjeta del **Cotizador Instantáneo**, haz clic en **"Configurar mis datos de contacto"** para definir el número de WhatsApp y correo donde recibirás las cotizaciones.
-3. **Publicar en Vercel / GitHub Pages:** Sube esta carpeta a un repositorio de GitHub y conéctalo a Vercel (no requiere configuración de compilación).
+| Archivo | Qué es |
+|---|---|
+| `index.html` | Portada: vitrina, catálogo, precios por escalón, calculadora, cotizador y PDF |
+| `app.js` | Datos de los 9 sistemas (precios, textos, enlaces) y generador del PDF de propuesta |
+| `visual-fx.js` | Capturas de pantalla, textos cortos y visor en vivo de cada sistema |
+| `site.css` | Estilos compartidos por todas las páginas |
+| `sistemas-*.html` | Páginas por giro (citas y agendas, comercios y clubes, empresas y logística) |
+| `404.html` | Página que GitHub Pages muestra cuando un enlace no existe |
+| `analytics.js` | Medición (GA4 y Meta Pixel): poner los IDs para activarla |
+
+## 🔄 Cómo actualizar precios o textos
+
+1. Cambia los datos en `app.js` (precios, textos) o `visual-fx.js` (capturas y textos cortos).
+2. Vuelve a generar las páginas por giro para que queden iguales que la portada:
+
+   ```bash
+   node scripts/generar-paginas-giro.mjs
+   ```
+
+3. Sube los cambios a `main`; GitHub Pages publica en ~1 minuto.
+
+Las páginas `sistemas-*.html` se generan con ese script: no las edites a mano.

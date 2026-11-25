@@ -1,6 +1,7 @@
 /* ==========================================================================
    ANDRÉS MONTOYA HERNÁNDEZ — CATÁLOGO DE PÁGINAS Y SISTEMAS DIGITALES (app.js)
-   9 Sistemas Reales (8 Funcionando Hoy + 1 en Desarrollo) · Explicados en lenguaje claro para todos
+   Datos de los 9 sistemas (precios, textos y enlaces) + generador del PDF de propuesta.
+   Lo usan index.html y scripts/generar-paginas-giro.mjs (páginas por giro).
    WhatsApp Oficial: +52 443 143 3732
    ========================================================================== */
 
@@ -58,23 +59,7 @@ const PLATFORMS = [
       'Cobro de Anticipos con Tarjeta',
       'Cero Citas Encimadas',
       'Para 1 o Varias Sucursales'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>💬 nailroomspa.com · WhatsApp + Recepción</span>
-          <span class="mini-chip green">Sin Citas Encimadas</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>🎙️ <em>Audio de clienta: "Hola, ¿tienen lugar mañana a las 5 para uñas y pedi?"</em></span>
-          <span class="mini-chip purple">Audio Escuchado</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>✨ <strong>Cita Agendada:</strong> Uñas + Pedi · 5:00 pm · Atiende: Valeria</span>
-          <span class="mini-chip cyan">Anticipo Pagado</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'control-ops',
@@ -121,23 +106,7 @@ const PLATFORMS = [
       'Firma Digital en Celular',
       'Control de Cobranza y Ganancias',
       'Español e Inglés'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🚛 ops.in-log.net · Envío #26-007</span>
-          <span class="mini-chip cyan">Ganancia: 24.8%</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📍 Salida: Planta Morelia → Cruce Laredo TX → Entrega a tiempo</span>
-          <span class="mini-chip green">En Camino</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📄 <strong>Documento revisado:</strong> Datos y contenedor verificados sin errores</span>
-          <span class="mini-chip purple">Revisado Automático</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'agenda-fenix',
@@ -184,23 +153,7 @@ const PLATFORMS = [
       'Pagos con Tarjeta',
       'Estado de Cuenta Mensual en PDF',
       'Confirmación por WhatsApp'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🏥 Consultorios Fénix · Control de Espacios</span>
-          <span class="mini-chip green">Datos de Pacientes Privados</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>🔑 Consultorio 2 · 11:00 - 12:00 · Dr. Mauricio Rangel</span>
-          <span class="mini-chip cyan">Apartado con Paciente</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>💳 Paquete de 20 horas: se descontó 1 hora (le quedan 14 hrs)</span>
-          <span class="mini-chip amber">Corte Mensual Listo</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'lievitum-pizzalab',
@@ -245,23 +198,7 @@ const PLATFORMS = [
       'Para 1 o Varias Sucursales',
       'Menú QR para Mesas',
       'Aparece en Google'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🍕 Lievitum Pizza LAB · Sucursal Morelia / Querétaro</span>
-          <span class="mini-chip green">Abierto Hoy · 1:00 pm a 10:00 pm</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>🍽️ Menú con Fotos: Pizza La Regina ($275) · Quattro Formaggi ($245)</span>
-          <span class="mini-chip amber">Las Más Pedidas</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📲 En 1 toque: Pedir por WhatsApp · Ver en Mapa · Menú QR</span>
-          <span class="mini-chip cyan">Sin Comisiones</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'psicoterapia-conductual',
@@ -308,23 +245,7 @@ const PLATFORMS = [
       'Recordatorios Automáticos',
       'Resumen de Ingresos del Mes',
       'Respaldo en 1 Clic'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🧠 psicoterapiaconductual.net · Mi Consultorio</span>
-          <span class="mini-chip green">Expediente Seguro</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📅 4:00 pm · Consulta confirmada (Recordatorio enviado ayer)</span>
-          <span class="mini-chip cyan">Asistió Puntual</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📝 Nota de sesión guardada → Recomendaciones enviadas por WhatsApp</span>
-          <span class="mini-chip purple">En 1 Toque</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'escalera-britania',
@@ -370,23 +291,7 @@ const PLATFORMS = [
       'Ascensos y Grupos Automáticos',
       'Apartado de Canchas',
       'Probado con +160 Jugadores'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🎾 escalerabritania.com · 167 Jugadores Activos</span>
-          <span class="mini-chip green">Tabla al Día</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>🏆 Grupo 1-A: 1° R. Méndez (12.8 pts) · 2° A. Montoya (11.5 pts)</span>
-          <span class="mini-chip cyan">Sube de Grupo ↑</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📱 Marcador subido desde el celular: 6-4, 6-3 (Confirmado por rival)</span>
-          <span class="mini-chip purple">Puntos Sumados</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'inlog-quoter',
@@ -432,23 +337,7 @@ const PLATFORMS = [
       'Portal Privado para Clientes',
       'Descarga Cotización en PDF',
       'Español e Inglés'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>🌐 in-log.net · Cotización en Línea</span>
-          <span class="mini-chip cyan">Respuesta en 5 seg</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>⚓ Opción 1 calculada con tu margen de ganancia del 20% incluido</span>
-          <span class="mini-chip green">Lista para Cliente</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📄 Cotización en PDF descargada y guardada en el portal del cliente</span>
-          <span class="mini-chip amber">Venta en Proceso</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'family-os',
@@ -494,23 +383,7 @@ const PLATFORMS = [
       'Avisa Materiales y Pagos',
       'Recordatorios a Tiempo',
       '100% Privado para tu Familia'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>👨‍👩‍👧‍👦 Family OS · Aviso de la Escuela Leído</span>
-          <span class="mini-chip purple">Sin Escribir a Mano</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📄 <em>"Circular Primaria: Viernes 24 festival, llevar playera blanca y $150"</em></span>
-          <span class="mini-chip cyan">Detectado al Instante</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>✅ Viernes 24: Festival · Mamá: Playera blanca · Papá: Pago de $150</span>
-          <span class="mini-chip green">Ambos Avisados</span>
-        </div>
-      </div>
-    `
+    ]
   },
   {
     id: 'incubeit-landing',
@@ -553,23 +426,7 @@ const PLATFORMS = [
       'Conectada a tu WhatsApp',
       'Abre al Instante en Celular',
       'Con Tu Propio Dominio .com'
-    ],
-    miniUiHtml: `
-      <div class="mini-ui">
-        <div class="mini-ui-header">
-          <span>⚡ Página con Cotizador Automático + PDF</span>
-          <span class="mini-chip green">Vende 24/7</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>🧮 El cliente elige qué servicios necesita y ve su presupuesto al instante</span>
-          <span class="mini-chip cyan">Precio Claro</span>
-        </div>
-        <div class="mini-ui-row">
-          <span>📥 Descarga <code>Cotizacion-Formal.pdf</code> y te escribe a tu WhatsApp</span>
-          <span class="mini-chip purple">En 1 Clic</span>
-        </div>
-      </div>
-    `
+    ]
   }
 ];
 
@@ -586,503 +443,6 @@ const state = {
   paymentMode: 'onetime',
   selectedBasePlatformId: 'nailroomspa',
   activeModalPlatformId: null
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (!document.getElementById('platformsGrid')) return;
-  initTheme();
-  initMobileNav();
-  renderHeroDeck();
-  renderPlatformsCatalog();
-  initCatalogFilters();
-  initConfigurator();
-  initModals();
-  lucide.createIcons();
-});
-
-function initTheme() {
-  const saved = localStorage.getItem('am_showroom_theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-
-  const toggle = document.getElementById('themeToggle');
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('am_showroom_theme', next);
-    });
-  }
-}
-
-function initMobileNav() {
-  const btn = document.getElementById('mobileMenuBtn');
-  const links = document.getElementById('navLinks');
-  if (!btn || !links) return;
-
-  btn.addEventListener('click', () => {
-    links.classList.toggle('open');
-  });
-
-  links.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => links.classList.remove('open'));
-  });
-}
-
-function renderHeroDeck() {
-  const featuredIds = ['nailroomspa', 'control-ops', 'lievitum-pizzalab', 'escalera-britania'];
-  const featured = featuredIds.map((id) => PLATFORMS.find((p) => p.id === id)).filter(Boolean);
-
-  const urlBar = document.getElementById('heroDeckUrl');
-  const body = document.getElementById('heroDeckBody');
-  const tabsContainer = document.getElementById('heroDeckTabs');
-
-  function updateSlide(index) {
-    state.heroIndex = index;
-    const item = featured[index];
-    if (!item) return;
-
-    urlBar.innerHTML = `<i data-lucide="lock"></i><span>${item.displayDomain}</span>`;
-    const shotImg = item.screenshot || `assets/screenshots/${item.id}.png`;
-    const kpis = item.visualKpis || item.highlights.slice(0, 3);
-
-    body.innerHTML = `
-      <div>
-        <div class="vfx-shot-frame" data-vfx-tilt onclick="window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'shot') : openPlatformModal('${item.id}', 'overview')" style="margin-bottom:0.85rem;">
-          <div class="vfx-shot-img-wrap" style="aspect-ratio:16/9;">
-            <img src="${shotImg}" alt="${item.name}" />
-            <div class="vfx-shot-overlay">
-              <button type="button" class="vfx-shot-cta primary" onclick="event.stopPropagation(); window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'live') : openPlatformModal('${item.id}', 'live')">
-                ▶ Ver Página en Vivo
-              </button>
-              <button type="button" class="vfx-shot-cta" onclick="event.stopPropagation(); window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'shot') : openPlatformModal('${item.id}', 'overview')">
-                🔍 Ver Imagen Grande
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.35rem;">
-          <span style="font-size:0.74rem;font-weight:700;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:0.06em;">
-            ${item.sectorLabel}
-          </span>
-          <span class="preview-repo-tag">Desde $${item.basePrice.toLocaleString('es-MX')} MXN</span>
-        </div>
-        <h3 style="font-family:var(--font-display);font-size:1.35rem;margin-bottom:0.3rem;">
-          ${item.name}
-        </h3>
-        <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.55rem;">
-          ${item.shortPitch || item.tagline}
-        </p>
-        <div class="vfx-kpi-row">
-          ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
-        </div>
-      </div>
-
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-top:0.85rem;padding-top:0.75rem;border-top:1px solid var(--border-subtle);flex-wrap:wrap;">
-        <div style="font-size:0.78rem;color:var(--text-secondary);">
-          ⚡ <strong>Ya probado y funcionando</strong> · Listo para ti en ${item.timeEstimate}
-        </div>
-        <div style="display:flex;gap:0.5rem;">
-          <button type="button" class="btn btn-glass btn-sm" onclick="window.openVfxLightbox ? window.openVfxLightbox('${item.id}', 'live') : openPlatformModal('${item.id}', 'overview')">
-            <i data-lucide="monitor-play"></i> Ver Pantalla
-          </button>
-          <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${item.id}')">
-            <i data-lucide="wand-2"></i> Quiero uno así
-          </button>
-        </div>
-      </div>
-    `;
-
-    tabsContainer.innerHTML = featured
-      .map(
-        (p, idx) => `
-        <button type="button" class="deck-tab ${idx === index ? 'active' : ''}" data-deck-idx="${idx}">
-          ${p.name.split('·')[0].trim()}
-        </button>
-      `
-      )
-      .join('');
-
-    tabsContainer.querySelectorAll('.deck-tab').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        updateSlide(Number(btn.getAttribute('data-deck-idx')));
-      });
-    });
-
-    lucide.createIcons();
-  }
-
-  updateSlide(0);
-}
-
-function renderPlatformsCatalog() {
-  const grid = document.getElementById('platformsGrid');
-  if (!grid) return;
-
-  const filtered = PLATFORMS.filter((p) => {
-    const matchesCategory = state.filter === 'all' || p.category === state.filter;
-    const q = state.searchQuery.trim().toLowerCase();
-    if (!q) return matchesCategory;
-
-    const haystack = [
-      p.name,
-      p.displayDomain,
-      p.sectorLabel,
-      p.tagline,
-      p.idealFor,
-      p.problemSolved,
-      ...p.highlights,
-      ...p.stack
-    ]
-      .join(' ')
-      .toLowerCase();
-
-    return matchesCategory && haystack.includes(q);
-  });
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border-subtle);">
-        <h3 style="font-family: var(--font-display); margin-bottom: 0.5rem;">No encontramos un sistema con esa palabra exacta</h3>
-        <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">Pero podemos adaptar cualquiera de nuestros 9 sistemas a tu negocio o actividad.</p>
-        <button type="button" class="btn btn-primary btn-sm" onclick="resetCatalogFilters()">Ver los 9 sistemas</button>
-      </div>
-    `;
-    return;
-  }
-
-  grid.innerHTML = filtered
-    .map((p) => {
-      const kpis = p.visualKpis || p.highlights.slice(0, 3);
-      const frameHtml = window.renderVfxScreenshotFrame
-        ? window.renderVfxScreenshotFrame(p)
-        : `<div class="platform-preview-window">${p.miniUiHtml}</div>`;
-
-      return `
-      <article class="platform-card" data-category="${p.category}">
-        <div style="padding:14px 14px 0;">
-          ${frameHtml}
-        </div>
-
-        <div class="platform-body">
-          <div class="platform-sector-row">
-            <span class="platform-sector">${p.sectorLabel}</span>
-            ${
-              p.liveUrl
-                ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" style="font-size:0.76rem;color:var(--accent-emerald);font-weight:700;display:inline-flex;align-items:center;gap:0.25rem;">
-                    ${p.displayDomain} <i data-lucide="external-link" style="width:13px;height:13px;"></i>
-                  </a>`
-                : ''
-            }
-          </div>
-
-          <h3 class="platform-title">${p.name}</h3>
-          <p class="platform-tagline" style="margin-bottom:0.55rem;">${p.shortPitch || p.tagline}</p>
-
-          <div class="vfx-kpi-row">
-            ${kpis.map((k) => `<span class="vfx-kpi-pill">${k}</span>`).join('')}
-          </div>
-
-          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:10px;border-radius:12px;background:rgba(15,23,42,0.55);border:1px solid var(--border-subtle);margin:10px 0;font-size:0.76rem;">
-            <div>
-              <div style="opacity:0.7;font-size:0.68rem;">PAGO ÚNICO</div>
-              <strong>$${p.basePrice.toLocaleString('es-MX')}</strong>
-            </div>
-            <div>
-              <div style="opacity:0.7;font-size:0.68rem;">PLAN MENSUAL</div>
-              <strong style="color:var(--accent-cyan);">$${p.monthlyFee.toLocaleString('es-MX')}/mes</strong>
-            </div>
-            <div style="grid-column:1 / -1;opacity:0.7;font-size:0.68rem;">Precios en MXN + IVA · Plan Mensual + activación $${p.setupFee.toLocaleString('es-MX')}</div>
-          </div>
-
-          <details class="vfx-details-drawer">
-            <summary>➕ ¿Para quién sirve y qué incluye?</summary>
-            <div class="vfx-details-content">
-              <div style="margin-bottom:6px;"><strong>Ideal para:</strong> ${p.idealFor}</div>
-              <div class="platform-stack" style="margin-top:8px;">
-                ${p.stack.map((tech) => `<span class="stack-pill">✓ ${tech}</span>`).join('')}
-              </div>
-            </div>
-          </details>
-
-          <div class="platform-actions" style="margin-top:12px;">
-            <button type="button" class="btn btn-glass btn-sm" onclick="window.openVfxLightbox ? window.openVfxLightbox('${p.id}', 'live') : openPlatformModal('${p.id}', '${p.liveUrl ? 'live' : 'overview'}')">
-              <i data-lucide="monitor-play"></i>
-              <span>Ver Página en Vivo</span>
-            </button>
-            <button type="button" class="btn btn-primary btn-sm" onclick="selectPlatformForQuote('${p.id}')">
-              <i data-lucide="sparkles"></i>
-              <span>Quiero uno así</span>
-            </button>
-          </div>
-        </div>
-      </article>
-    `;
-    })
-    .join('');
-
-  lucide.createIcons();
-}
-
-function initCatalogFilters() {
-  const filterTabs = document.querySelectorAll('#catalogFilters .filter-tab');
-  filterTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      setCatalogFilter(tab.getAttribute('data-filter'));
-    });
-  });
-
-  document.querySelectorAll('[data-goto-filter]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetFilter = btn.getAttribute('data-goto-filter');
-      setCatalogFilter(targetFilter);
-
-      document.querySelectorAll('.audience-pill').forEach((pill) => {
-        pill.classList.toggle('active', pill.getAttribute('data-goto-filter') === targetFilter);
-      });
-
-      const catalogEl = document.getElementById('catalogo');
-      if (catalogEl) catalogEl.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  const searchInput = document.getElementById('platformSearch');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      state.searchQuery = e.target.value;
-      renderPlatformsCatalog();
-    });
-  }
-}
-
-function setCatalogFilter(filterValue) {
-  state.filter = filterValue;
-  document.querySelectorAll('#catalogFilters .filter-tab').forEach((tab) => {
-    tab.classList.toggle('active', tab.getAttribute('data-filter') === filterValue);
-  });
-  renderPlatformsCatalog();
-}
-
-window.resetCatalogFilters = function () {
-  state.filter = 'all';
-  state.searchQuery = '';
-  const searchInput = document.getElementById('platformSearch');
-  if (searchInput) searchInput.value = '';
-  setCatalogFilter('all');
-};
-
-function initModals() {
-  const modal = document.getElementById('platformModal');
-  const closeBtn = document.getElementById('modalCloseBtn');
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', closePlatformModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closePlatformModal();
-    });
-  }
-
-  document.querySelectorAll('#modalViewSwitcher .view-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const viewMode = btn.getAttribute('data-view');
-      if (state.activeModalPlatformId) {
-        renderModalView(state.activeModalPlatformId, viewMode);
-      }
-    });
-  });
-
-  const quoteBtn = document.getElementById('modalSelectForQuoteBtn');
-  if (quoteBtn) {
-    quoteBtn.addEventListener('click', () => {
-      const id = state.activeModalPlatformId;
-      closePlatformModal();
-      if (id) selectPlatformForQuote(id);
-    });
-  }
-}
-
-window.openPlatformModal = function (platformId, initialView = 'overview') {
-  const modal = document.getElementById('platformModal');
-  const p = PLATFORMS.find((item) => item.id === platformId);
-  if (!modal || !p) return;
-
-  state.activeModalPlatformId = platformId;
-
-  document.getElementById('modalCategory').textContent = p.sectorLabel;
-  document.getElementById('modalTitle').textContent = p.name;
-
-  const liveTabBtn = document.getElementById('modalLiveTabBtn');
-  if (liveTabBtn) {
-    liveTabBtn.style.display = p.liveUrl ? 'inline-flex' : 'none';
-  }
-
-  const effectiveView = p.liveUrl ? initialView : 'overview';
-  renderModalView(platformId, effectiveView);
-
-  const footerLinks = document.getElementById('modalFooterLinks');
-  footerLinks.innerHTML = `
-    ${
-      p.liveUrl
-        ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn btn-glass btn-sm">
-            <i data-lucide="external-link"></i> Visitar Página (${p.displayDomain})
-          </a>`
-        : ''
-    }
-  `;
-
-  modal.classList.add('open');
-  lucide.createIcons();
-};
-
-function renderModalView(platformId, viewMode) {
-  const p = PLATFORMS.find((item) => item.id === platformId);
-  const content = document.getElementById('modalContent');
-  if (!p || !content) return;
-
-  document.querySelectorAll('#modalViewSwitcher .view-btn').forEach((btn) => {
-    btn.classList.toggle('active', btn.getAttribute('data-view') === viewMode);
-  });
-
-  if (viewMode === 'live' && p.liveUrl) {
-    content.innerHTML = `
-      <div class="live-iframe-wrapper">
-        <div class="live-iframe-bar">
-          <span>🟢 Viendo en vivo la página real: <strong>${p.displayDomain}</strong></span>
-          <a href="${p.liveUrl}" target="_blank" rel="noopener" style="color:var(--accent-cyan);font-weight:700;">
-            Abrir ${p.displayDomain} en pestaña completa ↗
-          </a>
-        </div>
-        <iframe src="${p.liveUrl}" title="Sitio oficial de ${p.name}" loading="lazy"></iframe>
-      </div>
-    `;
-  } else {
-    content.innerHTML = `
-      <div class="modal-overview-grid">
-        <div>
-          <div class="modal-section-box">
-            <h4>🎯 ¿Qué problema te quita de encima?</h4>
-            <p style="font-size:0.92rem;color:var(--text-secondary);">${p.problemSolved}</p>
-          </div>
-
-          <div class="modal-section-box">
-            <h4>🚀 ¿Cómo funciona este sistema?</h4>
-            <p style="font-size:0.92rem;color:var(--text-secondary);margin-bottom:0.9rem;">${p.solutionBuilt}</p>
-            <ul class="modal-feature-list">
-              ${p.modulesDetailed.map((m) => `<li>${m}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <div class="modal-section-box">
-            <h4>🏢 ¿Para qué giros es ideal?</h4>
-            <p style="font-size:0.92rem;color:var(--text-primary);font-weight:600;margin-bottom:0.75rem;">
-              ${p.idealFor}
-            </p>
-            <p style="font-size:0.84rem;color:var(--text-secondary);">
-              Como este sistema <strong>ya está hecho y probado en ${p.displayDomain}</strong>, no empezamos desde cero: le ponemos tu logotipo, tus colores, tus precios y tu propia dirección <code>.com</code> en solo <strong>${p.timeEstimate}</strong>.
-            </p>
-          </div>
-
-          <div class="modal-section-box">
-            <h4>💰 Formas de Adquirirlo</h4>
-            <p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:0.4rem;">
-              • <strong>Un Solo Pago (Tuyo para siempre):</strong> Desde <strong>$${p.basePrice.toLocaleString('es-MX')} MXN + IVA</strong>
-            </p>
-            <p style="font-size:0.86rem;color:var(--accent-emerald);font-weight:600;">
-              • <strong>Plan Renta Mensual (Todo incluido):</strong> Activación $${p.setupFee.toLocaleString('es-MX')} + $${p.monthlyFee.toLocaleString('es-MX')}/mes + IVA (plazo mínimo 12 meses)
-            </p>
-          </div>
-
-          <div class="modal-section-box">
-            <h4>✨ Beneficios Incluidos</h4>
-            <div style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.5rem;">
-              ${p.stack.map((s) => `<span class="tech-chip">✓ ${s}</span>`).join('')}
-            </div>
-          </div>
-
-          ${p.miniUiHtml}
-        </div>
-      </div>
-    `;
-  }
-
-  lucide.createIcons();
-}
-
-function closePlatformModal() {
-  const modal = document.getElementById('platformModal');
-  if (modal) modal.classList.remove('open');
-}
-
-function initConfigurator() {
-  const step2Container = document.getElementById('step2BasePlatform');
-  if (!step2Container) return;
-
-  step2Container.innerHTML = PLATFORMS.map(
-    (p) => `
-      <button type="button" class="config-opt ${p.id === state.selectedBasePlatformId ? 'active' : ''}" data-base-id="${p.id}">
-        <strong>${p.name}</strong>
-        <span>Ejemplo real: ${p.displayDomain} · Entrega: ${p.timeEstimate}</span>
-      </button>
-    `
-  ).join('');
-
-  document.querySelectorAll('#step1Audience .config-opt').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#step1Audience .config-opt').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.selectedAudienceKey = btn.getAttribute('data-audience');
-      state.selectedAudienceMultiplier = Number(btn.getAttribute('data-multiplier')) || 1;
-      state.selectedAudienceLabel = btn.querySelector('strong').textContent;
-      updateQuoteSummary();
-    });
-  });
-
-  document.querySelectorAll('#paymentModeBar .pay-mode-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#paymentModeBar .pay-mode-btn').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.paymentMode = btn.getAttribute('data-paymode');
-      updateQuoteSummary();
-    });
-  });
-
-  step2Container.querySelectorAll('.config-opt').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      step2Container.querySelectorAll('.config-opt').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.selectedBasePlatformId = btn.getAttribute('data-base-id');
-      updateQuoteSummary();
-    });
-  });
-
-  document.querySelectorAll('#step3Modules input[type="checkbox"]').forEach((chk) => {
-    chk.addEventListener('change', updateQuoteSummary);
-  });
-
-  const waBtn = document.getElementById('sendWhatsappQuoteBtn');
-  if (waBtn) waBtn.addEventListener('click', sendConfigurationViaWhatsapp);
-
-  const pdfBtn = document.getElementById('downloadPdfQuoteBtn');
-  if (pdfBtn) pdfBtn.addEventListener('click', generateProposalPdf);
-
-  updateQuoteSummary();
-}
-
-window.selectPlatformForQuote = function (platformId) {
-  state.selectedBasePlatformId = platformId;
-  const step2Container = document.getElementById('step2BasePlatform');
-  if (step2Container) {
-    step2Container.querySelectorAll('.config-opt').forEach((btn) => {
-      btn.classList.toggle('active', btn.getAttribute('data-base-id') === platformId);
-    });
-  }
-  updateQuoteSummary();
-  const cotizador = document.getElementById('cotizador');
-  if (cotizador) cotizador.scrollIntoView({ behavior: 'smooth' });
 };
 
 function getCalculatedQuote() {
@@ -1123,69 +483,6 @@ function getCalculatedQuote() {
     setupTotal,
     monthlyTotal
   };
-}
-
-function updateQuoteSummary() {
-  const { basePlatform, checkedModules, oneTimeTotal, setupTotal, monthlyTotal } = getCalculatedQuote();
-
-  document.getElementById('summaryPlatformTitle').textContent = `Sistema: ${basePlatform.name}`;
-  document.getElementById('summaryPlatformRepo').innerHTML = `Ejemplo real funcionando: <code>${basePlatform.displayDomain}</code>`;
-  document.getElementById('summaryCodeReady').textContent = `${basePlatform.codeReadyPct}% ya avanzado`;
-  document.getElementById('summaryCodeBar').style.width = `${basePlatform.codeReadyPct}%`;
-  document.getElementById('summaryTimeEstimate').innerHTML = `Tiempo estimado de entrega: <strong>${basePlatform.timeEstimate}</strong>`;
-
-  const priceLabelEl = document.getElementById('summaryPriceLabel');
-  const priceEl = document.getElementById('summaryPrice');
-  const secondaryEl = document.getElementById('summarySecondaryPrice');
-  const noteEl = document.getElementById('summaryPriceNote');
-
-  if (state.paymentMode === 'onetime') {
-    priceLabelEl.textContent = 'Pago Único Llave en Mano (Licencia Propia)';
-    priceEl.textContent = `$${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA`;
-    secondaryEl.textContent = `Incluye 1er año dominio .com + 3 meses de servidor y soporte (O Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes + IVA)`;
-  } else {
-    priceLabelEl.textContent = '⭐ Plan Renta Mensual (Todo Incluido)';
-    priceEl.textContent = `$${monthlyTotal.toLocaleString('es-MX')} / mes + IVA`;
-    secondaryEl.textContent = `+ Activación inicial: $${setupTotal.toLocaleString('es-MX')} MXN + IVA (servidor, base de datos, respaldos y soporte hasta 2 h/mes · plazo mínimo 12 meses)`;
-  }
-
-  noteEl.textContent =
-    `*Precios en MXN + IVA. En Pago Único: 50% al iniciar y 50% contra entrega (incluye 1er año de dominio .com y 3 meses de hospedaje/soporte; desde el 4° mes póliza opcional de $${basePlatform.polizaFee.toLocaleString('es-MX')}/mes + IVA o nube propia).`;
-
-  const listEl = document.getElementById('summaryModulesList');
-  const items = [
-    `Sistema completo tipo ${basePlatform.name} adaptado con tu nombre y logotipo`,
-    `Para: ${state.selectedAudienceLabel}`,
-    ...checkedModules.map((m) => m.label),
-    'Tu propia página .com + Capacitación práctica para ti y tu equipo'
-  ];
-
-  listEl.innerHTML = items.map((item) => `<li>${item}</li>`).join('');
-}
-
-function sendConfigurationViaWhatsapp() {
-  const { basePlatform, checkedModules, oneTimeTotal, setupTotal, monthlyTotal } = getCalculatedQuote();
-  const clientName = document.getElementById('clientName')?.value.trim() || 'Interesado';
-  const clientNote = document.getElementById('clientNote')?.value.trim() || 'Me gustaría tener un sistema parecido.';
-
-  const modulesText = checkedModules.map((m) => `• ${m.label}`).join('\n');
-  const modalityText =
-    state.paymentMode === 'onetime'
-      ? `Pago Único: *$${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA* (o en Plan Mensual: $${setupTotal.toLocaleString('es-MX')} inicio + $${monthlyTotal.toLocaleString('es-MX')}/mes + IVA)`
-      : `Plan Mensual: *$${monthlyTotal.toLocaleString('es-MX')} MXN/mes + IVA* + Inicio $${setupTotal.toLocaleString('es-MX')} MXN (o Pago Único: $${oneTimeTotal.toLocaleString('es-MX')} MXN + IVA)`;
-
-  const message =
-    `¡Hola Andrés! 👋 Soy *${clientName}*.\n\n` +
-    `Vi tu página de sistemas digitales y me interesó esta opción:\n` +
-    `🔹 *Sistema de referencia:* ${basePlatform.name} (${basePlatform.displayDomain})\n` +
-    `🔹 *Para:* ${state.selectedAudienceLabel}\n` +
-    `🔹 *Forma de pago:* ${modalityText}\n` +
-    `🔹 *Tiempo de entrega:* ${basePlatform.timeEstimate}\n\n` +
-    `*Funciones que me interesan:*\n${modulesText}\n\n` +
-    `*Comentarios:* ${clientNote}`;
-
-  const url = `https://wa.me/${OWNER_INFO.whatsapp}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank', 'noopener');
 }
 
 function generateProposalPdf() {
@@ -1322,7 +619,7 @@ function generateProposalPdf() {
     y + 44.5
   );
   doc.text(
-    '  directo con ajustes y mejoras de hasta 2 horas al mes (lo adicional se cotiza aparte).',
+    '  directo con ajustes y mejoras de hasta 2 horas al mes (horas adicionales: $500/hora + IVA).',
     22,
     y + 50
   );
