@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://amkortex.com/';
 const WA = '524431433732';
-const EMAIL = 'contacto@amkortex.com';
+const EMAIL = 'andresmh99@gmail.com'; // cambiar a contacto@amkortex.com cuando exista el buzón
 
 // ---------------------------------------------------------------- datos del catálogo
 function loadPlatforms() {
