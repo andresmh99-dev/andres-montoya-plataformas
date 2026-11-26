@@ -428,11 +428,11 @@
             <img src="${p.screenshot}" alt="Pantalla de ${p.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;filter:blur(4px);" />
             <div style="position:relative;z-index:2;max-width:520px;margin:20px;padding:28px 24px;border-radius:22px;background:rgba(6,11,25,0.94);border:1px solid rgba(0,242,254,0.45);text-align:center;color:#f8fafc;box-shadow:0 25px 60px rgba(0,0,0,0.8);">
               <div style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;background:rgba(16,185,129,0.15);color:#34d399;font-size:11.5px;font-weight:700;margin-bottom:12px;">
-                🔒 Sitio Oficial con Protección de Seguridad Activa
+                🔒 Se abre en su propia pestaña
               </div>
               <h4 style="font-size:1.35rem;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">${p.name}</h4>
               <p style="font-size:0.9rem;color:#cbd5e1;margin-bottom:18px;line-height:1.5;">
-                Por seguridad de sus usuarios reales, <strong>${p.displayDomain}</strong> se abre directamente en su propia ventana verificada.
+                Por seguridad, <strong>${p.displayDomain}</strong> no se puede mostrar dentro de esta página. Ábrelo en una pestaña nueva para usarlo en vivo.
               </p>
               <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
                 <a href="${targetLive}" target="_blank" rel="noopener" class="vfx-shot-cta primary" style="text-decoration:none;padding:12px 20px;font-size:0.92rem;">
