@@ -49,6 +49,6 @@ Página personal y catálogo comercial interactivo diseñado para presentar y ve
    node scripts/generar-paginas-giro.mjs
    ```
 
-3. Sube los cambios a `main`; GitHub Pages publica en ~1 minuto.
+3. Sube los cambios a `main`; Cloudflare Pages publica en amkortex.com en ~1 minuto.
 
 Las páginas `sistemas-*.html` se generan con ese script: no las edites a mano.

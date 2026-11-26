@@ -1,7 +1,7 @@
 # 📲 Kit Comercial de Ventas: WhatsApp Business + Guiones de Anuncios (PyMEs)
 
 **Firma Comercial:** **AM Kortex** · Dirigido por Andrés Montoya Hernández · `+52 443 143 3732`  
-**Catálogo Oficial en Vivo:** https://andresmh99-dev.github.io/andres-montoya-plataformas/
+**Catálogo Oficial en Vivo:** https://amkortex.com/
 
 ---
 
@@ -17,7 +17,7 @@
 > 2️⃣ ¿Qué te gustaría automatizar primero (citas por WhatsApp, pedidos sin comisiones, cotizaciones en PDF o control operativo)?
 >
 > Mientras te respondo, aquí puedes probar nuestros **sistemas en vivo** y descargar tu presupuesto en PDF:
-> 👉 https://andresmh99-dev.github.io/andres-montoya-plataformas/
+> 👉 https://amkortex.com/
 
 ---
 
@@ -40,7 +40,7 @@
 > 🍕 **Menú Interactivo + Pedidos Directos a WhatsApp:** Tus clientes eligen sucursal, ven fotos de tus platillos, arman su carrito y el pedido llega ordenado a tu WhatsApp.
 > 🎾 **Torneos, Rankings y Reserva de Canchas (`escalerabritania.com`):** Los jugadores suben su marcador desde el celular y la tabla general se actualiza sola sin usar Excel.
 >
-> 👉 Puedes probar ambos en vivo aquí: https://andresmh99-dev.github.io/andres-montoya-plataformas/#galeria-3d
+> 👉 Puedes probar ambos en vivo aquí: https://amkortex.com/#galeria-3d
 > ¿Cuántas sucursales o canchas manejan actualmente?
 
 #### `/empresas` (Para Transporte, Logística, Distribuidoras y Servicios B2B)
@@ -49,7 +49,7 @@
 > 🚛 **Control Operativo y Rastreo de Entregas (`in-log.net`):** Lee órdenes en PDF automáticamente, genera link de rastreo en vivo para tu cliente y calcula la utilidad real por viaje.
 > 📄 **Cotizador Comercial Instantáneo en PDF:** Tu cliente o vendedor ingresa los datos y en segundos descarga una propuesta formal en PDF con tu margen protegido.
 >
-> 👉 Mira cómo funcionan y descarga una propuesta formal en PDF aquí: https://andresmh99-dev.github.io/andres-montoya-plataformas/#cotizador-holo
+> 👉 Mira cómo funcionan y descarga una propuesta formal en PDF aquí: https://amkortex.com/#cotizador-holo
 > ¿Te parece bien una llamada rápida de 15 minutos mañana para revisar tu operación?
 
 #### `/cierre` (Cuando preguntan "¿Cómo empezamos?" o "¿Qué incluye?")
