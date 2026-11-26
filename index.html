@@ -60,7 +60,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 
 
-  <link rel="stylesheet" href="site.css?v=3" />
+  <link rel="stylesheet" href="site.css?v=7" />
 </head>
 <body data-executive-mode="true">
   <!-- HEADER ARQUITECTÓNICO -->
@@ -88,56 +88,87 @@
     <div class="read-progress-track" aria-hidden="true"><div class="read-progress-bar" id="readProgressBar"></div></div>
   </header>
 
-  <!-- SPLIT HERO EJECUTIVO (1 SOLA PANTALLA) -->
-  <section class="split-hero">
-    <div class="container split-hero-grid">
-      <div>
-        <h1 class="hero-h1">
-          Sistemas web probados para operar tu PyME.
-        </h1>
-        <p class="hero-lede">
-          Citas, pedidos y control operativo con tu marca en semanas.
-        </p>
-        <div class="hero-cta-group">
-          <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20AM%20Kortex%20y%20quiero%20agendar%20una%20demo%20de%2015%20minutos." target="_blank" rel="noopener" class="btn btn-primary">Agenda una demo de 15 min</a>
-          <a href="#galeria-3d" class="btn btn-secondary">Ver sistemas en vivo</a>
-        </div>
-
-        <div class="proof-strip">
-          <div class="proof-item">
-            <span class="proof-num">6 sistemas</span>
-            <span class="proof-desc">+ 2 páginas web operando hoy con clientes reales</span>
-          </div>
-          <div class="proof-item">
-            <span class="proof-num">2 a 4 sem</span>
-            <span class="proof-desc">Entrega llave en mano con tu marca</span>
-          </div>
-          <div class="proof-item">
-            <span class="proof-num">Desde $790/m</span>
-            <span class="proof-desc">+ IVA · Plan Mensual (+ activación) o Pago Único</span>
+  <!-- PORTADA: FIGURA DE PARTÍCULAS POR GIRO (hero-particles.js) -->
+  <section class="kx-hero">
+    <canvas id="kxScene" class="kx-scene" aria-hidden="true"></canvas>
+    <div class="container kx-wrap">
+      <div class="kx-stage">
+        <div>
+          <div class="kx-eyebrow">6 sistemas + 2 páginas operando hoy</div>
+          <h1 class="kx-h1">
+            <span class="kx-line"><span class="kx-w" style="animation-delay:0.05s">Sistemas</span> <span class="kx-w" style="animation-delay:0.18s">web</span></span>
+            <span class="kx-line"><span class="kx-w" style="animation-delay:0.31s">probados</span> <span class="kx-w" style="animation-delay:0.44s">para</span></span>
+            <span class="kx-line"><span class="kx-w kx-accent" style="animation-delay:0.57s">operar</span> <span class="kx-w kx-accent" style="animation-delay:0.70s">tu</span> <span class="kx-w kx-accent" style="animation-delay:0.83s">PyME.</span></span>
+          </h1>
+          <p class="kx-lede">Citas, pedidos y control operativo con tu marca en 2 a 4 semanas. Desde $790/mes + IVA o en Pago Único.</p>
+          <div class="hero-cta-group">
+            <a href="https://wa.me/524431433732?text=Hola%20Andr%C3%A9s%2C%20vi%20AM%20Kortex%20y%20quiero%20agendar%20una%20demo%20de%2015%20minutos." target="_blank" rel="noopener" class="btn btn-primary">Agenda una demo de 15 min</a>
+            <a href="#sistemas-reales" class="btn btn-secondary">Ver sistemas en vivo</a>
           </div>
         </div>
+        <p class="kx-side"><strong>Morelia · Querétaro</strong>Sistemas que ya usan negocios reales, adaptados con tu logotipo, tus precios y tu propio dominio.</p>
       </div>
 
-      <!-- VITRINA: 3 SISTEMAS REALES (imagen fija, sin carrusel) -->
-      <div class="hero-showcase">
-        <div class="hero-showcase-head">
-          <span>Sistemas reales en operación</span>
-          <a href="#galeria-3d">Ver los 9 &rarr;</a>
+      <div class="kx-bottom">
+        <div class="kx-now" aria-live="polite">Figura: <b id="kxNowLabel">Citas y agendas</b></div>
+        <nav class="kx-giros" aria-label="Sistemas por giro">
+          <a class="kx-giro is-active" data-shape="0" data-giro="citas" href="sistemas-de-citas-y-agendas.html">
+            <div class="kx-giro-meta"><span data-giro-count>3 sistemas</span><span class="kx-price" data-giro-desde>desde $1,190/mes</span></div>
+            <h2>Citas y agendas</h2>
+            <p>Spas, consultorios y psicólogos: reservas solas, recordatorios por WhatsApp y cero citas encimadas.</p>
+            <span class="kx-go">Ver la página <span>→</span></span>
+          </a>
+          <a class="kx-giro" data-shape="1" data-giro="comercios" href="sistemas-para-comercios-clubes-y-escuelas.html">
+            <div class="kx-giro-meta"><span data-giro-count>3 sistemas</span><span class="kx-price" data-giro-desde>desde $790/mes</span></div>
+            <h2>Comercios, clubes y escuelas</h2>
+            <p>Menú con pedidos directos a WhatsApp sin comisión, torneos con ranking solo y avisos escolares.</p>
+            <span class="kx-go">Ver la página <span>→</span></span>
+          </a>
+          <a class="kx-giro" data-shape="2" data-giro="empresas" href="sistemas-para-empresas-y-logistica.html">
+            <div class="kx-giro-meta"><span data-giro-count>3 sistemas</span><span class="kx-price" data-giro-desde>desde $790/mes</span></div>
+            <h2>Empresas y logística</h2>
+            <p>Rastreo de embarques en vivo, cotizador con tu margen y páginas que cotizan solas.</p>
+            <span class="kx-go">Ver la página <span>→</span></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTEMAS REALES EN OPERACIÓN (capturas que abren el visor en vivo) -->
+  <section class="kx-proof" id="sistemas-reales">
+    <div class="container">
+      <div class="section-header-split">
+        <h2 class="section-h2">Sistemas reales en operación</h2>
+        <p class="section-desc">Ábrelos en vivo antes de decidir: así los usan hoy sus dueños. <a href="#galeria-3d">Ver los 9 →</a></p>
+      </div>
+      <div class="kx-shots">
+        <button type="button" class="hero-shot" onclick="window.openVfxLightbox && window.openVfxLightbox('control-ops', 'live')" aria-label="Ver InLog · Logística y cobranza en vivo">
+          <span class="hero-shot-img"><img src="assets/screenshots/control-ops.webp" width="1600" height="1000" loading="lazy" alt="Pantalla real de InLog · Logística y cobranza" /></span>
+          <span class="hero-shot-cap"><strong>InLog · Logística y cobranza</strong><span>ops.in-log.net</span></span>
+        </button>
+        <button type="button" class="hero-shot" onclick="window.openVfxLightbox && window.openVfxLightbox('nailroomspa', 'live')" aria-label="Ver Nail Room · Citas en vivo">
+          <span class="hero-shot-img"><img src="assets/screenshots/nailroomspa.webp" width="1600" height="1000" loading="lazy" alt="Pantalla real de Nail Room · Citas" /></span>
+          <span class="hero-shot-cap"><strong>Nail Room · Citas</strong><span>nailroomspa.com</span></span>
+        </button>
+        <button type="button" class="hero-shot" onclick="window.openVfxLightbox && window.openVfxLightbox('agenda-fenix', 'live')" aria-label="Ver Fénix · Consultorios en vivo">
+          <span class="hero-shot-img"><img src="assets/screenshots/agenda-fenix.webp" width="1280" height="853" loading="lazy" alt="Pantalla real de Fénix · Consultorios" /></span>
+          <span class="hero-shot-cap"><strong>Fénix · Consultorios</strong><span>agendafenix.app</span></span>
+        </button>
+      </div>
+
+      <div class="proof-strip">
+        <div class="proof-item">
+          <span class="proof-num">6 sistemas</span>
+          <span class="proof-desc">+ 2 páginas web operando hoy con clientes reales</span>
         </div>
-        <div class="hero-showcase-grid">
-          <button type="button" class="hero-shot is-main" onclick="window.openVfxLightbox && window.openVfxLightbox('control-ops', 'live')" aria-label="Ver InLog · Logística y cobranza en vivo">
-            <span class="hero-shot-img"><img src="assets/screenshots/control-ops.webp" width="1600" height="1000" loading="eager" fetchpriority="high" alt="Pantalla real de InLog · Logística y cobranza" /></span>
-            <span class="hero-shot-cap"><strong>InLog · Logística y cobranza</strong><span>ops.in-log.net</span></span>
-          </button>
-          <button type="button" class="hero-shot " onclick="window.openVfxLightbox && window.openVfxLightbox('nailroomspa', 'live')" aria-label="Ver Nail Room · Citas en vivo">
-            <span class="hero-shot-img"><img src="assets/screenshots/nailroomspa.webp" width="1600" height="1000" loading="eager" alt="Pantalla real de Nail Room · Citas" /></span>
-            <span class="hero-shot-cap"><strong>Nail Room · Citas</strong><span>nailroomspa.com</span></span>
-          </button>
-          <button type="button" class="hero-shot " onclick="window.openVfxLightbox && window.openVfxLightbox('agenda-fenix', 'live')" aria-label="Ver Fénix · Consultorios en vivo">
-            <span class="hero-shot-img"><img src="assets/screenshots/agenda-fenix.webp" width="1280" height="853" loading="eager" alt="Pantalla real de Fénix · Consultorios" /></span>
-            <span class="hero-shot-cap"><strong>Fénix · Consultorios</strong><span>agendafenix.app</span></span>
-          </button>
+        <div class="proof-item">
+          <span class="proof-num">2 a 4 sem</span>
+          <span class="proof-desc">Entrega llave en mano con tu marca</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">Desde $790/m</span>
+          <span class="proof-desc">+ IVA · Plan Mensual (+ activación) o Pago Único</span>
         </div>
       </div>
     </div>
@@ -551,6 +582,8 @@
     <span>WhatsApp 443 143 3732</span>
   </a>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="hero-particles.js?v=1" defer></script>
   <script src="app.js?v=12"></script>
   <script src="visual-fx.js?v=8"></script>
   <script>
@@ -1112,7 +1145,21 @@
         });
       }
 
+      // Tarjetas de la portada: cuántos sistemas hay y desde cuánto, según el catálogo
+      function fillGiroCards() {
+        const platforms = window.PLATFORMS || [];
+        document.querySelectorAll('.kx-giro[data-giro]').forEach((card) => {
+          const list = platforms.filter((p) => GROUP_MAP[p.id] === card.dataset.giro);
+          if (!list.length) return;
+          const min = Math.min(...list.map((p) => p.monthlyFee));
+          card.querySelector('[data-giro-desde]').textContent = `desde $${min.toLocaleString('es-MX')}/mes`;
+          card.querySelector('[data-giro-count]').textContent = `${list.length} sistemas`;
+        });
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
+        fillGiroCards();
+
         // WhatsApp flotante: aparece cuando los botones de la portada salen de pantalla
         const dock = document.querySelector('.wa-dock');
         const heroCtas = document.querySelector('.hero-cta-group');
