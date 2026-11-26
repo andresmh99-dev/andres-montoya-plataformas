@@ -12,5 +12,8 @@
     "directory": ".",
     // Las direcciones que no existen muestran 404.html (con estado 404) en lugar de una página vacía.
     "not_found_handling": "404-page"
-  }
+  },
+  // Vistas previas por rama: cada PR se publica en una dirección de prueba antes de llegar a main.
+  // Sin este bloque falla el comando "wrangler preview" que Cloudflare corre en las ramas.
+  "previews": {}
 }
