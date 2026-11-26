@@ -187,7 +187,8 @@ function tierCards(list, allPlatforms, TIER_INFO, names) {
 
 function page(g, list, all, idx) {
   const { TIER_INFO, TIER_SHORT_NAMES } = idx;
-  const url = SITE + g.file;
+  // Cloudflare sirve las páginas sin ".html": esa es la dirección oficial para Google
+  const url = SITE + g.file.replace(/\.html$/, '');
   const others = GIROS.filter((o) => o.file !== g.file);
   const pains = [...new Set(list.map((p) => p.problemSolved).filter(Boolean))];
   const ld = {

@@ -1,0 +1,16 @@
+{
+  // Configuración del Worker de Cloudflare que publica amkortex.com.
+  // El nombre debe coincidir con el Worker del panel de Cloudflare.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "andres-montoya-plataformas",
+  "compatibility_date": "2026-11-23",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    // Se publica la raíz del repo; .assetsignore excluye los archivos internos.
+    "directory": ".",
+    // Las direcciones que no existen muestran 404.html (con estado 404) en lugar de una página vacía.
+    "not_found_handling": "404-page"
+  }
+}
