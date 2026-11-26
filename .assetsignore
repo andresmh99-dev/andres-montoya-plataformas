@@ -1,0 +1,9 @@
+# Archivos del repo que NO se publican en amkortex.com (misma sintaxis que .gitignore)
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+node_modules
+README.md
+KIT-VENTAS-WHATSAPP-Y-ANUNCIOS.md
+scripts/

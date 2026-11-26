@@ -49,6 +49,8 @@ Página personal y catálogo comercial interactivo diseñado para presentar y ve
    node scripts/generar-paginas-giro.mjs
    ```
 
-3. Sube los cambios a `main`; Cloudflare Pages publica en amkortex.com en ~1 minuto.
+3. Sube los cambios a `main`; Cloudflare publica en amkortex.com en ~1 minuto.
+
+La publicación en Cloudflare se configura en `wrangler.jsonc` (Worker `andres-montoya-plataformas`, página de error `404.html`). Los archivos listados en `.assetsignore` (README, kit de ventas, scripts) no se publican.
 
 Las páginas `sistemas-*.html` se generan con ese script: no las edites a mano.
